@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Easemob - 简洁、直观、强悍、移动设备优先的前端开发框架，让Mobile开发更迅速、简单。" name="description">
+    <meta content="Easemob" name="author">
+    <title>App security | Easemob</title>
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/docs-assets/css/docs.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/highlight.js/7.3/styles/github.min.css" rel="stylesheet">
+    <style type="text/css">
+      body{font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif;}
+      h1, .h1, h2, .h2, h3, .h3, h4, .h4, .lead {font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;}
+      pre code { background: transparent; }
+      @media (min-width: 768px) {
+          .bs-docs-home .bs-social,
+          .bs-docs-home .bs-masthead-links {
+            margin-left: 0;
+          }
+      }
+    </style>
+    <!--[if lt IE 9]
+    script  type='text/javascript' src=("/docs-assets/js/ie8-responsive-file-warning.js" ) 
+    script  type='text/javascript' src=("http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js" ) 
+    script  type='text/javascript' src=("http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js" ) -->
+    <link href="/docs-assets/ico/apple-touch-icon-144-precomposed.png" rel="apple-touch-icon-precomposed" sizes="144x144">
+    <link href="/docs-assets/ico/favicon.png" rel="shortcut icon">
+  </head>
+  <body>
+    <a class="sr-only" href="#content"> Skip to main content</a>
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-target=".bs-navbar-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href=""> Easemob</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href=""> 首页</a>
+            </li>
+            <li>
+              <a href="/quickstart/"> 入门</a>
+            </li>
+            <li>
+              <a href="/docs/"> 文档</a>
+            </li>
+            <li>
+              <a href="/download/"> SDK下载</a>
+            </li>
+            <li>
+              <a href="/forum/"> 开发者论坛</a>
+            </li>
+            <li>
+              <a href="/blog/"> 博客          </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/signin/"> 登陆</a>
+            </li>
+            <li>
+              <a href="/signup/"> 注册</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="content" class="bs-header">
+      <div class="container">
+        <h1>
+          App security
+        </h1>
+        <p>
+          简要介绍Bootstrap，以及如何下载、使用，基本模版和案例，等等。
+        </p>
+      </div>
+    </div>
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-sidebar hidden-print" role="complementary">
+            <ul class="nav bs-sidenav">
+              <li>
+                <a href="#download"> 下载Bootstrap</a>
+                <ul class="nav">
+                  <li>
+                    <a href="#download-compiled"> 编译后的CSS、JS和字体文件</a>
+                  </li>
+                  <li>
+                    <a href="#download-additional"> 额外的下载渠道</a>
+                  </li>
+                  <li>
+                    <a href="#download-cdn"> Bootstrap CDN</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#whats-included"> 包含了哪些文件</a>
+                <ul class="nav">
+                  <li>
+                    <a href="#whats-included-precompiled"> 编译版</a>
+                  </li>
+                  <li>
+                    <a href="#whats-included-source"> 源码</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#template"> 基本模版</a>
+              </li>
+              <li>
+                <a href="#examples"> 案例</a>
+              </li>
+              <li>
+                <a href="#disable-responsive"> 禁用响应式布局</a>
+              </li>
+              <li>
+                <a href="#migration"> 从2.x升级到3.0版本</a>
+                <ul class="nav">
+                  <li>
+                    <a href="#migration-classes"> 被修改的主要class</a>
+                  </li>
+                  <li>
+                    <a href="#migration-new"> 新增class</a>
+                  </li>
+                  <li>
+                    <a href="#migration-dropped"> 被移除的class</a>
+                  </li>
+                  <li>
+                    <a href="#migration-notes"> 额外注意</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#browsers"> 浏览器支持</a>
+              </li>
+              <li>
+                <a href="#third-parties"> 对第三方组件的支持</a>
+              </li>
+              <li>
+                <a href="#accessibility"> 可访问性</a>
+              </li>
+              <li>
+                <a href="#license-faqs"> 许可证FAQ</a>
+              </li>
+              <li>
+                <a href="#customizing"> 定制Bootstrap</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9" role="main">
+          <h1 id="app-security">App security</h1>
+          
+          <p>Any app you put into production should feature security that protects
+          your app, your users, and your app's data. Implementing security means
+          taking steps in your mobile app's code and in your Apache Usergrid
+          application.</p>
+          
+          <blockquote>
+            <p><strong>Important:</strong> When you register for Apache Usergrid, you get a sandbox
+          application that you can use to try things out. This application is
+          not for use in production. By default, the sandbox application is not
+          protected by any security measures whatsoever. Use the sandbox only
+          for experimentation, and only with data that isn't in any way
+          sensitive.</p>
+          </blockquote>
+          
+          <p>When securing your app, follow these high-level steps:</p>
+          
+          <ol>
+            <li>Define the rules that will govern access by your app's users to your
+          app's data and features. You do this with the admin portal by
+          creating permission rules, then associating those rules with your
+          users. For more information, see <a href="/managing-access-defining-permission-rules">Managing access by defining
+          permission rules</a>.</li>
+            <li>Write code through which your app's users can verify who they are to
+          your Apache Usergrid application. You do this by writing code that uses
+          their username and password as credentials to initially authenticate
+          with the Apache Usergrid application, then uses a token thereafter.
+          (This authentication style supports the OAuth 2.0 model.) For more
+          information, see <a href="/authenticating-users-and-application-clients">Authenticating users and application
+          clients</a>.</li>
+            <li>Be sure to use coding best practices that help ensure that your app
+          is protected from malicious attacks. For more information, see
+          <a href="/securing-your-app">Securing your app</a>.</li>
+          </ol>
+          
+          <p>The following illustration describes these high-level areas.</p>
+          
+          <p><img src="/docs/sites/docs/files/styles/large/public/security_model_0.png?itok=_fErNYbL" alt="" /></p>
+          
+        </div>
+      </div>
+    </div><footer class="bs-footer" role="contentinfo">
+      <div class="container">
+        <p>
+          Designed and built with all the love in the world by<a href="http://twitter.com/mdo" target="_blank"> @mdo</a>and
+        </p>
+        <p>
+          Code licensed underdocumentation under
+        </p>
+        <p>
+          Bootstrap中文文档版权归<a href="http://www.bootcss.com/">> Bootstrap中文网</a>及<a href="mailto:wangsai@bootcss.com">> 译者</a>所有。
+          <p>
+            <ul class="footer-links">
+              <li>
+                当前版本： v3.0.3
+              </li>
+              <li class="muted">
+                &middot;
+              </li>
+              <li>
+                <a href="http://v2.bootcss.com/"> Bootstrap 2.3.2 中文文档</a>
+              </li>
+              <li class="muted">
+                &middot;
+              </li>
+              <li>
+                <a href="http://www.bootcss.com"> Bootstrp中文网</a>
+              </li>
+              <li class="muted">
+                &middot;
+              </li>
+              <li>
+                <a href="http://blog.getbootstrap.com"> 官方博客</a>
+              </li>
+              <li class="muted">
+                &middot;
+              </li>
+              <li>
+                <a href="https://github.com/twbs/bootstrap/issues?state=open"> Issues</a>
+              </li>
+              <li class="muted">
+                &middot;
+              </li>
+              <li>
+                <a href="https://github.com/twbs/bootstrap/releases"> Releases</a>
+              </li>
+            </ul>
+          </p>
+        </p>
+      </div>
+    </footer>
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/holder/2.0/holder.min.js"></script>
+    <script src="http://cdn.bootcss.com/highlight.js/7.3/highlight.min.js"></script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="/docs-assets/js/application.js"></script>
+  </body>
+</html>

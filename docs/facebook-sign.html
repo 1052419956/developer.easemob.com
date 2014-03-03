@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Easemob - 简洁、直观、强悍、移动设备优先的前端开发框架，让Mobile开发更迅速、简单。" name="description">
+    <meta content="Easemob" name="author">
+    <title>Facebook sign in | Easemob</title>
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/docs-assets/css/docs.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/highlight.js/7.3/styles/github.min.css" rel="stylesheet">
+    <style type="text/css">
+      body{font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif;}
+      h1, .h1, h2, .h2, h3, .h3, h4, .h4, .lead {font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;}
+      pre code { background: transparent; }
+      @media (min-width: 768px) {
+          .bs-docs-home .bs-social,
+          .bs-docs-home .bs-masthead-links {
+            margin-left: 0;
+          }
+      }
+    </style>
+    <!--[if lt IE 9]
+    script  type='text/javascript' src=("/docs-assets/js/ie8-responsive-file-warning.js" ) 
+    script  type='text/javascript' src=("http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js" ) 
+    script  type='text/javascript' src=("http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js" ) -->
+    <link href="/docs-assets/ico/apple-touch-icon-144-precomposed.png" rel="apple-touch-icon-precomposed" sizes="144x144">
+    <link href="/docs-assets/ico/favicon.png" rel="shortcut icon">
+  </head>
+  <body><a class="sr-only" href="#content"> Skip to main content</a>
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-target=".bs-navbar-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href=""> Easemob</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href=""> 首页</a>
+        </li>
+        <li>
+          <a href="/quickstart/"> 入门</a>
+        </li>
+        <li>
+          <a href="/docs/"> 文档</a>
+        </li>
+        <li>
+          <a href="/download/"> SDK下载</a>
+        </li>
+        <li>
+          <a href="/forum/"> 开发者论坛</a>
+        </li>
+        <li>
+          <a href="/blog/"> 博客          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/signin/"> 登陆</a>
+        </li>
+        <li>
+          <a href="/signup/"> 注册</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><div id="content" class="bs-header">
+  <div class="container">
+    <h1>
+      Facebook sign in
+    </h1>
+    <p>
+      简要介绍Bootstrap，以及如何下载、使用，基本模版和案例，等等。
+    </p>
+  </div>
+</div>
+<div class="container bs-docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="bs-sidebar hidden-print" role="complementary">
+        <ul class="nav bs-sidenav">
+          <li>
+            <a href="#download"> 下载Bootstrap</a>
+            <ul class="nav">
+              <li>
+                <a href="#download-compiled"> 编译后的CSS、JS和字体文件</a>
+              </li>
+              <li>
+                <a href="#download-additional"> 额外的下载渠道</a>
+              </li>
+              <li>
+                <a href="#download-cdn"> Bootstrap CDN</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#whats-included"> 包含了哪些文件</a>
+            <ul class="nav">
+              <li>
+                <a href="#whats-included-precompiled"> 编译版</a>
+              </li>
+              <li>
+                <a href="#whats-included-source"> 源码</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#template"> 基本模版</a>
+          </li>
+          <li>
+            <a href="#examples"> 案例</a>
+          </li>
+          <li>
+            <a href="#disable-responsive"> 禁用响应式布局</a>
+          </li>
+          <li>
+            <a href="#migration"> 从2.x升级到3.0版本</a>
+            <ul class="nav">
+              <li>
+                <a href="#migration-classes"> 被修改的主要class</a>
+              </li>
+              <li>
+                <a href="#migration-new"> 新增class</a>
+              </li>
+              <li>
+                <a href="#migration-dropped"> 被移除的class</a>
+              </li>
+              <li>
+                <a href="#migration-notes"> 额外注意</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#browsers"> 浏览器支持</a>
+          </li>
+          <li>
+            <a href="#third-parties"> 对第三方组件的支持</a>
+          </li>
+          <li>
+            <a href="#accessibility"> 可访问性</a>
+          </li>
+          <li>
+            <a href="#license-faqs"> 许可证FAQ</a>
+          </li>
+          <li>
+            <a href="#customizing"> 定制Bootstrap</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+<h1 id="facebook-sign-in">Facebook sign in</h1>
+
+<p>You can authenticate your Apache Usergrid requests by logging into
+Facebook. To access Apache Usergrid resources, you need to provide an
+access token with each request (unless you use the sandbox app). You can
+get an access token by connecting to an appropriate web service endpoint
+and providing the correct client credentials — this is further described
+in <a href="/authenticating-users-and-application-clients">Authenticating users and application
+clients</a>. However, you
+can also obtain an access token by logging into Facebook.</p>
+
+<p>To enable authentication to Apache Usergrid through Facebook, do the
+following in your app:</p>
+
+<ol>
+  <li>Make a login call to the Facebook API (do this using the <a href="https://developers.facebook.com/docs/sdks/">Facebook
+SDK</a> or
+<a href="https://developers.facebook.com/docs/facebook-login/">API</a>). If the
+login succeeds, a Facebook access token is returned.</li>
+  <li>
+    <p>Send the Facebook access token to Apache Usergrid. If the Facebook
+access token is valid and the user does not already exist in App
+Services, Apache Usergrid provisions a new Apache Usergrid user. It also
+returns an Apache Usergrid access token, which you can use for
+subsequent Apache Usergrid API calls. Behind the scenes, Apache Usergrid
+uses the Facebook access token to retrieve the user's profile
+information from Facebook.</p>
+
+    <p>If the Facebook access token is invalid, Facebook returns an OAuth
+authentication error, and the login does not succeed.</p>
+  </li>
+</ol>
+
+<p>The request to authenticate to Apache Usergrid using a Facebook access
+token is:</p>
+
+<pre><code>GET https://api.usergrid.com/{my_org}/{my_app}/auth/facebook?fb_access_token={fb_access_token}
+</code></pre>
+
+<p>where:</p>
+
+<p>{my_org} is the organization UUID or organization name.\
+{my_app} is the application UUID or application name.\
+{fb_access_token} is the Facebook access token.</p>
+
+<h2 id="facebook-login-example">Facebook login example</h2>
+
+<p>The <a href="https://developers.facebook.com/docs/technical-guides/login/">Facebook technical guides for
+login</a>
+present detailed information on how to add Facebook login to your app.
+Instructions are provided for JavaScript, iOS, and Android.</p>
+
+<p>In brief, here are the steps for JavaScript. You can see these steps
+implemented in the Facebook login example packaged with the JavaScript
+SDK for Apache Usergrid (which you can download in
+<a href="https://github.com/apigee/usergrid-javascript-sdk/archive/master.zip">ZIP</a>
+format or
+<a href="https://github.com/apigee/usergrid-javascript-sdk/archive/master.tar.gz">tar.gz</a>
+format). The Facebook login example is in the /examples/facebook
+directory of the extracted download. The code example snippets shown
+below are taken from the Facebook login example.</p>
+
+<h3 id="step-1-create-a-facebook-app">Step 1: Create a Facebook app</h3>
+
+<p>Create a new app on the <a href="https://developers.facebook.com/apps/">Facebook App
+Dashboard</a>. Enter your app's
+basic information. Once created, note the app ID shown at the top of the
+dashboard page.</p>
+
+<h3 id="step-2-invoke-the-facebook-oauth-dialog">Step 2: Invoke the Facebook OAuth dialog</h3>
+
+<p>Invoke the Facebook OAuth Dialog. To do that, redirect the user's
+browser to a URL by inserting the following Javascript code after the
+opening &lt;body&gt; tag in your app’s HTML file:</p>
+
+<pre><code>https://www.facebook.com/dialog/oauth/?
+    client_id={YOUR_APP_ID}
+    &amp;redirect_uri={YOUR_REDIRECT_URL}
+    &amp;state={YOUR_STATE_VALUE}
+    &amp;scope={COMMA_SEPARATED_LIST_OF_PERMISSION_NAMES}
+    &amp;response_type={YOUR_RESPONSE_TYPE}
+</code></pre>
+
+<p>where:</p>
+
+<p>{YOUR_APP_ID} is the app ID.\
+{YOUR_REDIRECT_URL} is the application UUID or application name.\
+{YOUR_STATE_VALUE} is a unique string used to maintain application
+state between the request and callback.\
+{COMMA_SEPARATED_LIST_OF_PERMISSION_NAMES} is a comma separated
+list of permission names which you would like the user to grant your
+application.\
+{YOUR_RESPONSE_TYPE}is the requested response type, either code or
+token. Defaults to code. Set the response type to token. With the
+response type set to token, the Dialog's response will include an OAuth
+user access token in the fragment of the URL the user is redirected to,
+as per the client-side authentication flow.</p>
+
+<p>Here is how it’s done in the Facebook login example:</p>
+
+<pre><code>var apiKey = $("#api-key").val();
+var location = window.location.protocol + '//' + window.location.host;
+var path = window.location.pathname;
+
+var link = "https://www.facebook.com/dialog/oauth?client_id=";
+link += apiKey;
+link += "&amp;redirect_uri=";
+link += location+path
+link += "&amp;scope&amp;COMMA_SEPARATED_LIST_OF_PERMISSION_NAMES&amp;response_type=token";
+
+//now forward the user to facebook
+window.location = link;
+</code></pre>
+
+<p>Notice that the response type is set to token. As a result, a Facebook
+access token will be appended to the URL to which the user is
+redirected.</p>
+
+<h3 id="step-3-add-the-javascript-sdk-for-facebook">Step 3: Add the JavaScript SDK for Facebook</h3>
+
+<p>Add the following Javascript SDK initialization code after the code that
+invokes the Facebook OAuth Dialog. The code will load and initialize the
+JavaScript SDK in your HTML page. Replace YOUR_APP_ID with the App ID
+noted in Step 1, and WWW.YOUR_DOMAIN.COM with your own domain.</p>
+
+<pre><code>window.fbAsyncInit = function() {
+    FB.init({
+      appId      : 'YOUR_APP_ID', // App ID
+      channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+</code></pre>
+
+<p>Here is how the window.fbAsynchInit() function is implemented in the
+Facebook login example:</p>
+
+<pre><code>//load up the facebook api sdk
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '308790195893570', // App ID
+      channelUrl : '//usergridsdk.dev//examples/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+  };
+</code></pre>
+
+<h3 id="step-4-setup-fblogin">Step 4. Setup FB.login</h3>
+
+<p>Whenever a user is either not logged into Facebook or not authorized for
+an app, it is useful to prompt them with the relevant dialog. The
+FB.login() Javascript SDK function automatically displays the correct
+one to the user.</p>
+
+<p>To integrate FB.login()Fwindow.fbAsyncInit() function in your existing
+code:</p>
+
+<pre><code>function login() {
+    FB.login(function(response) {
+        if (response.authResponse) {
+            // connected
+        } else {
+            // cancelled
+        }
+    });
+}
+</code></pre>
+
+<p>Here is how window.fbAsynchInit()FB.login() is implemented in the
+Facebook login example:</p>
+
+<pre><code>function login(facebookAccessToken) {
+    client.loginFacebook(facebookAccessToken, function(err, response){
+      var output = JSON.stringify(response, null, 2);
+      if (err) {
+        var html = '&lt;pre&gt;Oops!  There was an error logging you in. \r\n\r\n';
+        html += 'Error: \r\n' + output+'&lt;/pre&gt;';
+      } else {
+        var html = '&lt;pre&gt;Hurray!  You have been logged in. \r\n\r\n';
+        html += 'Facebook Token: ' + '\r\n' + facebookAccessToken + '\r\n\r\n';
+        html += 'Facebook Profile data stored in Usergrid: \r\n' + output+'&lt;/pre&gt;';
+      }
+      $('#facebook-status').html(html);
+    })
+  }
+</code></pre>
+
+<p>The client.loginFacebook() function is provided by the Apache Usergrid
+JavaScript SDK. It uses the Facebook auth token to obtain an App
+Services auth token. If the Facebook access token is valid and the user
+does not already exist in Apache Usergrid, the function creates a user
+entity for the user. It also uses the Facebook access token to retrieve
+the user's profile information from Facebook.</p>
+
+<p>Here is what the client.loginFacebook() function looks like:</p>
+
+<pre><code>Usergrid.Client.prototype.loginFacebook = function (facebookToken, callback) {
+  var self = this;
+  var options = {
+    method:'GET',
+    endpoint:'auth/facebook',
+    qs:{
+      fb_access_token: facebookToken
+    }
+  };
+  this.request(options, function(err, data) {
+    var user = {};
+    if (err &amp;&amp; self.logging) {
+      console.log('error trying to log user in');
+    } else {
+      user = new Usergrid.Entity('users', data.user);
+      self.setToken(data.access_token);
+    }
+    if (typeof(callback) === 'function') {
+      callback(err, data, user);
+    }
+  });
+}
+</code></pre>
+
+<p>Notice that the function also returns an Apache Usergrid access token,
+which you can use for subsequent Apache Usergrid API calls.</p>
+
+<p>Remember to create a client for your app, which is the main entry point
+to the JavaScript SDK for Apache Usergrid. You need to do this before you
+can use the SDK. Here’s the code to create a client:</p>
+
+<pre><code>var client = new Usergrid.Client({
+    orgName:'yourorgname',
+    appName:'yourappname',
+    logging: true, //optional - turn on logging, off by default
+    buildCurl: true //optional - turn on curl commands, off by default
+});
+</code></pre>
+
+    </div>
+  </div>
+</div><footer class="bs-footer" role="contentinfo">
+      <div class="container">
+        <p>
+          Designed and built with all the love in the world by<a href="http://twitter.com/mdo" target="_blank"> @mdo</a>and
+        </p>
+        <p>
+          Code licensed underdocumentation under
+        </p>
+        <p>
+          Bootstrap中文文档版权归<a href="http://www.bootcss.com/">> Bootstrap中文网</a>及<a href="mailto:wangsai@bootcss.com">> 译者</a>所有。
+          <p>
+            <ul class="footer-links">
+              <li>
+                当前版本： v3.0.3
+              </li>
+              <li class="muted">
+                &middot;
+              </li>
+              <li>
+                <a href="http://v2.bootcss.com/"> Bootstrap 2.3.2 中文文档</a>
+              </li>
+              <li class="muted">
+                &middot;
+              </li>
+              <li>
+                <a href="http://www.bootcss.com"> Bootstrp中文网</a>
+              </li>
+              <li class="muted">
+                &middot;
+              </li>
+              <li>
+                <a href="http://blog.getbootstrap.com"> 官方博客</a>
+              </li>
+              <li class="muted">
+                &middot;
+              </li>
+              <li>
+                <a href="https://github.com/twbs/bootstrap/issues?state=open"> Issues</a>
+              </li>
+              <li class="muted">
+                &middot;
+              </li>
+              <li>
+                <a href="https://github.com/twbs/bootstrap/releases"> Releases</a>
+              </li>
+            </ul>
+          </p>
+        </p>
+      </div>
+    </footer>
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/holder/2.0/holder.min.js"></script>
+    <script src="http://cdn.bootcss.com/highlight.js/7.3/highlight.min.js"></script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="/docs-assets/js/application.js"></script>
+  </body>
+</html>

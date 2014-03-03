@@ -1,0 +1,41 @@
+<p>这个项目使用的是 Awestruct 来从模板编译成静态网页, 但是现在在ruby gem上面的awestruct有问题, 需要装一个最新版本的, 所以, 要运行本项目, 首先</p>
+
+<h3 id="rvm">安装rvm</h3>
+
+<p>打开<a href="https://rvm.io">rvm的网站</a>然后跟着这里的安装文档安装rvm</p>
+
+<h3 id="rvmruby">使用rvm来安装ruby</h3>
+
+<pre><code>rvm install 1.9.3
+</code></pre>
+
+<p>这里我们使用ruby 1.9.3这个版本</p>
+
+<h3 id="taobaoruby-gem">使用taobao的源来替换ruby gem的官方源(这样速度快些)</h3>
+
+<p>步骤查看<a href="http://ruby.taobao.org">这里</a></p>
+
+<h3 id="rake">安装rake</h3>
+
+<pre><code>gem install rake bundle
+</code></pre>
+
+<h3 id="awestruct">编译awestruct</h3>
+
+<p>首先, 需要checkout出源代码</p>
+
+<pre><code>git clone git@github.com:awestruct/awestruct.git
+</code></pre>
+
+<p>然后编译并安装</p>
+
+<pre><code>rake install
+</code></pre>
+
+<h3 id="section">开始编译网站</h3>
+
+<pre><code>git clone git@github.com:jervisliu/easemob.com.git
+cd easemob.com
+bundle install
+rake clean preview			
+</code></pre>
