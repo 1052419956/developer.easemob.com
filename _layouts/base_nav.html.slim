@@ -1,0 +1,34 @@
+---
+layout: base
+---
+
+a.sr-only href="#content"  Skip to main content
+header.navbar.navbar-inverse.navbar-fixed-top.bs-docs-nav role="banner" 
+  .container
+    .navbar-header
+      button.navbar-toggle data-target=".bs-navbar-collapse" data-toggle="collapse" type="button" 
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand href="#{site.base_url}"  Easemob
+    nav.collapse.navbar-collapse.bs-navbar-collapse role="navigation" 
+      ul.nav.navbar-nav
+        li.active
+          a href="#{site.base_url}"  首页
+        li
+          a href="#{site.base_url}/quickstart/"  入门
+        li
+          a href="#{site.base_url}/docs/"  文档
+        li
+          a href="#{site.base_url}/download/"  SDK下载
+        li
+          a href="#{site.base_url}/forum/"  开发者论坛
+        li
+          a href="#{site.base_url}/blog/"  博客          
+      ul.nav.navbar-nav.navbar-right
+        li
+          a href="#{site.base_url}/signin/"  登陆
+        li
+          a href="#{site.base_url}/signup/"  注册
+= content

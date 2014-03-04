@@ -1,0 +1,138 @@
+---
+layout: base_nav
+---
+
+#content.bs-header
+  .container
+    h1 关于Bootstrap
+    p 介绍Bootstrap历史、核心开发小组成员和不断增长的社区资源。
+/! Callout for the old docs link
+.container.bs-docs-container
+  .row
+    .col-md-3
+      .bs-sidebar.hidden-print role="complementary"
+        ul.nav.bs-sidenav
+          li
+            a href="#history" 历史
+          li
+            a href="#team" 核心开发小组
+          li
+            a href="#community" 社区
+          li
+            a href="#translations" 文档翻译
+    .col-md-9 role="main"
+      /!
+        | History
+        | \==================================================
+      .bs-docs-section
+        .page-header
+          h1#history 历史
+        p.lead Bootstrap最初是由就职于Twitter的一个设计师和一个工程师创造的，现在，Bootstrap已经成为了世界上最流行的前端开发框架和开源项目。
+        p
+          | Bootstrap最初是由
+          a href="https://twitter.com/mdo"
+          | and
+          = succeed "\u{4e8e}2010\u{4e2d}\u{65ec}\u{521b}\u{9020}\u{7684}\u{3002}\u{5728}\u{5f00}\u{6e90}\u{4e4b}\u{524d}\u{88ab}\u{79f0}\u{4e3a}" do
+            a href="https://twitter.com/fat"
+          = succeed "\u{3002}\u{7ecf}\u{8fc7}\u{51e0}\u{4e2a}\u{6708}\u{7684}\u{5f00}\u{53d1}\u{ff0c}Twitter\u{4e3e}\u{529e}\u{4e86}" do
+            em Twitter Blueprint
+          = succeed "\u{ff0c}\u{4e4b}\u{540e}\u{ff0c}\u{8fd9}\u{4e2a}\u{9879}\u{76ee}\u{88ab}\u{516c}\u{5e03}\u{51fa}\u{6765}\u{ff0c}\u{4e0d}\u{540c}\u{6c34}\u{5e73}\u{7684}\u{5f00}\u{53d1}\u{8005}\u{53c2}\u{4e0e}\u{8fdb}\u{6765}\u{ff0c}\u{5f53}\u{65f6}\u{8fd8}\u{6ca1}\u{6709}\u{4efb}\u{4f55}\u{5916}\u{90e8}\u{7684}\u{6307}\u{5bfc}\u{3002}\u{5728}\u{5f00}\u{6e90}\u{4e4b}\u{524d}\u{7684}\u{8fd1}\u{4e00}\u{5e74}\u{591a}\u{7684}\u{65f6}\u{95f4}\u{91cc}\u{ff0c}\u{8fd9}\u{4e2a}\u{9879}\u{76ee}\u{4f5c}\u{4e3a}\u{516c}\u{53f8}\u{5185}\u{90e8}\u{5de5}\u{5177}\u{5f00}\u{53d1}\u{7684}\u{6837}\u{5f0f}\u{6307}\u{5357}\u{ff0c}\u{5f53}\u{7136}\u{ff0c}\u{73b0}\u{5728}\u{5b83}\u{4ecd}\u{7136}\u{626e}\u{6f14}\u{8005}\u{540c}\u{6837}\u{7684}\u{89d2}\u{8272}\u{3002}" do
+            a href="https://blog.twitter.com/2010/hack-week"
+        p
+          | Originally
+          a href="https://dev.twitter.com/blog/bootstrap-twitter"
+          | on
+          = succeed "," do
+            a href="https://twitter.com/mdo/statuses/104620039650557952"
+              time datetime="2011-08-19 11:25"
+          | we've since had over
+          = succeed "," do
+            a href="https://github.com/twbs/bootstrap/releases"
+          | including two major rewrites with v2 and v3. With Bootstrap 2, we added responsive functionality to the entire framework as an optional stylesheet. Building on that with Bootstrap 3, we rewrote the library once more to make it responsive by default with a mobile first approach.
+      /!
+        | Team
+        | \==================================================
+      .bs-docs-section
+        .page-header
+          h1#team 核心开发小组
+        p.lead Bootstrap由创始成员和一组核心贡献者维护，他们为社区提供了巨大的帮助和支持。
+        .list-group.bs-team
+          .list-group-item
+            iframe.github-btn src="http://ghbtns.com/github-btn.html?user=mdo&amp;type=follow"
+            a.team-member href="https://github.com/mdo"
+              img alt="@mdo" src="http://www.gravatar.com/avatar/bc4ab438f7a4ce1c406aadc688427f2c"
+                strong Mark Otto
+                small @mdo
+          .list-group-item
+            iframe.github-btn src="http://ghbtns.com/github-btn.html?user=fat&amp;type=follow"
+            a.team-member href="https://github.com/fat"
+              img alt="@fat" src="http://www.gravatar.com/avatar/a98244cbdacaf1c0b55499466002f7a8"
+                strong Jacob Thornton
+                small @fat
+          .list-group-item
+            iframe.github-btn src="http://ghbtns.com/github-btn.html?user=cvrebert&amp;type=follow"
+            a.team-member href="https://github.com/cvrebert"
+              img alt="@cvrebert" src="http://www.gravatar.com/avatar/edec428c425453955f770095a7d26c50"
+                strong Chris Rebert
+                small @cvrebert
+          .list-group-item
+            iframe.github-btn src="http://ghbtns.com/github-btn.html?user=juthilo&amp;type=follow"
+            a.team-member href="https://github.com/juthilo"
+              img alt="@juthilo" src="http://www.gravatar.com/avatar/0f7dd3ce58a416be5685ea6194f82b11"
+                strong Julian Thilo
+                small @juthilo
+        p
+          | Get involved with Bootstrap development by
+          a href="https://github.com/twbs/bootstrap/issues/new"
+          | or submitting a pull request. Read our
+          a href="https://github.com/twbs/bootstrap/blob/master/CONTRIBUTING.md"
+          | for information on how we develop.
+      /!
+        | Community
+        | \==================================================
+      .bs-docs-section
+        .page-header
+          h1#community 社区
+        p.lead Stay up to date on the development of Bootstrap and reach out to the community with these helpful resources.
+        ul
+          li
+            | Read and subscribe to
+            = succeed "." do
+              a href="http://blog.getbootstrap.com/"
+          li
+            | Have a question that's not a feature request or bug report?
+            a href="http://groups.google.com/group/twitter-bootstrap"
+          li
+            | Chat with fellow Bootstrappers using IRC in the
+            code irc.freenode.net
+            | server, in the
+            = succeed "." do
+              a href="irc://irc.freenode.net/#twitter-bootstrap"
+          li
+            | Find inspiring examples of people building with Bootstrap at the
+            = succeed "." do
+              a href="http://expo.getbootstrap.com"
+        p
+          | You can also follow
+          a href="https://twitter.com/twbootstrap"
+          | for the latest gossip and awesome music videos.
+      /!
+        | Translations
+        | \==================================================
+      .bs-docs-section
+        .page-header
+          h1#translations 文档翻译
+        p.lead Bootstrap社区成员已经将Bootstrap文档翻译成不同语言：
+        ul
+          li
+            a href="http://v3.bootcss.com/" Bootstrap 中文文档 (Chinese)
+          li
+            a href="http://www.oneskyapp.com/docs/bootstrap/ru" Bootstrap по-русски (Russian)
+          li
+            a href="http://www.oneskyapp.com/docs/bootstrap/es" Bootstrap en Español (Spanish)
+          li
+            a href="http://twbs.site-konstruktor.com.ua" Bootstrap ua Українською (Ukrainian)
+        p
+          | 如果你已经将Bootstrap文档翻译为其他语言，请
+          a href="https://github.com/twbs/bootstrap/issues/new" 提交一个issue
+          | 告诉我们。

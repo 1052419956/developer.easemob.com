@@ -1,0 +1,29 @@
+name: Easemob
+title: Easemob 
+org: Organization
+base_url: ''
+
+slim:
+  :encoding: UTF-8
+  :pretty: true
+  
+profiles:
+  development:
+    minify: false
+    disqus_developer: true
+    dev: true
+    deploy:
+      dummy:
+  production:
+    base_url: http://stage.easemob.com
+    #disqus_developer: false
+    # google_analytics: UA-1234567-1
+    minify: true
+    slim:
+      :encoding: UTF-8
+      :pretty: false
+    
+    deploy:
+      host: f1
+      path: /opt/web/stage
+      uncommitted: true
