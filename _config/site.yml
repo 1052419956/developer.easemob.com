@@ -15,7 +15,7 @@ profiles:
     deploy:
       dummy:
   production:
-    base_url: http://stage.easemob.com
+    base_url: http://developer.easemob.com
     #disqus_developer: false
     # google_analytics: UA-1234567-1
     minify: true
