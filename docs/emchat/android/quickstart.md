@@ -4,14 +4,14 @@ description: Easemob Chat 快速入门
 category: push
 layout: docs
 ---
-# 快速入门（五分钟运行易聊demo) #
+# 快速入门（五分钟运行易聊demo) 
 
 
-## 1. 下载并运行易聊demo (Android)  ##
-### 1.1. 什么是易聊demo ###
+## 下载并运行易聊demo (Android) 
+###  什么是易聊demo
 
 易聊demo展示了怎样快速创建一个完整的微信聊天APP。展示的功能包括：用户登录，注册新用户，添加好友，单聊，群聊，发送文字，语音，地理位置，图片，视频等。
-### 1.2. 下载并运行易聊demo app ###
+### 下载并运行易聊demo app
 
     易聊demo apk下载：http://www.easemob.com/downloads/chatdemo.apk
     安装chatdemo.apk。
@@ -26,10 +26,10 @@ layout: docs
     会话页面
 
 
-## 2. 从源代码级别深入了解易聊demo (Android) ##
+## 从源代码级别深入了解易聊demo (Android)
 
  
-### 2.1. 下载易聊demo源代码及易聊SDK ###
+### 下载易聊demo源代码及易聊SDK 
 
     易聊demo 源代码下载: http://www.easemob.com/downloads/sdkexamples-android.rar
 
