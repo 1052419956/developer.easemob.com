@@ -44,7 +44,17 @@ layout: docs
 	* [UI模板](#{site.base_url}/docs/emchat/android/singlechat.html)
 	* [Java Doc](#{site.base_url}/docs/emchat/android/singlechat.html)
 	* [Demo及SDK下载](#{site.base_url}/docs/emchat/android/singlechat.html)
+	
+ 
 * [iOS](#{site.base_url}/docs/emchat/ios/emchat.html)
+ 		* [初始化](#{site.base_url}/docs/emchat/ios/singlechat.html)
+		* [登录鉴权](#{site.base_url}/docs/emchat/ios/singlechat.html)
+		* [发文字，语音，图片，位置](#{site.base_url}/docs/emchat/ios/singlechat.html)
+		* [接收消息](#{site.base_url}/docs/emchat/android/singlechat.html)
+		* [未读消息数变化回调（单一聊天人，所有聊天人）。消息已读设定](#{site.base_url}/docs/emchat/android/singlechat.html)
+		* [聊天消息历史记录管理：查询，删除](#{site.base_url}/docs/emchat/android/singlechat.html)
+		* [好友列表管理：获取好友列表。好友列表更改事件回调](#{site.base_url}/docs/emchat/android/singlechat.html)
+		* [好友列表管理：查找好友（根据账号），添加好友，删除好友，黑名单](#{site.base_url}/docs/emchat/android/singlechat.html)
 * [REST](#{site.base_url}/docs/emchat/rest/groupmanagement.html)
 
 ## 易用户

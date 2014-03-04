@@ -1,3 +1,10 @@
+---
+title: 易聊
+description: 易聊SDK,5分钟为你的APP加入完整的微信聊天功能
+category: chat
+layout: docs
+---
+
 ##API:
 
 ###1.初始化chat sdk
