@@ -1,9 +1,10 @@
 ---
-title: Easemob Chat 快速入门
-description: Easemob Chat 快速入门
-category: push
+title: 易聊
+description: 5分钟为你的APP加入完整的微信聊天功能
+category: emchat
 layout: docs
 ---
+
 #易聊 API
 #功能
 #API使用详解

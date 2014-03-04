@@ -1,9 +1,10 @@
 ---
-title: Easemob 组织机构管理
-description: Easemob组织机构管理
-category: push
+title: 易用户
+description: EM用户体系
+category: emuser
 layout: docs
 ---
+
 #  概述 #
 
 

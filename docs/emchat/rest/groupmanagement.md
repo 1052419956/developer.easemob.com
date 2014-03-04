@@ -1,9 +1,10 @@
 ---
-title: Easemob Chat 快速入门
-description: Easemob Chat 快速入门
-category: push
+title: 易聊
+description: 5分钟为你的APP加入完整的微信聊天功能
+category: emchat
 layout: docs
 ---
+
 # 群聊群组管理
 
 此文档用于群组聊天页面的**创建群组**、**管理员删除群组**、**管理员添加群成员**、**管理员删除群成员**、**群成员手动退出群组**等接口描述。
