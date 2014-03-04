@@ -37,7 +37,7 @@ layout: docs
 
 易工厂提供了一系列demo以帮助开发者更好的学习了解易工厂SDK。所有demo均已开源并放到github上供开发者使用。你可以clone这些项目来学习了解工厂SDK，也可以在这些demo基础上快速创建你自己的真正项目。易工厂SDK在github的下载地址是：https://github.com/easemob/sdkexamples-android
 
-### 2.2. 在Eclipse/IDEA中创建易聊SDK project ###
+### 在Eclipse/IDEA中创建易聊SDK project 
 
 解压已下载的sdkexamples-android.rar。
 
@@ -45,7 +45,7 @@ IDEA IDE： 打开菜单“File - New Project”，选择“Create project from 
 
 Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的sdkexamples-android下的emclient-android路径,点击“Finish”。
 
-### 2.3. 在Eclipse/IDEA中创建易聊demo project ###
+### 在Eclipse/IDEA中创建易聊demo project 
 
 解压已下载的sdkexamples-android.rar。
 
