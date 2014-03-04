@@ -17,3 +17,5 @@ layout: docs
 
 
 ## 易推
+
+* [REST](#{site.base_url}/docs/push/)
