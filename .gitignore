@@ -1,0 +1,6 @@
+_site
+_site/**
+.DS_Store
+.awestruct
+Gemfile.lock
+_tmp
