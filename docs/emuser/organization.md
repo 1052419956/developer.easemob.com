@@ -1,9 +1,15 @@
-# 1. 概述 #
+---
+title: Easemob 组织机构管理
+description: Easemob组织机构管理
+category: push
+layout: docs
+---
+#  概述 #
 
 
  
-# 2. 组织机构管理 #
-## 2.1 创建部门 ##
+#  组织机构管理 #
+## 创建部门 ##
 
 POST /management/organizations
 描述: 创建一个新org，同时在该org下创建一个新用户
