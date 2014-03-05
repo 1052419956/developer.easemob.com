@@ -5,16 +5,19 @@ category: emchat
 layout: docs
 ---
 
-##API:
+##群聊:
 
-###1.初始化chat sdk
+### 1.初始化易聊SDK
 	EaseMobChat.getInstance().init(getApplicationContext());
 
-###2.登陆及退出登陆
-	 EMUserManager.getInstance().login(userName, password, callback);
+### 2.登陆
+    EMUserManager.getInstance().login(userName, password, callback);
 
-###3.发送消息
-3.1发送文本消息及表情
+### 3.退出登陆
+	EMUserManager.getInstance().logout();
+
+### 4.发送消息
+#### 4.1发送文本消息及表情 ####
 
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
  	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.TXT);
@@ -24,7 +27,7 @@ layout: docs
 	conversation.addMessage(message);
 
 
-3.2 发送语音消息
+#### 4.2 发送语音消息 ####
 
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.VOICE);
@@ -34,7 +37,7 @@ layout: docs
 	conversation.addMessage(message);
 
 
-3.3 发送图片消息
+#### 4.3 发送图片消息 ####
 
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.IMAGE);
@@ -44,7 +47,7 @@ layout: docs
 	conversation.addMessage(message);
 
 
-3.4 发送地理位置消息
+#### 4.4 发送地理位置消息 ####
 
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.LOCATION);
@@ -53,8 +56,7 @@ layout: docs
 	message.setReceipt(username);
     conversation.addMessage(message);
 
-
-####4.接收消息
+### 5.接收消息 ###
 	注册一个相应broadcast，用来接收消息
 	NewMessageBroadcastReceiver msgReceiver = new NewMessageBroadcastReceiver();
 	IntentFilter intentFilter = new IntentFilter(EMChatManager.getInstance().getNewMessageBroadcastAction());
@@ -69,16 +71,11 @@ layout: docs
             }
     }
 
-
-####5.获取聊天记录
+### 6.获取聊天记录 ###
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	List<EMMessage> messages = conversation.getMessages()
 
-
-####6.删除聊天记录
+### 7.删除聊天记录 ###
 	 EMChatDB.getInstance().deleteConversions(username);
      conversation.clear();
 
-
-####7.退出登陆
-	EMUserManager.getInstance().logout();

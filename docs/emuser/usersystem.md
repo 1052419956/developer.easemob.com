@@ -7,7 +7,7 @@ layout: docs
 
 # 1. 概述 #
 
-EaseMob 用户体系的所有功能都以REST接口方式暴露出来供客户端调用。客户端可以使用任何语言调用用户体系API接口，比如Android, iOS, php, Java, 浏览器上支持的各种语言等。
+EaseMob 用户体系的所有功能均以REST接口方式暴露出来供客户端调用。客户端可以使用任何语言调用用户体系API接口，比如Android, iOS, php, Java, 浏览器上支持的各种语言等。
 
 ## 1.1 多租户系统 ##
 

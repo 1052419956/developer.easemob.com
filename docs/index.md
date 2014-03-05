@@ -1,7 +1,7 @@
 ---
-title: Easemob 开发者文档
+title: EaseMob 开发者文档
 description: 快速上手
-category: push
+category: index
 layout: docs
 ---
 
