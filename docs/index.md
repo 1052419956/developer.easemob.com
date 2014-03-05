@@ -83,16 +83,16 @@ layout: docs
 	* [群组管理REST API](#{site.base_url}/docs/emchat/rest/groupmanagement.html)
 
 ## 易用户
-* [什么是易用户SDK：无需后台，快速搭建用户体系]()
-* [用户体系REST API](#{site.base_url}/docs/emuser/organization.html)
-* [组织架构REST API](#{site.base_url}/docs/emuser/usersystem.html)
+* [什么是易用户SDK：无需后台，快速搭建用户体系](#{site.base_url}/docs/emuser/whatisemuser.html)
+* [用户体系REST API](#{site.base_url}/docs/emuser/usersystem.html)
+* [组织架构REST API](#{site.base_url}/docs/emuser/organization.html)
 
 
 
 
 ## 易推
 * [Android]()
-	* [5分钟快速入门](#{site.base_url}/docs/emchat/android/quickstart.html)
+	* [5分钟快速入门]()
 	* [Android 易推SDK使用详解]()
 	* [Demo及SDK下载]()
 * [REST API](#{site.base_url}/docs/push/)
