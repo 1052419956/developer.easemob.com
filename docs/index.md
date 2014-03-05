@@ -82,7 +82,7 @@ layout: docs
 	* [群组管理REST API](#{site.base_url}/docs/emchat/rest/groupmanagement.html)
 
 ## 易用户
-* [什么是易用户：无需后台，快速搭建用户体系]()
+* [什么是易用户SDK：无需后台，快速搭建用户体系]()
 * [用户体系REST API](#{site.base_url}/docs/emuser/organization.html)
 * [组织架构REST API](#{site.base_url}/docs/emuser/usersystem.html)
 
