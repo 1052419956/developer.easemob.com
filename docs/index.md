@@ -78,7 +78,8 @@ layout: docs
 	* [UI模板](#{site.base_url}/docs/emchat/ios/singlechat.html)
 	* [Apple Doc](#{site.base_url}/docs/emchat/ios/singlechat.html)
 	* [Demo及SDK下载](#{site.base_url}/docs/emchat/ios/singlechat.html)
-* [REST API](#{site.base_url}/docs/emchat/rest/groupmanagement.html)
+* [REST API]()
+	* [群组管理REST API](#{site.base_url}/docs/emchat/rest/groupmanagement.html)
 
 ## 易用户
 * [用户体系REST API](#{site.base_url}/docs/emuser/organization.html)
