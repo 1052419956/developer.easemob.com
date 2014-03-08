@@ -64,13 +64,23 @@ REST API:
 把一个设备从EMPush中移出 (例如, app中的设置关闭了推送通知), 那么可以通过来完成
 
 	DELETE http://{push_server_host:port}/subscribers/{push_id}
+    
+例如(注意, 在调用这个API的时候, 同样需要在HTTP Header当中附带_appkey_信息)
+
+    curl --header "appkey: 1234567890" http://223.202.120.59:7874/subscriber/UeJvEkzXLqA
 
 
-## Subscriptions
+## 订阅Topic
 
-对于每个app, 它可以选择订阅到多个topic中, 从而接受这些topic中的push消息, 例如, 对于一个新闻类型的app, 它可以让用户来选择感兴趣的领域来接收推送消息
+对于每个在EMPush中注册的设备, 都可以选择订阅到多个topic中, 从而接收这些topic中的push消息, 例如, 对于一个新闻类型的app, 可能就可以同时订阅到"sport", "news"等topics当中.
 
-	curl -X POST http://223.202.120.59:7874/subscriber/UeJvEkzXLqA/subscriptions/sport		
+REST API
+
+    POST http://{push_server_host:port}/subscribers/{push_id}subscriptions/{topic_name}
+
+例如    
+
+	curl --header "appkey: 1234567890" -X POST http://223.202.120.59:7874/subscriber/UeJvEkzXLqA/subscriptions/sport		
 
 也可以通过 **DELETE** 来取消订阅某一个topic的消息 (**TODO xmpp is not support this yet**)
 
@@ -80,40 +90,39 @@ REST API:
 
 这样, 对于每个app user, 可以自动的把他们注册到某些topic, 从而发送全局消息, 例如先获取用户的地理位置, 然后把他们注册到对应的城市中, 或者国家中等等
 
-查看一个app都订阅了哪些topics
+## 查看订阅的Topics
 
-	GET /subscriber/UeJvEkzXLqA/subscriptions
+REST API
 
-## Event message
+	GET http://{push_server_host:port}/subscribers/{push_id}subscriptions
+
+## 发送推送消息
 
 现在, 我们就可以给设备发送推送消息了, 注意, 消息是发送到topic的, 这里我们(推送消息的发送方)不需要知道topic中有哪些设备, 如果一个设备都没有的话, push server会直接忽略的
 
-	curl -d title=Test%20message http://223.202.120.59:7874/event/sport	
+REST API
 
-上面的例子只使用一个 _title_, 这个的值会被发送到ios的通知栏显示出来
+    POST http://{push_server_host:port}/event/{topic_name}  {推送的消息}    
 
-标准的消息格式目前支持:
-
+推送消息(JSON)的格式
 
     {
-        title: "this is a title",
-        msg: "the internal message",
-        sound: "the sound app should play when got this notifer",
+        title: "通知栏弹出的消息",
         data: {
-            //here can be anyting, the value of 'data' attribute, either a sub-json, or a string
+            //具体的消息体
         }
     }	
 
 只有title是必须的, data属性的值可以是任何合法的json值, 这部分数据只有在用户相应了通知之后, 打开app, app才会得到
 
 
-
+<!-- 
 ## 单点推送
 
 通过这个功能, 我们可以根据push id来推送给单独的一个人
 
-	POST /send/:push_id {}
+    POST /send/:push_id {}
 
 这里POST的数据遵循上面event message部分的规则
 
-当前这个单点推送只支持ios	
+当前这个单点推送只支持ios     -->
