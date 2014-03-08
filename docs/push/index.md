@@ -4,16 +4,40 @@ description: Easemob推送, 在1秒内推送上万条数据, 并且支持tag等�
 category: push
 layout: docs
 ---
-<!-- ## 认证
 
-当前还没有更好的认证方法, 例如像激光推送的那种使用api key的方式, 在我们的服务中, 需要对所有的REST请求进行HTTP BASIC AUTH, 用户名是 _admin_, 密码是 _easemob-push_ -->
+
 
 ## 注册设备
 
+为了让移动设备能够接收到推送的消息, app必须在启动的时候, 先到EMPush中注册
+
+REST API:
+
+    POST http://{push_server_host:port}/subscribers
+    
+这个API支持以下的参数:
+
+* proto 
+
+    当前设备的类型, 有两个可选值, 分别为
+    
+    * apns -- iOS 设备
+    * xmpp -- android 设备
+    
+* token
+
+    当前设备的device token
+    
+* jiduser
+
+    为了支持离线聊天消息的推送, app可以选择同时提交当前登陆用户的jid, 这样, 在用户离线的情况下, 还能够通过push消息来得到聊天的离线消息
+    
+同时, 在调用此API的时候, 还需要带有一个HTTP Header, key为*appkey*    
+    
+这些参数需要组织成一个json数据来post到此API, 例如下面的示例    
+
 	$ curl -d proto=apns \
 	       -d token=FE66489F304DC75B8D6E8200DFF8A456E8DAEACEC428B427E9518741C92C6660 \
-	       -d lang=zh \
-	       -d badge=0 \
 	       --header 'appkey: 1234567890' \
 	       http://223.202.120.59:7874/subscribers
    
@@ -29,21 +53,17 @@ layout: docs
 	  "id": "UeJvEkzXLqA"
 	}	       
 
-需要把返回值中的_id_保存下来
+需要把返回值中的_id_即为EMPush中此设备的_push id_保存下来
 
+## 删除设备
 
-如果是xmpp的话, 那么post的数据中可以带上jiduser, 如果带上了的话, 那么系统就会使用这个jid, 否则, 系统会注册一个新的xmpp 账号, jid就是返回的id, 密码也是一样的
+<!-- 当一个app注册之后, 每次这个app启动的时候, 都需要ping push server, 来确保server知道这个设备还存在着, 不然, server有可能会把这个设备给移除掉 (目前没有做)
 
-同时, 因为有了这个jiduser, 那么就可以使用 _/sendmsg/:jiduser_ 的形式来给这个jid做单点推送了
-## Ping
+    curl -d lang=zh -d badge=0 http://223.202.120.59:7874/subscriber/UeJvEkzXLqA -->
 
-当一个app注册之后, 每次这个app启动的时候, 都需要ping push server, 来确保server知道这个设备还存在着, 不然, server有可能会把这个设备给移除掉 (目前没有做)
+把一个设备从EMPush中移出 (例如, app中的设置关闭了推送通知), 那么可以通过来完成
 
-	curl -d lang=zh -d badge=0 http://223.202.120.59:7874/subscriber/UeJvEkzXLqA
-
-把一个设备/app从push server中移出 (例如, app中的设置关闭了推送通知), 那么可以通过 (目前没有从xmpp server中删除掉push server创建的账号)
-
-	curl -X DELETE http://223.202.120.59:7874/subscriber/UeJvEkzXLqA
+	DELETE http://{push_server_host:port}/subscribers/{push_id}
 
 
 ## Subscriptions
