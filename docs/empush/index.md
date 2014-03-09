@@ -104,11 +104,15 @@ REST API
 
 可以通过 **DELETE** 来取消订阅某一个topic的消息 (**TODO xmpp is not support this yet**)
 
+REST API
+
+    DELETE http://{push_server_host:port}/subscribers/{push_id}/subscriptions/{topic_name}
+
 ## 查看已订阅的Topics
 
 REST API
 
-	GET http://{push_server_host:port}/subscribers/{push_id}subscriptions
+	GET http://{push_server_host:port}/subscribers/{push_id}/subscriptions
 
 ## 发送推送消息
 
