@@ -18,8 +18,7 @@ layout: docs
 
     
 
-1. 易聊demo下载：
-    [http://www.easemob.com/downloads/chatdemo.apk](http://www.easemob.com/downloads/chatdemo.apk)
+1. [易聊demo下载](#{site.base_url}/docs/downloads/downloads.html)：
     
 
 1. 安装chatdemo.apk。
