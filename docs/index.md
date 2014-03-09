@@ -27,7 +27,7 @@ layout: docs
 			* [阅后即焚](#{site.base_url}/docs/emchat/android/advanced.html)
 			* [服务器消息历史记录存储设置](#{site.base_url}/docs/emchat/android/advanced.html)
 			* [UI模板](#{site.base_url}/docs/emchat/android/advanced.html)
-	* [群聊](#{site.base_url}/docs/emchat/android/emchat.html)
+	* [群聊](#{site.base_url}/docs/emchat/android/groupchat.html)
 		* [发文字，语音，图片，位置](#{site.base_url}/docs/emchat/android/singlechat.html)
 		* [接收消息](#{site.base_url}/docs/emchat/android/singlechat.html)
 		* [新建群组](#{site.base_url}/docs/emchat/android/singlechat.html)
@@ -40,9 +40,9 @@ layout: docs
 		* [高级话题](#{site.base_url}/docs/emchat/android/advanced.html)
 			* [公开群组： 设置群组属性为公开或非公开群组。搜索所有公开群组。加入公开群组](#{site.base_url}/docs/emchat/android/advanced.html)
 			* [群组自定义属性](#{site.base_url}/docs/emchat/android/advanced.html)
-	* [UI模板](#{site.base_url}/docs/emchat/android/singlechat.html)
+	* [UI模板](#{site.base_url}/docs/emchat/android/ui.html)
 	* [Java Doc](http://www.easemob.com/apidoc/chat/)
-	* [Demo及SDK下载](#{site.base_url}/docs/emchat/android/downloads.html)
+	* [Demo及SDK下载](#{site.base_url}/docs/downloads/downloads.html)
 	
 
  
@@ -78,7 +78,7 @@ layout: docs
 			* [群组自定义属性](#{site.base_url}/docs/emchat/ios/advanced.html)
 	* [UI模板]()
 	* [Apple Doc]()
-	* [Demo及SDK下载](#{site.base_url}/docs/emchat/ios/downloads.html)
+	* [Demo及SDK下载](#{site.base_url}/docs/downloads/downloads.html)
 * [REST API]()
 	* [群组管理REST API](#{site.base_url}/docs/emchat/rest/groupmanagement.html)
 
