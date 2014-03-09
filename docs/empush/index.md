@@ -69,6 +69,15 @@ REST API:
 
     curl --header "appkey: 1234567890" http://223.202.120.59:7874/subscriber/UeJvEkzXLqA
 
+## 创建Topic
+
+topic无需创建，当订阅topic时，如果该topic不存在，则系统自动创建该topic.
+
+<!-- 
+## 删除Topic
+
+## 查询已有Topic
+-->
 
 ## 订阅Topic
 
@@ -76,21 +85,26 @@ REST API:
 
 REST API
 
-    POST http://{push_server_host:port}/subscribers/{push_id}subscriptions/{topic_name}
+    POST http://{push_server_host:port}/subscribers/{push_id}/subscriptions/{topic_name}
 
 例如    
 
 	curl --header "appkey: 1234567890" -X POST http://223.202.120.59:7874/subscriber/UeJvEkzXLqA/subscriptions/sport		
 
-也可以通过 **DELETE** 来取消订阅某一个topic的消息 (**TODO xmpp is not support this yet**)
 
-或者, 也可以通过一次调用来完成订阅多个topic的操作 (**TODO** xmpp is not supported yet)
+## 批量订阅Topic
+
+可以通过一次调用来完成订阅多个topic的操作 (**TODO** xmpp is not supported yet)
 
 	curl -H 'Content-Type: application/json' -d '{"sport":{}, "music":{}}' http://223.202.120.59:7874/subscriber/UeJvEkzXLqA/subscriptions
 
 这样, 对于每个app user, 可以自动的把他们注册到某些topic, 从而发送全局消息, 例如先获取用户的地理位置, 然后把他们注册到对应的城市中, 或者国家中等等
 
-## 查看订阅的Topics
+## 取消订阅Topic
+
+可以通过 **DELETE** 来取消订阅某一个topic的消息 (**TODO xmpp is not support this yet**)
+
+## 查看已订阅的Topics
 
 REST API
 
@@ -104,16 +118,75 @@ REST API
 
     POST http://{push_server_host:port}/event/{topic_name}  {推送的消息}    
 
-推送消息(JSON)的格式
+<!--### 其他推送参数
+
+如何发送其他推送参数？
+time_to_live
+从消息推送时起，保存离线的时长。秒为单位。最多支持10天（864000秒）。
+
+ 0 表示该消息不保存离线。即：用户在线马上发出，当前不在线用户将不会收到此消息。
+
+此参数不设置则表示默认，默认为保存1天的离线消息（86400秒）
+
+
+verification_code
+
+验证串，用于校验发送的合法性。
+
+由 sendno, receiver_type, receiver_value, master_secret 4个值拼接起来（直接拼接字符串）后，进行一次MD5生成。
+
+-->
+
+### 推送消息内容格式
+推送消息要求为JSON格式
 
     {
-        title: "通知栏弹出的消息",
-        data: {
+        "title": "通知栏弹出的消息",
+        "msg": {
             //具体的消息体
-        }
-    }	
+        },
+    }
 
-只有title是必须的, data属性的值可以是任何合法的json值, 这部分数据只有在用户相应了通知之后, 打开app, app才会得到
+只有title是必须的, data属性的值可以是任何合法的json值, 这部分数据只有在用户响应了通知之后, 打开app, app才会得到
+
+### iOS APNs 特别说明 ###
+
+通过 EMPush API 推送 iOS APNs 消息时，部分内容需要与 APNs 适配。
+
+关于 APNs 的详细定义，请参考官方文档：[Apple Push Notification Service](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW12)。
+
+EMPush 字段	APNs 字段
+
+    {
+        "title": "通知栏弹出的消息", //对应APNs的alert
+        "badge":88	//对应APNs的badge
+        "sound":""	//对应APNs的sound
+    }
+
+
+title 字段必须存在，但可以为空字符串。这时，如果 extras 里带了 badge 字段，则收到的通知会显示应用图标右上角数字，而没有通知栏内容。
+
+
+指定了 iOS 特定参数的完整的通知 msg_content JSON串示例：
+
+    {
+        "title": "通知栏弹出的消息", 
+        "data": {
+            //具体的消息体
+        },
+        "badge":88,	
+        "sound":"default"	
+    }
+
+ 
+### 通知长度限制说明 ###
+
+EMPush 同时支持 Andorid 与 iOS 平台的通知推送。
+
+由于 APNs 限制是 255 个字节，所以 EMPush 推送通知也依据 APNs 来统一限制。
+	
+
+注意：长度指字节。由于使用 UTF-8 编码，所以一个中文字符占 3 个字节。
 
 
 <!-- 
