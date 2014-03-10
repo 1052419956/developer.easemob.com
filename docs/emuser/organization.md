@@ -59,15 +59,15 @@ layout: docs
         "application" : "339d73d0-7a86-11e3-8907-b7afdbf7c043",
         "params" : { },
         "path" : "/groups",
-        "uri" : "http://api.easemob.com/ljs/ljs/communities",
+        "uri" : "http://api.easemob.com/ljs/ljs/groups",
         "entities" : [ {
         "uuid" : "73645a1a-7b30-11e3-b708-f7da4a11895a",
         "type" : "group",
         "path" : "865320001",
         "created" : 1389493377585,
         "modified" : 1389493377585,
-        "parent" : "No 5, laoshan road",
-        "fullname" : "qingdao",
+        "parent" : "/",
+        "fullname" : "移动开发部",
         "duration" : 21,
         "organization" : "ljs",
         "applicationName" : "ljs"
@@ -94,9 +94,10 @@ layout: docs
          "error_description":"Unable to authenticate due to expired access token"
         }
         
-    404 Not Found: 要删除的b部门不存在。返回的response body为json数据：       
+    404 Not Found: 要删除的部门不存在。返回的response body为json数据：       
     
-        {"error":"service_resource_not_found",
+        {
+        "error":"service_resource_not_found",
         "timestamp":1389494177532,
         "duration":1,
         "exception":"org.usergrid.services.exceptions.ServiceResourceNotFoundException",
@@ -115,7 +116,7 @@ layout: docs
         "application" : "339d73d0-7a86-11e3-8907-b7afdbf7c043",
         "params" : { },
         "path" : "/865320001",
-        "uri" : "http://api.easemob.com/ljs/ljs/865320001",
+        "uri" : "http://api.easemob.com/ljs/ljs/groups/865320001",
         "entities" : [ {
             "uuid" : "94c80fd4-7b31-11e3-928c-4552c8e41bcf",
             "fullname" : "移动事业部",
@@ -139,7 +140,7 @@ layout: docs
 * Request body: 
   
     {
-    "parent" : "/移动事业部" //这里把部门的父节点改为"/移动事业部"。注意，不需要修改的属性可以不出现在request中。
+    "parent" : "/集团总公司" //这里把部门的父节点改为"/集团总公司"。注意，不需要修改的属性可以不出现在request中。
     }
     
 * 错误代码：
@@ -170,7 +171,7 @@ layout: docs
         "entities" : [ {
             "uuid" : "73645a1a-7b30-11e3-b708-f7da4a11895a",
             "type" : "group",
-            "fullname" : "2",
+            "fullname" : "移动事业部",
             "created" : 1389493377585,
             "modified" : 1389493948631,
             "parent" : "/集团总公司",
@@ -202,7 +203,7 @@ layout: docs
         "application" : "339d73d0-7a86-11e3-8907-b7afdbf7c043",
         "params" : { },
         "path" : "/groups",
-        "uri" : "http://api.easemob.com/ljs/ljs/communities",
+        "uri" : "http://api.easemob.com/ljs/ljs/groups",
         "entities" : [ {
           "uuid" : "1b6140ba-7b2d-11e3-b312-07fe2d3e042b",
           "type" : "group",
@@ -296,7 +297,7 @@ layout: docs
          }
 * curl示例：
 
-        curl -X PUT -i -H "Authorization: Bearer YWMtI-n89nqGEeOOXyXq3bWeNwAAAUOj8rinBuWhDVWIeFPgEotHz6AOCflJ0AA" "http://api.easemob.com/ljs/ljs/users/admin" -d '{"usertype":"customer"}'
+        curl -X PUT -i -H "Authorization: Bearer YWMtI-n89nqGEeOOXyXq3bWeNwAAAUOj8rinBuWhDVWIeFPgEotHz6AOCflJ0AA" "http://api.easemob.com/ljs/ljs/users/admin" -d '{"department":"/集团总公司/研发部"}'
   
 返回的json数据的entities包含了更新后的user.
 
