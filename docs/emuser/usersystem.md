@@ -512,7 +512,17 @@ GET /${orgName}/${appName}/users/${userName}
     curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users/jliu1"
 
 
-## 4.6 删除app的指定用户 ##
+## 4.6 获取app的现有用户总数 ##
+
+
+GET /${orgName}/${appName}/counters
+描述:
+参数:counter=application.collection.users
+返回: 
+示例：
+    curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/counters?counter=application.collection.users"
+
+## 4.7 删除app的指定用户 ##
 
 
 DELETE /${orgName}/${appName}/users/${userName}
@@ -522,7 +532,7 @@ DELETE /${orgName}/${appName}/users/${userName}
 示例：
     curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "http://api.easemob.com/easemob/qixin/users/ligangying"
 
-## 4.7 更新App的用户信息 ##
+## 4.8 更新App的用户信息 ##
 
 GET /${orgName}/${appName}/users
 描述: 输入参数中必须有username属性（username是user的primary key)
@@ -534,7 +544,7 @@ GET /${orgName}/${appName}/users
 上面的这个例子是为叫"jliu"的用户增加一个叫usertype的属性，其值为customer。比如以前的user属性设计里并没有用户类型这个属性，现在想区分每个用户的类型，比如这个用户可以是”普通客人”或“客服“或”设计师“。那么只需要调用以上接口即可为jliu用户增加这个属性。如果用户已经有了usertype这个属性，那么以上接口调用会更新usertype的属性值。
 
  
-## 4.6 自定义用户属性 ##
+## 4.9 自定义用户属性 ##
 
 用户属性可以根据app的需要自行定义，以满足不同app的需求。比如一个交友应用可以定义身高，体重，个人相册等属性。一个企业应用可以定义座机，传真，部门等属性。因为EaseMob Baas的后台是一个No SQL的DB, 所以对用户属性没有限制。
 
