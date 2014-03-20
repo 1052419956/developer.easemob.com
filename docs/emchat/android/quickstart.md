@@ -8,116 +8,169 @@ layout: docs
 # 快速入门（五分钟运行易聊demo) 
 
 
-## 下载并运行易聊demo (Android) 
+## 1.下载易聊demo (Android) 
 
-###  什么是易聊demo
+###  1.1 什么是易聊demo
 
-易聊demo展示了怎样快速创建一个完整的微信聊天APP。展示的功能包括：用户登录，注册新用户，添加好友，单聊，群聊，发送文字，表情。
+易聊demo展示了怎样使用易聊SDK快速创建一个完整的类微信聊天APP。展示的功能包括：易聊SDK初始化，登录，登出，注册消息接收listener, 发送消息
 
-### 下载并运行易聊demo app
+易聊demo源代码已在github上开源供开发者下载，以帮助开发者更好的学习了解易聊SDK。
 
-    
-
-1. [易聊demo下载](#{site.base_url}/docs/downloads/downloads.html)：
-    
-
-1. 安装chatdemo.apk。
-   
-
-
-1.  注册：在登录页面选择“注册”，进入到注册页面。 可使用任意英文字母及数字组合作为用户名或手机号码作为用户名进行注册。
+### 1.2 下载易聊demo 
 
     
 
-1. 登录：输入已注册的用户名及密码登录
+1. 下载易聊demo：[下载链接](#{site.base_url}/docs/downloads/downloads.html)
+
+2. 解压缩androidsdk.zip后会得到以下目录结构：
+ 
+ ![alt text](example_layout.png "Title")
+
+
+## 2.运行易聊demo (Android) 
+
+1. 在手机上安装chatdemo-nonui.apk
+    
+ 
+2. 运行chatdemo-nonui
 
     
 
-1. 添加好友
-
-    
-
-1. 聊天页面
-
-    
-
-1. 会话页面
 
 
-## 从源代码级别深入了解易聊demo (Android)
+## 3. 从源代码级别深入了解易聊demo (Android)
 
  
-### 下载易聊demo源代码及易聊SDK 
+### 2.1 在Eclipse/IDEA中创建易聊demo project 
 
-    [http://www.easemob.com/downloads/sdkexamples-android.rar](http://www.easemob.com/downloads/sdkexamples-android.rar)
+
+1. Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的chatdemo-nonui路径,点击“Finish”。
+
+
+### 2.2. 深入理解易聊demo背后的代码 ###
+
+#### 1.初始化： 见DemoApplication.java
+
+    public class DemoApplication extends Application {
+    
+        public static Context appContext;
+        @Override
+        public void onCreate() { 
+           super.onCreate();
+           appContext = this;
+     
+           //初始化易聊SDK
+           Log.d("DemoApplication", "Initialize EMChat SDK");
+           EaseMobChat.getInstance().init(appContext);
+        }
+    }
+
+#### 2. 注册listener,以接收聊天消息：见MainActivity.java ####
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        //注册message receiver， 接收聊天消息
+        msgReceiver = new NewMessageBroadcastReceiver();
+        IntentFilter intentFilter = new IntentFilter(EMChatManager.getInstance().getNewMessageBroadcastAction());
+        registerReceiver(msgReceiver, intentFilter);
+    }
+
+#### 3. 登录：见MainActivity.java ####
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //登录到聊天服务器。此处使用了一个测试账号，用户名是test1，密码是123456。
+        EMChatManager.getInstance().login("test1", "123456", new EMCallBack() {
+
+            @Override
+            public void onError(int arg0, final String errorMsg) {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(MainActivity.this, "登录聊天服务器失败：" + errorMsg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            @Override
+            public void onProgress(int arg0, String arg1) {
+            }
+
+            @Override
+            public void onSuccess() {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(MainActivity.this, "登录聊天服务器成功", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                
+            }
+        });
+    }
+
+
+#### 3. 退出登录：见MainActivity.java ####
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        
+        //登出聊天服务器
+        EMChatManager.getInstance().logout();
+    }
+
+
+#### 4. 发送消息：见MainActivity.java ####
+
+    //本demo是发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
+    public void onSendTxtMsg(View view) {
+        try {
+            //创建一个消息
+            EMMessage msg = EMMessage.createSendMessage(EMMessage.Type.TXT);
+            //设置消息的接收方
+            msg.setReceipt("bot");
+            //设置消息内容。本消息类型为文本消息。
+            TextMessageBody body = new TextMessageBody(tvMsg.getText().toString());
+            msg.addBody(body);
+        
+            //发送消息
+            EMChatManager.getInstance().sendMessage(msg);
+            Log.d("chatdemo", "消息发送成功:" + msg.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+#### 5. 接收聊天消息并显示：见MainActivity.java ####
+
+    private class NewMessageBroadcastReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            //消息id
+            String msgId = intent.getStringExtra("msgid");
+            //消息发送方
+            String msgFrom = intent.getStringExtra("from");
+            //消息类型
+            int msgType = intent.getIntExtra("type", 0);
+            //消息内容
+            String msgBody = intent.getStringExtra("body");
+            
+            Log.d("chatdemo", "new message id:" + msgId + " from:" + msgFrom + " type:" + msgType + " body:" + msgBody);
+            
+            tvReceivedMsg.append("from:" + msgFrom + " body:" + msgBody + " \r");
+        }
+    }
+
+# 3. 易聊demo源代码 
 
  
-
-易工厂提供了一系列demo以帮助开发者更好的学习了解易聊SDK。所有demo均已开源并放到github上供开发者使用。你可以clone这些项目来学习了解易聊SDK，也可以在这些demo基础上快速创建你自己的真正项目。易聊SDK在github的下载地址是：
+易工厂提供了一系列demo以帮助开发者更好的学习了解易聊SDK。所有demo均已在github上开源供开发者下载使用。你可以clone这些项目来学习了解易聊SDK，也可以在这些demo基础上快速创建你自己的真正项目。易聊SDK（Android版）在github的下载地址是：
 
     [https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)
 
-### 在Eclipse/IDEA中创建易聊SDK project 
 
-
-
-1. 解压已下载的sdkexamples-android.rar。
-
-
-
-1. IDEA IDE： 打开菜单“File - New Project”，选择“Create project from existing sources”, 在“Project files location”选项，选择解压后的sdkexamples-android下的emclient-android路径, 点击数次 "Next"直到“Finish”。
-
-
- 	Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的sdkexamples-android下的emclient-android路径,点击“Finish”。
-
-### 在Eclipse/IDEA中创建易聊demo project 
-
-
-
-1. 解压已下载的sdkexamples-android.rar。
-
-
-
-1. IDEA IDE： 打开菜单“File - New Project”，选择“Create project from existing sources”, 在“Project files location”选项，选择解压后的sdkexamples-android下chat路径, 点击数次 "Next"直到“Finish”。
-
-	项目创建成功后，导入易工厂SDK project： 鼠标右键点击易聊demo project， 选择“Properties",在弹出菜单选择”Android - > Library -> Add" ,添加已创建的易工厂SDK project。
-
-	Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的sdkexamples-android下chat路径,点击“Finish”。
-
-	项目创建成功后，导入易工厂SDK project： 鼠标右键点击易聊demo project， 选择“Properties",在弹出菜单选择”Android - > Library -> Add" ,添加已创建的易工厂SDK project。
-
-
-### 2.5. 更改项目的orgkey/appkey(可跳过) ###
-
-为方便测试，易聊demo内置使用一个公用的测试账户。你可以使用这个公用的测试账户来测试使用易聊demo。
-
-当你创建自己的项目时，你需要更改项目的orgpkey/appkey。修改AndroidManifest.xml以下值即可：
-
-        <meta-data
-            android:name="EASEMOB_ORGKEY"
-            android:value="easemob" />
-        <meta-data
-            android:name="EASEMOB_APPKEY"
-            android:value="chatdemo" />
-
-### 2.6. 深入理解demo背后的代码 ###
-
-注册新用户：见com.easemob.demo.Register.java
-
- 
-
-登录：com.easemob.demo.Login.java
-
- 
-
-添加好友：com.easemob.demo.AddContact.java
-
- 
-
-聊天：com.easemob.demo.ChatActivity.java
-
- 
-# 3. Bug报告跟踪 #
+# 4. Bug报告跟踪 #
 
 请使用以下地址来报告跟踪bug：
 
