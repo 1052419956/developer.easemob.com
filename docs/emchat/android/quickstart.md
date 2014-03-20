@@ -32,9 +32,9 @@ layout: docs
 1. 在手机上安装chatdemo-nonui.apk
     
  
-2. 运行chatdemo-nonui
+2. 运行chatdemo-nonui: 点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
 
-    
+ ![alt text](demo.png "demo")
 
 
 
