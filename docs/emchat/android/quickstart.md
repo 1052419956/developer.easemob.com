@@ -41,13 +41,13 @@ layout: docs
 ## 3. 从源代码级别深入了解易聊demo (Android)
 
  
-### 2.1 在Eclipse/IDEA中创建易聊demo project 
+### 3.1 在Eclipse/IDEA中创建易聊demo project 
 
 
 1. Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的chatdemo-nonui路径,点击“Finish”。
 
 
-### 2.2. 深入理解易聊demo背后的代码 ###
+### 3.2. 深入理解易聊demo背后的代码 ###
 
 #### 1.初始化： 见DemoApplication.java
 
@@ -162,7 +162,7 @@ layout: docs
         }
     }
 
-# 3. 易聊demo源代码 
+# 4. 易聊demo源代码 
 
  
 易工厂提供了一系列demo以帮助开发者更好的学习了解易聊SDK。所有demo均已在github上开源供开发者下载使用。你可以clone这些项目来学习了解易聊SDK，也可以在这些demo基础上快速创建你自己的真正项目。易聊SDK（Android版）在github的下载地址是：
@@ -170,7 +170,7 @@ layout: docs
     [https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)
 
 
-# 4. Bug报告跟踪 #
+# 5. Bug报告跟踪 #
 
 请使用以下地址来报告跟踪bug：
 
