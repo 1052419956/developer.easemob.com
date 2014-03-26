@@ -373,7 +373,10 @@ response:
       "organization" : "easemob",
       "applicationName" : "qixin"
     }
+
+
 # 4. 用户（Users）管理 #
+
 ## 4.1 app用户登录并获取授权token ##
 
     
