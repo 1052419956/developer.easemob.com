@@ -51,170 +51,193 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ##POST /management/organizations
 - 描述: 创建一个新org，同时在该org下创建一个新用户
-- 权限：超级管理员
+- 权限：admin管理员
 - Url参数:无
 - Request返回: 如果创建成功，返回200
-- 错误代码：
-- 示例：创建一个名为:"weiquan"的org, 并同时为这个org创建一个管理员。管理员的用户名为"weiquan"， 其注册邮件地址是admin@vokeji.com (用于找回密码)，密码为"weiquan123456"
+- 错误代码：？
+
+- curl示例：创建一个名为:"weiquan"的org, 并同时为这个org创建一个管理员。管理员的用户名为"weiquan"， 其注册邮件地址是admin@vokeji.com (用于找回密码)，密码为"weiquan123456"
     
     	curl -X POST "http://api.easemob.com/management/organizations" -d '{"organization":"weiquan","username":"weiquan","email":"admin@vokeji.com","password":"weiquan123456"}'
 
 
-response:
+	response返回:
 
-    {
-      "action" : "new organization",
-      "status" : "ok",
-      "data" : {
-    "owner" : {
-      "applicationId" : "00000000-0000-0000-0000-000000000001",
-      "username" : "jliu1",
-      "name" : "jliu1",
-      "email" : "jopir@yahoo.com",
-      "activated" : true,
-      "disabled" : false,
-      "properties" : { },
-      "uuid" : "7f9ca48a-b2f5-11e2-a2da-5b5746e42e13",
-      "adminUser" : true,
-      "displayEmailAddress" : "jliu1 <jopir@yahoo.com>",
-      "htmldisplayEmailAddress" : "jliu1 &lt;<a href=\"mailto:jopir@yahoo.c
-    >jopir@yahoo.com</a>&gt;"
-    },
-    "organization" : {
-      "name" : "org1",
-      "uuid" : "812f2b6a-b2f5-11e2-805f-a9d048dc6b73"
-    }
-      },
-      "timestamp" : 1367477825212,
-      "duration" : 3559
-    }
+    	{
+      	"action" : "new organization",
+      	"status" : "ok",
+      	"data" : {
+    	"owner" : {
+      	"applicationId" : "00000000-0000-0000-0000-000000000001",
+      	"username" : "jliu1",
+      	"name" : "jliu1",
+      	"email" : "jopir@yahoo.com",
+      	"activated" : true,
+      	"disabled" : false,
+      	"properties" : { },
+      	"uuid" : "7f9ca48a-b2f5-11e2-a2da-5b5746e42e13",
+      	"adminUser" : true,
+      	"displayEmailAddress" : "jliu1 <jopir@yahoo.com>",
+      	"htmldisplayEmailAddress" : "jliu1 &lt;<a href=\"mailto:jopir@yahoo.c
+    	>jopir@yahoo.com</a>&gt;"
+    	},
+    	"organization" : {
+      	"name" : "org1",
+      	"uuid" : "812f2b6a-b2f5-11e2-805f-a9d048dc6b73"
+    	}
+      	},
+      	"timestamp" : 1367477825212,
+     	"duration" : 3559
+    	}
 
 ## 2.2 org admin管理员登陆并获取授权token  ##
 
      
-- POST /management/token
+##POST /management/token
 - 描述: 登录并授权，获得一个token。
-- 参数:
-- 返回: 授权结果(json),其中access_token为授权后的token
-- 示例：
+- 权限：admin管理员
+- url参数:无
+- Request返回: 授权结果(json),其中access_token为授权后的token
+
+- url示例：
 
 
 		curl -X POST "http://api.easemob.com/management/token" -d '{"grant_type":"password","username":"jervisliu@gmail.com","password":"yan7312"}'
     
 
 
-response:
+	response返回：
 
-    {"access_token":"YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ","expires_in":604800,"user":{"username":"jliu","email":"jervisliu@gmail.com","organizations":{"easemob":{"users":{"jliu":{"applicationId":"00000000-0000-0000-0000-000000000001","username":"jliu","name":"jliu","email":"jervisliu@gmail.com","activated":true,"disabled":false,"properties":{},"adminUser":true,"displayEmailAddress":"jliu <jervisliu@gmail.com>","htmldisplayEmailAddress":"jliu &lt;<a href=\"mailto:jervisliu@gmail.com\">jervisliu@gmail.com</a>&gt;","uuid":"635ef90a-a7f9-11e2-ad38-59f55259f326"}},"name":"easemob","applications":{"easemob/test1":"92a86160-a7f9-11e2-9b9f-05f910c95d9e","easemob/sandbox":"63b15ec0-a7f9-11e2-891d-4b59fb74c9dd"},"uuid":"637c1dfa-a7f9-11e2-a1f9-8b35fa40759c"}},"adminUser":true,"activated":true,"name":"jliu","applicationId":"00000000-0000-0000-0000-000000000001","uuid":"635ef90a-a7f9-11e2-ad38-59f55259f326","properties":{},"htmldisplayEmailAddress":"jliu &lt;<a href=\"mailto:jervisliu@gmail.com\">jervisliu@gmail.com</a>&gt;","displayEmailAddress":"jliu <jervisliu@gmail.com>","disabled":false}}
+    	{"access_token":"YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ",
+		"expires_in":604800,
+		"user":{
+			"username":"jliu",
+			"email":"jervisliu@gmail.com",
+			"organizations":{
+			   "easemob":{
+			      "users":{
+					  "jliu":{"applicationId":"00000000-0000-0000-0000-000000000001",
+				              "username":"jliu",
+		                      "name":"jliu",
+		                      "email":"jervisliu@gmail.com",
+		                      "activated":true,
+							  "disabled":false,
+							  "properties":{},
+							  "adminUser":true,
+							  "displayEmailAddress":"jliu <jervisliu@gmail.com>","htmldisplayEmailAddress":"jliu &lt;<a href=\"mailto:jervisliu@gmail.com\">jervisliu@gmail.com</a>&gt;","uuid":"635ef90a-a7f9-11e2-ad38-59f55259f326"}},"name":"easemob","applications":{"easemob/test1":"92a86160-a7f9-11e2-9b9f-05f910c95d9e","easemob/sandbox":"63b15ec0-a7f9-11e2-891d-4b59fb74c9dd"},"uuid":"637c1dfa-a7f9-11e2-a1f9-8b35fa40759c"}},"adminUser":true,"activated":true,"name":"jliu","applicationId":"00000000-0000-0000-0000-000000000001","uuid":"635ef90a-a7f9-11e2-ad38-59f55259f326","properties":{},"htmldisplayEmailAddress":"jliu &lt;<a href=\"mailto:jervisliu@gmail.com\">jervisliu@gmail.com</a>&gt;","displayEmailAddress":"jliu <jervisliu@gmail.com>","disabled":false}}
 
-### 2.3 在Org下创建App ###
-- 
-- POST /management/organizations/${orgName}/applications
-- 描述:
-- 参数:
-- 返回:
-- 示例：
+## 2.3 在Org下创建App ###
+##POST/management/organizations/${orgName}/applications
+- 描述:创建app用户？
+- 权限：admin管理员
+- url参数:无
+- response返回:
 
-    curl -X POST -i -H "Authorization: Bearer YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ" "http://api.easemob.com/management/organizations/easemob/applications" -d '{"name":"qixin"}'
+- url示例：
 
-response
 
-    {
-    "action" : "new application for organization",
-    "uri" : "http://163.177.200.107:8080/null/null",
-    "entities" : [ {
-    "uuid" : "a2e433a0-ab1a-11e2-a134-85fca932f094",
-    "type" : "application",
-    "name" : "easemob/qixin",
-    "created" : 1366614166517,
-    "modified" : 1366614166517,
-    "accesstokenttl" : null,
-    "applicationName" : "qixin",
-    "organizationName" : "easemob",
-    "metadata" : {
-      "collections" : {
-        "assets" : {
-          "title" : "Assets",
-          "count" : 0,
-          "name" : "assets",
-          "type" : "asset"
-        },
-        "users" : {
-          "title" : "Users",
-          "count" : 0,
-          "name" : "users",
-          "type" : "user"
-        },
-        "events" : {
-          "title" : "Events",
-          "count" : 0,
-          "name" : "events",
-          "type" : "event"
-        },
-        "roles" : {
-          "title" : "Roles",
-          "count" : 0,
-          "name" : "roles",
-          "type" : "role"
-        },
-        "folders" : {
-          "title" : "Folders",
-          "count" : 0,
-          "name" : "folders",
-          "type" : "folder"
-        },
-        "activities" : {
-          "title" : "Activities",
-          "count" : 0,
-          "name" : "activities",
-          "type" : "activity"
-        },
-        "devices" : {
-          "title" : "Devices",
-          "count" : 0,
-          "name" : "devices",
-          "type" : "device"
-        },
-        "groups" : {
-          "title" : "Groups",
-          "count" : 0,
-          "name" : "groups",
-          "type" : "group"
-        }
-      }
-    }
-     } ],
-     "data" : {
-     "easemob/qixin" : "a2e433a0-ab1a-11e2-a134-85fca932f094"
-     },
-     "timestamp" : 1366614166487,
-     "duration" : 174
-    }
+		curl -X POST -i -H "Authorization: Bearer YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ" "http://api.easemob.com/management/organizations/easemob/applications" -d '{"name":"qixin"}'
+
+	response返回：
+
+    	{
+		"action" : "new application for organization",
+		"uri" : "http://163.177.200.107:8080/null/null",
+		"entities" : [ {
+    	"uuid" : "a2e433a0-ab1a-11e2-a134-85fca932f094",
+    	"type" : "application",
+    	"name" : "easemob/qixin",
+    	"created" : 1366614166517,
+    	"modified" : 1366614166517,
+    	"accesstokenttl" : null,
+    	"applicationName" : "qixin",
+    	"organizationName" : "easemob",
+    	"metadata" : {
+		"collections" : {
+         "assets" : {
+           "title" : "Assets",
+           "count" : 0,
+           "name" : "assets",
+           "type" : "asset"
+         },
+         "users" : {
+           "title" : "Users",
+           "count" : 0,
+           "name" : "users",
+           "type" : "user"
+         },
+         "events" : {
+           "title" : "Events",
+           "count" : 0,
+           "name" : "events",
+           "type" : "event"
+         },
+         "roles" : {
+           "title" : "Roles",
+           "count" : 0,
+           "name" : "roles",
+           "type" : "role"
+         },
+         "folders" : {
+           "title" : "Folders",
+           "count" : 0,
+           "name" : "folders",
+           "type" : "folder"
+         },
+         "activities" : {
+           "title" : "Activities",
+           "count" : 0,
+           "name" : "activities",
+           "type" : "activity"
+         },
+         "devices" : {
+           "title" : "Devices",
+           "count" : 0,
+           "name" : "devices",
+           "type" : "device"
+         },
+         "groups" : {
+           "title" : "Groups",
+           "count" : 0,
+           "name" : "groups",
+           "type" : "group"
+         }
+		}
+		}
+		} ],
+		"data" : {
+		   "easemob/qixin" : "a2e433a0-ab1a-11e2-a134-85fca932f094"
+		  },
+		 "timestamp" : 1366614166487,
+		 "duration" : 174
+		}
 
 ## 2.4 获取指定Org下的App列表 ##
 
 
-- GET /management/organizations/${orgName}/applications
+##GET /management/organizations/${orgName}/applications
 - 描述:获取应用列表
-- 参数:
-- 返回:
-- 示例：
+- 权限：
+- url参数:
+- response返回:
+
+- url示例：
 
 
-    curl -X GET -i -H "Authorization: Bearer YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ" "http://api.easemob.com/management/organizations/easemob/applications"
+    	curl -X GET -i -H "Authorization: Bearer YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ" "http://api.easemob.com/management/organizations/easemob/applications"
     
-response
+	response返回：
     
-    {
-    "action" : "get organization application",
-    "data" : {
-    "easemob/test1" : "92a86160-a7f9-11e2-9b9f-05f910c95d9e",
-    "easemob/sandbox" : "63b15ec0-a7f9-11e2-891d-4b59fb74c9dd",
-    "easemob/qixin" : "a2e433a0-ab1a-11e2-a134-85fca932f094"
-    },
-    "timestamp" : 1366614166925,
-    "duration" : 3
-    }
+    	{
+    	"action" : "get organization application",
+    	"data" : {
+    	"easemob/test1" : "92a86160-a7f9-11e2-9b9f-05f910c95d9e",
+    	"easemob/sandbox" : "63b15ec0-a7f9-11e2-891d-4b59fb74c9dd",
+    	"easemob/qixin" : "a2e433a0-ab1a-11e2-a134-85fca932f094"
+    	},
+    	"timestamp" : 1366614166925,
+    	"duration" : 3
+    	}
 
  
 ## 2.5 获取指定Org下的用户列表（即获取该Org的管理员用户列表） ##
