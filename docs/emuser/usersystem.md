@@ -66,24 +66,24 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
       	"action" : "new organization",
       	"status" : "ok",
       	"data" : {
-    	"owner" : {
-      	"applicationId" : "00000000-0000-0000-0000-000000000001",
-      	"username" : "jliu1",
-      	"name" : "jliu1",
-      	"email" : "jopir@yahoo.com",
-      	"activated" : true,
-      	"disabled" : false,
-      	"properties" : { },
-      	"uuid" : "7f9ca48a-b2f5-11e2-a2da-5b5746e42e13",
-      	"adminUser" : true,
-      	"displayEmailAddress" : "jliu1 <jopir@yahoo.com>",
-      	"htmldisplayEmailAddress" : "jliu1 &lt;<a href=\"mailto:jopir@yahoo.c
-    	>jopir@yahoo.com</a>&gt;"
-    	},
-    	"organization" : {
-      	"name" : "org1",
-      	"uuid" : "812f2b6a-b2f5-11e2-805f-a9d048dc6b73"
-    	}
+    		"owner" : {
+      			"applicationId" : "00000000-0000-0000-0000-000000000001",
+      			"username" : "jliu1",
+      			"name" : "jliu1",
+      			"email" : "jopir@yahoo.com",
+      			"activated" : true,
+      			"disabled" : false,
+      			"properties" : { },
+      			"uuid" : "7f9ca48a-b2f5-11e2-a2da-5b5746e42e13",
+      			"adminUser" : true,
+      			"displayEmailAddress" : "jliu1 <jopir@yahoo.com>",
+      			"htmldisplayEmailAddress" : "jliu1 &lt;<a href=\"mailto:jopir@yahoo.c
+    			>jopir@yahoo.com</a>&gt;"
+    		},
+    		"organization" : {
+      			"name" : "org1",
+      			"uuid" : "812f2b6a-b2f5-11e2-805f-a9d048dc6b73"
+    		}
       	},
       	"timestamp" : 1367477825212,
      	"duration" : 3559
@@ -162,66 +162,66 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		"action" : "new application for organization",
 		"uri" : "http://163.177.200.107:8080/null/null",
 		"entities" : [ {
-    	"uuid" : "a2e433a0-ab1a-11e2-a134-85fca932f094",
-    	"type" : "application",
-    	"name" : "easemob/qixin",
-    	"created" : 1366614166517,
-    	"modified" : 1366614166517,
-    	"accesstokenttl" : null,
-    	"applicationName" : "qixin",
-    	"organizationName" : "easemob",
-    	"metadata" : {
-		"collections" : {
-         "assets" : {
-           "title" : "Assets",
-           "count" : 0,
-           "name" : "assets",
-           "type" : "asset"
-         },
-         "users" : {
-           "title" : "Users",
-           "count" : 0,
-           "name" : "users",
-           "type" : "user"
-         },
-         "events" : {
-           "title" : "Events",
-           "count" : 0,
-           "name" : "events",
-           "type" : "event"
-         },
-         "roles" : {
-           "title" : "Roles",
-           "count" : 0,
-           "name" : "roles",
-           "type" : "role"
-         },
-         "folders" : {
-           "title" : "Folders",
-           "count" : 0,
-           "name" : "folders",
-           "type" : "folder"
-         },
-         "activities" : {
-           "title" : "Activities",
-           "count" : 0,
-           "name" : "activities",
-           "type" : "activity"
-         },
-         "devices" : {
-           "title" : "Devices",
-           "count" : 0,
-           "name" : "devices",
-           "type" : "device"
-         },
-         "groups" : {
-           "title" : "Groups",
-           "count" : 0,
-           "name" : "groups",
-           "type" : "group"
-         }
-		}
-		}
+    		"uuid" : "a2e433a0-ab1a-11e2-a134-85fca932f094",
+    		"type" : "application",
+    		"name" : "easemob/qixin",
+    		"created" : 1366614166517,
+    		"modified" : 1366614166517,
+    		"accesstokenttl" : null,
+    		"applicationName" : "qixin",
+    		"organizationName" : "easemob",
+    		"metadata" : {
+				"collections" : {
+         			"assets" : {
+           				"title" : "Assets",
+           				"count" : 0,
+           				"name" : "assets",
+           				"type" : "asset"
+         			},
+         			"users" : {
+           				"title" : "Users",
+           				"count" : 0,
+           				"name" : "users",
+           				"type" : "user"
+         			},
+         			"events" : {
+           				"title" : "Events",
+           				"count" : 0,
+           				"name" : "events",
+           				"type" : "event"
+         			},
+         			"roles" : {
+           				"title" : "Roles",
+           				"count" : 0,
+           				"name" : "roles",
+           				"type" : "role"
+        	 		},
+         			"folders" : {
+           				"title" : "Folders",
+           				"count" : 0,
+           				"name" : "folders",
+           				"type" : "folder"
+         			},
+         			"activities" : {
+           				"title" : "Activities",
+           				"count" : 0,
+           				"name" : "activities",
+           				"type" : "activity"
+         			},
+         			"devices" : {
+           				"title" : "Devices",
+           				"count" : 0,
+           				"name" : "devices",
+           				"type" : "device"
+         			},
+         			"groups" : {
+           				"title" : "Groups",
+           				"count" : 0,
+           				"name" : "groups",
+           				"type" : "group"
+         			}
+				}
+			}
 		} ],
 		"data" : {
 		   "easemob/qixin" : "a2e433a0-ab1a-11e2-a134-85fca932f094"
