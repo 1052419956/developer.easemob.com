@@ -16,6 +16,7 @@ layout: docs
 	[[EaseMob sharedInstance].userManager logoffWithError:&error];
 
 ### 3.发送消息
+
 #### 3.1发送文本消息及表情 
 	EMChatText *text = [[EMChatText alloc] initWithText:str];
     EMMessageBody *body = [[EaseMob sharedInstance].chatManager createTextMessageBody:text];
