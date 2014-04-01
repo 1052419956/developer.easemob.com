@@ -49,8 +49,9 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 # 2. 组织机构（Org）管理 #
 
 ## 2.1 创建一个组织机构（org）及该组织机构的管理员账号 ##
+##test##
 
-##POST /management/organizations
+##POST /management/organizations##
 	
 - 描述: 创建一个新org，同时在该org下创建一个新用户
 - 权限：admin管理员
