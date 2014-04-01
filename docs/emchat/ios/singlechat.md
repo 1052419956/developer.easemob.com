@@ -12,6 +12,7 @@ layout: docs
                                                   andCompany:kCompanyName
                                                        error:&error];
 
+
 ### 2.退出登录
 	[[EaseMob sharedInstance].userManager logoffWithError:&error];
 
@@ -24,15 +25,21 @@ layout: docs
                                               receiver:username
                                                 bodies:[NSArray arrayWithObject:body]];
 	[[EaseMob sharedInstance].chatManager sendMessage:msg progress:nil error:nil];
+
+
 #### 3.2发送语音消息
+
+
 #### 3.3发送图片消息
+
     EMChatImage *chatImage = [[EMChatImage alloc] initWithImage:image displayName:@"image"];
-    EMChatImage *chatThumbnailImage = [[EMChatImage alloc] initWithImage:image displayName:@"image"];
-    EMMessageBody *body = [[EaseMob sharedInstance].chatManager createImageMessageBody:chatImage
-                                                               thumbnailImage:chatThumbnailImage
-                                                               optimized:YES];
+    EMChatImage *chatThumbnailImage = [[EMChatImage alloc] initWithImage:image 	displayName:@"image"];
+    EMMessageBody *body = [[EaseMob sharedInstance].chatManager 	createImageMessageBody:chatImage thumbnailImage:chatThumbnailImage optimized:YES];
+
+
 
 #### 3.4发送地理位置消息
+
 
 ### 4.接收消息
 	注册一个delegate
@@ -41,8 +48,10 @@ layout: docs
 	#pragma mark - IChatManagerDelegate
 	-(void)didReceiveMessage:(EMMessage *)message{
 	}
+	
 ### 5.获取聊天记录
 	    EMConversation *conversation = [[EaseMob sharedInstance].chatManager
                                     conversationForChatter:username];
+                                    
 ### 6.删除聊天记录
 	[[EaseMob sharedInstance].chatManager removeMessage:message];
