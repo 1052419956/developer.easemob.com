@@ -26,7 +26,7 @@ Android SDK 下载包是个 zip 文件，里边有如下的内容：
 
 ##iOS SDK
 
-SDK下载地址:  [http://www.easemob.com/downloads/iOS.zip](http://www.easemob.com/downloads/iOS.zip)
+SDK下载地址:  [http://www.easemob.com/downloads/iOSSDK.zip](http://www.easemob.com/downloads/iOSSDK.zip)
 
 iOS SDK 下载包是个 zip 文件，里边有如下的内容：
 
