@@ -49,7 +49,9 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 # 2. 组织机构（Org）管理 #
 
 ## 2.1 创建一个组织机构（org）及该组织机构的管理员账号 ##
+
 ##POST /management/organizations
+	
 - 描述: 创建一个新org，同时在该org下创建一个新用户
 - 权限：admin管理员
 - Url参数:无
@@ -57,12 +59,14 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - 错误代码：？
 
 - curl示例：创建一个名为:"weiquan"的org, 并同时为这个org创建一个管理员。管理员的用户名为"weiquan"， 其注册邮件地址是admin@vokeji.com (用于找回密码)，密码为"weiquan123456"
-    
+    	
+		
     	curl -X POST "http://api.easemob.com/management/organizations" -d '{"organization":"weiquan","username":"weiquan","email":"admin@vokeji.com","password":"weiquan123456"}'
 
-
+	
 	response返回:
 
+	
     	{
       	"action" : "new organization",
       	"status" : "ok",
@@ -90,8 +94,11 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
      	"duration" : 3559
     	}
 
+
 ## 2.2 org admin管理员登陆并获取授权token  ##   
+
 ##POST /management/token
+
 - 描述: 登录并授权，获得一个token。
 - 权限：admin管理员
 - url参数:无
@@ -100,13 +107,13 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url示例：
 
 
-
+		
 		curl -X POST "http://api.easemob.com/management/token" -d '{"grant_type":"password","username":"jervisliu@gmail.com","password":"yan7312"}'
 
-
+	
 	response返回：
 		
-		
+			
     	{"access_token":"YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ",
 		"expires_in":604800,
 		"user":{
@@ -148,9 +155,11 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		  }
 		}
 
+
 ## 2.3 在Org下创建App ###
 
 ##POST/management/organizations/${orgName}/applications
+
 - 描述:创建app用户？
 - 权限：admin管理员
 - url参数:无
@@ -158,9 +167,10 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 - url示例：
 
-
+		
 		curl -X POST -i -H "Authorization: Bearer YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ" "http://api.easemob.com/management/organizations/easemob/applications" -d '{"name":"qixin"}'
 
+	
 	response返回：
 
 		
@@ -236,6 +246,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		 "duration" : 174
 		}
 
+
 ## 2.4 获取指定Org下的App列表 ##
 
 ##GET/management/organizations/${orgName}/applications
@@ -265,9 +276,10 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
     	"duration" : 3
     	}
 
+
 ## 2.5 获取指定Org下的用户列表（即获取该Org的管理员用户列表） ##
 
-##GET/management/organizations/${orgName}/users
+##GET /management/organizations/${orgName}/users
 
 - 描述:获取组织内管理员的用户列表
 - 权限：admin
@@ -278,7 +290,8 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 		
 		curl -X GET -i -H "Authorization: Bearer YWMt7Yo7wLL0EeKOmhfmlOylrwAAAT6IEHV89wf4rvv3R3_ZZW7NJ43N-nygsnY" "http://163.177.200.107:8080/management/organizations/easemob/users?querypar…"
-
+		
+		
 		
     	{
     	"action" : "get organization users",
@@ -302,6 +315,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
  
 
 # 3. App 管理 #
+
 ## 3.1. App改名 ##
 
 ##PUT/${organizationName}/${applicationName}
@@ -316,6 +330,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		 
 	    curl -X PUT  -H "Authorization: Bearer YWMt7Yo7wLL0EeKOmhfmlOylrwAAAT6IEHV89wf4rvv3R3_ZZW7NJ43N-nygsnY" "http://api.easemob.com/easemob/qixin" -d '{"title":"myappnamenew"}'
 
+	
 	Response返回:
 
 		
