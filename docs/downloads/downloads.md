@@ -38,8 +38,8 @@ iOS SDK 下载包是个 zip 文件，里边有如下的内容：
 
 请参考如下文档来集成SDK：
 
--  [5分钟快速入门](#{site.base_url}/docs/emchat/iOS/quickstart.html)
-- [iOS SDK 集成指南](#{site.base_url}/docs/emchat/iOS/singlechat.html)
+-  [5分钟快速入门](#{site.base_url}/docs/emchat/ios/quickstart.html)
+- [iOS SDK 集成指南](#{site.base_url}/docs/emchat/ios/singlechat.html)
 
 
 
