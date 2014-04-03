@@ -47,8 +47,11 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
  
 # 2. 组织机构（Org）管理 #
+
 ## 2.1 创建一个组织机构（org）及该组织机构的管理员账号 ##
-##POST /management/organizations
+
+### POST /management/organizations ###
+
 - 描述: 创建一个新org，同时在该org下创建一个新用户
 - 权限：admin管理员
 - Url参数:无
@@ -89,8 +92,9 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
      	"duration" : 3559
     	}
 
-## 2.2 org admin管理员登陆并获取授权token  ##   
-##POST /management/token
+## 2.2 org admin管理员登陆并获取授权token  ##  
+ 
+### POST /management/token ###
 - 描述: 登录并授权，获得一个token。
 - 权限：admin管理员
 - url参数:无
@@ -103,7 +107,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
     
 	response返回：
 
-    	{"access_token":"YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ",
+   		{"access_token":"YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ",
 		"expires_in":604800,
 		"user":{
 			"username":"jliu",
