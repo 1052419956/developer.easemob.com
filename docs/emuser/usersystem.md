@@ -47,8 +47,11 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
  
 # 2. 组织机构（Org）管理 #
+
 ## 2.1 创建一个组织机构（org）及该组织机构的管理员账号 ##
-##POST /management/organizations
+
+### POST /management/organizations ###
+
 - 描述: 创建一个新org，同时在该org下创建一个新用户
 - 权限：admin管理员
 - Url参数:无
@@ -89,8 +92,9 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
      	"duration" : 3559
     	}
 
-## 2.2 org admin管理员登陆并获取授权token  ##   
-##POST /management/token
+## 2.2 org admin管理员登陆并获取授权token  ##  
+ 
+### POST /management/token ###
 - 描述: 登录并授权，获得一个token。
 - 权限：admin管理员
 - url参数:无
@@ -103,7 +107,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
     
 	response返回：
 
-    	{"access_token":"YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ",
+   		{"access_token":"YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ",
 		"expires_in":604800,
 		"user":{
 			"username":"jliu",
@@ -144,8 +148,9 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		  }
 		}
 
-## 2.3 在Org下创建App ###
-##POST/management/organizations/${orgName}/applications
+## 2.3 在Org下创建App ##
+
+### POST/management/organizations/${orgName}/applications ###
 - 描述:创建app用户？
 - 权限：admin管理员
 - url参数:无
@@ -231,7 +236,8 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		}
 
 ## 2.4 获取指定Org下的App列表 ##
-##GET/management/organizations/${orgName}/applications
+
+### GET/management/organizations/${orgName}/applications ###
 - 描述:获取应用列表
 - 权限：
 - url参数:
@@ -255,8 +261,9 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
     	"duration" : 3
     	}
 
-## 2.5 获取指定Org下的用户列表（即获取该Org的管理员用户列表） ##
-##GET/management/organizations/${orgName}/users
+## 2.5 获取指定Org下的用户列表（即获取该Org的管理员用户列表）
+
+### GET/management/organizations/${orgName}/users  ###
 - 描述:获取组织内管理员的用户列表
 - 权限：admin
 - url参数:
@@ -287,8 +294,10 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
     	}
  
 # 3. App 管理 #
+
 ## 3.1. App改名 ##
-##PUT/${organizationName}/${applicationName}
+
+### PUT/${organizationName}/${applicationName} ###
 - 描述:应用改名. 注：applicationName是app的唯一标识名，是不能更改的。我们使用的应用名是app的一个叫"title"的属性.改名实际上是修改title属性
 - 权限：admin
 - url参数:
@@ -327,7 +336,8 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		}
 
 ## 3.2 获取指定App详情 ##
-##GET/management/organizations/${orgName}/applications/${appName}
+
+### GET/management/organizations/${orgName}/applications/${appName} ###
 - 描述:获取app详情
 - 权限：
 - url参数:
@@ -415,8 +425,10 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 
 # 4. 用户（Users）管理 #
+
 ## 4.1 app用户登录并获取授权token ##
-##POST/${orgName}/${appName}/token
+
+### POST/${orgName}/${appName}/token ###
 - 描述: 登录并授权，获得一个token。
 - 权限：admin
 - url参数:
@@ -455,7 +467,8 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
  
 ## 4.2 创建app的用户 ##
-##POST/${orgName}/${appName}/users
+
+### POST/${orgName}/${appName}/users ###
 - 描述:创建一个新的app user
 - 权限: application access
 - url参数: "email","username","name" 匀不能已存在
@@ -513,7 +526,8 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 	注：创建用户是不需要授权的。所以不需要传入token。
 
 ## 4.3 获取app的用户总数量 ##
-##GET/${orgName}/${appName}/users
+
+### GET/${orgName}/${appName}/users ###
 - 描述:获取app的用户总数
 - 权限：admin
 - url参数:
@@ -524,7 +538,8 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/counters?counter=application.collectio…"
 
 ## 4.4 获取app的用户列表 ##
-##GET/${orgName}/${appName}/users
+
+### GET/${orgName}/${appName}/users ###
 - 描述:获取app用户列表
 - 权限：admin
 - url参数:
@@ -535,7 +550,8 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users"
 
 ## 4.5 获取app的指定用户详情 ##
-##GET/${orgName}/${appName}/users/${userName}
+
+### GET/${orgName}/${appName}/users/${userName} ###
 - 描述:获取app的指定用户详情
 - 权限：
 - usl参数:
@@ -546,7 +562,8 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users/jliu1"
 
 ## 4.6 查找用户 ##
-##GET /${orgName}/${appName}/users
+
+### GET /${orgName}/${appName}/users ###
 - 描述:查找用户
 - 权限
 - url参数:
@@ -563,7 +580,8 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
     	curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users?ql=select * where nick contains '刘'"
 
 ## 4.7 查询app的现有用户总数 ##
-##GET /${orgName}/${appName}/counters
+
+### GET /${orgName}/${appName}/counters ###
 - 描述:查询app的现有用户总数
 - 权限：admin
 - url参数:counter=application.collection.users
@@ -574,7 +592,8 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/counters?counter=application.collection.users"
 
 ## 4.8 删除app的指定用户 ##
-##DELETE /${orgName}/${appName}/users/${userName}
+
+### DELETE /${orgName}/${appName}/users/${userName} ###
 - 描述:删除app的指定用户
 - 权限：
 - url参数:
@@ -585,7 +604,8 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "http://api.easemob.com/easemob/qixin/users/ligangying"
 
 ## 4.9 更新App的用户信息 ##
-##GET /${orgName}/${appName}/users
+
+### GET /${orgName}/${appName}/users ###
 - 描述: 输入参数中必须有username属性（username是user的primary key)
 - 权限：
 - url参数:
@@ -619,7 +639,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 4.11 生成随机用户id ##
 很多app都需要为用户产生一个账号，比如陌陌号，qq号。这个账号一般是一个数字（便于记忆，便于告诉他人）。这个账号一般不能用自增长的数字，而需要是一个随机数字，以避免他人猜到账号，或者根据账号数字猜测app的总用户数
-##GET /${orgName}/${appName}/users/${userName}？？
+### GET /${orgName}/${appName}/users/${userName} ###
 - 描述: 随机生成用户id
 - 权限：admin
 - url参数:
@@ -631,7 +651,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 4.12 根据用户手机号登陆（通过手机号查找用户） ##
 很多app都是通过用户号登陆。但在实际系统中，我们并不能用手机号作为用户账号，因为这样会导致用户手机号码泄露。通过手机号登陆的实际操作过程是先通过用户手机号查询用户账号，然后再通过用户账号登陆。
-##GET /${orgName}/${appName}/users/${userName}？？
+### GET /${orgName}/${appName}/users/${userName}？？ ###
 - 描述: 根据手机号查找用户
 - 权限：
 - url参数:
