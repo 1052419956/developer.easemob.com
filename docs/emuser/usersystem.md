@@ -161,7 +161,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ###POST/management/organizations/${orgName}/applications
 
-- 描述:创建app用户？
+- 描述:创建app用户 ？
 - 权限：admin管理员
 - url参数:无
 - response返回:
@@ -699,7 +699,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 ## 4.11 生成随机用户id ##
 很多app都需要为用户产生一个账号，比如陌陌号，qq号。这个账号一般是一个数字（便于记忆，便于告诉他人）。这个账号一般不能用自增长的数字，而需要是一个随机数字，以避免他人猜到账号，或者根据账号数字猜测app的总用户数
 
-###GET /${orgName}/${appName}/users/${userName}？？
+###GET /${orgName}/${appName}/users/${userName}？
 
 - 描述: 随机生成用户id
 - 权限：admin
