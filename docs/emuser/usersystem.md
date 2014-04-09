@@ -159,7 +159,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 2.3 在Org下创建App ###
 
-###POST/management/organizations/${orgName}/applications
+###POST/management/organizations/${orgName}/applications###
 
 - 描述:创建app用户 ？
 - 权限：admin管理员
