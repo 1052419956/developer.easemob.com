@@ -280,7 +280,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 2.5 获取指定Org下的用户列表（即获取该Org的管理员用户列表） ##
 
-###GET /management/organizations/${orgName}/users
+###GET /management/organizations/${orgName}/users ###
 
 - 描述:获取组织内管理员的用户列表
 - 权限：admin
