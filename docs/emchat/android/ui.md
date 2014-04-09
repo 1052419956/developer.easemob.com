@@ -10,7 +10,7 @@ layout: docs
 #1 会话模块
 ##1.1 会话列表
 
-
+![图片chattalk](./chattalk.png)
 
 ##1.2 单聊(语音)
 
