@@ -250,7 +250,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 2.4 获取指定Org下的App列表 ##
 
-###GET/management/organizations/${orgName}/applications
+###GET/management/organizations/${orgName}/applications ###
 
 - 描述:获取应用列表
 - 权限：
