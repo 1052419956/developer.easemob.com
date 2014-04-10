@@ -54,3 +54,4 @@ layout: docs
 ![图片_个人详情](./persondetail.png)
 
 
+
