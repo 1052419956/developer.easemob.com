@@ -4,7 +4,7 @@ description: EM用户体系
 category: emuser
 layout: docs
 ---
-# test2 #
+# test3 #
 
 # 1. 概述 #
 
@@ -60,15 +60,17 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - Request返回: 如果创建成功，返回200
 - 错误代码：？
 
-- curl示例：创建一个名为:"weiquan"的org, 并同时为这个org创建一个管理员。管理员的用户名为"weiquan"， 其注册邮件地址是admin@vokeji.com (用于找回密码)，密码为"weiquan123456"
+- curl示例：创建一个名为:"weiquan"的org, 并同时为这个org创建一个管理员。管理员的用户名为"weiquan"， 其注册邮件地址是admin@vokeji.com (用于找回密码)，密码为"weiquan123456".
     	
 		
-    	curl -X POST "http://api.easemob.com/management/organizations" -d '{"organization":"weiquan","username":"weiquan","email":"admin@vokeji.com","password":"weiquan123456"}'
+			
+			curl -X POST "http://api.easemob.com/management/organizations" -d '{"organization":"weiquan","username":"weiquan","email":"admin@vokeji.com","password":"weiquan123456"}'
 
 	
 	response返回:
-
-	
+			
+			
+			
     	{
       	"action" : "new organization",
       	"status" : "ok",
@@ -114,6 +116,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 	
 	response返回：
+		
 		
 			
     	{"access_token":"YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ",
