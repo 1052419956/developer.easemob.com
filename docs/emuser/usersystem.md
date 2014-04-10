@@ -4,7 +4,7 @@ description: EM用户体系
 category: emuser
 layout: docs
 ---
-# test3 #
+# test4 #
 
 # 1. 概述 #
 
@@ -71,7 +71,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 			
 			
 			
-    	{
+			{
       	"action" : "new organization",
       	"status" : "ok",
       	"data" : {
@@ -119,7 +119,8 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		
 		
 			
-    	{"access_token":"YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ",
+    		{
+		"access_token":"YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ",
 		"expires_in":604800,
 		"user":{
 			"username":"jliu",
@@ -179,7 +180,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 	response返回：
 
 		
-    	{
+    		{
 		"action" : "new application for organization",
 		"uri" : "http://163.177.200.107:8080/null/null",
 		"entities" : [ {
@@ -263,14 +264,16 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 - url示例：
 
-		
-    	curl -X GET -i -H "Authorization: Bearer YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ" "http://api.easemob.com/management/organizations/easemob/applications"
+	
+				
+			curl -X GET -i -H "Authorization: Bearer YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ" "http://api.easemob.com/management/organizations/easemob/applications"
     
 		
 	response返回：
     
 		
-    	{
+			
+    		{
     	"action" : "get organization application",
     	"data" : {
     		"easemob/test1" : "92a86160-a7f9-11e2-9b9f-05f910c95d9e",
