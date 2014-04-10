@@ -335,7 +335,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url参数:
 - response返回:
 
-- url示例：
+####url示例：
   
 		 
 	    curl -X PUT  -H "Authorization: Bearer YWMt7Yo7wLL0EeKOmhfmlOylrwAAAT6IEHV89wf4rvv3R3_ZZW7NJ43N-nygsnY" "http://api.easemob.com/easemob/qixin" -d '{"title":"myappnamenew"}'
@@ -380,7 +380,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url参数:
 - response返回: orgName, appName, authentication token
 
-- url示例：
+####url示例：
 		
 		
 		
@@ -391,7 +391,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 				
 				
 				
-    		{
+    	{
     	"action" : "get",
     	"application" : "a2e433a0-ab1a-11e2-a134-85fca932f094",
     	"params" : { },
