@@ -54,9 +54,3 @@ layout: docs
 ![图片_个人详情](./persondetail.png)
 
 
-
-#3 企业应用
-
-
-
-#4 个人设置
