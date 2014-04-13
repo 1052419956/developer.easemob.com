@@ -343,7 +343,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 	    curl -X PUT  -H "Authorization: Bearer YWMt7Yo7wLL0EeKOmhfmlOylrwAAAT6IEHV89wf4rvv3R3_ZZW7NJ43N-nygsnY" "http://api.easemob.com/easemob/qixin" -d '{"title":"myappnamenew"}'
 
 	
-	Response返回:
+  Response返回:
 				
 				
 				
