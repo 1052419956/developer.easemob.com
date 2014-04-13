@@ -4,7 +4,6 @@ description: EM用户体系
 category: emuser
 layout: docs
 ---
-# test6 #
 
 # 1. 概述 #
 
@@ -61,16 +60,12 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - 错误代码：？
 
 #### curl示例：
-创建一个名为:"weiquan"的org, 并同时为这个org创建一个管理员。管理员的用户名为"weiquan"， 其注册邮件地址是admin@vokeji.com (用于找回密码)，密码为"weiquan123456".
-    	
+创建一个名为:"weiquan"的org, 并同时为这个org创建一个管理员。管理员的用户名为"weiquan"， 其注册邮件地址是admin@vokeji.com (用于找回密码)，密码为"weiquan123456".   	
 		
 			
 			curl -X POST "http://api.easemob.com/management/organizations" -d '{"organization":"weiquan","username":"weiquan","email":"admin@vokeji.com","password":"weiquan123456"}'
-
 	
-#### response返回:
-			
-			
+#### response返回:						
 			
 			{
       	"action" : "new organization",
@@ -110,14 +105,10 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - Request返回: 授权结果(json),其中access_token为授权后的token
 
 #### url示例：
-
-
 		
 		curl -X POST "http://api.easemob.com/management/token" -d '{"grant_type":"password","username":"jervisliu@gmail.com","password":"yan7312"}'
-
 	
-#### response返回：
-			
+#### response返回：			
 			
 		{
 		"access_token":"YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ",
@@ -172,13 +163,11 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - response返回:
 
 #### url示例：
-
 		
 		curl -X POST -i -H "Authorization: Bearer YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ" "http://api.easemob.com/management/organizations/easemob/applications" -d '{"name":"qixin"}'
 
 	
-#### response返回：
-				
+#### response返回：				
 				
 		{
 		"action" : "new application for organization",
@@ -252,7 +241,6 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		 "duration" : 174
 		}
 
-
 ## 2.4 获取指定Org下的App列表 ##
 
 ### GET/management/organizations/${orgName}/applications ###
@@ -262,17 +250,11 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url参数:
 - response返回:
 
-#### url示例：
-			
-			
+#### url示例：						
 				
-			curl -X GET -i -H "Authorization: Bearer YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ" "http://api.easemob.com/management/organizations/easemob/applications"
-    
+			curl -X GET -i -H "Authorization: Bearer YWMt4IYuoKpyEeKAVDvUzId7bAAAAT5QTmKK7SK9-DA3eqvCX9ISX7xN2rJHsoQ" "http://api.easemob.com/management/organizations/easemob/applications"  
 		
-#### response返回：
-    			
-				
-				
+#### response返回：    											
 				
 		{
 	"action" : "get organization application",
@@ -286,8 +268,6 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 	}
 
 
-
-
 ## 2.5 获取指定Org下的用户列表（即获取该Org的管理员用户列表） ##
 
 ###GET /management/organizations/${orgName}/users ###
@@ -298,10 +278,8 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - response返回: orgName, authentication token
 
 #### url示例：
-
 		
-		curl -X GET -i -H "Authorization: Bearer YWMt7Yo7wLL0EeKOmhfmlOylrwAAAT6IEHV89wf4rvv3R3_ZZW7NJ43N-nygsnY" "http://163.177.200.107:8080/management/organizations/easemob/users?querypar…"
-				
+		curl -X GET -i -H "Authorization: Bearer YWMt7Yo7wLL0EeKOmhfmlOylrwAAAT6IEHV89wf4rvv3R3_ZZW7NJ43N-nygsnY" "http://163.177.200.107:8080/management/organizations/easemob/users?querypar…"				
 
 #### response返回：	
 					
@@ -324,7 +302,6 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
      	"timestamp" : ,
      	"duration" : 10
     	}
- 
 
 # 3. App 管理 #
 
@@ -337,14 +314,11 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url参数:
 - response返回:
 
-#### url示例：
-  
+#### url示例：  
 		 
 	    curl -X PUT  -H "Authorization: Bearer YWMt7Yo7wLL0EeKOmhfmlOylrwAAAT6IEHV89wf4rvv3R3_ZZW7NJ43N-nygsnY" "http://api.easemob.com/easemob/qixin" -d '{"title":"myappnamenew"}'
-
 	
-#### Response返回:
-				
+#### Response返回:				
 				
 		{
       	"action" : "put",
@@ -381,15 +355,11 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url参数:
 - response返回: orgName, appName, authentication token
 
-#### url示例：
-		
-		
+#### url示例：				
 		
     	curl -X GET -H "Authorization: Bearer YWMt7Yo7wLL0EeKOmhfmlOylrwAAAT6IEHV89wf4rvv3R3_ZZW7NJ43N-nygsnY" " http://api.easemob.com/management/organizations/easemob/applications/qixin"
-
 	
-####response返回:
-				
+####response返回:				
 				
 		{
     	"action" : "get",
@@ -463,9 +433,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
       	"duration" : 7,
       	"organization" : "easemob",
       	"applicationName" : "qixin"
-    	}
-		
-
+    	}		
 
 # 4. 用户（Users）管理 #
 ## 4.1 app用户登录并获取授权token ##
@@ -477,14 +445,12 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url参数:
 - response返回: 授权结果(json),其中access_token为授权后的token
 
-- url示例：
-
+#### url示例：
 		
 		curl -X POST "http://api.easemob.com/easemob/qixin/token" -d '{"grant_type":"password","username":"jliu1","password":"jliu1"}'
-
 	
+				
 	如果这个用户之前已经注册了, 并且这里提供的密码正确的话, 会返回
-
 		
 		{
 		  			"access_token":"YWMtNda4DFzyEeOrOy_LuVzHjAAAAULiG1IrN8opggpytUDFmJkiocawbINICYk",
@@ -522,14 +488,11 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url参数: "email","username","name" 匀不能已存在
 - response返回：
 
-- url示例：
-
+#### url示例：
 		
 		curl -X POST -i "http://api.easemob.com/easemob/qixin/users" -d '{"username":"jliu0003","password":"jliu0002"}'
 
-
-	response返回:
-
+#### response返回:
 		
 		{
 		"action" : "post",
@@ -588,8 +551,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url参数:
 - response返回: orgName, authentication token
 
-- url示例：
-
+#### url示例：
 		
 		curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/counters?counter=application.collectio…"
 
@@ -603,8 +565,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url参数:
 - response返回: orgName, authentication token
 
-- url示例：
-
+#### url示例：
 		
 		curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users"
 
@@ -618,8 +579,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - usl参数:
 - response返回: orgName, authentication token
 
-- url示例：
-
+#### url示例：
 		
 		curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users/jliu1"
 
@@ -631,8 +591,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url参数:
 - response返回: 
 
-- url示例：
-
+#### url示例：
 	
 	例1： 根据用户手机号查找用户
 		
@@ -640,8 +599,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users?ql=select * where mobile='13800138000'"
 
 
-	例2： 根据用户昵称的部分查找用户
-		
+	例2： 根据用户昵称的部分查找用户		
 			
 			
     	curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users?ql=select * where nick contains '刘'"
@@ -656,35 +614,32 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url参数:counter=application.collection.users
 - response返回: 
 
-- url示例：
-
+#### url示例：
 		
 		curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/counters?counter=application.collection.users"
 
 
 ## 4.8 删除app的指定用户 ##
 
-###DELETE /${orgName}/${appName}/users/${userName}
+### DELETE /${orgName}/${appName}/users/${userName}
 - 描述:删除app的指定用户
 - 权限：
 - url参数:
 - response返回: orgName, authentication token
 
-- url示例：
-
+#### url示例：
 		
 		curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "http://api.easemob.com/easemob/qixin/users/ligangying"
 
 ## 4.9 更新App的用户信息 ##
 
-###GET /${orgName}/${appName}/users
+### GET /${orgName}/${appName}/users
 
 - 描述: 输入参数中必须有username属性（username是user的primary key)
 - 权限：
 - url参数:
 - response返回:
-- url示例：
-
+#### url示例：
 		
 		curl -X PUT -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "http://api.easemob.com/easemob/qixin/users/jliu" -d '{   "username" : "jliu", "usertype" : "customer"}'
 
@@ -715,14 +670,14 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 ## 4.11 生成随机用户id ##
 很多app都需要为用户产生一个账号，比如陌陌号，qq号。这个账号一般是一个数字（便于记忆，便于告诉他人）。这个账号一般不能用自增长的数字，而需要是一个随机数字，以避免他人猜到账号，或者根据账号数字猜测app的总用户数
 
-###GET /${orgName}/${appName}/users/${userName}？
+### GET /${orgName}/${appName}/users/${userName}？
 
 - 描述: 随机生成用户id
 - 权限：admin
 - url参数:
 - response返回:
 
-- url示例：
+#### url示例：
 
 		
 		curl -X GET -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" -H "appkey: linjushuo" "http://223.202.120.59:7874/id/users"
@@ -737,7 +692,6 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url参数:
 - response返回:
 
-- url示例：
-
+#### url示例：
 		
 		curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users?ql=select * where mobile='13800138000'"
