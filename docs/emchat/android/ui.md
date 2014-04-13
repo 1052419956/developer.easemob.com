@@ -21,7 +21,7 @@ layout: docs
 
 **会话功能支持语音发送，点击“按住说话”按钮，可记录语音信息，松开按钮，信息自动发送给对方。**
 
-![图片_单聊语音按住说话](./chattalk.png)
+![图片_单聊语音按住说话](C:\Users\break\developer.easemob.com\docs\emchat\android\chattalk.png)
 
 
 ##1.3 单聊详情（富媒体）##
