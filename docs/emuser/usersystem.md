@@ -518,6 +518,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 ## 4.2 创建app的用户 ##
 
 ###POST/${orgName}/${appName}/users
+
 - 描述:创建一个新的app user
 - 权限: application access
 - url参数: "email","username","name" 匀不能已存在
