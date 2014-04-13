@@ -14,7 +14,7 @@ layout: docs
 
 **会话列表，是发起会话、查看会话历史记录的入口，支持联系人搜索。**
 
-![图片_会话列表](./chatlist.png)
+![图片](./docs/emchat/android/chatlist.png)
 
 
 ##1.2 单聊(语音)
