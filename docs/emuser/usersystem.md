@@ -263,7 +263,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url参数:
 - response返回:
 
-- url示例：
+####url示例：
 			
 			
 				
@@ -275,16 +275,16 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 				
 				
 				
-    			{
-    	"action" : "get organization application",
-    	"data" : {
-    		"easemob/test1" : "92a86160-a7f9-11e2-9b9f-05f910c95d9e",
-    		"easemob/sandbox" : "63b15ec0-a7f9-11e2-891d-4b59fb74c9dd",
-    		"easemob/qixin" : "a2e433a0-ab1a-11e2-a134-85fca932f094"
-    	},
-    	"timestamp" : 1366614166925,
-    	"duration" : 3
-    	}
+		{
+	"action" : "get organization application",
+	"data" : {
+		"easemob/test1" : "92a86160-a7f9-11e2-9b9f-05f910c95d9e",
+		"easemob/sandbox" : "63b15ec0-a7f9-11e2-891d-4b59fb74c9dd",
+		"easemob/qixin" : "a2e433a0-ab1a-11e2-a134-85fca932f094"
+	},
+	"timestamp" : 1366614166925,
+	"duration" : 3
+	}
 
 
 
@@ -298,14 +298,14 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - url参数:
 - response返回: orgName, authentication token
 
-- url示例：
+####url示例：
 
 		
 		curl -X GET -i -H "Authorization: Bearer YWMt7Yo7wLL0EeKOmhfmlOylrwAAAT6IEHV89wf4rvv3R3_ZZW7NJ43N-nygsnY" "http://163.177.200.107:8080/management/organizations/easemob/users?querypar…"
 				
 				
 				
-    		{
+    	`{`
     	"action" : "get organization users",
     	"data" : [ {
     		"applicationId" : "00000000-0000-0000-0000-000000000001",
@@ -343,11 +343,10 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 	    curl -X PUT  -H "Authorization: Bearer YWMt7Yo7wLL0EeKOmhfmlOylrwAAAT6IEHV89wf4rvv3R3_ZZW7NJ43N-nygsnY" "http://api.easemob.com/easemob/qixin" -d '{"title":"myappnamenew"}'
 
 	
-  Response返回:
+####Response返回:
 				
 				
-				
-    		{
+		{
       	"action" : "put",
       	"application" : "a2e433a0-ab1a-11e2-a134-85fca932f094",
       	"params" : { },
