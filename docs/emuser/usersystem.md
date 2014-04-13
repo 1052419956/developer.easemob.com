@@ -467,10 +467,9 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
             }
 		}
 
-	从这个返回值中, 可以得到两部分信息:
+从这个返回值中, 可以得到两部分信息:
 
 1. token
-
      这个是服务器用来标识这个用户已经登陆的, 用户登陆后的所有操作(这里的操作指的是app访问服务器的request), 都需要把这个token加到header当中, 在本文档后面所有描述到得request都会有这个header   
 
 		
@@ -534,13 +533,11 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		}
   
 	
-	注：这里, username 和password 是必须提供的, 除此之外, 还可以增加任意别的属性, 例如, 在用户注册页面让用户填写性别和email地址的话, 那么post的数据就会是
-
-		
+注：这里, username 和password 是必须提供的, 除此之外, 还可以增加任意别的属性, 例如, 在用户注册页面让用户填写性别和email地址的话, 那么post的数据就会是
+				
 		curl -X POST -i "http://api.easemob.com/easemob/qixin/users" -d '{"username":"jliu0003","password":"jliu0002", "sex":"male", "email":"stliu@apache.org"}'
 
-	
-	注：创建用户是不需要授权的。所以不需要传入token。
+注：创建用户是不需要授权的。所以不需要传入token。
 
 ## 4.3 获取app的用户总数量 ##
 
@@ -592,15 +589,12 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - response返回: 
 
 #### url示例：
-	
-	例1： 根据用户手机号查找用户
+##### 例1： 根据用户手机号查找用户
 		
 		
 		curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users?ql=select * where mobile='13800138000'"
 
-
-	例2： 根据用户昵称的部分查找用户		
-			
+##### 例2： 根据用户昵称的部分查找用户				
 			
     	curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users?ql=select * where nick contains '刘'"
 		
