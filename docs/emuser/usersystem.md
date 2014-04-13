@@ -436,6 +436,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
     	}		
 
 # 4. 用户（Users）管理 #
+
 ## 4.1 app用户登录并获取授权token ##
 
 ###POST/${orgName}/${appName}/token
@@ -450,7 +451,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 		curl -X POST "http://api.easemob.com/easemob/qixin/token" -d '{"grant_type":"password","username":"jliu1","password":"jliu1"}'
 	
 				
-	如果这个用户之前已经注册了, 并且这里提供的密码正确的话, 会返回
+如果这个用户之前已经注册了, 并且这里提供的密码正确的话, response会返回
 		
 		{
 		  			"access_token":"YWMtNda4DFzyEeOrOy_LuVzHjAAAAULiG1IrN8opggpytUDFmJkiocawbINICYk",
