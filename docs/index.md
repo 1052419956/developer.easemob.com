@@ -96,4 +96,4 @@ layout: docs
 	* [5分钟快速入门]()
 	* [Android 易推SDK使用详解]()
 	* [Demo及SDK下载]()
-* [REST API](#{site.base_url}/docs/push/)
+* [REST API](#{site.base_url}/docs/empush/)
