@@ -146,8 +146,8 @@ verification_code
 
     {
         "title": "通知栏弹出的消息",
-        "msg": {
-            //具体的消息体
+        "data": {
+            //具体的消息体,可以是任何合法的json值
         },
     }
 
