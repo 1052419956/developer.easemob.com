@@ -706,6 +706,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - response body:
 - 错误代码：
 
+
 #### url示例：
 		
 		curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users?ql=select * where mobile='13800138000'"
