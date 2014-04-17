@@ -39,7 +39,6 @@ layout: docs
 		* [高级话题](#{site.base_url}/docs/emchat/android/advanced.html)
 			* [公开群组： 设置群组属性为公开或非公开群组。搜索所有公开群组。加入公开群组](#{site.base_url}/docs/emchat/android/advanced.html)
 			* [群组自定义属性](#{site.base_url}/docs/emchat/android/advanced.html)
-	* [UI模板库](#{site.base_url}/docs/emchat/android/ui.html)
 	* [集成第三方用户体系](#{site.base_url}/docs/emchat/usersystemintegration.html)
 	* [Java Doc](http://www.easemob.com/apidoc/chat/)
 	* [Demo及SDK下载](#{site.base_url}/docs/downloads/downloads.html)
@@ -76,10 +75,10 @@ layout: docs
 		* [高级话题](#{site.base_url}/docs/emchat/ios/advanced.html)
 			* [公开群组： 设置群组属性为公开或非公开群组。搜索所有公开群组。加入公开群组](#{site.base_url}/docs/emchat/ios/advanced.html)
 			* [群组自定义属性](#{site.base_url}/docs/emchat/ios/advanced.html)
-	* [UI模板库]()
 	* [集成第三方用户体系](#{site.base_url}/docs/emchat/usersystemintegration.html)
 	* [Apple Doc]()
 	* [Demo及SDK下载](#{site.base_url}/docs/downloads/downloads.html)
+* [UI模板库](#{site.base_url}/docs/emchat/ui.html)
 * [REST API]()
 	* [群组管理REST API](#{site.base_url}/docs/emchat/rest/groupmanagement.html)
 
@@ -92,8 +91,8 @@ layout: docs
 
 
 ## 易推
-* [Android]()
+<!--* [Android]()
 	* [5分钟快速入门]()
 	* [Android 易推SDK使用详解]()
-	* [Demo及SDK下载]()
+	* [Demo及SDK下载]()-->
 * [REST API](#{site.base_url}/docs/empush/)

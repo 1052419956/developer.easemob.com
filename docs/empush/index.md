@@ -203,6 +203,19 @@ EMPush 同时支持 Andorid 与 iOS 平台的通知推送。
 
 注意：长度指字节。由于使用 UTF-8 编码，所以一个中文字符占 3 个字节。
 
+### Android推送特别说明 ###
+
+因为android推送没有长度限制，所以可以把推送内容直接发送给接收设备。为保证兼容性，请在data下使用android:details字段来发送android的推送内容。易推服务器会对android:details字段做特别出来。只将该字段发给android设备，不发送给ios设备。
+
+    {
+        "title": "通知栏弹出的消息", 
+        "data": {
+            "android:details":"android特定消息，长度不受限制。ios不会收到这个字段"
+        },
+        "badge":88,	
+        "sound":"default"	
+    }
+
 
 <!-- 
 ## 单点推送
