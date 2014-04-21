@@ -48,6 +48,9 @@ layout: docs
 #### 4.设置Linker
 ![alt text](link.png "link")
 
+#### 5.设置Architectures
+![alt text](Active.png "Active")
+
 #### 5.在Info中配置服务器信息
 ![alt text](info.png "info")
 *配置中信息请填写实际注册时的信息
