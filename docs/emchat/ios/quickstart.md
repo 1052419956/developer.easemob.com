@@ -38,7 +38,9 @@ layout: docs
 
 ## 3.快速集成
 
-#### 1.下载EaseMobSDK:[下载链接](http://www.easemob.com/downloads/iOSSDK.zip)
+#### 1.下载EaseMobSDK:
+下载EaseMobSDK
+[下载链接](http://www.easemob.com/downloads/iOSSDK.zip)
 
 #### 2.将EaseMobSDK拖入到项目中
  ![alt text](import.png "Title")
