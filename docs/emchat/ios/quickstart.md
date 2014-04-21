@@ -36,12 +36,28 @@ layout: docs
 
  ![alt text](demo.png "demo")
 
+## 3.快速集成
+#### 1.下载EaseMobSDK:[下载链接](http://www.easemob.com/downloads/iOSSDK.zip)
+
+#### 2.将EaseMobSDK拖入到项目中
+ ![alt text](import.png "Title")
+ 
+#### 3.加入依赖库
+ ![alt text](addLib.png "Lib")
+ 
+#### 4.设置Linker
+![alt text](link.png "link")
+
+#### 5.在Info中配置服务器信息
+![alt text](info.png "info")
+*配置中信息请填写实际注册时的信息
+ 
+ 
+
+## 4. 从源代码级别深入了解易聊demo (iOS)
 
 
-## 3. 从源代码级别深入了解易聊demo (iOS)
-
-
-### 3.1. 深入理解易聊demo背后的代码 ###
+### 4.1. 深入理解易聊demo背后的代码 ###
 
 #### 1.注册listener,以接收聊天消息:RootViewController.m
 
@@ -54,7 +70,7 @@ layout: docs
     [[EaseMob sharedInstance].userManager asyncLoginWithUsername:@"test1"
                                                         password:@"123456"
                                                       completion:^(NSDictionary *loginInfo,
-                                                                   EMError *error) {
+                                                                   EMError *error)                                                                    {
                                                           [self hideHud];
                                                           if (error) {
                                                               NSLog(@"登录失败");
