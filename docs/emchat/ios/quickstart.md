@@ -72,18 +72,16 @@ layout: docs
 
 #### 2. 登录：见RootViewController+Login.m ####
 
-	//使用测试帐号 test1 密码为123456
-    [[EaseMob sharedInstance].userManager asyncLoginWithUsername:@"test1"
+    [[EaseMob sharedInstance].userManager asyncLoginWithUsername:@"test"
                                                         password:@"123456"
-                                                      completion:^(NSDictionary *loginInfo,
-                                                                   EMError *error)                                                                    {
-                                                          [self hideHud];
-                                                          if (error) {
-                                                              NSLog(@"登录失败");
-                                                          }else {
-                                                              NSLog(@"登录成功");
-                                                          }
-                                                      } onQueue:nil];
+                                                      completion:
+     ^(NSDictionary *loginInfo,EMError *error){
+         if (error) {
+             [self errorMsgShowAlert:error];
+         }else {
+             NSLog(@"登录成功");
+         }
+     } onQueue:nil];
 
 
 #### 3. 退出登录：见RootViewController+Login.m ####
@@ -92,13 +90,12 @@ layout: docs
 
 #### 4. 发送消息：见RootViewController+sendChat.m ####
 
-    //本demo是发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
     EMChatText *text = [[EMChatText alloc] initWithText:message];
-    EMMessageBody *body = [[EaseMob sharedInstance].chatManager createTextMessageBody:text];
+    EMMessageBody *body = [[EMTextMessageBody alloc] initWithMessage:text];
     NSString *myUsername = [[[EaseMob sharedInstance].userManager loginInfo]
                             objectForKey:kUserLoginInfoUsername];
     EMMessage *msg = [[EMMessage alloc] initWithSender:myUsername
-                                              receiver:@"bot"
+                                              receiver:receiverUsername
                                                 bodies:[NSArray arrayWithObject:body]];
     
     [[EaseMob sharedInstance].chatManager sendMessage:msg
@@ -108,13 +105,17 @@ layout: docs
 
 #### 5. 接收聊天消息并显示：见RootViewController.m ####
 
-	-(void)didReceiveMessage:(EMMessage *)message{
-    	for (EMMessageBody *body in message.messageBodies) {
-     	   if (body.messageType == eMessageType_Text) {
-      	      _textView.text = ((EMTextMessageBody *)body).text;
-      	      break;
+	-(void)didReceiveMessage:(EMMessage *)message
+          inConversation:(EMConversation *)conversation{
+          
+    	EMMessageBody *body = message.messageBodies.lastObject;
+		if (body.messageType == eMessageType_Text) {
+      	  if (!_textView.text || _textView.text.length == 0) {
+       	     _textView.text = ((EMTextMessageBody *)body).text.text;
+      	  }else{
+      	      _textView.text = [NSString stringWithFormat:@"%@\n%@",_textView.text,								((EMTextMessageBody *)body).text.text];
       	  }
-   		}
+    	}
 	}
 
 
