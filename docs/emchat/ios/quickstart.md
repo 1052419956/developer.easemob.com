@@ -51,13 +51,17 @@ layout: docs
 #### 4.设置Linker
 ![alt text](link.png "link")
 
+*	向Other Linker Flags 中添加 -Objc。(如果已有，则不需要再添加)
+
 #### 5.设置Architectures
 ![alt text](Active.png "Active")
 
 #### 5.在Info中配置服务器信息
 ![alt text](info.png "info")
-*配置中信息请填写实际注册时的信息
  
+ *	EASEMIB_APPKEY 申请的公司名
+ *	EASEMOB_USERSERVICE_FACTORY_CLASS 用户体系工厂类 （默认UGUserServiceFactory）
+  
  
 
 ## 4. 从源代码级别深入了解易聊demo (iOS)
