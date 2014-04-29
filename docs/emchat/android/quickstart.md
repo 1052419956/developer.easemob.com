@@ -37,9 +37,9 @@ layout: docs
  ![alt text](demo.png "demo")
 
 
-## 3.快速集成(Android) 
+## 3.快速集成(Android) ##
 
-### 3.1. 把easemobchat_2.0.0.jar拷贝到你的项目的libs文件夹底下。
+### 3.1. 把easemobchat_2.0.0.jar拷贝到你的项目的libs文件夹底下。###
 
   ![](http://i.imgur.com/q67rv6d.jpg)
 
