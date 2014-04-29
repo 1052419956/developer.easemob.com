@@ -37,17 +37,34 @@ layout: docs
  ![alt text](demo.png "demo")
 
 
+## 3.快速集成(Android) 
+###3.1. 把easemobchat_2.0.0.jar拷贝到你的项目的libs文件夹底下。
+![](http://i.imgur.com/q67rv6d.jpg)
 
-## 3. 从源代码级别深入了解易聊demo (Android)
+###3.2. 在清单文件AndroidManifest.xml里加入以下权限，以及写上你注册的appkey
+
+		<uses-permission android:name="android.permission.VIBRATE" />
+	    <uses-permission android:name="android.permission.INTERNET" />
+	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	    <uses-permission android:name="android.permission.GET_TASKS" />
+	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+		
+		<!--  设置易聊SDK的appkey -->
+	    <meta-data android:name="EASEMOB_APPKEY"  android:value="你申请的appkey" />
+
+
+
+## 4. 从源代码级别深入了解易聊demo (Android)
 
  
-### 3.1 在Eclipse/IDEA中创建易聊demo project 
+### 4.1 在Eclipse/IDEA中创建易聊demo project 
 
 
 1. Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的chatdemo-nonui路径,点击“Finish”。
 
 
-### 3.2. 深入理解易聊demo背后的代码 ###
+### 4.2. 深入理解易聊demo背后的代码 ###
 
 #### 1.初始化： 见DemoApplication.java
 
@@ -110,7 +127,7 @@ layout: docs
     }
 
 
-#### 3. 退出登录：见MainActivity.java ####
+#### 4. 退出登录：见MainActivity.java ####
 
     @Override
     protected void onPause() {
@@ -121,7 +138,7 @@ layout: docs
     }
 
 
-#### 4. 发送消息：见MainActivity.java ####
+#### 5. 发送消息：见MainActivity.java ####
 
     //本demo是发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
     public void onSendTxtMsg(View view) {
@@ -142,7 +159,7 @@ layout: docs
         }
     }
 
-#### 5. 接收聊天消息并显示：见MainActivity.java ####
+#### 6. 接收聊天消息并显示：见MainActivity.java ####
 
     private class NewMessageBroadcastReceiver extends BroadcastReceiver {
         @Override
@@ -167,7 +184,7 @@ layout: docs
  
 易工厂提供了一系列demo以帮助开发者更好的学习了解易聊SDK。所有demo均已在github上开源供开发者下载使用。你可以clone这些项目来学习了解易聊SDK，也可以在这些demo基础上快速创建你自己的真正项目。易聊SDK（Android版）在github的下载地址是：
 
-    [https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)
+[https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)
 
 
 # 5. Bug报告跟踪 #
