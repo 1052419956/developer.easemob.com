@@ -76,6 +76,9 @@ layout: docs
 			//消息body，为一个json字符串
 			String msgBody = intent.getStringExtra("body");
 			Log.d("main", "new message id:" + msgId + " from:" + msgFrom + " type:" + msgType + " body:" + msgBody);
+			
+			//更方便的方法是通过msgId直接获取整个message
+            EMMessage message = EMChatManager.getInstance().getMessage(msgId);
                     
             }
     }
