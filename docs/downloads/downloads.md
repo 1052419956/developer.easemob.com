@@ -7,7 +7,7 @@ layout: docs
 
 ##Android SDK
 
-SDK下载地址:  [http://www.easemob.com/downloads/androidsdk.zip](http://www.easemob.com/downloads/androidsdk.zip)
+SDK下载地址:  [http://www.easemob.com/downloads/androidsdk.zip](http://www.easemob.com/downloads/easemob-sdk-2.0.0.zip)
 
 Android SDK 下载包是个 zip 文件，里边有如下的内容：
 

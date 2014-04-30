@@ -39,9 +39,9 @@ layout: docs
 
 ## 3.快速集成(Android) ##
 
-### 3.1. 把easemobchat_2.0.0.jar拷贝到你的项目的libs文件夹底下。###
+### 3.1. 把libs文件夹下easemobchat_2.0.0.jar和3rdpartylibs文件夹下httpmime-4.2.jar拷贝到你的项目的libs文件夹底下。###
 
-  ![](http://i.imgur.com/q67rv6d.jpg)
+ ![](http://i.imgur.com/NrMwsez.jpg)
 
 ### 3.2. 在清单文件AndroidManifest.xml里加入以下权限，以及写上你注册的appkey
 
