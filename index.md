@@ -1,12 +1,12 @@
 ---
-title: EaseMob 开发者文档
-description: 快速上手
+title:环信开发者文档
+description: 快速入门
 category: index
 layout: docs
 ---
 
 
-## 环信
+## 环信移动IM SDK
 
 
 * [Android]()
