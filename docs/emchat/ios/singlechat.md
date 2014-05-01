@@ -9,7 +9,6 @@ layout: docs
 ### 1.登录
      [[EaseMob sharedInstance].userManager loginWithUsername:username
                                                     password:password
-                                                  andCompany:kCompanyName
                                                        error:&error];
 
 

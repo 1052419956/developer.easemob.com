@@ -36,12 +36,38 @@ layout: docs
 
  ![alt text](demo.png "demo")
 
+## 3.快速集成
+
+#### 1.下载EaseMobSDK:
+下载EaseMobSDK
+[下载链接](http://www.easemob.com/downloads/iOSSDK.zip)
+
+#### 2.将EaseMobSDK拖入到项目中
+ ![alt text](import.png "Title")
+ 
+#### 3.加入依赖库
+ ![alt text](addLib.png "Lib")
+ 
+#### 4.设置Linker
+![alt text](link.png "link")
+
+*	向Other Linker Flags 中添加 -Objc。(如果已有，则不需要再添加)
+
+#### 5.设置Architectures
+![alt text](Active.png "Active")
+
+#### 5.在Info中配置服务器信息
+![alt text](info.png "info")
+ 
+ *	EASEMIB_APPKEY 申请的公司名
+ *	EASEMOB_USERSERVICE_FACTORY_CLASS 用户体系工厂类 （默认UGUserServiceFactory）
+  
+ 
+
+## 4. 从源代码级别深入了解易聊demo (iOS)
 
 
-## 3. 从源代码级别深入了解易聊demo (iOS)
-
-
-### 3.1. 深入理解易聊demo背后的代码 ###
+### 4.1. 深入理解易聊demo背后的代码 ###
 
 #### 1.注册listener,以接收聊天消息:RootViewController.m
 
@@ -50,18 +76,16 @@ layout: docs
 
 #### 2. 登录：见RootViewController+Login.m ####
 
-	//使用测试帐号 test1 密码为123456
-    [[EaseMob sharedInstance].userManager asyncLoginWithUsername:@"test1"
+    [[EaseMob sharedInstance].userManager asyncLoginWithUsername:@"test"
                                                         password:@"123456"
-                                                      completion:^(NSDictionary *loginInfo,
-                                                                   EMError *error) {
-                                                          [self hideHud];
-                                                          if (error) {
-                                                              NSLog(@"登录失败");
-                                                          }else {
-                                                              NSLog(@"登录成功");
-                                                          }
-                                                      } onQueue:nil];
+                                                      completion:
+     ^(NSDictionary *loginInfo,EMError *error){
+         if (error) {
+             [self errorMsgShowAlert:error];
+         }else {
+             NSLog(@"登录成功");
+         }
+     } onQueue:nil];
 
 
 #### 3. 退出登录：见RootViewController+Login.m ####
@@ -70,13 +94,12 @@ layout: docs
 
 #### 4. 发送消息：见RootViewController+sendChat.m ####
 
-    //本demo是发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
     EMChatText *text = [[EMChatText alloc] initWithText:message];
-    EMMessageBody *body = [[EaseMob sharedInstance].chatManager createTextMessageBody:text];
+    EMMessageBody *body = [[EMTextMessageBody alloc] initWithMessage:text];
     NSString *myUsername = [[[EaseMob sharedInstance].userManager loginInfo]
                             objectForKey:kUserLoginInfoUsername];
     EMMessage *msg = [[EMMessage alloc] initWithSender:myUsername
-                                              receiver:@"bot"
+                                              receiver:receiverUsername
                                                 bodies:[NSArray arrayWithObject:body]];
     
     [[EaseMob sharedInstance].chatManager sendMessage:msg
@@ -86,13 +109,17 @@ layout: docs
 
 #### 5. 接收聊天消息并显示：见RootViewController.m ####
 
-	-(void)didReceiveMessage:(EMMessage *)message{
-    	for (EMMessageBody *body in message.messageBodies) {
-     	   if (body.messageType == eMessageType_Text) {
-      	      _textView.text = ((EMTextMessageBody *)body).text;
-      	      break;
+	-(void)didReceiveMessage:(EMMessage *)message
+          inConversation:(EMConversation *)conversation{
+          
+    	EMMessageBody *body = message.messageBodies.lastObject;
+		if (body.messageType == eMessageType_Text) {
+      	  if (!_textView.text || _textView.text.length == 0) {
+       	     _textView.text = ((EMTextMessageBody *)body).text.text;
+      	  }else{
+      	      _textView.text = [NSString stringWithFormat:@"%@\n%@",_textView.text,								((EMTextMessageBody *)body).text.text];
       	  }
-   		}
+    	}
 	}
 
 
