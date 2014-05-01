@@ -1,33 +1,33 @@
 ---
-title: 易聊
-description: 5分钟为你的APP加入完整的微信聊天功能
+title: 环信
+description: 5分钟为你的APP加入聊天功能
 category: emchat
 layout: docs
 ---
 
-# 快速入门（五分钟运行易聊demo) 
+# 快速入门（五分钟运行环信demo) 
 
 
-## 1.下载易聊demo (iOS) 
+## 1.下载环信demo (iOS) 
 
-###  1.1 什么是易聊demo
+###  1.1 什么是环信demo
 
-易聊demo展示了怎样使用易聊SDK快速创建一个完整的类微信聊天APP。展示的功能包括：易聊SDK初始化，登录，登出，注册消息接收listener, 发送消息
+环信demo展示了怎样使用环信SDK快速创建一个完整的类微信聊天APP。展示的功能包括：环信SDK初始化，登录，登出，注册消息接收listener, 发送消息
 
-易聊demo源代码已在github上开源供开发者下载，以帮助开发者更好的学习了解易聊SDK。
+环信demo源代码已在github上开源供开发者下载，以帮助开发者更好的学习了解环信SDK。
 
-### 1.2 下载易聊demo 
+### 1.2 下载环信demo 
 
     
 
-1. 下载易聊demo：[下载链接](#{site.base_url}/docs/downloads/downloads.html)
+1. 下载环信demo：[下载链接](#{site.base_url}/docs/downloads/downloads.html)
 
 2. 解压缩iOSsdk.zip后会得到以下目录结构：
  
  ![alt text](example_layout.png "Title")
 
 
-## 2.运行易聊demo (iOS) 
+## 2.运行环信demo (iOS) 
 
 1. 在手机上安装chatdemo-nonui.ipa
     
@@ -64,10 +64,10 @@ layout: docs
   
  
 
-## 4. 从源代码级别深入了解易聊demo (iOS)
+## 4. 从源代码级别深入了解环信demo (iOS)
 
 
-### 4.1. 深入理解易聊demo背后的代码 ###
+### 4.1. 深入理解环信demo背后的代码 ###
 
 #### 1.注册listener,以接收聊天消息:RootViewController.m
 

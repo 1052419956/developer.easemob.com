@@ -1,12 +1,12 @@
 ---
 title: EaseMob 开发者文档
-description: 快速上手
+description: 快速入门
 category: index
 layout: docs
 ---
 
 
-## 易聊
+## 环信
 
 
 * [Android]()

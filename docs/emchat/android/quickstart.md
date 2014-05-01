@@ -1,33 +1,33 @@
 ---
-title: 易聊
+title: 环信
 description: 5分钟为你的APP加入完整的微信聊天功能
 category: emchat
 layout: docs
 ---
 
-# 快速入门（五分钟运行易聊demo) 
+# 快速入门（五分钟运行环信demo) 
 
 
-## 1.下载易聊demo (Android) 
+## 1.下载环信demo (Android) 
 
-###  1.1 什么是易聊demo
+###  1.1 什么是环信demo
 
-易聊demo展示了怎样使用易聊SDK快速创建一个完整的类微信聊天APP。展示的功能包括：易聊SDK初始化，登录，登出，注册消息接收listener, 发送消息
+环信demo展示了怎样使用环信SDK快速创建一个完整的类微信聊天APP。展示的功能包括：环信SDK初始化，登录，登出，注册消息接收listener, 发送消息
 
-易聊demo源代码已在github上开源供开发者下载，以帮助开发者更好的学习了解易聊SDK。
+环信demo源代码已在github上开源供开发者下载，以帮助开发者更好的学习了解环信SDK。
 
-### 1.2 下载易聊sdk及demo 
+### 1.2 下载环信sdk及demo 
 
     
 
-1. 下载易聊sdk及demo：[下载链接](#{site.base_url}/docs/downloads/downloads.html)
+1. 下载环信sdk及demo：[下载链接](#{site.base_url}/docs/downloads/downloads.html)
 
 2. 解压缩easemob-sdk-2.0.0.zip后会得到以下目录结构：
  
  ![alt text](example_layout.png "Title")
 
 
-## 2.运行易聊demo (Android) 
+## 2.运行环信demo (Android) 
 
 1. 在手机上安装chatdemo-nonui.apk
     
@@ -52,21 +52,21 @@ layout: docs
 	    <uses-permission android:name="android.permission.GET_TASKS" />
 	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 		
-		<!--  设置易聊SDK的appkey -->
+		<!--  设置环信SDK的appkey -->
 	    <meta-data android:name="EASEMOB_APPKEY"  android:value="你申请的appkey" />
 
 
 
-## 4. 从源代码级别深入了解易聊demo (Android)
+## 4. 从源代码级别深入了解环信demo (Android)
 
  
-### 4.1 在Eclipse/IDEA中创建易聊demo project 
+### 4.1 在Eclipse/IDEA中创建环信demo project 
 
 
 1. Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的chatdemo-nonui路径,点击“Finish”。
 
 
-### 4.2. 深入理解易聊demo背后的代码 ###
+### 4.2. 深入理解环信demo背后的代码 ###
 
 #### 1.初始化： 见DemoApplication.java
 
@@ -78,7 +78,7 @@ layout: docs
            super.onCreate();
            appContext = this;
      
-           //初始化易聊SDK
+           //初始化环信SDK
            Log.d("DemoApplication", "Initialize EMChat SDK");
            EaseMobChat.getInstance().init(appContext);
         }
@@ -181,10 +181,10 @@ layout: docs
         }
     }
 
-<!-- # 4. 易聊demo源代码 
+<!-- # 4. 环信demo源代码 
 
  
-易工厂提供了一系列demo以帮助开发者更好的学习了解易聊SDK。所有demo均已在github上开源供开发者下载使用。你可以clone这些项目来学习了解易聊SDK，也可以在这些demo基础上快速创建你自己的真正项目。易聊SDK（Android版）在github的下载地址是：
+环信提供了一系列demo以帮助开发者更好的学习了解环信SDK。所有demo均已在github上开源供开发者下载使用。你可以clone这些项目来学习了解环信SDK，也可以在这些demo基础上快速创建你自己的真正项目。环信SDK（Android版）在github的下载地址是：
 
 [https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)-->
 
