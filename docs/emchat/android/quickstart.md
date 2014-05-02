@@ -20,7 +20,7 @@ layout: docs
 
     
 
-1. 下载环信sdk及demo：[下载链接](#{site.base_url}/docs/downloads/downloads.html)
+1. 下载环信sdk及demo：[下载链接](www.easemob.com/downloads.php)
 
 2. 解压缩easemob-sdk-2.0.0.zip后会得到以下目录结构：
  
@@ -193,6 +193,6 @@ layout: docs
 
 请使用以下地址来报告跟踪bug：
 
-https://github.com/easemob/sdkexamples-android/issues
+[https://github.com/easemob/sdkexamples-android/issues](https://github.com/easemob/sdkexamples-android/issues)
 
 

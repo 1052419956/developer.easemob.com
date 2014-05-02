@@ -41,8 +41,7 @@ layout: docs
 			* [群组自定义属性](#{site.base_url}/docs/emchat/android/advanced.html)
 	* [集成第三方用户体系](#{site.base_url}/docs/emchat/usersystemintegration.html)
 	* [Java Doc](http://www.easemob.com/apidoc/chat/)
-	* [Demo及SDK下载](#{site.base_url}/docs/downloads/downloads.html)
-	
+	* [Demo及SDK下载](www.easemob.com/downloads.php)
 
  
 * [iOS]()
@@ -77,7 +76,7 @@ layout: docs
 			* [群组自定义属性](#{site.base_url}/docs/emchat/ios/advanced.html)
 	* [集成第三方用户体系](#{site.base_url}/docs/emchat/usersystemintegration.html)
 	* [Apple Doc](http://easemob.com/apidoc/iOS/chat/)
-	* [Demo及SDK下载](#{site.base_url}/docs/downloads/downloads.html)
+	* [Demo及SDK下载](www.easemob.com/downloads.php)
 * [UI模板库](#{site.base_url}/docs/emchat/ui.html)
 * [REST API]()
 	* [群组管理REST API](#{site.base_url}/docs/emchat/rest/groupmanagement.html)

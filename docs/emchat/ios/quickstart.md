@@ -20,7 +20,7 @@ layout: docs
 
     
 
-1. 下载环信demo：[下载链接](#{site.base_url}/docs/downloads/downloads.html)
+1. 下载环信demo：[下载链接](www.easemob.com/downloads.php)
 
 2. 解压缩iOSsdk.zip后会得到以下目录结构：
  
