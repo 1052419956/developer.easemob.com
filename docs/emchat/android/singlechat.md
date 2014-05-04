@@ -10,11 +10,31 @@ layout: docs
 ### 1.初始化环信SDK
 	EaseMobChat.getInstance().init(getApplicationContext());
 
-### 2.登陆
-    EMUserManager.getInstance().login(userName, password, callback);
+### 2.登陆聊天服务器
+    EMChatManager.getInstance().login(userName,password,
+				new EMCallBack() {
+					@Override
+					public void onSuccess() {
+						runOnUiThread(new Runnable() {
+							public void run() {
+								Log.d("main", "登陆聊天服务器成功！");
+							}
+						});
+					}
+
+					@Override
+					public void onProgress(int progress, String status) {
+
+					}
+
+					@Override
+					public void onError(int code, String message) {
+						Log.d("main", "登陆聊天服务器失败！");
+					}
+				});
 
 ### 3.退出登陆
-	EMUserManager.getInstance().logout();
+	EMChatManager.getInstance().logout();
 
 ### 4.发送消息 ###
 #### 4.1发送文本消息及表情 ####
