@@ -12,7 +12,7 @@ layout: docs
 
 ###  1.1 什么是环信demo
 
-环信demo展示了怎样使用环信SDK快速创建一个完整的类微信聊天APP。展示的功能包括：环信SDK初始化，登录，登出，注册消息接收listener, 发送消息
+环信demo展示了怎样使用环信SDK快速创建一个完整的类微信聊天APP。展示的功能包括：环信SDK初始化，登录，登出，注册消息接收listener, 发送消息。
 
 环信demo源代码已在github上开源供开发者下载，以帮助开发者更好的学习了解环信SDK。
 
@@ -20,7 +20,7 @@ layout: docs
 
     
 
-1. 下载环信sdk及demo：[下载链接](www.easemob.com/downloads.php)
+1. 下载环信sdk及demo：[下载链接](http://www.easemob.com/downloads.php)
 
 2. 解压缩easemob-sdk-2.0.0.zip后会得到以下目录结构：
  
