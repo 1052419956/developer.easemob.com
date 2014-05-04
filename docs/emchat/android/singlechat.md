@@ -8,11 +8,13 @@ layout: docs
 ##单聊:
 
 ### 1.初始化环信SDK
+建议在application中初始化
+
 	EaseMobChat.getInstance().init(getApplicationContext());
 
 ### 2.登陆聊天服务器
     EMChatManager.getInstance().login(userName,password,
-				new EMCallBack() {
+				new EMCallBack() {//回调
 					@Override
 					public void onSuccess() {
 						runOnUiThread(new Runnable() {
@@ -119,6 +121,6 @@ layout: docs
     //删除和某个user的整个的聊天记录
     EMChatManager.getInstance().deleteConversation(username);
     //删除当前会话的某条聊天记录
-    conversation.removeMessage(deleteMsg.msgId);
+    void conversation.removeMessage(deleteMsg.msgId);
 	 
 
