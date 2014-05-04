@@ -16,9 +16,9 @@ layout: docs
      ^(NSDictionary *loginInfo, EMError *error) {
          [self hideHud];
          if (error) {
-			 NSLog(@"登录失败");
+			NSLog(@"登录失败");
          }else {
-             NSLog(@"登录成功");
+			NSLog(@"登录成功");
          }
      } onQueue:nil];
      
@@ -33,9 +33,9 @@ loginInfo包含账号，密码等信息。
 #### 3.1发送文本消息及表情 ####
 
 	EMChatText *text = [[EMChatText alloc] initWithText:str];
-    EMMessageBody *body = [[EaseMob sharedInstance].chatManager createTextMessageBody:text];
-    EMMessage *msg = [[EMMessage alloc] initWithReceiver:username
-                                                bodies:@[body]];
+	EMMessageBody *body = [[EaseMob sharedInstance].chatManager 	createTextMessageBody:text];
+	EMMessage *msg = [[EMMessage alloc] initWithReceiver:username
+	                                            bodies:@[body]];
 	[[EaseMob sharedInstance].chatManager sendMessage:msg progress:nil error:nil];
 
 
@@ -44,24 +44,24 @@ loginInfo包含账号，密码等信息。
 ##### 3.2.1 录音 #####
 
 	EMError *error = nil;
-    [[EaseMob sharedInstance].chatManager startRecordingAudioWithError:&error];
-    if (error) {
-        NSLog(@"开始录音失败");
-    }
+	[[EaseMob sharedInstance].chatManager startRecordingAudioWithError:&error];
+	if (error) {
+	    NSLog(@"开始录音失败");
+	}
 
 ##### 3.2.2 停止录音 #####
 
-	 [[EaseMob sharedInstance].chatManager asyncStopRecordingAudioWithCompletion:
-     ^(EMChatVoice *voice, EMError *error){
-    
-     } onQueue:nil];
+	[[EaseMob sharedInstance].chatManager asyncStopRecordingAudioWithCompletion:
+	^(EMChatVoice *voice, EMError *error){
+	
+	} onQueue:nil];
      
 ##### 3.2.3 取消录音 #####
 
-	 [[EaseMob sharedInstance].chatManager asyncCancelRecordingAudioWithCompletion:
-     ^(EMChatVoice *voice, EMError *error){
-     
-     } onQueue:nil];
+	[[EaseMob sharedInstance].chatManager asyncCancelRecordingAudioWithCompletion:
+	^(EMChatVoice *voice, EMError *error){
+	
+	} onQueue:nil];
 
 
 ##### 3.2.4 发送录音 #####
@@ -70,17 +70,17 @@ loginInfo包含账号，密码等信息。
 
 	EMMessageBody *body = [[EMVoiceMessageBody alloc]initWithMessage:voice];
 	EMMessage *msg = [[EMMessage alloc] initWithReceiver:username
-                                                bodies:@[body]];
+	                                            bodies:@[body]];
 	[[EaseMob sharedInstance].chatManager sendMessage:msg progress:nil error:nil];
 
 	
 #### 3.3发送图片消息 ####
 
-    EMChatImage *chatImage = [[EMChatImage alloc] initWithImage:image displayName:@"image"];
-    EMChatImage *chatThumbnailImage = [[EMChatImage alloc] initWithImage:image 	displayName:@"image"];
-    EMMessageBody *body = [[EaseMob sharedInstance].chatManager 	createImageMessageBody:chatImage thumbnailImage:chatThumbnailImage optimized:YES];
-    EMMessage *msg = [[EMMessage alloc] initWithReceiver:username
-                                            bodies:@[body]];
+	EMChatImage *chatImage = [[EMChatImage alloc] initWithImage:image 	displayName:@"image"];
+	
+	EMMessageBody *body = [[EaseMob sharedInstance].chatManager 	createImageMessageBody:chatImage thumbnailImage:nil optimized:YES];
+	EMMessage *msg = [[EMMessage alloc] initWithReceiver:username
+	                                        bodies:@[body]];
 	[[EaseMob sharedInstance].chatManager sendMessage:msg progress:nil error:nil];
 
 chatImage：大图
@@ -92,13 +92,13 @@ chatThumbnailImage：缩略图（可不传）
 在得到经纬度和位置信息后，可以生成对应的LocationType的Message，之后发送即可
 	
 	EMChatLocation *chatLocation = [[EMChatLocation alloc]
-                                    initWithLatitude:latitude
-                                    longitude:longitude
-                                    address:address];
-    EMMessageBody *body = [[EMLocationMessageBody alloc]
-                           initWithMessage:chatLocation];
+	                                initWithLatitude:latitude
+	                                longitude:longitude
+	                                address:address];
+	EMMessageBody *body = [[EMLocationMessageBody alloc]
+	                       initWithMessage:chatLocation];
 	EMMessage *msg = [[EMMessage alloc] initWithReceiver:username
-                                            bodies:@[body]];
+	                                        bodies:@[body]];
 	[[EaseMob sharedInstance].chatManager sendMessage:msg progress:nil error:nil];
 
 
@@ -131,7 +131,7 @@ chatThumbnailImage：缩略图（可不传）
 根据username可以得到一个conversation。
 
 	EMConversation *conversation = [[EaseMob sharedInstance].chatManager
-                                    conversationForChatter:username];
+	                                conversationForChatter:username];
                                     
 #### 5.1 根据messageID得到一条聊天记录 ####
 
@@ -154,7 +154,7 @@ chatThumbnailImage：缩略图（可不传）
 根据username可以得到一个conversation。
 
 	EMConversation *conversation = [[EaseMob sharedInstance].chatManager
-                                    conversationForChatter:username];
+	                                conversationForChatter:username];
                                     
 #### 6.1 删除一个EMMessage ####
 
@@ -174,7 +174,7 @@ chatThumbnailImage：缩略图（可不传）
 EMConversation中，提供了设置某一条message的状态的方法。
 		
 	/**
- 	@method
+	@method
 	@abstract 把本条消息标记为已读/未读
 	@discussion
 	@param isRead 已读或未读
@@ -186,12 +186,12 @@ EMConversation中，提供了设置某一条message的状态的方法。
 #### 7.2 设置EMConversation下所有message为已读 ####
 
 	/**
- 	@method
- 	@abstract 把本对话里的所有消息标记为已读/未读
- 	@discussion
- 	@param isRead 已读或未读
+	@method
+	@abstract 把本对话里的所有消息标记为已读/未读
+	@discussion
+	@param isRead 已读或未读
 	@result 成功标记的消息条数
- 	*/
+	*/
 	- (NSUInteger)markMessagesAsRead:(BOOL)isRead;
 
 
