@@ -85,9 +85,17 @@ layout: docs
 
 ### 6.获取聊天记录 ###
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
-	List<EMMessage> messages = conversation.getMessages();
+	List<EMMessage> messages = conversation.getAllMessages();
 
-### 7.删除聊天记录 ###
+### 7.获取未读消息数量 ###
+	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
+	int conversation.getUnreadMsgCount();
+
+### 8.未读消息清0 ###
+	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
+	void conversation.resetUnsetMsgCount();
+
+### 9.删除聊天记录 ###
     //删除和某个user的整个的聊天记录
     EMChatManager.getInstance().deleteConversation(username);
     //删除当前会话的某条聊天记录
