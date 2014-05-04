@@ -7,7 +7,7 @@ layout: docs
 
 ##单聊:
 
-### 1.初始化环信SDK
+### 1.初始化环信聊天SDK
 建议在application中初始化
 
 	EaseMobChat.getInstance().init(getApplicationContext());
@@ -35,7 +35,7 @@ layout: docs
 					}
 				});
 
-### 3.退出登陆
+### 3.退出聊天登陆
 	EMChatManager.getInstance().logout();
 
 ### 4.发送消息 ###
