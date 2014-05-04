@@ -5,18 +5,18 @@ category: emchat
 layout: docs
 ---
 
-# 快速入门（五分钟运行环信demo) 
+# 快速入门（五分钟运行环信demo)  
 
 
-## 1.下载环信demo (iOS) 
+## 1.下载环信demo (iOS) ##
 
-###  1.1 什么是环信demo
+###  1.1 什么是环信demo ###
 
 环信demo展示了怎样使用环信SDK快速创建一个完整的类微信聊天APP。展示的功能包括：环信SDK初始化，登录，登出，注册消息接收listener, 发送消息
 
 环信demo源代码已在github上开源供开发者下载，以帮助开发者更好的学习了解环信SDK。
 
-### 1.2 下载环信demo 
+### 1.2 下载环信demo ###
 
     
 
@@ -27,7 +27,7 @@ layout: docs
  ![alt text](example_layout.png "Title")
 
 
-## 2.运行环信demo (iOS) 
+## 2.运行环信demo (iOS) ##
 
 1. 在手机上安装chatdemo-nonui.ipa
     
@@ -36,27 +36,27 @@ layout: docs
 
  ![alt text](demo.png "demo")
 
-## 3.快速集成
+## 3.快速集成 ##
 
-#### 1.下载EaseMobSDK:
+### 1.下载EaseMobSDK: ###
 下载EaseMobSDK
 [下载链接](http://www.easemob.com/downloads/iOSSDK.zip)
 
-#### 2.将EaseMobSDK拖入到项目中
+### 2.将EaseMobSDK拖入到项目中 ###
  ![alt text](import.png "Title")
  
-#### 3.加入依赖库
+### 3.加入依赖库 ###
  ![alt text](addLib.png "Lib")
  
-#### 4.设置Linker
+### 4.设置Linker ###
 ![alt text](link.png "link")
 
 *	向Other Linker Flags 中添加 -Objc。(如果已有，则不需要再添加)
 
-#### 5.设置Architectures
+### 5.设置Architectures ###
 ![alt text](Active.png "Active")
 
-#### 5.在Info中配置服务器信息
+### 6.在Info中配置服务器信息 ###
 ![alt text](info.png "info")
  
  *	EASEMIB_APPKEY 申请的公司名
@@ -64,26 +64,25 @@ layout: docs
   
  
 
-## 4. 从源代码级别深入了解环信demo (iOS)
+## 4. 从源代码级别深入了解环信demo (iOS) ##
 
 
 ### 4.1. 深入理解环信demo背后的代码 ###
 
-#### 1.注册listener,以接收聊天消息:RootViewController.m
+#### 1.注册listener,以接收聊天消息:RootViewController.m ####
 
     [[EaseMob sharedInstance].chatManager addDelegate:self
                                         delegateQueue:nil];
 
-#### 2. 登录：见RootViewController+Login.m ####
+#### 2. 登录：见RandViewController+Login ####
 
-    [[EaseMob sharedInstance].userManager asyncLoginWithUsername:@"test"
+    [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:username
                                                         password:@"123456"
                                                       completion:
-     ^(NSDictionary *loginInfo,EMError *error){
-         if (error) {
-             [self errorMsgShowAlert:error];
-         }else {
-             NSLog(@"登录成功");
+     ^(NSDictionary *loginInfo, EMError *error) {
+         [self hideHud];
+         if (!error) {
+             NSLog(@"登录成功");         
          }
      } onQueue:nil];
 
@@ -98,8 +97,7 @@ layout: docs
     EMMessageBody *body = [[EMTextMessageBody alloc] initWithMessage:text];
     NSString *myUsername = [[[EaseMob sharedInstance].userManager loginInfo]
                             objectForKey:kUserLoginInfoUsername];
-    EMMessage *msg = [[EMMessage alloc] initWithSender:myUsername
-                                              receiver:receiverUsername
+    EMMessage *msg = [[EMMessage alloc] initWithReceiver:receiverUsername
                                                 bodies:[NSArray arrayWithObject:body]];
     
     [[EaseMob sharedInstance].chatManager sendMessage:msg
@@ -114,12 +112,9 @@ layout: docs
           
     	EMMessageBody *body = message.messageBodies.lastObject;
 		if (body.messageType == eMessageType_Text) {
-      	  if (!_textView.text || _textView.text.length == 0) {
-       	     _textView.text = ((EMTextMessageBody *)body).text.text;
-      	  }else{
-      	      _textView.text = [NSString stringWithFormat:@"%@\n%@",_textView.text,								((EMTextMessageBody *)body).text.text];
-      	  }
-    	}
+			NSString *msg = ((EMTextMessageBody *)body).text.text;
+			NSLog(@"收到的消息---%@",msg);
+	    }
 	}
 
 
