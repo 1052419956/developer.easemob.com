@@ -76,11 +76,13 @@ loginInfo包含账号，密码等信息;
 	
 #### 3.3发送图片消息 ####
 
-	EMChatImage *chatImage = [[EMChatImage alloc] initWithImage:image displayName:@"image"];
+	EMChatImage *chatImage = [[EMChatImage alloc] initWithImage:image 										displayName:@"image"];
 	
-	EMMessageBody *body = [[EaseMob sharedInstance].chatManager createImageMessageBody:chatImage thumbnailImage:nil optimized:YES];
+	EMMessageBody *body = [[EaseMob sharedInstance].chatManager 					createImageMessageBody:chatImage
+					 thumbnailImage:nil 
+					optimized:YES];
 	EMMessage *msg = [[EMMessage alloc] initWithReceiver:username
-	                                        bodies:@[body]];
+	                                        				bodies:@[body]];
 	[[EaseMob sharedInstance].chatManager sendMessage:msg progress:nil error:nil];
 
 	
