@@ -8,7 +8,7 @@ layout: docs
 
 ### 1.登录 ###
 
-如果使用自己的用户体系，需要先登录您的用户体系，成功后登录IM部分。
+如果使用自己的用户体系，需要先登录您的用户体系，成功后登录IM部分;
 
 	[[EaseMob sharedInstance].chatManager asyncLoginWithUsername:username
                                                         password:@"123456"
@@ -22,7 +22,7 @@ layout: docs
          }
      } onQueue:nil];
      
-loginInfo包含账号，密码等信息。
+loginInfo包含账号，密码等信息;
 
 ### 2.退出登录 ###
 
@@ -66,7 +66,7 @@ loginInfo包含账号，密码等信息。
 
 ##### 3.2.4 发送录音 #####
 
-录音结束时，会得到一个EMChatVoice对象，之后用对象生成messageBody即可发送
+录音结束时，会得到一个EMChatVoice对象，之后用对象生成messageBody即可发送;
 
 	EMMessageBody *body = [[EMVoiceMessageBody alloc]initWithMessage:voice];
 	EMMessage *msg = [[EMMessage alloc] initWithReceiver:username
@@ -89,7 +89,7 @@ chatThumbnailImage：缩略图（可不传）
 
 #### 3.4发送地理位置消息 ####
 
-在得到经纬度和位置信息后，可以生成对应的LocationType的Message，之后发送即可
+在得到经纬度和位置信息后，可以生成对应的LocationType的Message，之后发送即可;
 	
 	EMChatLocation *chatLocation = [[EMChatLocation alloc]
 	                                initWithLatitude:latitude
@@ -107,7 +107,7 @@ chatThumbnailImage：缩略图（可不传）
 
 #### 4.1 实现委托 ####
 
-在需要接受消息的页面，应该首先实现一个delegate:IChatManagerDelegate
+在需要接受消息的页面，应该首先实现一个delegate:IChatManagerDelegate;
 	
 	@interface RootViewController : UIViewController<IChatManagerDelegate>
 
@@ -124,11 +124,11 @@ chatThumbnailImage：缩略图（可不传）
 	
 收到消息后，会调用 -(void)didReceiveMessage:(EMMessage *)message; 
 
-根据message.messageType 区分是哪种消息，之后做对应的解析。
+根据message.messageType 区分是哪种消息，之后做对应的解析;
 	
 ### 5.获取聊天记录 ####
 
-根据username可以得到一个conversation。
+根据username可以得到一个conversation;
 
 	EMConversation *conversation = [[EaseMob sharedInstance].chatManager
 	                                conversationForChatter:username];
@@ -151,7 +151,7 @@ chatThumbnailImage：缩略图（可不传）
                                  	before:[[NSDate new] timeIntervalSince1970]];
                                  	
 ### 6.删除聊天记录 ###
-根据username可以得到一个conversation。
+根据username可以得到一个conversation;
 
 	EMConversation *conversation = [[EaseMob sharedInstance].chatManager
 	                                conversationForChatter:username];
@@ -168,10 +168,22 @@ chatThumbnailImage：缩略图（可不传）
 
 	- (NSUInteger)removeAllMessages;
 
-### 7. 设置消息已读状态 ###
+### 7. 设置消息状态 ###
 
-#### 7.1 设置一条消息的已读状态 ####
-EMConversation中，提供了设置某一条message的状态的方法。
+#### 7.1 获取消息未读数量 ####
+EMConversation中，提供了unreadMessagesCount属性;
+
+	/**
+	@method
+	@abstract 获取此对话中所有未读消息的条数
+	@discussion
+	@result 此对话中所有未读消息的条数
+	*/
+	- (NSUInteger)unreadMessagesCount;
+
+
+#### 7.2 设置一条消息的已读状态 ####
+EMConversation中，提供了设置某一条message的状态的方法;
 		
 	/**
 	@method
@@ -183,7 +195,8 @@ EMConversation中，提供了设置某一条message的状态的方法。
 	- (BOOL)markMessage:(EMMessage *)message asRead:(BOOL)isRead;
 	
 	
-#### 7.2 设置EMConversation下所有message为已读 ####
+#### 7.3 设置EMConversation下所有message为已读 ####
+EMConversation中，提供了设置该EMConversation对象中所有message状态的方法;
 
 	/**
 	@method
@@ -193,6 +206,8 @@ EMConversation中，提供了设置某一条message的状态的方法。
 	@result 成功标记的消息条数
 	*/
 	- (NSUInteger)markMessagesAsRead:(BOOL)isRead;
+	
+
 
 
 
