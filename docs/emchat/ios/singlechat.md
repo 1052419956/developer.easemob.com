@@ -7,6 +7,8 @@ layout: docs
 ## 单聊:
 
 ### 1.登录
+如果使用自己的用户体系，需要先登录您的用户体系，成功后登录IM部分。
+
 	[[EaseMob sharedInstance].chatManager asyncLoginWithUsername:username
                                                         password:@"123456"
                                                       completion:
