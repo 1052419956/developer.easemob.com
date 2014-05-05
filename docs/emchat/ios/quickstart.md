@@ -79,7 +79,6 @@ layout: docs
                                                         password:@"123456"
                                                       completion:
      ^(NSDictionary *loginInfo, EMError *error) {
-         [self hideHud];
          if (!error) {
              NSLog(@"登录成功");         
          }
