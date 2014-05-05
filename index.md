@@ -1,12 +1,12 @@
 ---
-title: 环信开发者文档
+title: EaseMob 开发者文档
 description: 快速入门
 category: index
 layout: docs
 ---
 
 
-## 环信移动IM SDK
+## 环信
 
 
 * [Android]()
@@ -27,22 +27,21 @@ layout: docs
 			* [阅后即焚](#{site.base_url}/docs/emchat/android/advanced.html)
 			* [服务器消息历史记录存储设置](#{site.base_url}/docs/emchat/android/advanced.html)
 	* [群聊](#{site.base_url}/docs/emchat/android/groupchat.html)
-		* [发文字，语音，图片，位置](#{site.base_url}/docs/emchat/android/singlechat.html)
-		* [接收消息](#{site.base_url}/docs/emchat/android/singlechat.html)
-		* [新建群组](#{site.base_url}/docs/emchat/android/singlechat.html)
-		* [群组加人](#{site.base_url}/docs/emchat/android/singlechat.html)
-		* [群组踢人](#{site.base_url}/docs/emchat/android/singlechat.html)
-		* [退出群组](#{site.base_url}/docs/emchat/android/singlechat.html)
-		* [退出并删除群组](#{site.base_url}/docs/emchat/android/singlechat.html)
-		* [群组管理事件回调：被邀请加入群组，被移除群组，群组增加新成员，群组成员退出，群组被删除](#{site.base_url}/docs/emchat/android/singlechat.html)
-		* [获取用户加入的群组列表](#{site.base_url}/docs/emchat/android/singlechat.html)
+		* [发文字，语音，图片，位置](#{site.base_url}/docs/emchat/android/groupchat.html)
+		* [接收消息](#{site.base_url}/docs/emchat/android/groupchat.html)
+		* [新建群组](#{site.base_url}/docs/emchat/android/groupchat.html)
+		* [群组加人](#{site.base_url}/docs/emchat/android/groupchat.html)
+		* [群组踢人](#{site.base_url}/docs/emchat/android/groupchat.html)
+		* [退出群组](#{site.base_url}/docs/emchat/android/groupchat.html)
+		* [退出并删除群组](#{site.base_url}/docs/emchat/android/groupchat.html)
+		* [群组管理事件回调：被邀请加入群组，被移除群组，群组增加新成员，群组成员退出，群组被删除](#{site.base_url}/docs/emchat/android/groupchat.html)
+		* [获取用户加入的群组列表](#{site.base_url}/docs/emchat/android/groupchat.html)
 		* [高级话题](#{site.base_url}/docs/emchat/android/advanced.html)
-			* [公开群组： 设置群组属性为公开或非公开群组。搜索所有公开群组。加入公开群组](#{site.base_url}/docs/emchat/android/advanced.html)
-			* [群组自定义属性](#{site.base_url}/docs/emchat/android/advanced.html)
+			* [公开群组： 设置群组属性为公开或非公开群组。搜索所有公开群组。加入公开群组](#{site.base_url}/docs/emchat/android/groupchat.html)
+			* [群组自定义属性](#{site.base_url}/docs/emchat/android/groupchat.html)
 	* [集成第三方用户体系](#{site.base_url}/docs/emchat/usersystemintegration.html)
 	* [Java Doc](http://www.easemob.com/apidoc/chat/)
-	* [Demo及SDK下载](#{site.base_url}/docs/downloads/downloads.html)
-	
+	* [Demo及SDK下载](http://www.easemob.com/downloads.php)
 
  
 * [iOS]()
@@ -62,22 +61,22 @@ layout: docs
 			* [阅后即焚](#{site.base_url}/docs/emchat/ios/advanced.html)
 			* [服务器消息历史记录存储设置](#{site.base_url}/docs/emchat/ios/advanced.html)
 
-	* [群聊](#{site.base_url}/docs/emchat/android/emchat.html)
-		* [发文字，语音，图片，位置](#{site.base_url}/docs/emchat/ios/singlechat.html)
-		* [接收消息](#{site.base_url}/docs/emchat/ios/singlechat.html)
-		* [新建群组](#{site.base_url}/docs/emchat/ios/singlechat.html)
-		* [群组加人](#{site.base_url}/docs/emchat/ios/singlechat.html)
-		* [群组踢人](#{site.base_url}/docs/emchat/ios/singlechat.html)
-		* [退出群组](#{site.base_url}/docs/emchat/ios/singlechat.html)
-		* [退出并删除群组](#{site.base_url}/docs/emchat/ios/singlechat.html)
-		* [群组管理事件回调：被邀请加入群组，被移除群组，群组增加新成员，群组成员退出，群组被删除](#{site.base_url}/docs/emchat/ios/singlechat.html)
-		* [获取用户加入的群组列表](#{site.base_url}/docs/emchat/ios/singlechat.html)
-		* [高级话题](#{site.base_url}/docs/emchat/ios/advanced.html)
-			* [公开群组： 设置群组属性为公开或非公开群组。搜索所有公开群组。加入公开群组](#{site.base_url}/docs/emchat/ios/advanced.html)
-			* [群组自定义属性](#{site.base_url}/docs/emchat/ios/advanced.html)
+	* [群聊](#{site.base_url}/docs/emchat/ios/groupchat.html)
+		* [发文字，语音，图片，位置](#{site.base_url}/docs/emchat/ios/groupchat.html)
+		* [接收消息](#{site.base_url}/docs/emchat/ios/groupchat.html)
+		* [新建群组](#{site.base_url}/docs/emchat/ios/groupchat.html)
+		* [群组加人](#{site.base_url}/docs/emchat/ios/groupchat.html)
+		* [群组踢人](#{site.base_url}/docs/emchat/ios/groupchat.html)
+		* [退出群组](#{site.base_url}/docs/emchat/ios/groupchat.html)
+		* [退出并删除群组](#{site.base_url}/docs/emchat/ios/groupchat.html)
+		* [群组管理事件回调：被邀请加入群组，被移除群组，群组增加新成员，群组成员退出，群组被删除](#{site.base_url}/docs/emchat/ios/groupchat.html)
+		* [获取用户加入的群组列表](#{site.base_url}/docs/emchat/ios/groupchat.html)
+		* [高级话题](#{site.base_url}/docs/emchat/ios/groupchat.html)
+			* [公开群组： 设置群组属性为公开或非公开群组。搜索所有公开群组。加入公开群组](#{site.base_url}/docs/emchat/ios/groupchat.html)
+			* [群组自定义属性](#{site.base_url}/docs/emchat/ios/groupchat.html)
 	* [集成第三方用户体系](#{site.base_url}/docs/emchat/usersystemintegration.html)
 	* [Apple Doc](http://easemob.com/apidoc/iOS/chat/)
-	* [Demo及SDK下载](#{site.base_url}/docs/downloads/downloads.html)
+	* [Demo及SDK下载](http://www.easemob.com/downloads.php)
 * [UI模板库](#{site.base_url}/docs/emchat/ui.html)
 * [REST API]()
 	* [群组管理REST API](#{site.base_url}/docs/emchat/rest/groupmanagement.html)
