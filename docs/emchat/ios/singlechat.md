@@ -7,6 +7,8 @@ layout: docs
 ## 单聊:
 
 ### 1. 初始化 ###
+在Appdelegate生命中期中，加入对应的初始化，以便SDK能正常工作;
+
 	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary 	*)launchOptions
 	{
     	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
