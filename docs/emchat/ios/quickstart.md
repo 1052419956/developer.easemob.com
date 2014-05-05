@@ -22,7 +22,7 @@ layout: docs
 
 1. 下载环信demo：[下载链接](http://www.easemob.com/downloads.php)
 
-2. 解压缩iOSsdk.zip后会得到以下目录结构：
+2. 解压缩iOSSDK.zip后会得到以下目录结构：
  
  ![alt text](example_layout.png "Title")
 
@@ -51,7 +51,7 @@ layout: docs
 ### 4.设置Linker ###
 ![alt text](link.png "link")
 
-*	向Other Linker Flags 中添加 -Objc。(如果已有，则不需要再添加)
+*	向Other Linker Flags 中添加 -ObjC。(如果已有，则不需要再添加)
 
 ### 5.设置Architectures ###
 ![alt text](Active.png "Active")
@@ -59,8 +59,7 @@ layout: docs
 ### 6.在Info中配置服务器信息 ###
 ![alt text](info.png "info")
  
- *	EASEMIB_APPKEY 申请的公司名
- *	EASEMOB_USERSERVICE_FACTORY_CLASS 用户体系工厂类 （默认UGUserServiceFactory）
+ *	关于EASEMIB_APPKEY，请登录或注册环信开发者管理后台（www.easemob.com/console）,申请APPKEY后，进行相关配置。（测试APPKEY为chatdemo）
   
  
 
@@ -87,7 +86,7 @@ layout: docs
      } onQueue:nil];
 
 
-#### 3. 退出登录：见RootViewController+Login.m ####
+#### 3. 退出登录：见RandViewController+Login.m ####
 
 	[[EaseMob sharedInstance].userManager asyncLogoff];
 
@@ -98,7 +97,7 @@ layout: docs
     NSString *myUsername = [[[EaseMob sharedInstance].userManager loginInfo]
                             objectForKey:kUserLoginInfoUsername];
     EMMessage *msg = [[EMMessage alloc] initWithReceiver:receiverUsername
-                                                bodies:[NSArray arrayWithObject:body]];
+                                                bodies:@[body]];
     
     [[EaseMob sharedInstance].chatManager sendMessage:msg
                                              progress:nil
@@ -107,9 +106,7 @@ layout: docs
 
 #### 5. 接收聊天消息并显示：见RootViewController.m ####
 
-	-(void)didReceiveMessage:(EMMessage *)message
-          inConversation:(EMConversation *)conversation{
-          
+	-(void)didReceiveMessage:(EMMessage *)message {
     	EMMessageBody *body = message.messageBodies.lastObject;
 		if (body.messageType == eMessageType_Text) {
 			NSString *msg = ((EMTextMessageBody *)body).text.text;
