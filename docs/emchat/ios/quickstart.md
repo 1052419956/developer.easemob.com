@@ -56,17 +56,17 @@ layout: docs
 ### 5.设置Architectures ###
 ![alt text](Active.png "Active")
 
-### 6.在Info中配置服务器信息 ###
+### 6.在Info中配置信息 ###
 ![alt text](info.png "info")
 
  *	关于EASEMIB_APPKEY，请登录或注册环信开发者[(http://www.easemob.com)](http://www.easemob.com),登陆管理后台,申请APPKEY后，进行相关配置。（测试APPKEY为chatdemo）
   
  
 
-## 4. 从源代码级别深入了解环信demo (iOS) ##
+## 7. 从源代码级别深入了解环信demo (iOS) ##
 
 
-### 4.1. 深入理解环信demo背后的代码 ###
+### 7.1. 深入理解环信demo背后的代码 ###
 
 #### 1.注册listener,以接收聊天消息:RootViewController.m ####
 
