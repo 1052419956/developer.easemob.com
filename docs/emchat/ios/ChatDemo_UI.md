@@ -7,9 +7,9 @@ layout: docs
 
 # EaseMob集成示例操作流程 #
 
-## 有聊天页面的Demo（工程名称：ChatDemo-UI）##
+## 有聊天页面的Demo##
 
-### ChatDemo-UI说明 ###
+### Demo说明 ###
 
 #### 1.提供测试的AppKey(ChatDemo) ####
 
@@ -19,13 +19,13 @@ layout: docs
 
 #### 4.友情提示：不要频繁的注册账号，会被返回“注册失败”的 ####
 
-### ChatDemo-UI演示流程 ###
+### Demo演示流程 ###
 
 #### 1.下载Demo：[http://www.easemob.com/downloads.php] ####
 
   ![alt text](chatUIDemoFolder.png "Demo")
   
-#### 2.首先是设备1，在设备1上运行ChatDemo-UI，点击“自动生成”按钮，程序会自动生成账号和密码并注册、登陆 ####
+#### 2.首先是设备1，在设备1上运行程序，点击“自动生成”按钮，程序会自动生成账号和密码并注册、登陆 ####
 
  ![alt text](chatUIDemoLogin.png "Demo")
  
@@ -33,7 +33,7 @@ layout: docs
 
  ![alt text](chatUIDemoMessage.png "Demo")
  
-#### 4.接下来是设备2了，在设备2上运行ChatDemo-UI并登陆测试账号（设备1对聊的账号，不要点击自动生成） ####
+#### 4.接下来是设备2了，在设备2上运行程序并登陆测试账号（设备1对聊的账号，不要点击自动生成） ####
 
  ![alt text](chatUIDemoOther.png "Demo")
  
