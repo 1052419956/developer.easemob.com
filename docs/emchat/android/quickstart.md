@@ -29,7 +29,7 @@ layout: docs
 
 ## 2.运行环信demo (Android) 
 
-1. 在手机上安装chatdemo-nonui.apk
+1. 在手机上安装chatdemo-nonui.apk(apk位于ChatDemoNonUi根目录下)
     
  
 2. 运行chatdemo-nonui: 点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
@@ -55,7 +55,7 @@ layout: docs
 		<!--  设置环信SDK的appkey -->
 	    <meta-data android:name="EASEMOB_APPKEY"  android:value="你申请的appkey" />
 
-
+关于EASEMOB_APPKEY，请登录或注册环信开发者(http://www.easemob.com),登陆管理后台,申请APPKEY后，进行相关配置。（测试APPKEY为chatdemo）
 
 ## 4. 从源代码级别深入了解环信demo (Android)
 
@@ -64,6 +64,8 @@ layout: docs
 
 
 1. Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的chatdemo-nonui路径,点击“Finish”。
+
+![alt text](guide1.png "demo")
 
 
 ### 4.2. 深入理解环信demo背后的代码 ###
