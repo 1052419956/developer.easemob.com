@@ -45,7 +45,8 @@ layout: docs
 
  
 * [iOS]()
-	* [5分钟快速入门](#{site.base_url}/docs/emchat/ios/quickstart.html)
+	* [5分钟快速入门 - 无UIDemo](#{site.base_url}/docs/emchat/ios/quickstart.html)
+	* [5分钟快速入门 - 有UIDemo](#{site.base_url}/docs/emchat/ios/ChatDemo_UI.html)
 	* [单聊](#{site.base_url}/docs/emchat/ios/singlechat.html)
 		* [初始化](#{site.base_url}/docs/emchat/ios/singlechat.html)
 		* [登录鉴权](#{site.base_url}/docs/emchat/ios/singlechat.html)
