@@ -29,10 +29,12 @@ layout: docs
 
 ## 2.运行环信demo (Android) 
 
-1. 在手机上安装chatdemo-nonui.apk(apk位于ChatDemoNonUi根目录下)
-    
+1. 在手机上安装chatdemo-nonui.apk(apk位于androidsdk/examples/ChatDemoNonUI根目录下)
+
+2. 运行chatdemo-nonui:点击生成账号按钮，系统将会为你自动创建一个临时账号
+   ![alt text](login.png "demo")
  
-2. 运行chatdemo-nonui: 点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
+3.点击登陆按钮，进入应用中，点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
 
  ![alt text](demo.png "demo")
 
@@ -86,24 +88,14 @@ layout: docs
         }
     }
 
-#### 2. 注册listener,以接收聊天消息：见MainActivity.java ####
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        //注册message receiver， 接收聊天消息
-        msgReceiver = new NewMessageBroadcastReceiver();
-        IntentFilter intentFilter = new IntentFilter(EMChatManager.getInstance().getNewMessageBroadcastAction());
-        registerReceiver(msgReceiver, intentFilter);
-    }
-
-#### 3. 登录：见MainActivity.java ####
+#### 2. 登陆：见LoginActivity.java ####
 
     @Override
     protected void onResume() {
         super.onResume();
-        //登录到聊天服务器。此处使用了一个测试账号，用户名是test1，密码是123456。
-        EMChatManager.getInstance().login("test1", "123456", new EMCallBack() {
+        //登陆到聊天服务器,此处使用注册的临时账号作为登陆账号
+        EMChatManager.getInstance().login(username, password, new EMCallBack() {
 
             @Override
             public void onError(int arg0, final String errorMsg) {
@@ -130,19 +122,19 @@ layout: docs
         });
     }
 
-
-#### 4. 退出登录：见MainActivity.java ####
+#### 3. 注册listener,以接收聊天消息：见MainActivity.java ####
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        
-        //登出聊天服务器
-        EMChatManager.getInstance().logout();
+    protected void onCreate(Bundle savedInstanceState) {
+
+        //注册message receiver， 接收聊天消息
+        msgReceiver = new NewMessageBroadcastReceiver();
+        IntentFilter intentFilter = new IntentFilter(EMChatManager.getInstance().getNewMessageBroadcastAction());
+        registerReceiver(msgReceiver, intentFilter);
     }
 
 
-#### 5. 发送消息：见MainActivity.java ####
+#### 4. 发送消息：见MainActivity.java ####
 
     //本demo是发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
     public void onSendTxtMsg(View view) {
@@ -163,7 +155,7 @@ layout: docs
         }
     }
 
-#### 6. 接收聊天消息并显示：见MainActivity.java ####
+#### 5. 接收聊天消息并显示：见MainActivity.java ####
 
     private class NewMessageBroadcastReceiver extends BroadcastReceiver {
         @Override
@@ -181,6 +173,16 @@ layout: docs
             
             tvReceivedMsg.append("from:" + msgFrom + " body:" + msgBody + " \r");
         }
+    }
+
+#### 6. 退出登陆：见MainActivity.java ####
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        
+        //登出聊天服务器
+        EMChatManager.getInstance().logout();
     }
 
 <!-- # 4. 环信demo源代码 
