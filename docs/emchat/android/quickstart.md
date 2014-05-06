@@ -89,7 +89,7 @@ layout: docs
 
 #### 2. 注册：见LoginActivity.java ####
 
-	// 注册  缺省密码： 123456
+	// 注册临时账号  缺省密码： 123456
 	register.setOnClickListener(new OnClickListener() {
 		@Override
 		public void onClick(View v) {
