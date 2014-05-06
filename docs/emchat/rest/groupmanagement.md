@@ -11,14 +11,13 @@ layout: docs
 	
 # 群聊群组的数据结构说明
 	{
-		name: "该属性必须有。群组名，唯一标识，格式：“appkey_时间戳"
-		admin: "该属性必须有。群组管理员Username。"
-		desc: "群组描述信息。"
-		groupType: "群组类型。当前支持“工作组(workgroup)，临时组(primaryGroup)”,缺省为primaryGroup"
-		groupname: "群组名称"
-		-members: [  //群组成员集合，集合元素为成员Username
-			"Username1",
-			"Username2"
+		name: "weiquan_13120313092,  //由客户端生成, 需要保证唯一性, 格式："appkey_TimeStamp"
+		admin: "13120313092",  //群组管理员的username
+		desc: "这是一个群组",  //群组描述信息
+		grouptype: "privategroup",  //群组类型。当前支持“工作组(workgroup)，临时组(privategroup)”,缺省为privategroup
+		groupname: "群组名",  //群组的名称
+		members: [  //群组成员数组，数组元素为成员的username
+			"13370102365", "13811691807", "13120313092"
 		]
 	}
 	
