@@ -11,8 +11,12 @@ layout: docs
 
 ###ChatDemo-UI说明
 #### 1.提供测试的AppKey(ChatDemo)
+
 #### 2.登陆页面提供自动生成账号操作，每个登陆账号提供4个测试好友（用户名test1~4，密码123456）
+
 #### 3.需要2台设备，其中一台登陆自动生成的账号，另一台设备登陆test~4其中一个，两者互发消息
+
+#### 4.友情提示：不要频繁的注册账号，会被返回“注册失败”的
 
 ###ChatDemo-UI演示流程
 #### 1.下载Demo：[http://www.easemob.com/downloads.php]
@@ -30,5 +34,3 @@ layout: docs
 #### 5.用设备1给设备2发送的消息，会在设备2的“消息列表”页面显示出来。OK了，你可以互发一下试试
  ![alt text](chatUIDemoOtherChatList.png "Demo")
  ![alt text](chatUIDemoOtherChatEach.png "Demo")
- 
-#### 友情提示：不要频繁的注册账号，会被返回“注册失败”的
