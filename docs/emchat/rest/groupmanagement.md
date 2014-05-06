@@ -8,8 +8,19 @@ layout: docs
 # 群聊群组管理
 
 此文档用于群组聊天页面的**创建群组**、**管理员删除群组**、**管理员添加群成员**、**管理员删除群成员**、**群成员手动退出群组**等接口描述。
-
-	BaseUrl: http://cloudcode.easemob.com
+	
+# 群聊群组的数据结构说明
+	{
+		name: "该属性必须有。群组名，唯一标识，格式：“appkey_时间戳"
+		admin: "该属性必须有。群组管理员Username。"
+		desc: "群组描述信息。"
+		groupType: "群组类型。当前支持“工作组(workgroup)，临时组(primaryGroup)”,缺省为primaryGroup"
+		groupname: "群组名称"
+		-members: [  //群组成员集合，集合元素为成员Username
+			"Username1",
+			"Username2"
+		]
+	}
 	
 ## 创建一个群组
 
