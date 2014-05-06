@@ -29,12 +29,10 @@ layout: docs
 
 ## 2.运行环信demo (Android) 
 
-1. 在手机上安装chatdemo-nonui.apk(apk位于androidsdk/examples/ChatDemoNonUI根目录下)
-
-2. 运行chatdemo-nonui:点击生成账号按钮，系统将会为你自动创建一个临时账号
+1. 在手机上安装chatdemo-nonui.apk(apk位于androidsdk/examples/ChatDemoNonUI根目录下),安装成功后，运行chatdemo-nonui:点击生成账号按钮，系统将会为你自动创建一个临时账号
    ![alt text](login.png "demo")
  
-3.点击登陆按钮，进入应用中，点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
+2.点击登陆按钮，进入应用中，点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
 
  ![alt text](demo.png "demo")
 
