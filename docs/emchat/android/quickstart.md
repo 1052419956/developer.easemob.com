@@ -87,8 +87,36 @@ layout: docs
         }
     }
 
+#### 2. 注册：见LoginActivity.java ####
 
-#### 2. 登陆：见LoginActivity.java ####
+	// 注册  缺省密码： 123456
+	register.setOnClickListener(new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			account.setText(getAccount());
+			pwd.setText("123456");
+			CreateAccountTask task = new CreateAccountTask();
+			task.execute("chatdemo_" + account.getText().toString(), "123456", "chatdemo");
+
+			}
+		});
+	}
+
+	private class CreateAccountTask extends AsyncTask<String, Void, String> {
+		protected String doInBackground(String... args) {
+			String userid = args[0];
+			String pwd = args[1];
+			String channel = args[2];
+			try {//channel即为APPKEY
+				EMChatManager.getInstance().createAccountOnServer(userid, pwd, channel);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return userid;
+		}
+	}
+
+#### 3. 登陆：见LoginActivity.java ####
 
     @Override
     protected void onResume() {
@@ -121,7 +149,7 @@ layout: docs
         });
     }
 
-#### 3. 注册listener,以接收聊天消息：见MainActivity.java ####
+#### 4. 注册listener,以接收聊天消息：见MainActivity.java ####
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,7 +161,7 @@ layout: docs
     }
 
 
-#### 4. 发送消息：见MainActivity.java ####
+#### 5. 发送消息：见MainActivity.java ####
 
     //本demo是发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
     public void onSendTxtMsg(View view) {
@@ -154,7 +182,7 @@ layout: docs
         }
     }
 
-#### 5. 接收聊天消息并显示：见MainActivity.java ####
+#### 6. 接收聊天消息并显示：见MainActivity.java ####
 
     private class NewMessageBroadcastReceiver extends BroadcastReceiver {
         @Override
@@ -174,7 +202,7 @@ layout: docs
         }
     }
 
-#### 6. 退出登陆：见MainActivity.java ####
+#### 7. 退出登陆：见MainActivity.java ####
 
     @Override
     protected void onPause() {
