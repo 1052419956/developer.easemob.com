@@ -21,7 +21,7 @@ layout: docs
 
 ### Demo演示流程 ###
 
-#### 1.下载Demo：[http://www.easemob.com/downloads.php] ####
+#### 1.下载环信UIDemo：[下载链接](http://www.easemob.com/downloads/IOSDemo.zip)####
 
   ![alt text](chatUIDemoFolder.png "Demo")
   

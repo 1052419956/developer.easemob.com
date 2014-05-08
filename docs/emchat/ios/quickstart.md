@@ -20,7 +20,7 @@ layout: docs
 
     
 
-1. 下载环信demo：[下载链接](http://www.easemob.com/downloads.php)
+1. 下载环信demo：[下载链接](http://www.easemob.com/downloads/iOSSDK.zip)
 
 2. 解压缩iOSSDK.zip后会得到以下目录结构：
  
