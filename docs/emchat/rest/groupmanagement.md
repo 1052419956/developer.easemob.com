@@ -14,7 +14,7 @@ layout: docs
 		name: "weiquan_13120313092,  //由客户端生成, 需要保证唯一性, 格式："appkey_TimeStamp"
 		admin: "13120313092",  //群组管理员的username
 		desc: "这是一个群组",  //群组描述信息
-		grouptype: "privategroup",  //群组类型。当前支持“工作组(workgroup)，临时组(privategroup)”,缺省为privategroup
+		grouptype: "privategroup",  //群组类型。当前支持“工作组(workgroup)，部门组（departmentgroup）临时组(privategroup)”,缺省为privategroup
 		groupname: "群组名",  //群组的名称
 		members: [  //群组成员数组，数组元素为成员的username
 			"13370102365", "13811691807", "13120313092"
