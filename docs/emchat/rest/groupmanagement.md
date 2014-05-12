@@ -180,7 +180,10 @@ layout: docs
 * 描述: 更新群组属性，如群组名称（groupname），群组类型（grouptype)，群组描述（desc)
 * 权限: app用户登录
 * Url参数: 无
-* Request body: 无
+* Request body: 
+		{
+		    "groupname": "新群组名"
+		}
 * 错误代码：
   
     401 Unauthorized： 认证失败。返回的response body为json数据：
