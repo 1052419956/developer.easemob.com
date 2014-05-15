@@ -92,11 +92,11 @@ layout: docs
 #### 4. 发送消息：见RootViewController+sendChat.m ####
 
     EMChatText *text = [[EMChatText alloc] initWithText:message];
-    EMMessageBody *body = [[EMTextMessageBody alloc] initWithMessage:text];
-    NSString *myUsername = [[[EaseMob sharedInstance].userManager loginInfo]
-                            objectForKey:kUserLoginInfoUsername];
-    EMMessage *msg = [[EMMessage alloc] initWithReceiver:receiverUsername
-                                                bodies:@[body]];
+    EMMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:text];
+    
+    EMMessage *msg = [[EMMessage alloc]
+                      initWithReceiver:@"bot"
+                      bodies:[NSArray arrayWithObject:body]];
     
     [[EaseMob sharedInstance].chatManager sendMessage:msg
                                              progress:nil
