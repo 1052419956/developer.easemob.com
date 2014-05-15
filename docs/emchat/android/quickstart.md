@@ -39,13 +39,16 @@ layout: docs
  ![alt text](demo.png "demo")
 
 ###2.2 ui demmo，此demo比较复杂，包含了比较完整的聊天功能,包括发文字，表情，图片，语音，位置等。
- 2.2.1 在手机上安装chatdemo-ui.apk(apk位于androidsdk/examples/ChatDemoUI根目录下)，安装成功后，运行此app，使用nonui生成的账号，或者在此app中注册账号,生成的账号在两个demo中都能使用。
- 2.2.2 登陆之后，进入通讯录点击右上角的加号，添加好友成功后，就可以互发消息了。
+2.2.1 在手机上安装chatdemo-ui.apk(apk位于androidsdk/examples/ChatDemoUI根目录下)，安装成功后，运行此app，使用nonui生成的账号，或者在此app中注册账号,生成的账号在两个demo中都能使用。
+
+2.2.2 登陆之后，进入通讯录点击右上角的加号，添加好友成功后，就可以互发消息了。
+
  ![alt text](contact_add.png "demo") ![alt text](chat.png "demo")
 	
 ###2.3 导入demo源代码到eclipse查看运行demo
 2.3.1 导入demo到eclipse，从解压后easemob-sdk-2.0.0.zip文件夹下的libs文件下easemobchat_2.0.0.jar和3rdpartylibs文件夹下httpmime-4.2.jar拷贝到demo的libs底下
- ![alt text](demos.jpg "demo")
+
+ ![alt text](demos_jar.jpg "demo")
 
 
 ## 3.快速集成(Android) ##
