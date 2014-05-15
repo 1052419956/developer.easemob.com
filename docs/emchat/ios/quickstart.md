@@ -107,7 +107,7 @@ layout: docs
 
 	-(void)didReceiveMessage:(EMMessage *)message {
     	EMMessageBody *body = message.messageBodies.lastObject;
-		if (body.messageType == eMessageType_Text) {
+		if (body.messageBodyType == eMessageBodyType_Text) {
 			NSString *msg = ((EMTextMessageBody *)body).text.text;
 			NSLog(@"收到的消息---%@",msg);
 	    }
