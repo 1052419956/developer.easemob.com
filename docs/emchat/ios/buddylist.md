@@ -51,17 +51,7 @@ layout: docs
 	 @param isAdd (YES为新添加好友, NO为删除好友)
 	 */
 	- (void)didUpdateBuddyList:(NSArray *)buddyList changedBuddies:(NSArray *)changedBuddies isAdd:(BOOL)isAdd
-	
-## 用户在线状态改变时的回调
-
-**为了监听好友在线状态变化, 需要将监听的对应添加到监听列表中, 代码如下:**
-
-	[[[EaseMob sharedInstance] chatManager] addDelegate:self delegateQueue:nil]
-	
-**当好友状态变化时, 会调用如下方法:**
-
-	- (void)didChangedOnlineStatus:(BOOL)isOnline forBuddy:(NSString *)username
-	
+		
 	
 	
 	
