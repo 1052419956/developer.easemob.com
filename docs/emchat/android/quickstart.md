@@ -24,23 +24,36 @@ layout: docs
 
 2. 解压缩easemob-sdk-2.0.0.zip后会得到以下目录结构：
  
- ![alt text](example_layout.png "Title")
+ ![alt text](demo_dirs1.jpg "Title")
 
 
 ## 2.运行环信demo (Android) 
 
-1. 在手机上安装chatdemo-nonui.apk(apk位于androidsdk/examples/ChatDemoNonUI根目录下),安装成功后，运行chatdemo-nonui:点击生成账号按钮，系统将会为你自动创建一个临时账号
+###2.1 noui demo，此demo非常简单，登陆进去后进一个很简单的聊天页面
+2.1.1 在手机上安装chatdemo-nonui.apk(apk位于androidsdk/examples/ChatDemoNonUI根目录下),安装成功后，运行chatdemo-nonui:点击生成账号按钮，系统将会为你自动创建一个临时账号
 
    ![alt text](login.png "demo")
  
-2.点击登陆按钮，进入应用中，点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
+2.1.2 点击登陆按钮，进入应用中，点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
 
  ![alt text](demo.png "demo")
+
+###2.2 ui demo，此demo比较复杂，包含了比较完整的聊天功能,包括发文字，表情，图片，语音，位置等。
+2.2.1 在手机上安装chatdemo-ui.apk(apk位于androidsdk/examples/ChatDemoUI根目录下)，安装成功后，运行此app，使用nonui生成的账号，或者在此app中注册账号,生成的账号在两个demo中都能使用。
+
+2.2.2 登陆之后，进入通讯录点击右上角的加号，添加好友成功后，就可以互发消息了。
+
+ ![alt text](contact_add.png "demo") ![alt text](chat.png "demo")
+	
+###2.3 导入demo源代码到eclipse查看运行demo
+2.3.1 从examples目录下导入相应demo到eclipse，把libs文件下easemobchat_2.0.0.jar和3rdpartylibs文件夹下httpmime-4.2.jar拷贝到demo的libs底下
+
+ ![alt text](demo_dirs.jpg "demo") ![alt text](demos_jar.jpg "demo")
 
 
 ## 3.快速集成(Android) ##
 
-### 3.1. 把libs文件夹下easemobchat_2.0.0.jar和3rdpartylibs文件夹下httpmime-4.2.jar拷贝到你的项目的libs文件夹底下。###
+### 3.1 把libs文件夹下easemobchat_2.0.0.jar和3rdpartylibs文件夹下httpmime-4.2.jar拷贝到你的项目的libs文件夹底下。###
 
  ![](http://i.imgur.com/NrMwsez.jpg)
 
@@ -212,15 +225,15 @@ layout: docs
         EMChatManager.getInstance().logout();
     }
 
-<!-- # 4. 环信demo源代码 
+# 5. 环信demo源代码git地址
 
  
 环信提供了一系列demo以帮助开发者更好的学习了解环信SDK。所有demo均已在github上开源供开发者下载使用。你可以clone这些项目来学习了解环信SDK，也可以在这些demo基础上快速创建你自己的真正项目。环信SDK（Android版）在github的下载地址是：
 
-[https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)-->
+[https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)
 
 
-# 5. Bug报告跟踪 #
+# 6. Bug报告跟踪 #
 
 请使用以下地址来报告跟踪bug：
 

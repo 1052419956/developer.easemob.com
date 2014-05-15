@@ -54,7 +54,7 @@ layout: docs
 	
 ### 2. 登录 ###
 
-如果使用自己的用户体系，需要先登录您的用户体系，成功后登录IM部分;
+如果使用自己的用户体系，需要先**登录您的用户体系**，成功后登录IM部分;
 
 	[[EaseMob sharedInstance].chatManager asyncLoginWithUsername:username 
 	password:@"123456" 
@@ -70,6 +70,8 @@ layout: docs
 loginInfo包含账号，密码等信息;
 
 ### 3. 退出登录 ###
+
+**退出登录时, 需要先退出自己的用户系统, 然后调用下面的方法退出EaseMob服务器**
 
 	[[EaseMob sharedInstance].chatManager asyncLogoff];
 

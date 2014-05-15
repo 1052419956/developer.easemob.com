@@ -14,7 +14,7 @@ layout: docs
 		name: "weiquan_13120313092,  //由客户端生成, 需要保证唯一性, 格式："appkey_TimeStamp"
 		admin: "13120313092",  //群组管理员的username
 		desc: "这是一个群组",  //群组描述信息
-		grouptype: "privategroup",  //群组类型。当前支持“工作组(workgroup)，临时组(privategroup)”,缺省为privategroup
+		grouptype: "privategroup",  //群组类型。当前支持“工作组(workgroup)，部门组（departmentgroup）临时组(privategroup)”,缺省为privategroup
 		groupname: "群组名",  //群组的名称
 		members: [  //群组成员数组，数组元素为成员的username
 			"13370102365", "13811691807", "13120313092"
@@ -149,12 +149,11 @@ layout: docs
 * 描述: 群成员退出群组
 * 权限: app用户登录
 * Url参数: 
+* Request body
 		
 		{
 		    "members": ["13120313092"] //需要退出群组的Username
 		}
-		
-* Request body: 无
 * 错误代码：
   
     401 Unauthorized： 认证失败。返回的response body为json数据：
@@ -171,4 +170,33 @@ layout: docs
 		curl -X GET -i -H "Authorization: Bearer YWMtht-JGHzrEeO-PP32wx0elgAAAUOzppyII4imX-1OwFD3VrVI9J9ua383uug" -H "Content-Type: application/json" "http://cloudcode.easemob.com/management/rest/organizations/weiquan1792863/chatrooms/weiquan1792863_1861024508320131118163235/exit" -d '{"members":["18610245183"]}'
 
 * 发送请求后, 服务器状态码返回204, 表示退出成功, 其它状态码, 都表示退出失败, 退出成功后, 可以客户端继续做其它操作(退出当前页面, 并刷新群组列表)
+
+
+
+## 更新群组属性
+
+### PUT /management/rest/organizations/{AppKey}/chatrooms/{chatroom name}
+
+* 描述: 更新群组属性，如群组名称（groupname），群组类型（grouptype)，群组描述（desc)
+* 权限: app用户登录
+* Url参数: 无
+* Request body: 
+		{
+		    "groupname": "新群组名"
+		}
+* 错误代码：
+  
+    401 Unauthorized： 认证失败。返回的response body为json数据：
+    
+        {"error":"expired_token",
+         "timestamp":1389492673539,
+         "duration":0,
+         "exception":"org.usergrid.rest.exceptions.SecurityException",
+         "error_description":"Unable to authenticate due to expired access token"
+        }
+
+* curl示例 - 更新群组名称：
+
+		curl -X PUT -i -H "Authorization: Bearer YWMtht-JGHzrEeO-PP32wx0elgAAAUOzppyII4imX-1OwFD3VrVI9J9ua383uug" -H "Content-Type: application/json" "http://cloudcode.easemob.com/management/rest/organizations/weiquan1792863/chatrooms/weiquan1792863_1861024508320131118163235" -d '{"groupname":"新群组名"}'
+
 

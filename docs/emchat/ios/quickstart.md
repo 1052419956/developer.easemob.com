@@ -20,7 +20,7 @@ layout: docs
 
     
 
-1. 下载环信demo：[下载链接](http://www.easemob.com/downloads.php)
+1. 下载环信demo：[下载链接](http://www.easemob.com/downloads/iOSSDK.zip)
 
 2. 解压缩iOSSDK.zip后会得到以下目录结构：
  
@@ -60,6 +60,8 @@ layout: docs
 ![alt text](info.png "info")
 
  *	关于EASEMOB_APPKEY，请登录或注册环信开发者[(http://www.easemob.com)](http://www.easemob.com),登陆管理后台,申请APPKEY后，进行相关配置。（测试APPKEY为chatdemo）
+ *	此appKey写法为临时解决方案，#前面为orgName,#后面为appKey
+
   
  
 
@@ -92,11 +94,11 @@ layout: docs
 #### 4. 发送消息：见RootViewController+sendChat.m ####
 
     EMChatText *text = [[EMChatText alloc] initWithText:message];
-    EMMessageBody *body = [[EMTextMessageBody alloc] initWithMessage:text];
-    NSString *myUsername = [[[EaseMob sharedInstance].userManager loginInfo]
-                            objectForKey:kUserLoginInfoUsername];
-    EMMessage *msg = [[EMMessage alloc] initWithReceiver:receiverUsername
-                                                bodies:@[body]];
+    EMMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:text];
+    
+    EMMessage *msg = [[EMMessage alloc]
+                      initWithReceiver:@"bot"
+                      bodies:[NSArray arrayWithObject:body]];
     
     [[EaseMob sharedInstance].chatManager sendMessage:msg
                                              progress:nil
@@ -107,7 +109,7 @@ layout: docs
 
 	-(void)didReceiveMessage:(EMMessage *)message {
     	EMMessageBody *body = message.messageBodies.lastObject;
-		if (body.messageType == eMessageType_Text) {
+		if (body.messageBodyType == eMessageBodyType_Text) {
 			NSString *msg = ((EMTextMessageBody *)body).text.text;
 			NSLog(@"收到的消息---%@",msg);
 	    }

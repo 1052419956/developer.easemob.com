@@ -54,8 +54,8 @@ layout: docs
 		* [接收消息](#{site.base_url}/docs/emchat/ios/singlechat.html)
 		* [未读消息数变化回调（单一聊天人，所有聊天人）。消息已读设定](#{site.base_url}/docs/emchat/ios/singlechat.html)
 		* [聊天消息历史记录管理：查询，删除](#{site.base_url}/docs/emchat/ios/singlechat.html)
-		* [好友列表管理：获取好友列表。好友列表更改事件回调](#{site.base_url}/docs/emchat/ios/singlechat.html)
-		* [好友列表管理：查找好友（根据账号），添加好友，删除好友，黑名单](#{site.base_url}/docs/emchat/ios/singlechat.html)
+		* [好友列表管理：获取好友列表。好友列表更改事件回调](#{site.base_url}/docs/emchat/ios/buddylist.html)
+		* [好友列表管理：查找好友（根据账号），添加好友，删除好友，黑名单](#{site.base_url}/docs/emchat/ios/buddymanager.html)
 		* [高级话题](#{site.base_url}/docs/emchat/ios/advanced.html)
 			* [扩展自定义消息类型](#{site.base_url}/docs/emchat/ios/advanced.html)
 			* [消息回执：已发送，已接收，已阅读](#{site.base_url}/docs/emchat/ios/advanced.html)
@@ -81,6 +81,7 @@ layout: docs
 * [UI模板库](#{site.base_url}/docs/emchat/ui.html)
 * [REST API]()
 	* [群组管理REST API](#{site.base_url}/docs/emchat/rest/groupmanagement.html)
+	* [用户管理REST API](#{site.base_url}/docs/emchat/rest/userapi.html)
 
 ## 易用户
 * [什么是易用户SDK：无需后台，快速搭建用户体系](#{site.base_url}/docs/emuser/whatisemuser.html)
