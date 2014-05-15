@@ -87,7 +87,7 @@ layout: docs
 
 ## 2.3 重置用户密码 ##
 
-### PUT /${orgName}/${appName}/users/${username}/pwd
+### PUT /${orgName}/${appName}/users/${username}/password
 
 - 描述： 重置用户密码
 - 权限：app用户级别登录
@@ -98,7 +98,7 @@ layout: docs
  
 #### curl示例：
 		
-	curl -X PUT -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "http://a1.easemob.com/easemob-demo/chatdemo/users/jliu/pwd" -d '{"password" : "newpwd"}'
+	curl -X PUT -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "http://a1.easemob.com/easemob-demo/chatdemo/users/jliu/password" -d '{"newpassword" : "newpwd"}'
 
 
 

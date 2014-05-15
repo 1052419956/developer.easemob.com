@@ -694,3 +694,20 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 #### curl示例：
 		
 	curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users?ql=select * where mobile='13800138000'"
+
+
+## 4.13 重置用户密码 ##
+
+### PUT /${orgName}/${appName}/users/${username}/password
+
+- 描述： 重置用户密码
+- 权限：app用户级别登录
+- url参数：无
+- request body： 新密码
+- response： 更新后的用户信息，json格式。见用户的数据结构。
+- 错误代码：
+ 
+#### curl示例：
+		
+	curl -X PUT -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "http://api.easemob.com/easemob/qixin/users/jliu/password" -d '{"newpassword" : "newpwd"}'
+
