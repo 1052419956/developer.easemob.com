@@ -81,6 +81,7 @@ layout: docs
 * [UI模板库](#{site.base_url}/docs/emchat/ui.html)
 * [REST API]()
 	* [群组管理REST API](#{site.base_url}/docs/emchat/rest/groupmanagement.html)
+	* [用户管理REST API](#{site.base_url}/docs/emchat/rest/userapi.html)
 
 ## 易用户
 * [什么是易用户SDK：无需后台，快速搭建用户体系](#{site.base_url}/docs/emuser/whatisemuser.html)

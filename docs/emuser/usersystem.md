@@ -361,7 +361,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - response返回： orgName, appName, authentication token
 - 错误代码：
 
-#### url示例：				
+#### curl示例：				
 		
 	curl -X GET -H "Authorization: Bearer YWMt7Yo7wLL0EeKOmhfmlOylrwAAAT6IEHV89wf4rvv3R3_ZZW7NJ43N-nygsnY" " http://api.easemob.com/management/organizations/easemob/applications/qixin"
 	
@@ -453,7 +453,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - response body： 授权结果(json),其中access_token为授权后的token
 - 错误代码：
 
-#### url示例：
+#### curl示例：
 		
 	curl -X POST "http://api.easemob.com/easemob/qixin/token" -d '{"grant_type":"password","username":"jliu1","password":"jliu1"}'
 	
@@ -491,11 +491,13 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 - 描述：创建一个新的app user
 - 权限： application access
-- url参数： "email","username","name" 匀不能已存在
-- response body： 见帖子的数据结构
+- url参数： 无
+- response body： 见用户的数据结构。 "email","username","name" 匀不能已存在
+
+		{"username":"jliu0003","password":"jliu0002"}
 - 错误代码：
 
-#### url示例：
+#### curl示例：
 		
 	curl -X POST -i "http://api.easemob.com/easemob/qixin/users" -d '{"username":"jliu0003","password":"jliu0002"}'
 
@@ -547,51 +549,37 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 注：创建用户是不需要授权的。所以不需要传入token。
 
-## 4.3 获取app的用户总数量 ##
 
-###GET/${orgName}/${appName}/users
-
-- 描述：获取app的用户总数
-- 权限：admin
-- url参数：
-- response body： orgName, authentication token
-- 错误代码：
-
-#### url示例：
-		
-	curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/counters?counter=application.collectio…"
-
-
-## 4.4 获取app的用户列表 ##
+## 4.3 获取app的用户列表 ##
 
 ###GET/${orgName}/${appName}/users
 
 - 描述：获取app用户列表
 - 权限：admin
 - url参数：
-- response body： orgName, authentication token
+- response body：
 - 错误代码：
 
-#### url示例：
+#### curl示例：
 		
 	curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users"
 
 
-## 4.5 获取app的指定用户详情 ##
+## 4.4 获取app的指定用户详情 ##
 
 ###GET/${orgName}/${appName}/users/${userName}
 
 - 描述：获取app的指定用户详情
 - 权限：
-- usl参数：
+- url参数：
 - response body： orgName, authentication token
 - 错误代码：
 
-#### url示例：
+#### curl示例：
 		
 	curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users/jliu1"
 
-## 4.6 查找用户 ##
+## 4.5 查找用户 ##
 
 ###GET /${orgName}/${appName}/users
 - 描述：查找用户
@@ -600,7 +588,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - response body： 
 - 错误代码：
 
-#### url示例：
+#### curl示例：
 		
 ##### 例1： 根据用户手机号查找用户
 		
@@ -622,7 +610,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - response body：
 - 错误代码： 
 
-#### url示例：
+#### curl示例：
 		
 	curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/counters?counter=application.collection.users"
 
@@ -636,21 +624,21 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - response body： orgName, authentication token
 - 错误代码：
 
-#### url示例：
+#### curl示例：
 		
 	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "http://api.easemob.com/easemob/qixin/users/ligangying"
 
 ## 4.9 更新App的用户信息 ##
 
-### GET /${orgName}/${appName}/users
+### PUT /${orgName}/${appName}/users/${username}
 
-- 描述： 输入参数中必须有username属性（username是user的primary key)
-- 权限：
+- 描述： 更新用户信息
+- 权限：app用户级别登录
 - url参数：
 - response body：
 - 错误代码：
  
-#### url示例：
+#### curl示例：
 		
 	curl -X PUT -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "http://api.easemob.com/easemob/qixin/users/jliu" -d '{   "username" : "jliu", "usertype" : "customer"}'
 
@@ -688,7 +676,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - response body：
 - 错误代码：
 
-#### url示例：
+#### curl示例：
 		
 	curl -X GET -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" -H "appkey: linjushuo" "http://223.202.120.59:7874/id/users"
 
@@ -703,6 +691,6 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 - response body：
 - 错误代码：
 
-#### url示例：
+#### curl示例：
 		
 	curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://api.easemob.com/easemob/qixin/users?ql=select * where mobile='13800138000'"
