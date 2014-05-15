@@ -39,7 +39,7 @@ layout: docs
  
  ![alt text](chatUIDemoAddFriend.png "Demo")
  
-#### 5.账号1的好友列表页面，点击“新的好友”，会看到账号2的好友请求，接受后，账号2会成为账号1的好友 ####
+#### 5.账号1的好友列表页面，点击“新的好友”，会看到账号2发来的好友请求，接受后，账号2会成为账号1的好友 ####
 
  ![alt text](chatUIDemoApplyList.png "Demo")
  
