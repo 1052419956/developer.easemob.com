@@ -39,7 +39,9 @@ layout: docs
 	EMChatManager.getInstance().logout();
 
 ### 4.发送消息 ###
+
 #### 4.1发送文本消息及表情 ####
+
 
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
  	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.TXT);
