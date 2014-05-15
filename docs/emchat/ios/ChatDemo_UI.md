@@ -21,7 +21,7 @@ layout: docs
 
 ### Demo演示流程 ###
 
-#### 1.下载环信UIDemo：[下载链接](http://www.easemob.com/downloads/iOSDemo.zip)####
+#### 1.下载Demo：[http://www.easemob.com/downloads.php] ####
 
   ![alt text](chatUIDemoFolder.png "Demo")
   
@@ -39,7 +39,7 @@ layout: docs
  
  ![alt text](chatUIDemoAddFriend.png "Demo")
  
-#### 5.账号2的好友列表页面，点击“新的好友”，会看到账号1的好友请求，接受后，账号1会成为账号2的好友 ####
+#### 5.账号1的好友列表页面，点击“新的好友”，会看到账号2的好友请求，接受后，账号2会成为账号1的好友 ####
 
  ![alt text](chatUIDemoApplyList.png "Demo")
  
