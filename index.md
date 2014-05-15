@@ -25,7 +25,6 @@ layout: docs
 			* [扩展自定义消息类型](#{site.base_url}/docs/emchat/android/advanced.html)
 			* [消息回执：已发送，已接收，已阅读](#{site.base_url}/docs/emchat/android/advanced.html)
 			* [阅后即焚](#{site.base_url}/docs/emchat/android/advanced.html)
-			* [服务器消息历史记录存储设置](#{site.base_url}/docs/emchat/android/advanced.html)
 	* [群聊](#{site.base_url}/docs/emchat/android/groupchat.html)
 		* [发文字，语音，图片，位置](#{site.base_url}/docs/emchat/android/groupchat.html)
 		* [接收消息](#{site.base_url}/docs/emchat/android/groupchat.html)
@@ -60,8 +59,6 @@ layout: docs
 			* [扩展自定义消息类型](#{site.base_url}/docs/emchat/ios/advanced.html)
 			* [消息回执：已发送，已接收，已阅读](#{site.base_url}/docs/emchat/ios/advanced.html)
 			* [阅后即焚](#{site.base_url}/docs/emchat/ios/advanced.html)
-			* [服务器消息历史记录存储设置](#{site.base_url}/docs/emchat/ios/advanced.html)
-
 	* [群聊](#{site.base_url}/docs/emchat/ios/groupchat.html)
 		* [发文字，语音，图片，位置](#{site.base_url}/docs/emchat/ios/groupchat.html)
 		* [接收消息](#{site.base_url}/docs/emchat/ios/groupchat.html)
