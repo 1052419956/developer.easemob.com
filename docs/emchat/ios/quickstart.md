@@ -60,6 +60,8 @@ layout: docs
 ![alt text](info.png "info")
 
  *	关于EASEMOB_APPKEY，请登录或注册环信开发者[(http://www.easemob.com)](http://www.easemob.com),登陆管理后台,申请APPKEY后，进行相关配置。（测试APPKEY为chatdemo）
+ *	此appKey写法为临时解决方案，#前面为orgName,#后面为appKey
+
   
  
 
