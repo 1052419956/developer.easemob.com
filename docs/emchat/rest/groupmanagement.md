@@ -107,7 +107,7 @@ layout: docs
 
 * curl示例：
 
-		curl -X GET -i -H "Authorization: Bearer YWMtht-JGHzrEeO-PP32wx0elgAAAUOzppyII4imX-1OwFD3VrVI9J9ua383uug" -H "Content-Type: application/json" "http://cloudcode.easemob.com/management/rest/organizations/weiquan1792863/chatrooms/weiquan1792863_131203130921393917196331/members" -d '{"members":["18610245183"]}'
+		curl -X POST -i -H "Authorization: Bearer YWMtht-JGHzrEeO-PP32wx0elgAAAUOzppyII4imX-1OwFD3VrVI9J9ua383uug" -H "Content-Type: application/json" "http://cloudcode.easemob.com/management/rest/organizations/weiquan1792863/chatrooms/weiquan1792863_131203130921393917196331/members" -d '{"members":["18610245183"]}'
 
 * 发送请求后, 服务器状态码返回204, 表示添加成功, 其它状态码, 都表示添加失败, 添加成功后, 可以客户端继续做其它操作(刷新客户端群成员列表等)
 
@@ -137,7 +137,7 @@ layout: docs
 
 * curl示例：
 
-		curl -X GET -i -H "Authorization: Bearer YWMtht-JGHzrEeO-PP32wx0elgAAAUOzppyII4imX-1OwFD3VrVI9J9ua383uug" -H "Content-Type: application/json" "http://cloudcode.easemob.com/management/rest/organizations/weiquan1792863/chatrooms/weiquan1792863_131203130921393917196331/members/delete" -d '{"members":["18610245183"]}'
+		curl -X POST -i -H "Authorization: Bearer YWMtht-JGHzrEeO-PP32wx0elgAAAUOzppyII4imX-1OwFD3VrVI9J9ua383uug" -H "Content-Type: application/json" "http://cloudcode.easemob.com/management/rest/organizations/weiquan1792863/chatrooms/weiquan1792863_131203130921393917196331/members/delete" -d '{"members":["18610245183"]}'
 
 * 发送请求后, 服务器状态码返回204, 表示删除成功, 其它状态码, 都表示删除失败, 删除成功后, 可以客户端继续做其它操作(刷新客户端群成员列表等)
 	
@@ -167,7 +167,7 @@ layout: docs
 
 * curl示例：
 
-		curl -X GET -i -H "Authorization: Bearer YWMtht-JGHzrEeO-PP32wx0elgAAAUOzppyII4imX-1OwFD3VrVI9J9ua383uug" -H "Content-Type: application/json" "http://cloudcode.easemob.com/management/rest/organizations/weiquan1792863/chatrooms/weiquan1792863_1861024508320131118163235/exit" -d '{"members":["18610245183"]}'
+		curl -X POST -i -H "Authorization: Bearer YWMtht-JGHzrEeO-PP32wx0elgAAAUOzppyII4imX-1OwFD3VrVI9J9ua383uug" -H "Content-Type: application/json" "http://cloudcode.easemob.com/management/rest/organizations/weiquan1792863/chatrooms/weiquan1792863_1861024508320131118163235/exit" -d '{"members":["18610245183"]}'
 
 * 发送请求后, 服务器状态码返回204, 表示退出成功, 其它状态码, 都表示退出失败, 退出成功后, 可以客户端继续做其它操作(退出当前页面, 并刷新群组列表)
 
