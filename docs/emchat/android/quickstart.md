@@ -39,7 +39,7 @@ layout: docs
  ![alt text](demo.png "demo")
 
 ###2.2 ui demo，此demo比较复杂，包含了比较完整的聊天功能,包括发文字，表情，图片，语音，位置等。
-2.2.1 在手机上安装chatdemo-ui.apk(apk位于androidsdk/examples/ChatDemoUI根目录下)，安装成功后，运行此app，使用nonui生成的账号，或者在此app中注册账号,生成的账号在两个demo中都能使用。
+2.2.1 在手机上安装chatdemo-ui.apk(apk位于androidsdk/examples/ChatDemoUI根目录下)，安装成功后，运行此app，注册账号。
 
 2.2.2 登陆之后，进入通讯录点击右上角的加号，添加好友成功后，就可以互发消息了。
 
@@ -209,6 +209,9 @@ layout: docs
             //消息内容
             String msgBody = intent.getStringExtra("body");
             
+            //更方便的方法是通过msgId直接获取整个message
+            EMMessage message = EMChatManager.getInstance().getMessage(msgId);
+
             Log.d("chatdemo", "new message id:" + msgId + " from:" + msgFrom + " type:" + msgType + " body:" + msgBody);
             
             tvReceivedMsg.append("from:" + msgFrom + " body:" + msgBody + " \r");
