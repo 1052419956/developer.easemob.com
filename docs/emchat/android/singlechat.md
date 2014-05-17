@@ -49,6 +49,7 @@ layout: docs
     message.addBody(txtBody);
 	message.setReceipt(username);
 	conversation.addMessage(message);
+	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
 
 
 #### 4.2 发送语音消息 ####
@@ -59,6 +60,7 @@ layout: docs
     message.addBody(body);
 	message.setReceipt(username);
 	conversation.addMessage(message);
+	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
 
 
 #### 4.3 发送图片消息 ####
@@ -69,6 +71,7 @@ layout: docs
     message.addBody(body);
 	message.setReceipt(username);
 	conversation.addMessage(message);
+	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
 
 
 #### 4.4 发送地理位置消息 ####
@@ -79,6 +82,7 @@ layout: docs
     message.addBody(locBody);
 	message.setReceipt(username);
     conversation.addMessage(message);
+	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
 
 ### 5.接收消息 ###
 	注册一个相应broadcast，用来接收消息
@@ -113,16 +117,16 @@ layout: docs
 
 ### 7.获取未读消息数量 ###
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
-	int conversation.getUnreadMsgCount();
+	conversation.getUnreadMsgCount();
 
 ### 8.未读消息清0 ###
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
-	void conversation.resetUnsetMsgCount();
+	conversation.resetUnsetMsgCount();
 
 ### 9.删除聊天记录 ###
     //删除和某个user的整个的聊天记录
     EMChatManager.getInstance().deleteConversation(username);
     //删除当前会话的某条聊天记录
-    void conversation.removeMessage(deleteMsg.msgId);
+    conversation.removeMessage(deleteMsg.msgId);
 	 
 
