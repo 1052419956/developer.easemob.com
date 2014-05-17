@@ -128,5 +128,17 @@ layout: docs
     EMChatManager.getInstance().deleteConversation(username);
     //删除当前会话的某条聊天记录
     conversation.removeMessage(deleteMsg.msgId);
-	 
 
+### 10.自定义消息 ###
+	//这里是扩展自文本消息，当然也可以扩展至语音消息，图片消息等等，看自己需求而定
+	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.TXT);
+	TextMessageBody txtBody = new TextMessageBody(content);
+	message.addBody(txtBody);
+	if (isReadedDestoryState) {
+		// 增加自己特定的属性，接收的时候，通过getAttribute()获取到这个值
+		message.setAttribute(MyMessageAttribute.ATTR_IS_READED_DESTORY_MSG, true);
+	}
+	message.setReceipt(username);
+	conversation.addMessage(message);
+	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
+	
