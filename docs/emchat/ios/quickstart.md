@@ -20,7 +20,8 @@ layout: docs
 
     
 
-1. 下载环信demo：[下载链接](http://www.easemob.com/downloads/iOSSDK.zip)
+1. 下载环信Demo及SDK： [下载](http://www.easemob.com/downloads.php)
+   
 
 2. 解压缩iOSSDK.zip后会得到以下目录结构：
  
@@ -59,8 +60,7 @@ layout: docs
 ### 6.在Info中配置信息 ###
 ![alt text](info.png "info")
 
- *	关于EASEMOB_APPKEY，请登录或注册环信开发者[(http://www.easemob.com)](http://www.easemob.com),登陆管理后台,申请APPKEY后，进行相关配置。（chatdemo申请的APPKEY为easemob-demo#chatdemo.对于目前的写法,请在app-info.plist中填写EASEMOB_APPKEY=chatdemo, EASEMOB_ORGNAME=easemob-demo ）
- *	此appKey写法为临时解决方案，#前面为orgName,#后面为appKey
+ *	关于EASEMOB_APPKEY，请登录或注册环信开发者[(http://www.easemob.com)](http://www.easemob.com),登陆管理后台,申请APPKEY后，进行相关配置。
 
   
  
