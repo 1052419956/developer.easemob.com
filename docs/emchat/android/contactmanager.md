@@ -44,13 +44,14 @@ layout: docs
 			
 		@Override
 		public void onContactDeleted(List<String> usernameList) {
-			
+			//好友删除的回调
 			
 		}
 		
 		@Override
 		public void onContactAdded(List<String> usernameList) {
-			
-			
+			//好友增加的回调
+			//返回的usernameList可能在原来的好友列表中已经有了，
+			//使用的时候务必判断原来的列表中是否已经包含回调中的好友。
 		}
 	});
