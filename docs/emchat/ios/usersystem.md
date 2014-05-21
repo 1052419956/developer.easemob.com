@@ -18,9 +18,9 @@ layout: docs
 
 ## 操作好友列表
 
-**[获取好友列表，监听好友列表](#{site.base_url}/docs/emuser/buddylist.html)**
+**[获取好友列表，监听好友列表](#{site.base_url}/docs/emchat/ios/buddylist.html)**
 	
 ## 操作好友
 
-**[根据账号 （查找，添加，删除，黑名单）](#{site.base_url}/docs/emuser/buddymanager.html)**
+**[根据账号 （查找，添加，删除，黑名单）](#{site.base_url}/docs/emchat/ios/buddymanager.html)**
 
