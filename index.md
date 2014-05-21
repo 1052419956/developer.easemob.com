@@ -72,7 +72,7 @@ layout: docs
 		* [高级话题](#{site.base_url}/docs/emchat/ios/groupchat.html)
 			* [公开群组： 设置群组属性为公开或非公开群组。搜索所有公开群组。加入公开群组](#{site.base_url}/docs/emchat/ios/groupchat.html)
 			* [群组自定义属性](#{site.base_url}/docs/emchat/ios/groupchat.html)
-	* [集成第三方用户体系](#{site.base_url}/docs/emchat/usersystemintegration.html)
+	* [集成第三方用户体系](#{site.base_url}/docs/emchat/ios/usersystem.html)
 	* [Apple Doc](http://easemob.com/apidoc/iOS/chat/)
 	* [Demo及SDK下载](http://www.easemob.com/downloads.php)
 * [UI模板库](#{site.base_url}/docs/emchat/ui.html)
