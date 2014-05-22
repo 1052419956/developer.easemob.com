@@ -36,11 +36,16 @@ SDK不提供退出已有用户体系的接口，使用SDK的工程需在代码�
 但某交友类的app就必须要控制只有我的好友才能给我发消息，不是我的好友的人需要向我发送加好友邀请，我批准后才能给我发消息。这种情况下，就需要使用环信提供的好友体系。具体文档见
 
 
-## 操作好友列表
+## 操作好友列表(iOS)
 
 **[获取好友列表，监听好友列表](#{site.base_url}/docs/emchat/ios/buddylist.html)**
 	
-## 操作好友
+## 操作好友(iOS)
 
 **[根据账号 （查找，添加，删除，黑名单）](#{site.base_url}/docs/emchat/ios/buddymanager.html)**
+
+## 操作好友列表(Android)
+
+**[获取好友列表，监听好友列表](#{site.base_url}/docs/emchat/android/contactmanager.html)**
+
 
