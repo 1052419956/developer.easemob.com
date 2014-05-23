@@ -21,7 +21,7 @@ layout: docs
     
 
 1. 下载环信Demo及SDK： [下载](http://www.easemob.com/downloads.php)
-   
+
 
 2. 解压缩iOSSDK.zip后会得到以下目录结构：
  
@@ -60,7 +60,7 @@ layout: docs
 ### 6.在Info中配置信息 ###
 ![alt text](info.png "info")
 
- *	关于EASEMOB_APPKEY，请登录或注册环信开发者[(http://www.easemob.com)](http://www.easemob.com),登陆管理后台,申请APPKEY后，进行相关配置。
+ *	关于EASEMOB_APPKEY，请登录或注册环信开发者[(http://console.easemob.com)](http://console.easemob.com),登陆管理后台,申请APPKEY后，进行相关配置。
 
   
  
