@@ -113,7 +113,13 @@ layout: docs
 
 ### 6.获取聊天记录 ###
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
+	//获取此会话的所有消息
 	List<EMMessage> messages = conversation.getAllMessages();
+	//sdk初始化加载的聊天记录为20条，到顶时需要去db里获取更多
+	loadmorePB.setVisibility(View.VISIBLE);
+	//获取startId之前的pagesize条消息，此方法获取的messages sdk会自动存入到此conversation中
+	List<EMMessage> messages = conversation.loadMoreMsgFromDB(startMsgId, pagesize);
+	
 
 ### 7.获取未读消息数量 ###
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
