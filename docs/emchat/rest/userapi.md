@@ -15,14 +15,19 @@ layout: docs
 
 # 2. 用户管理REST API
 
-## 2.1 app用户登录并获取授权token ##
+## 2.1 app管理员登录并获取授权token ##
 
 ###POST /${orgName}/${appName}/token
 
 - 描述： 登录并授权，获得一个token。
-- 权限：无
+- 权限：
 - url参数： 无
-- request body： 要创建的用户，json格式。见用户的数据结构。
+- request body： 授权数据（json格式）。
+
+	'{"grant_type":"password",
+	  "username":"jliu1",
+	  "password":"jliu1"}'
+
 - response： 授权结果(json),其中access_token为授权后的token
 - 错误代码：
 
