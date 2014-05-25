@@ -75,5 +75,5 @@ layout: docs
 * [UI模板库](#{site.base_url}/docs/emchat/ui.html)
 * [集成第三方用户体系](#{site.base_url}/docs/emchat/ios/usersystem.html)
 * [REST API]()
-	* [群组管理REST API](#{site.base_url}/docs/emchat/rest/groupmanagement.html)
+<!--	* [群组管理REST API](#{site.base_url}/docs/emchat/rest/groupmanagement.html) -->
 	* [用户管理REST API](#{site.base_url}/docs/emchat/rest/userapi.html)
