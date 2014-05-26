@@ -155,4 +155,5 @@ layout: docs
 	   设置是否启用新消息声音提醒 chatOptions.setNoticeBySound(true|false);默认为true 开启声音提醒
 	   设置是否启用新消息震动提醒 chatOptions.setNoticedByVibrate(true|false);默认为true 开启震动提醒
 	3）保存配置 EMChatManager.getInstance().setChatOptions(chatOptions);
+
 	
