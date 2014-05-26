@@ -147,4 +147,12 @@ layout: docs
 	message.setReceipt(username);
 	conversation.addMessage(message);
 	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
+
+### 11.新消息提示 ###
+	//SDK中提供了方便的新消息提醒功能。可以在收到消息时调用，提醒用户有新消息
+	1）首先获取ChatOption  chatOptions = EMChatManager.getInstance().getChatOptions();
+	2) 设置是否启用新消息提醒 chatOptions.setNotificationEnable(true|false); 默认为true 开启新消息提醒
+	   设置是否启用新消息声音提醒 chatOptions.setNoticeBySound(true|false);默认为true 开启声音提醒
+	   设置是否启用新消息震动提醒 chatOptions.setNoticedByVibrate(true|false);默认为true 开启震动提醒
+	3）保存配置 EMChatManager.getInstance().setChatOptions(chatOptions);
 	
