@@ -42,13 +42,18 @@ layout: docs
 
 #### 4.1发送文本消息及表情 ####
 
-
+	//获取到与聊天人的会话对象
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
+	//创建一条文本消息
  	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.TXT);
+	//设置消息body
     TextMessageBody txtBody = new TextMessageBody(content);
     message.addBody(txtBody);
+	//设置接收人
 	message.setReceipt(username);
+	//把消息接到到会话对象中
 	conversation.addMessage(message);
+	//发送消息
 	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
 
 
@@ -116,8 +121,7 @@ layout: docs
 	//获取此会话的所有消息
 	List<EMMessage> messages = conversation.getAllMessages();
 	//sdk初始化加载的聊天记录为20条，到顶时需要去db里获取更多
-	loadmorePB.setVisibility(View.VISIBLE);
-	//获取startId之前的pagesize条消息，此方法获取的messages sdk会自动存入到此conversation中
+	//获取startMsgId之前的pagesize条消息，此方法获取的messages sdk会自动存入到此会话中，app中无需再次把获取到的messages添加到会话中
 	List<EMMessage> messages = conversation.loadMoreMsgFromDB(startMsgId, pagesize);
 	
 
@@ -125,7 +129,7 @@ layout: docs
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	conversation.getUnreadMsgCount();
 
-### 8.未读消息清0 ###
+### 8.未读消息数清零(指定会话消息未读数清零) ###
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	conversation.resetUnsetMsgCount();
 
@@ -133,27 +137,16 @@ layout: docs
     //删除和某个user的整个的聊天记录
     EMChatManager.getInstance().deleteConversation(username);
     //删除当前会话的某条聊天记录
+	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
     conversation.removeMessage(deleteMsg.msgId);
 
-### 10.自定义消息 ###
-	//这里是扩展自文本消息，当然也可以扩展至语音消息，图片消息等等，看自己需求而定
-	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.TXT);
-	TextMessageBody txtBody = new TextMessageBody(content);
-	message.addBody(txtBody);
-	if (isReadedDestoryState) {
-		// 增加自己特定的属性，接收的时候，通过getAttribute()获取到这个值
-		message.setAttribute(MyMessageAttribute.ATTR_IS_READED_DESTORY_MSG, true);
-	}
-	message.setReceipt(username);
-	conversation.addMessage(message);
-	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
-
-### 11.新消息提示 ###
+### 10.新消息提示 ###
 	//SDK中提供了方便的新消息提醒功能。可以在收到消息时调用，提醒用户有新消息
 	1）首先获取ChatOption  chatOptions = EMChatManager.getInstance().getChatOptions();
 	2) 设置是否启用新消息提醒 chatOptions.setNotificationEnable(true|false); 默认为true 开启新消息提醒
 	   设置是否启用新消息声音提醒 chatOptions.setNoticeBySound(true|false);默认为true 开启声音提醒
 	   设置是否启用新消息震动提醒 chatOptions.setNoticedByVibrate(true|false);默认为true 开启震动提醒
 	3）保存配置 EMChatManager.getInstance().setChatOptions(chatOptions);
+
 
 	
