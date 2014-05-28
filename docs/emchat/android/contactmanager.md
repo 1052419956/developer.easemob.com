@@ -36,6 +36,13 @@ layout: docs
 			final boolean isResponse = intent.getBooleanExtra("isResponse", false);
 			//消息发送方username
 			final String from = intent.getStringExtra("username");
+			//sdk暂时只提供同意好友请求方法，不同意选项可以参考微信增加一个忽略按钮。
+			if(!isResponse){
+				Log.d(TAG, from + "请求加你为好友,reason: " + reason);
+			}else{
+				Log.d(TAG, from + "同意了你的好友请求");
+			}
+			//具体ui上的处理参考chatuidemo。
 		}
 	}
 
