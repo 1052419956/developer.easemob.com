@@ -45,10 +45,10 @@ layout: docs
 	//获取到与聊天人的会话对象
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	//创建一条文本消息
- 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.TXT);
+    EMMessage message = EMMessage.createSendMessage(EMMessage.Type.TXT);
 	//设置消息body
-  TextMessageBody txtBody = new TextMessageBody(content);
-  message.addBody(txtBody);
+    TextMessageBody txtBody = new TextMessageBody(content);
+    message.addBody(txtBody);
 	//设置接收人
 	message.setReceipt(username);
 	//把消息加入到此会话对象中
@@ -62,7 +62,7 @@ layout: docs
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.VOICE);
 	VoiceMessageBody body = new VoiceMessageBody(new File(filePath), len);
-  message.addBody(body);
+    message.addBody(body);
 	message.setReceipt(username);
 	conversation.addMessage(message);
 	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
@@ -73,7 +73,7 @@ layout: docs
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.IMAGE);
 	ImageMessageBody body = new ImageMessageBody(new File(filePath));
-  message.addBody(body);
+    message.addBody(body);
 	message.setReceipt(username);
 	conversation.addMessage(message);
 	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
@@ -83,18 +83,18 @@ layout: docs
 
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.LOCATION);
-  LocationMessageBody locBody = new LocationMessageBody(locationAddress, latitude, longitude);
-  message.addBody(locBody);
+    LocationMessageBody locBody = new LocationMessageBody(locationAddress, latitude, longitude);
+    message.addBody(locBody);
 	message.setReceipt(username);
-  conversation.addMessage(message);
+    conversation.addMessage(message);
 	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
 
 ### 5.接收消息 ###
 	注册一个相应broadcast，用来接收消息
 	NewMessageBroadcastReceiver msgReceiver = new NewMessageBroadcastReceiver();
 	IntentFilter intentFilter = new IntentFilter(EMChatManager.getInstance().getNewMessageBroadcastAction());
-  intentFilter.setPriority(3);
-  registerReceiver(msgReceiver, intentFilter);
+    intentFilter.setPriority(3);
+    registerReceiver(msgReceiver, intentFilter);
 	
 	private class NewMessageBroadcastReceiver extends BroadcastReceiver {
         @Override
