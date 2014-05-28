@@ -47,11 +47,11 @@ layout: docs
 	//创建一条文本消息
  	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.TXT);
 	//设置消息body
-    TextMessageBody txtBody = new TextMessageBody(content);
-    message.addBody(txtBody);
+  TextMessageBody txtBody = new TextMessageBody(content);
+  message.addBody(txtBody);
 	//设置接收人
 	message.setReceipt(username);
-	//把消息接到到会话对象中
+	//把消息加入到此会话对象中
 	conversation.addMessage(message);
 	//发送消息
 	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
@@ -62,7 +62,7 @@ layout: docs
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.VOICE);
 	VoiceMessageBody body = new VoiceMessageBody(new File(filePath), len);
-    message.addBody(body);
+  message.addBody(body);
 	message.setReceipt(username);
 	conversation.addMessage(message);
 	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
@@ -73,7 +73,7 @@ layout: docs
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.IMAGE);
 	ImageMessageBody body = new ImageMessageBody(new File(filePath));
-    message.addBody(body);
+  message.addBody(body);
 	message.setReceipt(username);
 	conversation.addMessage(message);
 	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
@@ -83,34 +83,34 @@ layout: docs
 
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.LOCATION);
-    LocationMessageBody locBody = new LocationMessageBody(locationAddress, latitude, longitude);
-    message.addBody(locBody);
+  LocationMessageBody locBody = new LocationMessageBody(locationAddress, latitude, longitude);
+  message.addBody(locBody);
 	message.setReceipt(username);
-    conversation.addMessage(message);
+  conversation.addMessage(message);
 	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
 
 ### 5.接收消息 ###
 	注册一个相应broadcast，用来接收消息
 	NewMessageBroadcastReceiver msgReceiver = new NewMessageBroadcastReceiver();
 	IntentFilter intentFilter = new IntentFilter(EMChatManager.getInstance().getNewMessageBroadcastAction());
-    intentFilter.setPriority(3);
-    registerReceiver(msgReceiver, intentFilter);
+  intentFilter.setPriority(3);
+  registerReceiver(msgReceiver, intentFilter);
 	
 	private class NewMessageBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
             //消息id
-			String msgId = intent.getStringExtra("msgid");
-			//发消息的人的username(userid)
-			String msgFrom = intent.getStringExtra("from");
-			//消息类型，文本，图片，语音消息等,这里返回的值为msg.type.ordinal()。
-			//所以消息type实际为是enum类型
-			int msgType = intent.getIntExtra("type", 0);
-			//消息body，为一个json字符串
-			String msgBody = intent.getStringExtra("body");
-			Log.d("main", "new message id:" + msgId + " from:" + msgFrom + " type:" + msgType + " body:" + msgBody);
-			
-			//更方便的方法是通过msgId直接获取整个message
+            String msgId = intent.getStringExtra("msgid");
+            //发消息的人的username(userid)
+            String msgFrom = intent.getStringExtra("from");
+            //消息类型，文本，图片，语音消息等,这里返回的值为msg.type.ordinal()。
+            //所以消息type实际为是enum类型
+            int msgType = intent.getIntExtra("type", 0);
+            //消息body，为一个json字符串
+            String msgBody = intent.getStringExtra("body");
+            Log.d("main", "new message id:" + msgId + " from:" + msgFrom + " type:" + msgType + " body:" + msgBody);
+          
+            //更方便的方法是通过msgId直接获取整个message
             EMMessage message = EMChatManager.getInstance().getMessage(msgId);
                     
             }
