@@ -59,6 +59,7 @@ layout: docs
 			* [消息回执：已发送，已接收，已阅读](#{site.base_url}/docs/emchat/ios/advanced.html)
 			<!--* [阅后即焚](#{site.base_url}/docs/emchat/ios/advanced.html)-->
 		* [新消息提醒](#{site.base_url}/docs/emchat/ios/newMessageRemind.html)
+		* [设备事件调用](#{site.base_url}/docs/emchat/ios/device.html)
 	* [群聊](#{site.base_url}/docs/emchat/ios/groupchat.html)
 		* [发文字，语音，图片，位置](#{site.base_url}/docs/emchat/ios/groupchat.html)
 		* [接收消息](#{site.base_url}/docs/emchat/ios/groupchat.html)
