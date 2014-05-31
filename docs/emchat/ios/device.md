@@ -43,9 +43,9 @@ layout: docs
 		// 得到音量大小，之后用户自定义操作
 		if (0 < voiceSound <= 0.05) {
 	
-		}else if (0.05<voiceSound<=0.10) {
+		}else if (0.05<voiceSound && voiceSound<=0.10) {
         
-    	}else if (0.10<voiceSound<=0.15) {
+    	}else if (0.10<voiceSound && voiceSound<=0.15) {
        
     	}
     	...
