@@ -13,9 +13,9 @@ layout: docs
  
 	/*!
 	@method
-	@brief 获取最后一次录音的时长
+	@brief 获取录音音量大小
 	@discussion
-	@result 音频时长
+	@result 音量大小
 	*/
 	- (double)peekRecorderVoiceMeter;
 	
