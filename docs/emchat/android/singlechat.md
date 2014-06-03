@@ -42,7 +42,7 @@ layout: docs
 
 #### 4.1发送文本消息及表情 ####
 
-	//获取到与聊天人的会话对象
+	//获取到与聊天人的会话对象。参数username为聊天人的userid或者groupid，后文中的username皆是如此
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	//创建一条文本消息
     EMMessage message = EMMessage.createSendMessage(EMMessage.Type.TXT);
