@@ -10,11 +10,11 @@ layout: docs
 
 ## 1.下载环信demo (Android) 
 
-###  1.1 什么是环信demo
+###  1.1 环信UI demo
 
-环信demo展示了怎样使用环信SDK快速创建一个完整的类微信聊天APP。展示的功能包括：环信SDK初始化，登录，登出，注册消息接收listener, 发送消息。
+ UI demo，此demo比较复杂，包含了一个接近微信的完整的聊天app的所有功能,包括发文字，表情，图片，语音，位置，群聊，登录，注册，退出登录等。
 
-环信demo源代码已在github上开源供开发者下载，以帮助开发者更好的学习了解环信SDK。
+环信UI demo源代码已在github上开源供开发者下载，以帮助开发者更好的学习了解环信SDK。
 
 ### 1.2 下载环信sdk及demo 
 
@@ -29,24 +29,14 @@ layout: docs
 
 ## 2.运行环信demo (Android) 
 
-###2.1 Non-UI demo，此demo非常简单，登陆进去后进一个很简单的聊天页面
-2.1.1 在手机上安装chatdemo-nonui.apk(apk位于androidsdk/examples/ChatDemoNonUI根目录下),安装成功后，运行chatdemo-nonui:点击生成账号按钮，系统将会为你自动创建一个临时账号
+2.1 在手机上安装chatdemo-ui.apk(apk位于androidsdk/examples/ChatDemoUI根目录下)，安装成功后，运行此app，注册账号。
 
-   ![alt text](login.png "demo")
- 
-2.1.2 点击登陆按钮，进入应用中，点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
-
- ![alt text](demo.png "demo")
-
-###2.2 UI demo，此demo比较复杂，包含了一个接近微信的完整的聊天app的所有功能,包括发文字，表情，图片，语音，位置，群聊，登录，注册，退出登录等。
-2.2.1 在手机上安装chatdemo-ui.apk(apk位于androidsdk/examples/ChatDemoUI根目录下)，安装成功后，运行此app，注册账号。
-
-2.2.2 登陆之后，进入通讯录点击右上角的加号，添加好友成功后，就可以互发消息了。
+2.2 登陆之后，进入通讯录点击右上角的加号，添加好友成功后，就可以互发消息了。
 
  ![alt text](contact_add.png "demo") ![alt text](chat.png "demo")
 	
-###2.3 导入demo源代码到eclipse查看运行demo
-2.3.1 从examples目录下导入相应demo到eclipse，把libs文件下easemobchat_2.0.0.jar和3rdpartylibs文件夹下httpmime-4.2.jar拷贝到demo的libs底下
+2.3 导入demo源代码到eclipse查看运行demo
+从examples目录下导入相应demo到eclipse，把libs文件下easemobchat_2.0.0.jar和3rdpartylibs文件夹下httpmime-4.2.jar拷贝到demo的libs底下
 
  ![alt text](demo_dirs.jpg "demo") ![alt text](demos_jar.jpg "demo")
 
@@ -59,15 +49,28 @@ layout: docs
 
 ### 3.2. 在清单文件AndroidManifest.xml里加入以下权限，以及写上你注册的appkey
 
-		<uses-permission android:name="android.permission.VIBRATE" />
-	    <uses-permission android:name="android.permission.INTERNET" />
-	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	    <uses-permission android:name="android.permission.GET_TASKS" />
-	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>  
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    
+	<permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
 		
 		<!--  设置环信SDK的appkey -->
-	    <meta-data android:name="EASEMOB_APPKEY"  android:value="你申请的appkey" />
+	<meta-data android:name="EASEMOB_APPKEY"  android:value="你申请的appkey" />
+	<service android:name="com.easemob.chat.EMChatService" />
 
 关于EASEMOB_APPKEY，请登录或注册环信开发者(http://www.easemob.com),登陆管理后台,申请APPKEY后，进行相关配置。（测试APPKEY为chatdemo）
 
@@ -96,104 +99,114 @@ layout: docs
      
            //初始化环信SDK
            Log.d("DemoApplication", "Initialize EMChat SDK");
-           EaseMobChat.getInstance().init(appContext);
+           EMChat.getInstance().init(appContext);
+
+		//获取到EMChatOptions对象
+        EMChatOptions options = EMChatManager.getInstance().getChatOptions();
+        // 默认添加好友时，是不需要验证的，改成需要验证
+        options.setAcceptInvitationAlways(false);
+        //设置收到消息是否有新消息通知，默认为true
+        options.setNotificationEnable(false);
+        //设置收到消息是否有声音提示，默认为true
+        options.setNoticeBySound(false);
+        //设置收到消息是否震动 默认为true
+        options.setNoticedByVibrate(false);
+        //设置语音消息播放是否设置为扬声器播放 默认为true
+        options.setUseSpeaker(false);
+
         }
     }
 
-#### 2. 注册：见LoginActivity.java ####
+#### 2. 注册：见RegisterActivity.java ####
 
-	// 注册临时账号  缺省密码： 123456
-	register.setOnClickListener(new OnClickListener() {
-		@Override
-		public void onClick(View v) {
-			account.setText(getAccount());
-			pwd.setText("123456");
-			CreateAccountTask task = new CreateAccountTask();
-			task.execute("chatdemo_" + account.getText().toString(), "123456", "chatdemo");
+	final String appkey = EMChatConfig.getInstance().APPKEY;
+			new Thread(new Runnable() {
+				public void run() {
+					try {
+						//调用sdk注册方法
+						EMChatManager.getInstance().createAccountOnServer(appkey + "_" + username, pwd);
+						
+					} catch (final Exception e) {
+					
+					}
+				}
+			}).start();
 
-			}
-		});
-	}
-
-	private class CreateAccountTask extends AsyncTask<String, Void, String> {
-		protected String doInBackground(String... args) {
-			String userid = args[0];
-			String pwd = args[1];
-			String channel = args[2];
-			try {//channel即为APPKEY
-				EMChatManager.getInstance().createAccountOnServer(userid, pwd, channel);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return userid;
-		}
-	}
 
 #### 3. 登陆：见LoginActivity.java ####
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //登陆到聊天服务器,此处使用注册的临时账号作为登陆账号
-        EMChatManager.getInstance().login(username, password, new EMCallBack() {
+   	//调用sdk登陆方法登陆聊天服务器
+	EMChatManager.getInstance().login(username, password, new EMCallBack() {
+				
+		@Override
+		public void onSuccess() {
+			// TODO Auto-generated method stub
+					
+		}
+				
+		@Override
+		public void onProgress(int progress, String status) {
+			// TODO Auto-generated method stub
+					
+		}
+				
+		@Override
+		public void onError(int code, String message) {
+			// TODO Auto-generated method stub
+					
+		}
+	});
 
-            @Override
-            public void onError(int arg0, final String errorMsg) {
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(MainActivity.this, "登录聊天服务器失败：" + errorMsg, Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
+#### 4. 注册listener,以接收聊天消息,回执消息，好友同意，好友请求等监听变化：见MainActivity.java ####
 
-            @Override
-            public void onProgress(int arg0, String arg1) {
-            }
+ 		//注册一个接收消息的BroadcastReceiver
+		msgReceiver = new NewMessageBroadcastReceiver();
+		IntentFilter intentFilter = new IntentFilter(EMChatManager.getInstance().getNewMessageBroadcastAction());
+		intentFilter.setPriority(3);
+		registerReceiver(msgReceiver, intentFilter);
 
-            @Override
-            public void onSuccess() {
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(MainActivity.this, "登录聊天服务器成功", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                
-            }
-        });
+		// 注册一个ack回执消息的BroadcastReceiver
+		IntentFilter ackMessageIntentFilter = new IntentFilter(EMChatManager.getInstance().getAckMessageBroadcastAction());
+		ackMessageIntentFilter.setPriority(3);
+		registerReceiver(ackMessageReceiver, ackMessageIntentFilter);
+		
+		//注册一个好友请求同意好友请求等的BroadcastReceiver
+		IntentFilter inviteIntentFilter = new IntentFilter(EMChatManager.getInstance().getContactInviteEventBroadcastAction());
+		registerReceiver(contactInviteReceiver, inviteIntentFilter);
+		
+		//setContactListener监听联系人的变化等
+		EMContactManager.getInstance().setContactListener(new MyContactListener());
+		//注册一个监听连接状态的listener
+		EMChatManager.getInstance().addConnectionListener(new MyConnectionListener());
     }
 
-#### 4. 注册listener,以接收聊天消息：见MainActivity.java ####
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+#### 5. 好友请求，好友同意：见MainActivity.java ####
 
-        //注册message receiver， 接收聊天消息
-        msgReceiver = new NewMessageBroadcastReceiver();
-        IntentFilter intentFilter = new IntentFilter(EMChatManager.getInstance().getNewMessageBroadcastAction());
-        registerReceiver(msgReceiver, intentFilter);
-    }
+   private BroadcastReceiver contactInviteReceiver = new BroadcastReceiver(){
 
-
-#### 5. 发送消息：见MainActivity.java ####
-
-    //本demo是发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
-    public void onSendTxtMsg(View view) {
-        try {
-            //创建一个消息
-            EMMessage msg = EMMessage.createSendMessage(EMMessage.Type.TXT);
-            //设置消息的接收方
-            msg.setReceipt("bot");
-            //设置消息内容。本消息类型为文本消息。
-            TextMessageBody body = new TextMessageBody(tvMsg.getText().toString());
-            msg.addBody(body);
-        
-            //发送消息
-            EMChatManager.getInstance().sendMessage(msg);
-            Log.d("chatdemo", "消息发送成功:" + msg.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			//请求理由
+			final String reason = intent.getStringExtra("reason");
+			final boolean isResponse = intent.getBooleanExtra("isResponse", false);
+			//消息发送方username
+			final String from = intent.getStringExtra("username");
+			
+			//接到邀请的消息，如果不处理(同意或拒绝)，掉线后，服务器会自动再发过来，所有客户端不要重复提醒
+			
+					
+			//sdk暂时只提供同意好友请求方法，不同意选项可以参考微信增加一个忽略按钮。
+		
+			//提示有新消息
+			EMNotifier.getInstance(getApplicationContext()).notifyOnNewMsg();
+			
+			
+			abortBroadcast();
+			
+		}
+		
+	};
 
 #### 6. 接收聊天消息并显示：见MainActivity.java ####
 
@@ -202,23 +215,83 @@ layout: docs
         public void onReceive(Context context, Intent intent) {
             //消息id
             String msgId = intent.getStringExtra("msgid");
-            //消息发送方
-            String msgFrom = intent.getStringExtra("from");
-            //消息类型
-            int msgType = intent.getIntExtra("type", 0);
-            //消息内容
-            String msgBody = intent.getStringExtra("body");
-            
-            //更方便的方法是通过msgId直接获取整个message
-            EMMessage message = EMChatManager.getInstance().getMessage(msgId);
+            ......
+			......
+			......
 
-            Log.d("chatdemo", "new message id:" + msgId + " from:" + msgFrom + " type:" + msgType + " body:" + msgBody);
-            
-            tvReceivedMsg.append("from:" + msgFrom + " body:" + msgBody + " \r");
+			//注销广播，否则在ChatActivity中会收到这个广播
+			abortBroadcast();
         }
     }
 
-#### 7. 退出登陆：见MainActivity.java ####
+
+#### 7. 消息回执BroadcastReceiver：见MainActivity.java ####
+
+    private BroadcastReceiver ackMessageReceiver = new BroadcastReceiver() {
+		
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			 //消息id
+            String msgId = intent.getStringExtra("msgid");
+            ......
+			......
+			......
+
+			abortBroadcast();
+		}
+	};
+
+
+
+#### 8.联系人变化listener：见MainActivity.java ####
+
+    private class MyContactListener implements EMContactListener{
+
+		@Override
+		public void onContactAdded(List<String> usernameList) {
+			
+			
+		}
+
+		@Override
+		public void onContactDeleted(List<String> usernameList) {
+			
+		}
+
+		
+	}
+
+#### 9.监听连接状态：见MainActivity.java ####
+
+    private class MyConnectionListener implements ConnectionListener{
+
+		@Override
+		public void onConnected() {
+			
+		}
+
+		@Override
+		public void onDisConnected(String errorString) {
+			
+		}
+
+		@Override
+		public void onReConnected() {
+			
+		}
+
+		@Override
+		public void onReConnecting() {
+		}
+
+		@Override
+		public void onConnecting(String progress) {
+		}
+		
+	}
+
+
+#### 10. 退出登陆：见MainActivity.java ####
 
     @Override
     protected void onPause() {
