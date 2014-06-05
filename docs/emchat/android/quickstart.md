@@ -38,26 +38,14 @@ layout: docs
 
  ![alt text](demo.png "demo")
 
-###2.2 UI demo，此demo比较复杂，包含了一个接近微信的完整的聊天app的所有功能,包括发文字，表情，图片，语音，位置，群聊，登录，注册，退出登录等。
-2.2.1 在手机上安装chatdemo-ui.apk(apk位于androidsdk/examples/ChatDemoUI根目录下)，安装成功后，运行此app，注册账号。
 
-2.2.2 登陆之后，进入通讯录点击右上角的加号，添加好友成功后，就可以互发消息了。
+##3.快速集成(Android) 导入demo源代码到eclipse查看运行demo
 
- ![alt text](contact_add.png "demo") ![alt text](chat.png "demo")
-	
-###2.3 导入demo源代码到eclipse查看运行demo
-2.3.1 从examples目录下导入相应demo到eclipse，把libs文件下easemobchat_2.0.0.jar和3rdpartylibs文件夹下httpmime-4.2.jar拷贝到demo的libs底下
+### 从examples目录下导入相应ChatDemoNonUI到eclipse，把libs文件下easemobchat_2.0.0.jar拷贝到ChatDemoNonUI的libs底下。###
 
- ![alt text](demo_dirs.jpg "demo") ![alt text](demos_jar.jpg "demo")
+![alt text](demo_dirs.jpg "demo") ![alt text](demos_nonui_jar.jpg "demo")
 
-
-## 3.快速集成(Android) ##
-
-### 3.1 把libs文件夹下easemobchat_2.0.0.jar和3rdpartylibs文件夹下httpmime-4.2.jar拷贝到你的项目的libs文件夹底下。###
-
- ![](http://i.imgur.com/NrMwsez.jpg)
-
-### 3.2. 在清单文件AndroidManifest.xml里加入以下权限，以及写上你注册的appkey
+### 3.1. 在清单文件AndroidManifest.xml里加入以下权限，以及写上你注册的appkey
 
 		<uses-permission android:name="android.permission.VIBRATE" />
 	    <uses-permission android:name="android.permission.INTERNET" />
@@ -77,7 +65,7 @@ layout: docs
 ### 4.1 在Eclipse/IDEA中创建环信demo project 
 
 
-1. Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的chatdemo-nonui路径,点击“Finish”。
+1. Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的ChatDemoNonUI路径,点击“Finish”。
 
 ![alt text](guide1.png "demo")
 
@@ -202,19 +190,30 @@ layout: docs
         public void onReceive(Context context, Intent intent) {
             //消息id
             String msgId = intent.getStringExtra("msgid");
-            //消息发送方
-            String msgFrom = intent.getStringExtra("from");
-            //消息类型
-            int msgType = intent.getIntExtra("type", 0);
-            //消息内容
-            String msgBody = intent.getStringExtra("body");
             
-            //更方便的方法是通过msgId直接获取整个message
+            //从SDK 根据消息ID 可以获得消息对象
             EMMessage message = EMChatManager.getInstance().getMessage(msgId);
 
-            Log.d("chatdemo", "new message id:" + msgId + " from:" + msgFrom + " type:" + msgType + " body:" + msgBody);
-            
-            tvReceivedMsg.append("from:" + msgFrom + " body:" + msgBody + " \r");
+          Log.d("main","new message id:" + msgId + " from:" + message.getFrom() + " type:" + message.getType() + " body:" + message.getBody());
+			switch (message.getType()) {
+			case TXT:
+				TextMessageBody txtBody = (TextMessageBody) message.getBody();
+				tvReceivedMsg.append("text message from:" + message.getFrom() + " text:" + txtBody.getMessage() + " \n\r");
+				break;
+			case IMAGE:
+				ImageMessageBody imgBody = (ImageMessageBody) message.getBody();
+				tvReceivedMsg.append("img message from:" + message.getFrom() + " thumbnail:" + imgBody.getThumbnailUrl() + " remoteurl:"
+						+ imgBody.getRemoteUrl() + " \n\r");
+				break;
+			case VOICE:
+				VoiceMessageBody voiceBody = (VoiceMessageBody) message.getBody();
+				tvReceivedMsg.append("voice message from:" + message.getFrom() + " length:" + voiceBody.getLength() + " remoteurl:"
+						+ voiceBody.getRemoteUrl() + " \n\r");
+				break;
+			case LOCATION:
+				LocationMessageBody locationBody = (LocationMessageBody) message.getBody();
+				tvReceivedMsg.append("location message from:" + message.getFrom() + " address:" + locationBody.getAddress() + " \n\r");
+				break;
         }
     }
 
@@ -228,7 +227,7 @@ layout: docs
         EMChatManager.getInstance().logout();
     }
 
-# 5. 环信demo源代码git地址
+## 5. 环信demo源代码git地址
 
  
 环信提供了一系列demo以帮助开发者更好的学习了解环信SDK。所有demo均已在github上开源供开发者下载使用。你可以clone这些项目来学习了解环信SDK，也可以在这些demo基础上快速创建你自己的真正项目。环信SDK（Android版）在github的下载地址是：
@@ -236,7 +235,7 @@ layout: docs
 [https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)
 
 
-# 6. Bug报告跟踪 #
+## 6. Bug报告跟踪 #
 
 请使用以下地址来报告跟踪bug：
 

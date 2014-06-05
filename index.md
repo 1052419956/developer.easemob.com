@@ -11,7 +11,8 @@ layout: docs
 
 * [Android]()
  
-	* [5分钟快速入门](#{site.base_url}/docs/emchat/android/quickstart.html)
+	* [5分钟快速入门无UIDemo](#{site.base_url}/docs/emchat/android/quickstart.html)
+	* [5分钟快速入门有UIDemo](#{site.base_url}/docs/emchat/android/quickstartUI.html)
 	* [单聊](#{site.base_url}/docs/emchat/android/singlechat.html)
 		* [初始化](#{site.base_url}/docs/emchat/android/singlechat.html)
 		* [登录鉴权](#{site.base_url}/docs/emchat/android/singlechat.html)
