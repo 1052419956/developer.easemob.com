@@ -29,7 +29,7 @@ layout: docs
 
 ## 2.运行环信demo (Android) 
 
-###2.1 noui demo，此demo非常简单，登陆进去后进一个很简单的聊天页面
+###2.1 Non-UI demo，此demo非常简单，登陆进去后进一个很简单的聊天页面
 2.1.1 在手机上安装chatdemo-nonui.apk(apk位于androidsdk/examples/ChatDemoNonUI根目录下),安装成功后，运行chatdemo-nonui:点击生成账号按钮，系统将会为你自动创建一个临时账号
 
    ![alt text](login.png "demo")
@@ -38,7 +38,7 @@ layout: docs
 
  ![alt text](demo.png "demo")
 
-###2.2 ui demo，此demo比较复杂，包含了比较完整的聊天功能,包括发文字，表情，图片，语音，位置等。
+###2.2 UI demo，此demo比较复杂，包含了一个接近微信的完整的聊天app的所有功能,包括发文字，表情，图片，语音，位置，群聊，登录，注册，退出登录等。
 2.2.1 在手机上安装chatdemo-ui.apk(apk位于androidsdk/examples/ChatDemoUI根目录下)，安装成功后，运行此app，注册账号。
 
 2.2.2 登陆之后，进入通讯录点击右上角的加号，添加好友成功后，就可以互发消息了。
