@@ -13,9 +13,17 @@ layout: docs
 	  password:"123456"//登录密码
 	}
 
+# 2. 名词解释
+    orgName: 是开发者在环信开发者后台注册账号时填写的公司Id。
+    appName: 是开发者在环信开发者后台创建app时填写的app名。
+	公司管理员：是开发者在环信开发者后台注册的账号。公司管理员账号可以在自己账号下创建多个app。公司管理员拥有对该公司账号下所有app的操作权限。
+	app管理员：每个app都可以创建app管理员（可选操作）。app管理员拥有app级别的操作权限。
+
 # 2. 用户管理REST API
 
-以下所有API均需要app管理员或org管理员权限才能访问。强烈建议保护好app管理员或org管理员的用户名和密码。尽量只在应用的服务器后台对环信用户做增删改查的管理，包括新用户注册。尤其不要将app管理员或org管理员的用户名和密码写死在手机客户端中。
+以下所有API均需要公司管理员或app管理员权限才能访问。
+
+强烈建议保护好公司管理员及app管理员的用户名和密码。尽量只在APP的服务器后台对环信用户做增删改查的管理，包括新用户注册。一定不要将公司管理员或app管理员的用户名和密码写死在手机客户端中。
 
 ## 2.1 app管理员登录并获取授权token ##
 
@@ -36,6 +44,8 @@ layout: docs
 - 错误代码：
 
 #### curl示例：
+
+*注：请将URL中的easemob-demo/chatdemo替换成你自己的orgName和appName。并将"username","password"分别替换成你自己的用户名和密码*
 		
 	curl -X POST "http://a1.easemob.com/easemob-demo/chatdemo/token" -d '{"grant_type":"password","username":"jliu1","password":"jliu1"}'
 	
@@ -92,27 +102,10 @@ layout: docs
 		"uri" : "http://a1.easemob.com/easemob-demo/chatdemo/users",
 		"entities" : [ {
 			"uuid" : "7f90f7ca-bb24-11e2-b2d0-6d8e359945e4",
-			"type" : "user",
 			"name" : "jliu0003",
 			"created" : 1368377620796,
 			"modified" : 1368377620796,
 			"username" : "jliu0003",
-			"activated" : true,			
-			"metadata" : {
-				"path" : "/users/7f90f7ca-bb24-11e2-b2d0-6d8e359945e4",
-				"sets" : {
-					"rolenames" : "/users/7f90f7ca-bb24-11e2-b2d0-6d8e359945e4/rolenames",
-					"permissions" : "/users/7f90f7ca-bb24-11e2-b2d0-6d8e359945e4/permissions"
-				},
-				"collections" : {
-					"activities" : "/users/7f90f7ca-bb24-11e2-b2d0-6d8e359945e4/activities",
-					"devices" : "/users/7f90f7ca-bb24-11e2-b2d0-6d8e359945e4/devices",
-					"feed" : "/users/7f90f7ca-bb24-11e2-b2d0-6d8e359945e4/feed",
-					"groups" : "/users/7f90f7ca-bb24-11e2-b2d0-6d8e359945e4/groups",
-					"roles" : "/users/7f90f7ca-bb24-11e2-b2d0-6d8e359945e4/roles",
-					"following" : "/users/7f90f7ca-bb24-11e2-b2d0-6d8e359945e4/following",
-    				"followers" : "/users/7f90f7ca-bb24-11e2-b2d0-6d8e359945e4/followers"
-      			}
     		}
       	} ],
       	"timestamp" : 1368377620793,
@@ -121,7 +114,7 @@ layout: docs
       	"applicationName" : "chatdemo"
 		}
   
-
+注：返回的response json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
 ## 2.3 获取指定用户详情 ##
 
