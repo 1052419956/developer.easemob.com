@@ -29,55 +29,19 @@ layout: docs
 
 ## 2.运行环信demo (Android) 
 
-2.1 在手机上安装chatdemo-ui.apk(apk位于androidsdk/examples/ChatDemoUI根目录下)，安装成功后，运行此app，注册账号。
+2.1 在手机上安装chatdemo-ui.apk(apk位于androidsdk/examples/ChatDemoUI目录下)，安装成功后，运行此app，注册账号，并登陆。
+
+![alt text](register1.png "demo") ![alt text](login1.png "demo")
 
 2.2 登陆之后，进入通讯录点击右上角的加号，添加好友成功后，就可以互发消息了。
 
  ![alt text](contact_add.png "demo") ![alt text](chat.png "demo")
 	
-2.3 导入demo源代码到eclipse查看运行demo
-从examples目录下导入相应demo到eclipse，把libs文件下easemobchat_2.0.0.jar和3rdpartylibs文件夹下httpmime-4.2.jar拷贝到demo的libs底下
 
- ![alt text](demo_dirs.jpg "demo") ![alt text](demos_jar.jpg "demo")
-
-
-## 3.快速集成(Android) ##
-
-### 3.1 把libs文件夹下easemobchat_2.0.0.jar和3rdpartylibs文件夹下httpmime-4.2.jar拷贝到你的项目的libs文件夹底下。###
-
- ![](http://i.imgur.com/NrMwsez.jpg)
-
-### 3.2. 在清单文件AndroidManifest.xml里加入以下权限，以及写上你注册的appkey
-
-	<uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>  
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    
-	<permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
-		
-		<!--  设置环信SDK的appkey -->
-	<meta-data android:name="EASEMOB_APPKEY"  android:value="你申请的appkey" />
-	<service android:name="com.easemob.chat.EMChatService" />
-
-关于EASEMOB_APPKEY，请登录或注册环信开发者(http://www.easemob.com),登陆管理后台,申请APPKEY后，进行相关配置。（测试APPKEY为chatdemo）
-
-## 4. 从源代码级别深入了解环信demo (Android)
+## 3. 从源代码级别深入了解环信demo (Android)
 
  
-### 4.1 在Eclipse/IDEA中创建环信demo project 
+### 3.1 在Eclipse/IDEA中创建环信demo project 
 
 
 1. Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的chatdemo-nonui路径,点击“Finish”。
@@ -85,7 +49,7 @@ layout: docs
 ![alt text](guide1.png "demo")
 
 
-### 4.2. 深入理解环信demo背后的代码 ###
+### 3.2. 深入理解环信demo背后的代码 ###
 
 #### 1.初始化： 见DemoApplication.java
 
@@ -301,7 +265,7 @@ layout: docs
         EMChatManager.getInstance().logout();
     }
 
-# 5. 环信demo源代码git地址
+# 4. 环信demo源代码git地址
 
  
 环信提供了一系列demo以帮助开发者更好的学习了解环信SDK。所有demo均已在github上开源供开发者下载使用。你可以clone这些项目来学习了解环信SDK，也可以在这些demo基础上快速创建你自己的真正项目。环信SDK（Android版）在github的下载地址是：
@@ -309,7 +273,7 @@ layout: docs
 [https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)
 
 
-# 6. Bug报告跟踪 #
+# 5. Bug报告跟踪 #
 
 请使用以下地址来报告跟踪bug：
 

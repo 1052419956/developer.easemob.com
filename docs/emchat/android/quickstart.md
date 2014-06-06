@@ -39,30 +39,10 @@ layout: docs
  ![alt text](demo.png "demo")
 
 
-##3.快速集成(Android) 导入demo源代码到eclipse查看运行demo
-
-### 从examples目录下导入相应ChatDemoNonUI到eclipse，把libs文件下easemobchat_2.0.0.jar拷贝到ChatDemoNonUI的libs底下。###
-
-![alt text](demo_dirs.jpg "demo") ![alt text](demos_nonui_jar.jpg "demo")
-
-### 3.1. 在清单文件AndroidManifest.xml里加入以下权限，以及写上你注册的appkey
-
-		<uses-permission android:name="android.permission.VIBRATE" />
-	    <uses-permission android:name="android.permission.INTERNET" />
-	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	    <uses-permission android:name="android.permission.GET_TASKS" />
-	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-		
-		<!--  设置环信SDK的appkey -->
-	    <meta-data android:name="EASEMOB_APPKEY"  android:value="你申请的appkey" />
-
-关于EASEMOB_APPKEY，请登录或注册环信开发者(http://www.easemob.com),登陆管理后台,申请APPKEY后，进行相关配置。（测试APPKEY为chatdemo）
-
-## 4. 从源代码级别深入了解环信demo (Android)
+## 3. 从源代码级别深入了解环信demo (Android)
 
  
-### 4.1 在Eclipse/IDEA中创建环信demo project 
+### 3.1 在Eclipse/IDEA中创建环信demo project 
 
 
 1. Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的ChatDemoNonUI路径,点击“Finish”。
@@ -70,7 +50,7 @@ layout: docs
 ![alt text](guide1.png "demo")
 
 
-### 4.2. 深入理解环信demo背后的代码 ###
+### 3.2. 深入理解环信demo背后的代码 ###
 
 #### 1.初始化： 见DemoApplication.java
 
@@ -84,7 +64,7 @@ layout: docs
      
            //初始化环信SDK
            Log.d("DemoApplication", "Initialize EMChat SDK");
-           EaseMobChat.getInstance().init(appContext);
+           EMChat.getInstance().init(appContext);
         }
     }
 
@@ -97,7 +77,7 @@ layout: docs
 			account.setText(getAccount());
 			pwd.setText("123456");
 			CreateAccountTask task = new CreateAccountTask();
-			task.execute("chatdemo_" + account.getText().toString(), "123456", "chatdemo");
+			task.execute("easemob-demo#chatdemo_" + account.getText().toString(), "123456", "chatdemo");
 
 			}
 		});
@@ -177,7 +157,6 @@ layout: docs
         
             //发送消息
             EMChatManager.getInstance().sendMessage(msg);
-            Log.d("chatdemo", "消息发送成功:" + msg.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -227,7 +206,7 @@ layout: docs
         EMChatManager.getInstance().logout();
     }
 
-## 5. 环信demo源代码git地址
+## 4. 环信demo源代码git地址
 
  
 环信提供了一系列demo以帮助开发者更好的学习了解环信SDK。所有demo均已在github上开源供开发者下载使用。你可以clone这些项目来学习了解环信SDK，也可以在这些demo基础上快速创建你自己的真正项目。环信SDK（Android版）在github的下载地址是：
@@ -235,7 +214,7 @@ layout: docs
 [https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)
 
 
-## 6. Bug报告跟踪 #
+## 5. Bug报告跟踪 #
 
 请使用以下地址来报告跟踪bug：
 
