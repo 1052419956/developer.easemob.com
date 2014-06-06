@@ -123,6 +123,8 @@ layout: docs
 	//sdk初始化加载的聊天记录为20条，到顶时需要去db里获取更多
 	//获取startMsgId之前的pagesize条消息，此方法获取的messages sdk会自动存入到此会话中，app中无需再次把获取到的messages添加到会话中
 	List<EMMessage> messages = conversation.loadMoreMsgFromDB(startMsgId, pagesize);
+	//如果是群聊，调用下面此方法
+	List<EMMessage> messages = conversation.loadMoreGroupMsgFromDB(startMsgId, pagesize);
 	
 
 ### 7.获取未读消息数量 ###
