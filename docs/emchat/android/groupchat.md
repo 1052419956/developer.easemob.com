@@ -32,3 +32,32 @@ layout: docs
 ###7.获取群聊列表
 	//从服务器获取自己加入的和创建的群聊列表
 	EMGroupManager.getInstance().getGroupsFromServer();
+
+###8.群聊事件监听
+	EMGroupManager.getInstance().addGroupChangeListener(new GroupChangeListener() {
+				
+				@Override
+				public void onUserRemoved(String groupId, String groupName) {
+					//当前用户被管理员移除出群聊
+				}
+				
+				@Override
+				public void onInvitationReceived(String groupId, String groupName, String inviter, String reason) {
+					//收到加入群聊的邀请
+				}
+				
+				@Override
+				public void onInvitationDeclined(String groupId, String invitee, String reason) {
+					//群聊邀请被拒绝
+				}
+				
+				@Override
+				public void onInvitationAccpted(String groupId, String inviter, String reason) {
+					//群聊邀请被接受
+				}
+				
+				@Override
+				public void onGroupDestroy(String groupId, String groupName) {
+					//群聊被创建者解散
+				}
+			});
