@@ -10,7 +10,7 @@ layout: docs
 ### 1.初始化环信聊天SDK
 建议在application中初始化
 
-	EaseMobChat.getInstance().init(getApplicationContext());
+	EMChat.getInstance().init(getApplicationContext());
 
 ### 2.登陆聊天服务器
     EMChatManager.getInstance().login(userName,password,
@@ -144,7 +144,7 @@ layout: docs
 
 ### 10.新消息提示 ###
 	//SDK中提供了方便的新消息提醒功能。可以在收到消息时调用，提醒用户有新消息
-	1）首先获取ChatOption  chatOptions = EMChatManager.getInstance().getChatOptions();
+	1）首先获取EMChatOptions  chatOptions = EMChatManager.getInstance().getChatOptions();
 	2) 设置是否启用新消息提醒 chatOptions.setNotificationEnable(true|false); 默认为true 开启新消息提醒
 	   设置是否启用新消息声音提醒 chatOptions.setNoticeBySound(true|false);默认为true 开启声音提醒
 	   设置是否启用新消息震动提醒 chatOptions.setNoticedByVibrate(true|false);默认为true 开启震动提醒
