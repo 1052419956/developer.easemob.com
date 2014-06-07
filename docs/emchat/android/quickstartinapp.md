@@ -1,6 +1,6 @@
-## 快速集成(Android) ##
+## 自主开发集成聊天配置指导(Android) ##
 
-### 1.在个人开发的应用中，集成环信聊天需要把libs文件夹下easemobchat_2.0.0.jar和3rdpartylibs文件夹下httpmime-4.2.jar拷贝到你的项目的libs文件夹底下。###
+### 1.在自行开发的应用中，集成环信聊天需要把libs文件夹下easemobchat_2.0.0.jar和3rdpartylibs文件夹下httpmime-4.2.jar拷贝到你的项目的libs文件夹底下。###
 
 
 ![alt text](demo_dirs.jpg "demo") 

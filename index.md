@@ -13,7 +13,7 @@ layout: docs
  
 	* [5分钟快速入门无UIDemo](#{site.base_url}/docs/emchat/android/quickstart.html)
 	* [5分钟快速入门有UIDemo](#{site.base_url}/docs/emchat/android/quickstartUI.html)
-	* [个人开发集成聊天配置指导](#{site.base_url}/docs/emchat/android/quickstartinapp.html)
+	* [自主开发集成聊天配置指导](#{site.base_url}/docs/emchat/android/quickstartinapp.html)
 	* [单聊](#{site.base_url}/docs/emchat/android/singlechat.html)
 		* [初始化](#{site.base_url}/docs/emchat/android/singlechat.html)
 		* [登录鉴权](#{site.base_url}/docs/emchat/android/singlechat.html)
