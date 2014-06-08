@@ -10,7 +10,7 @@ layout: docs
 
 ## 1.下载环信demo (iOS) ##
 
-###  1.1 什么是环信demo ###
+### 1.1 什么是环信demo ###
 
 环信demo展示了怎样使用环信SDK快速创建一个完整的类微信聊天APP。展示的功能包括：环信SDK初始化，登录，登出，注册消息接收listener, 发送消息。
 
@@ -30,12 +30,14 @@ layout: docs
 
 ## 2.运行环信demo (iOS) ##
 
-1. 在手机上安装chatdemo-nonui.ipa
-    
+1. 在模拟器中运行chatdemo-nonui工程。(或者使用手机上的Safari浏览器访问 [www.easemob.com/downloads/chatdemo.html](http://www.easemob.com/downloads/chatdemo.html)直接安装。)
+
  
-2. 运行chatdemo-nonui: 点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
+3. 运行chatdemo-nonui: 点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来，显示如下图。
+
 
  ![alt text](demo.png "demo")
+ 
 
 ## 3.快速集成 ##
 
@@ -57,8 +59,20 @@ layout: docs
 ### 5.设置Architectures ###
 ![alt text](Active.png "Active")
 
-### 6.在Info中配置信息 ###
-![alt text](info.png "info")
+### 6.初始化EaseMobSDK ###
+** 在AppDelegate中注册SDK **
+
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary 	*)launchOptions
+	{
+		self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+		self.window.backgroundColor = [UIColor whiteColor];
+		
+		[[EaseMob sharedInstance] registerSDKWithAppKey:@"easemob-demo#chatdemoui"];
+		[[EaseMob sharedInstance] application:application
+			didFinishLaunchingWithOptions:launchOptions];
+		[self.window makeKeyAndVisible];
+		return YES;
+	}
 
  *	关于EASEMOB_APPKEY，请登录或注册环信开发者[(http://console.easemob.com)](http://console.easemob.com),登陆管理后台,申请APPKEY后，进行相关配置。
 

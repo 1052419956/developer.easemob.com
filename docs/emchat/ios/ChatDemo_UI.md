@@ -19,7 +19,7 @@ layout: docs
 
 #### 1.下载环信Demo及SDK： [下载](http://www.easemob.com/downloads.php) ####
 
-  ![alt text](chatUIDemoFolder.png "Demo")
+  ![alt text](example_layout.png "Demo")
   
 #### 2.运行程序 ####
 **账号不支持中文**
