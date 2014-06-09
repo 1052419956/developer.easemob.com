@@ -77,8 +77,49 @@ layout: docs
 2. 用户的具体信息。见用户的数据结构
 
 
-## 3.2 创建用户 ##
+## 3.2 创建用户 分两种情况：自由注册 和 仅管理员可注册##
 
+##自由注册
+###POST /${orgName}/${appName}/users
+
+- 描述：在指定的org和app中创建一个新的用户
+- 权限： 无
+- url参数： 无
+- request body： 要创建的用户，json格式。见用户的数据结构。
+- response： 创建成功的用户，json格式。见用户的数据结构。
+- 错误代码：
+
+#### curl示例：
+		
+	curl -X POST -i "http://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
+
+#### response返回:
+		
+		{
+		"action" : "post",
+		"application" : "a2e433a0-ab1a-11e2-a134-85fca932f094",
+		"params" : { },
+		"path" : "/users",
+		"uri" : "http://a1.easemob.com/easemob-demo/chatdemo/users",
+		"entities" : [ {
+			"uuid" : "7f90f7ca-bb24-11e2-b2d0-6d8e359945e4",
+			"name" : "jliu0003",
+			"created" : 1368377620796,
+			"modified" : 1368377620796,
+			"username" : "jliu0003",
+    		}
+      	} ],
+      	"timestamp" : 1368377620793,
+      	"duration" : 125,
+      	"organization" : "easemob-demo",
+      	"applicationName" : "chatdemo"
+		}
+ 
+##仅管理员可注册
+###1. 先获取app管理员token ； 
+详见3.1
+
+###2. 创建用户
 ###POST /${orgName}/${appName}/users
 
 - 描述：在指定的org和app中创建一个新的用户
@@ -90,7 +131,7 @@ layout: docs
 
 #### curl示例：
 		
-	curl -X POST -i "http://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
+	curl -X POST -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
 
 #### response返回:
 		
