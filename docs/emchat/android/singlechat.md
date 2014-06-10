@@ -134,14 +134,19 @@ layout: docs
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	conversation.resetUnsetMsgCount();
 
-### 9.删除聊天记录 ###
+### 9.清空会话聊天记录 ###
+	//清空和某个user的聊天记录，不删除整个会话
+	EMChatManager.getInstance().clearConversation(username);
+
+
+### 10.删除聊天记录 ###
     //删除和某个user的整个的聊天记录
     EMChatManager.getInstance().deleteConversation(username);
     //删除当前会话的某条聊天记录
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
     conversation.removeMessage(deleteMsg.msgId);
 
-### 10.新消息提示 ###
+### 11.新消息提示 ###
 	//SDK中提供了方便的新消息提醒功能。可以在收到消息时调用，提醒用户有新消息
 	1）首先获取EMChatOptions  chatOptions = EMChatManager.getInstance().getChatOptions();
 	2) 设置是否启用新消息提醒 chatOptions.setNotificationEnable(true|false); 默认为true 开启新消息提醒
