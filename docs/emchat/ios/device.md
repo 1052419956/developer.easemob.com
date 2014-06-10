@@ -9,7 +9,7 @@ layout: docs
 ### 1. 录音时获取音量大小 ###
 
  
-** 函数名 **
+**函数名**
  
 	/*!
 	@method
@@ -19,7 +19,7 @@ layout: docs
 	*/
 	- (double)peekRecorderVoiceMeter;
 	
-** 示例代码 **
+**示例代码**
 
 	// touch down
 	-(void)recordButtonTouchDown{
@@ -54,7 +54,7 @@ layout: docs
     
 ### 2. 判断当前麦克风是否可用 ###
 
-** 函数名 **
+**函数名**
 
 	/*!
 	@method
@@ -64,7 +64,7 @@ layout: docs
 	- (BOOL)checkMicrophoneAvailability;
 
 
-** 示例代码 **
+**示例代码**
 
 	BOOL isEnabled = [[EaseMob sharedInstance].deviceManager checkMicrophoneAvailability];
     if (isEnabled) {
@@ -76,7 +76,7 @@ layout: docs
 
 ### 3. 距离传感器功能 ###
 
-** 属性名称 **
+**属性名称**
 	
 	/*!
 	@property
@@ -99,7 +99,7 @@ layout: docs
 	
 
 
-** 示例代码 **
+**示例代码**
 
 	BOOL isSupport = [[EaseMob sharedInstance].deviceManager isSupportProximitySensor];
 	if (isSupport) {
@@ -122,7 +122,7 @@ layout: docs
         NSLog(@"传感器未打开");
     }
 	
-** 函数名称 **
+**函数名称**
 
 	/*!
 	@method
@@ -140,7 +140,7 @@ layout: docs
 	*/
 	- (BOOL)disableProximitySensor;
 	
-** 示例代码 **
+**示例代码**
 
 	BOOL enable = [[EaseMob sharedInstance].deviceManager enableProximitySensor];
     if (enable) {
@@ -158,7 +158,7 @@ layout: docs
     
 ### 4. 播放提示短音 ###
 
-** 函数名称 **
+**函数名称**
 
 	/*!
 	@method
@@ -186,7 +186,7 @@ layout: docs
 	- (void)asyncPlayNewMessageWithCompletion:(void (^)(SystemSoundID soundId))completion
                                   onQueue:(dispatch_queue_t)aQueue;
                                   
-** 示例代码 **
+**示例代码**
 
 	[[EaseMob sharedInstance].deviceManager playNewMessageSound];
 	
@@ -202,7 +202,7 @@ layout: docs
     
 ### 5. 设备震动 ###
 
-** 函数名称 **
+**函数名称**
 
 	/*!
 	@method
@@ -231,7 +231,7 @@ layout: docs
 	- (void)asyncPlayVibrationWithCompletion:(void (^)(SystemSoundID soundId))completion
                                  onQueue:(dispatch_queue_t)aQueue;
                                  
-** 示例代码 **
+**示例代码**
 
 	[[EaseMob sharedInstance].deviceManager playVibration];
     
@@ -246,7 +246,7 @@ layout: docs
     
 ### 6. 摄像头是否可用 ###
 
-** 函数名称 **
+**函数名称**
 
 	/*!
 	@method
@@ -255,7 +255,7 @@ layout: docs
 	*/
 	- (BOOL)checkCameraAvailability;
 	
-** 示例代码 **
+**示例代码**
 	
 	BOOL enable = [[EaseMob sharedInstance].deviceManager checkCameraAvailability];
     if (enable) {
@@ -267,7 +267,7 @@ layout: docs
 	
 ###  7. 设置播放音频方式 ###
 
-** 函数名称 **
+**函数名称**
 
 	/*!
 	@method
@@ -278,7 +278,7 @@ layout: docs
 	*/
 	- (BOOL)switchAudioOutputDevice:(EMAudioOutputDevice)outputDevice;
 
-** 示例代码 **
+**示例代码**
 	
 	// 使用耳机播放
 	[[EaseMob sharedInstance].deviceManager switchAudioOutputDevice:eAudioOutputDevice_earphone];

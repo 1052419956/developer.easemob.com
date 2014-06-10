@@ -18,8 +18,10 @@ layout: docs
     	[self.window makeKeyAndVisible];
     
     	// 让SDK得到App目前的各种状态，以便让SDK做出对应当前场景的操作
-		BOOL ret = [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
-		return ret;
+		[[EaseMob sharedInstance] registerSDKWithAppKey:@"easemob-demo#chatdemoui"];
+		[[EaseMob sharedInstance] application:application
+			didFinishLaunchingWithOptions:launchOptions];
+		return YES;
 	}
 
 	- (void)applicationWillResignActive:(UIApplication *)application
