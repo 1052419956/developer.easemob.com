@@ -285,3 +285,15 @@ layout: docs
 	
 	// 使用扬声器播放
 	[[EaseMob sharedInstance].deviceManager switchAudioOutputDevice:eAudioOutputDevice_speaker];
+		
+** 若想要使用听筒模式, 在播放音频前, 需要先将听筒模式打开, 音频播放完成后, 将听筒模式关闭, 示例代码如下: **
+
+	//打开听筒模式(当手机靠近耳朵时, 屏幕会变黑)
+	[[[EaseMob sharedInstance] deviceManager] enableProximitySensor];
+    id <IChatManager> chatManager = [EaseMob sharedInstance].chatManager;
+    [chatManager asyncPlayAudio:message.chatVoice
+                     completion:^(EMError *error) {
+                         //关闭听筒模式(若不关闭, 则在客户端内无论什么时候靠近耳朵, 手机都会黑屏)
+                         [[[EaseMob sharedInstance] deviceManager] disableProximitySensor];
+                     }
+                        onQueue:nil];
