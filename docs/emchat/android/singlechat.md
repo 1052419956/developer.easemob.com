@@ -1,4 +1,3 @@
----
 title: 环信
 description: 5分钟为你的APP加入聊天功能
 category: emchat
@@ -148,6 +147,10 @@ layout: docs
 	2) 设置是否启用新消息提醒 chatOptions.setNotificationEnable(true|false); 默认为true 开启新消息提醒
 	   设置是否启用新消息声音提醒 chatOptions.setNoticeBySound(true|false);默认为true 开启声音提醒
 	   设置是否启用新消息震动提醒 chatOptions.setNoticedByVibrate(true|false);默认为true 开启震动提醒
+	   设置语音消息播放是否设置为扬声器播放
+		chatOptions.setUseSpeaker(true|false); 默认为true 开启扬声器播放
+
+(附：chatOptions.setAcceptInvitationAlways(false);默认添加好友时为true，是不需要验证的，改成需要验证为false)
 	
 
 	

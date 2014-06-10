@@ -27,6 +27,8 @@ layout: docs
 			* [消息回执：已发送，已接收，已阅读](#{site.base_url}/docs/emchat/android/advanced.html)
 			<!--* [阅后即焚](#{site.base_url}/docs/emchat/android/advanced.html)-->
 		* [新消息提醒](#{site.base_url}/docs/emchat/android/singlechat.html)
+		* [网络监听](#{site.base_url}/docs/emchat/android/networkabnormal.html)
+		* [同一账号多处登陆强制下线](#{site.base_url}/docs/emchat/android/networkabnormal.html)
 	* [群聊](#{site.base_url}/docs/emchat/android/groupchat.html)
 		* [发文字，语音，图片，位置](#{site.base_url}/docs/emchat/android/groupchat.html)
 		* [接收消息](#{site.base_url}/docs/emchat/android/groupchat.html)

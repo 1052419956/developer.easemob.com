@@ -32,3 +32,23 @@
 	<service android:name="com.easemob.chat.EMChatService" />
 
 关于EASEMOB_APPKEY，请登录或注册环信开发者后台(http://console.easemob.com),申请APPKEY后，进行相关配置。（测试demo中 APPKEY为easemob-demo#chatdemo）
+
+###怎么获取APPKEY
+通过http://console.easemob.com登录进入到开发者后台（若没有账户先要进行注册）
+
+####注册 (企业ID会在生成的APPKEY中存在）
+
+![alt text](consoleregister.png "app")
+
+####激活
+
+ 注册完成，进入到邮箱进行激活，并登陆。
+
+####登陆 
+
+进入后台中，首先要创建一个应用，并输入应用的名称(应用名称会在你生成的APPKEY中存在)
+![alt text](creatapp.png "app")
+
+输入完应用名称，点击确定，得到下图中相关信息，你的appkey已生成成功
+
+![alt text](appkey.png "app")
