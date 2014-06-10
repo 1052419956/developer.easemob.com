@@ -37,7 +37,7 @@ layout: docs
 ### 3.退出聊天登陆
 	EMChatManager.getInstance().logout();
 
-### 4.发送消息 ###
+### 4.发送消息(单聊/群聊) ###
 
 #### 4.1发送文本消息及表情 ####
 
@@ -45,6 +45,8 @@ layout: docs
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	//创建一条文本消息
     EMMessage message = EMMessage.createSendMessage(EMMessage.Type.TXT);
+	//如果是群聊，设置chattype,默认是单聊
+	message.setChatType(ChatType.GroupChat);
 	//设置消息body
     TextMessageBody txtBody = new TextMessageBody(content);
     message.addBody(txtBody);
@@ -60,6 +62,8 @@ layout: docs
 
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.VOICE);
+	//如果是群聊，设置chattype,默认是单聊
+	message.setChatType(ChatType.GroupChat);
 	VoiceMessageBody body = new VoiceMessageBody(new File(filePath), len);
     message.addBody(body);
 	message.setReceipt(username);
@@ -71,6 +75,8 @@ layout: docs
 
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.IMAGE);
+	//如果是群聊，设置chattype,默认是单聊
+	message.setChatType(ChatType.GroupChat);
 	ImageMessageBody body = new ImageMessageBody(new File(filePath));
     message.addBody(body);
 	message.setReceipt(username);
@@ -82,6 +88,8 @@ layout: docs
 
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.LOCATION);
+	//如果是群聊，设置chattype,默认是单聊
+	message.setChatType(ChatType.GroupChat);
     LocationMessageBody locBody = new LocationMessageBody(locationAddress, latitude, longitude);
     message.addBody(locBody);
 	message.setReceipt(username);
