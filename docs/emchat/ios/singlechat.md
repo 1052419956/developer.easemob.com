@@ -123,32 +123,31 @@ loginInfo包含账号，密码等信息;
 	
 #### 4.3 发送图片消息 ####
 
-	EMChatImage *chatImage = [[EMChatImage alloc] initWithImage:image displayName:@"image"];
-	EMMessageBody *body = [[EaseMob sharedInstance].chatManager createImageMessageBody:chatImage thumbnailImage:nil optimized:YES];
-	EMMessage *msg = [[EMMessage alloc] initWithReceiver:username bodies:@[body]];
-	
-	[[EaseMob sharedInstance].chatManager sendMessage:msg progress:nil error:nil];
-
-	
-chatImage：大图
-
-chatThumbnailImage：缩略图（可不传）
+	//将图片读取到内存
+	UIImage *image = [UIImage imageNamed:@""];
+	//初始化一个EMChatImage对象
+	EMChatImage *chatImage = [[EMChatImage alloc] initWithUIImage:image displayName:@"image"];
+	//初始化一个MessageBody对象
+	//chatImage：大图
+	//thumbnailImage：缩略图（可不传, 传nil系统会自动生成缩略图）
+    EMImageMessageBody *body = [[EMImageMessageBody alloc] initWithImage:chatImage thumbnailImage:nil];
+    //初始化一个MessageBody数组(目前暂时只支持一个body)
+    NSArray *bodies = [NSArray arrayWithObject:body];
+    //初始化一个EMMessage对象
+	EMMessage *retureMsg = [[EMMessage alloc] initWithReceiver:username bodies:bodies];
+	//发送数据是否需要加密
+    retureMsg.requireEncryption = requireEncryption;
+    //发送图片消息
+    [[EaseMob sharedInstance].chatManager asyncSendMessage:retureMsg progress:nil];
 
 #### 4.4 发送地理位置消息 ####
 
 在得到经纬度和位置信息后，可以生成对应的LocationType的Message，之后发送即可;
 	
-	EMChatLocation *chatLocation = [[EMChatLocation alloc]
-	initWithLatitude:latitude
-	longitude:longitude
-	address:address];
-	EMMessageBody *body = [[EMLocationMessageBody alloc]
-	initWithMessage:chatLocation];
-	EMMessage *msg = [[EMMessage alloc] initWithReceiver:username
-	bodies:@[body]];
+	EMChatLocation *chatLocation = [[EMChatLocation alloc] initWithLatitude:latitude longitude:longitude address:address];
+	EMMessageBody *body = [[EMLocationMessageBody alloc] initWithMessage:chatLocation];
+	EMMessage *msg = [[EMMessage alloc] initWithReceiver:username bodies:@[body]];
 	[[EaseMob sharedInstance].chatManager sendMessage:msg progress:nil error:nil];
-
-
 
 ### 5. 接收消息 ###
 
@@ -162,11 +161,12 @@ chatThumbnailImage：缩略图（可不传）
 #### 5.2 注册接收消息 ####
 
 	// 注册一个delegate
-	[[EaseMob sharedInstance].chatManager addDelegate:self 	delegateQueue:nil];
+	[[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
 	
 	// 实现接收消息的委托
 	#pragma mark - IChatManagerDelegate
 	-(void)didReceiveMessage:(EMMessage *)message{
+		
 	}
 	
 收到消息后，会调用 -(void)didReceiveMessage:(EMMessage *)message; 
@@ -177,8 +177,7 @@ chatThumbnailImage：缩略图（可不传）
 
 根据username可以得到一个conversation;
 
-	EMConversation *conversation = [[EaseMob sharedInstance].chatManager
-	conversationForChatter:username];
+	EMConversation *conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:username];
                                     
 #### 6.1 根据messageID得到一条聊天记录 ####
 
@@ -194,14 +193,12 @@ chatThumbnailImage：缩略图（可不传）
 	
 #### 6.4 根据时间得到要求条数的messages ####
 
-	NSArray *messages = [conversation loadNumbersOfMessages:10
-	before:[[NSDate new] timeIntervalSince1970]];
+	NSArray *messages = [conversation loadNumbersOfMessages:10 before:[[NSDate new] timeIntervalSince1970]];
                                  	
 ### 7.删除聊天记录 ###
 根据username可以得到一个conversation;
 
-	EMConversation *conversation = [[EaseMob sharedInstance].chatManager
-	conversationForChatter:username];
+	EMConversation *conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:username];
                                     
 #### 7.1 删除一个EMMessage ####
 

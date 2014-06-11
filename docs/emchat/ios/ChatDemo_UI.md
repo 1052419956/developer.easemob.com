@@ -64,3 +64,12 @@ layout: docs
 	}
 	
 ![alt text](chatUIDemoNetwork.png "Demo") 
+
+#### 2.账号在其它设备登录
+**账号在其它设备登录时, 当前设备会自动断开连接(收到该回调时, 当前客户端已不能收发消息了, 当前客户端必须处理该回调, 退出到登录页面, )**
+
+	- (void)didLoginFromOtherDevice
+	{
+	    //退出到登录页面代码
+	}
+
