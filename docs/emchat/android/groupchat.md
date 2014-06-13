@@ -33,6 +33,9 @@ layout: docs
 	//从服务器获取自己加入的和创建的群聊列表
 	EMGroupManager.getInstance().getGroupsFromServer();
 
+	//从本地加载群聊列表，节省了每次从服务器加载数据的时间
+	EMGroupManager.getInstance().getAllGroups();
+
 ###8.群聊事件监听
 	EMGroupManager.getInstance().addGroupChangeListener(new GroupChangeListener() {
 				
@@ -61,3 +64,9 @@ layout: docs
 					//群聊被创建者解散
 				}
 			});
+
+###9.获取群组信息
+	EMGroup group = EMGroupManager.getInstance().getGroup(groupId);
+	group.getMembers();//获取群成员
+	group.getOwner();//获取群主
+	...其它方法详见环信接口文档
