@@ -7,51 +7,53 @@ layout: docs
 
 # 快速入门（五分钟运行环信demo) 
 
+## 下载环信demo (Android) 
 
-## 1.下载环信demo (Android) 
+###  环信UI demo
 
-###  1.1 环信UI demo
-
- UI demo，此demo比较复杂，包含了一个接近微信的完整的聊天app的所有功能,包括发文字，表情，图片，语音，位置，群聊，登录，注册，退出登录等。
+UI demo，此demo比较复杂，包含了一个接近微信的完整的聊天app的所有功能, 包括发文字，表情，图片，语音，位置，群聊，登录，注册，退出登录等。
 
 环信UI demo源代码已在github上开源供开发者下载，以帮助开发者更好的学习了解环信SDK。
 
-### 1.2 下载环信sdk及demo 
-
+### 下载环信sdk及demo 
     
+下载环信sdk及demo：[下载链接](http://www.easemob.com/downloads.php)
 
-1. 下载环信sdk及demo：[下载链接](http://www.easemob.com/downloads.php)
-
-2. 解压缩easemob-sdk-2.0.0.zip后会得到以下目录结构：
+ 解压缩easemob-sdk-2.0.0.zip后会得到以下目录结构：
  
  ![alt text](demo_dirs1.jpg "Title")
 
 
-## 2.运行环信demo (Android) 
+## 运行环信demo (Android) 
 
-2.1 在手机上安装chatdemo-ui.apk(apk位于androidsdk/examples/ChatDemoUI目录下)，安装成功后，运行此app，注册账号，并登陆。
+在手机上安装chatdemo-ui.apk (apk位于androidsdk/examples/ChatDemoUI目录下)，安装成功后，运行此app，注册账号，并登陆。
 
-![alt text](register1.png "demo") ![alt text](login1.png "demo")
+![alt text](register1.png "demo") 
 
-2.2 登陆之后，进入通讯录点击右上角的加号，添加好友成功后，就可以互发消息了。
+![alt text](login1.png "demo")
+
+
+登陆之后，进入通讯录点击右上角的加号，添加好友成功后，就可以互发消息了。
 
  ![alt text](contact_add.png "demo") ![alt text](chat.png "demo")
 	
 
-## 3. 从源代码级别深入了解环信demo (Android)
+## 从源代码级别深入了解环信demo (Android)
 
  
-### 3.1 在Eclipse/IDEA中创建环信demo project 
+### 在Eclipse/IDEA中创建环信demo project 
 
 
-1. Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的chatdemo-nonui路径,点击“Finish”。
+Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的chatdemo-nonui路径,点击“Finish”。
 
 ![alt text](guide1.png "demo")
 
 
-### 3.2. 深入理解环信demo背后的代码 ###
+### 深入理解环信demo背后的代码
 
-#### 1.初始化： 见DemoApplication.java
+#### 初始化
+
+见DemoApplication
 
     public class DemoApplication extends Application {
     
@@ -81,23 +83,28 @@ layout: docs
         }
     }
 
-#### 2. 注册：见RegisterActivity.java ####
+#### 注册
+
+见RegisterActivity
 
 	final String appkey = EMChatConfig.getInstance().APPKEY;
-			new Thread(new Runnable() {
-				public void run() {
-					try {
-						//调用sdk注册方法
-						EMChatManager.getInstance().createAccountOnServer(appkey + "_" + username, pwd);
-						
-					} catch (final Exception e) {
-					
-					}
-				}
-			}).start();
+	new Thread(new Runnable() {
+		public void run() {
+			try {
+				//调用sdk注册方法
+				EMChatManager.getInstance().createAccountOnServer(appkey + "_" + username, pwd);
+				
+			} catch (final Exception e) {
+			
+			}
+		}
+	}).start();
 
 
-#### 3. 登陆：见LoginActivity.java ####
+#### 登陆
+
+见LoginActivity
+
 
    	//调用sdk登陆方法登陆聊天服务器
 	EMChatManager.getInstance().login(username, password, new EMCallBack() {
@@ -121,33 +128,41 @@ layout: docs
 		}
 	});
 
-#### 4. 注册listener,以接收聊天消息,回执消息，好友同意，好友请求等监听变化：见MainActivity.java ####
+####  注册listener
 
- 		//注册一个接收消息的BroadcastReceiver
+接收聊天消息,回执消息，好友同意，好友请求等监听变化：见MainActivity.java
+
+注册一个接收消息的BroadcastReceiver
+
 		msgReceiver = new NewMessageBroadcastReceiver();
 		IntentFilter intentFilter = new IntentFilter(EMChatManager.getInstance().getNewMessageBroadcastAction());
 		intentFilter.setPriority(3);
 		registerReceiver(msgReceiver, intentFilter);
 
-		// 注册一个ack回执消息的BroadcastReceiver
+注册一个ack回执消息的BroadcastReceiver
+
 		IntentFilter ackMessageIntentFilter = new IntentFilter(EMChatManager.getInstance().getAckMessageBroadcastAction());
 		ackMessageIntentFilter.setPriority(3);
 		registerReceiver(ackMessageReceiver, ackMessageIntentFilter);
 		
-		//注册一个好友请求同意好友请求等的BroadcastReceiver
+注册一个好友请求同意好友请求等的BroadcastReceiver
+
 		IntentFilter inviteIntentFilter = new IntentFilter(EMChatManager.getInstance().getContactInviteEventBroadcastAction());
 		registerReceiver(contactInviteReceiver, inviteIntentFilter);
 		
-		//setContactListener监听联系人的变化等
+监听联系人的变化等
+
 		EMContactManager.getInstance().setContactListener(new MyContactListener());
-		//注册一个监听连接状态的listener
+
+注册一个监听连接状态的listener
+
 		EMChatManager.getInstance().addConnectionListener(new MyConnectionListener());
-    }
 
 
-#### 5. 好友请求，好友同意：见MainActivity.java ####
+#### 好友请求，好友同意
 
-   private BroadcastReceiver contactInviteReceiver = new BroadcastReceiver(){
+
+       private BroadcastReceiver contactInviteReceiver = new BroadcastReceiver(){
 
 		@Override
 		public void onReceive(Context context, Intent intent) {
@@ -170,9 +185,10 @@ layout: docs
 			
 		}
 		
-	};
+	   };
 
-#### 6. 接收聊天消息并显示：见MainActivity.java ####
+#### 接收聊天消息并显示
+
 
     private class NewMessageBroadcastReceiver extends BroadcastReceiver {
         @Override
@@ -255,7 +271,9 @@ layout: docs
 	}
 
 
-#### 10. 退出登陆：见MainActivity.java ####
+#### 退出登陆
+
+见MainActivity.java
 
     @Override
     protected void onPause() {
@@ -265,7 +283,7 @@ layout: docs
         EMChatManager.getInstance().logout();
     }
 
-# 4. 环信demo源代码git地址
+# 环信demo源代码git地址
 
  
 环信提供了一系列demo以帮助开发者更好的学习了解环信SDK。所有demo均已在github上开源供开发者下载使用。你可以clone这些项目来学习了解环信SDK，也可以在这些demo基础上快速创建你自己的真正项目。环信SDK（Android版）在github的下载地址是：
@@ -273,7 +291,7 @@ layout: docs
 [https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)
 
 
-# 5. Bug报告跟踪 #
+# Bug报告跟踪
 
 请使用以下地址来报告跟踪bug：
 

@@ -8,15 +8,15 @@ layout: docs
 # 快速入门（五分钟运行环信demo) 
 
 
-## 1.下载环信demo (Android) 
+## 下载环信demo (Android) 
 
-###  1.1 什么是环信demo
+###  什么是环信demo
 
 环信demo展示了怎样使用环信SDK快速创建一个完整的类微信聊天APP。展示的功能包括：环信SDK初始化，登录，登出，注册消息接收listener, 发送消息。
 
 环信demo源代码已在github上开源供开发者下载，以帮助开发者更好的学习了解环信SDK。
 
-### 1.2 下载环信sdk及demo 
+### 下载环信sdk及demo 
 
     
 
@@ -27,32 +27,34 @@ layout: docs
  ![alt text](demo_dirs1.jpg "Title")
 
 
-## 2.运行环信demo (Android) 
+## 运行环信demo (Android) 
 
-###2.1 Non-UI demo，此demo非常简单，登陆进去后进一个很简单的聊天页面
-2.1.1 在手机上安装chatdemo-nonui.apk(apk位于androidsdk/examples/ChatDemoNonUI根目录下),安装成功后，运行chatdemo-nonui:点击生成账号按钮，系统将会为你自动创建一个临时账号
+### Non-UI demo，此demo非常简单，登陆进去后进一个很简单的聊天页面
+
+在手机上安装chatdemo-nonui.apk(apk位于androidsdk/examples/ChatDemoNonUI根目录下),安装成功后，运行chatdemo-nonui:点击生成账号按钮，系统将会为你自动创建一个临时账号
 
    ![alt text](login.png "demo")
  
-2.1.2 点击登陆按钮，进入应用中，点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
+
+点击登陆按钮，进入应用中，点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
 
  ![alt text](demo.png "demo")
 
 
-## 3. 从源代码级别深入了解环信demo (Android)
+## 从源代码级别深入了解环信demo (Android)
 
  
-### 3.1 在Eclipse/IDEA中创建环信demo project 
+### 在Eclipse/IDEA中创建环信demo project 
 
 
-1. Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的ChatDemoNonUI路径,点击“Finish”。
+Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的ChatDemoNonUI路径,点击“Finish”。
 
 ![alt text](guide1.png "demo")
 
 
-### 3.2. 深入理解环信demo背后的代码 ###
+### 深入理解环信demo背后的代码
 
-#### 1.初始化： 见DemoApplication.java
+#### 初始化：见DemoApplication.java
 
     public class DemoApplication extends Application {
     
@@ -68,7 +70,7 @@ layout: docs
         }
     }
 
-#### 2. 注册：见LoginActivity.java ####
+#### 注册：见LoginActivity.java
 
 	// 注册临时账号  缺省密码： 123456
 	register.setOnClickListener(new OnClickListener() {
@@ -97,7 +99,7 @@ layout: docs
 		}
 	}
 
-#### 3. 登陆：见LoginActivity.java ####
+#### 登陆：见LoginActivity.java
 
     @Override
     protected void onResume() {
@@ -130,7 +132,7 @@ layout: docs
         });
     }
 
-#### 4. 注册listener,以接收聊天消息：见MainActivity.java ####
+#### 注册listener,以接收聊天消息：见MainActivity.java
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,7 +144,7 @@ layout: docs
     }
 
 
-#### 5. 发送消息：见MainActivity.java ####
+#### 发送消息：见MainActivity.java
 
     //本demo是发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
     public void onSendTxtMsg(View view) {
@@ -162,7 +164,7 @@ layout: docs
         }
     }
 
-#### 6. 接收聊天消息并显示：见MainActivity.java ####
+#### 接收聊天消息并显示：见MainActivity.java
 
     private class NewMessageBroadcastReceiver extends BroadcastReceiver {
         @Override
@@ -196,7 +198,7 @@ layout: docs
         }
     }
 
-#### 7. 退出登陆：见MainActivity.java ####
+#### 退出登陆：见MainActivity.java
 
     @Override
     protected void onPause() {
@@ -206,7 +208,7 @@ layout: docs
         EMChatManager.getInstance().logout();
     }
 
-## 4. 环信demo源代码git地址
+## 环信demo源代码git地址
 
  
 环信提供了一系列demo以帮助开发者更好的学习了解环信SDK。所有demo均已在github上开源供开发者下载使用。你可以clone这些项目来学习了解环信SDK，也可以在这些demo基础上快速创建你自己的真正项目。环信SDK（Android版）在github的下载地址是：
@@ -214,7 +216,7 @@ layout: docs
 [https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)
 
 
-## 5. Bug报告跟踪 #
+## Bug报告跟踪
 
 请使用以下地址来报告跟踪bug：
 

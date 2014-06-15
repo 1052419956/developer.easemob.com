@@ -5,7 +5,7 @@ category: emchat
 layout: docs
 ---
 
-##Android SDK
+## Android SDK
 
 SDK下载地址:  [http://www.easemob.com/downloads/androidsdk.zip](http://www.easemob.com/downloads/easemob-sdk-2.0.0.zip)
 
@@ -24,7 +24,7 @@ Android SDK 下载包是个 zip 文件，里边有如下的内容：
 - [Android SDK 集成指南](#{site.base_url}/docs/emchat/android/singlechat.html)
 
 
-##iOS SDK
+## iOS SDK
 
 SDK下载地址:  [http://www.easemob.com/downloads/iOSSDK.zip](http://www.easemob.com/downloads/iOSSDK.zip)
 

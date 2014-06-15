@@ -5,11 +5,11 @@ category: emchat
 layout: docs
 ---
 
-## 设备调用 ##
-### 1. 录音时获取音量大小 ###
+## 设备调用 
+### 1. 录音时获取音量大小 
 
  
-**函数名**
+函数名
  
 	/*!
 	@method
@@ -19,7 +19,7 @@ layout: docs
 	*/
 	- (double)peekRecorderVoiceMeter;
 	
-**示例代码**
+示例代码
 
 	// touch down
 	-(void)recordButtonTouchDown{
@@ -52,9 +52,9 @@ layout: docs
     }
     
     
-### 2. 判断当前麦克风是否可用 ###
+### 2. 判断当前麦克风是否可用 
 
-**函数名**
+函数名
 
 	/*!
 	@method
@@ -64,7 +64,7 @@ layout: docs
 	- (BOOL)checkMicrophoneAvailability;
 
 
-**示例代码**
+示例代码
 
 	BOOL isEnabled = [[EaseMob sharedInstance].deviceManager checkMicrophoneAvailability];
     if (isEnabled) {
@@ -74,9 +74,9 @@ layout: docs
     }
 
 
-### 3. 距离传感器功能 ###
+### 3. 距离传感器功能 
 
-**属性名称**
+属性名称
 	
 	/*!
 	@property
@@ -99,7 +99,7 @@ layout: docs
 	
 
 
-**示例代码**
+示例代码
 
 	BOOL isSupport = [[EaseMob sharedInstance].deviceManager isSupportProximitySensor];
 	if (isSupport) {
@@ -122,7 +122,7 @@ layout: docs
         NSLog(@"传感器未打开");
     }
 	
-**函数名称**
+函数名称
 
 	/*!
 	@method
@@ -140,7 +140,7 @@ layout: docs
 	*/
 	- (BOOL)disableProximitySensor;
 	
-**示例代码**
+示例代码
 
 	BOOL enable = [[EaseMob sharedInstance].deviceManager enableProximitySensor];
     if (enable) {
@@ -156,9 +156,9 @@ layout: docs
         NSLog(@"传感器关闭失败");
     }
     
-### 4. 播放提示短音 ###
+### 4. 播放提示短音 
 
-**函数名称**
+函数名称
 
 	/*!
 	@method
@@ -186,7 +186,7 @@ layout: docs
 	- (void)asyncPlayNewMessageWithCompletion:(void (^)(SystemSoundID soundId))completion
                                   onQueue:(dispatch_queue_t)aQueue;
                                   
-**示例代码**
+示例代码
 
 	[[EaseMob sharedInstance].deviceManager playNewMessageSound];
 	
@@ -200,9 +200,9 @@ layout: docs
     } onQueue:nil];
     
     
-### 5. 设备震动 ###
+### 5. 设备震动 
 
-**函数名称**
+函数名称
 
 	/*!
 	@method
@@ -231,7 +231,7 @@ layout: docs
 	- (void)asyncPlayVibrationWithCompletion:(void (^)(SystemSoundID soundId))completion
                                  onQueue:(dispatch_queue_t)aQueue;
                                  
-**示例代码**
+示例代码
 
 	[[EaseMob sharedInstance].deviceManager playVibration];
     
@@ -244,9 +244,9 @@ layout: docs
         
     } onQueue:nil];
     
-### 6. 摄像头是否可用 ###
+### 6. 摄像头是否可用 
 
-**函数名称**
+函数名称
 
 	/*!
 	@method
@@ -255,7 +255,7 @@ layout: docs
 	*/
 	- (BOOL)checkCameraAvailability;
 	
-**示例代码**
+示例代码
 	
 	BOOL enable = [[EaseMob sharedInstance].deviceManager checkCameraAvailability];
     if (enable) {
@@ -265,9 +265,9 @@ layout: docs
     }
 	
 	
-###  7. 设置播放音频方式 ###
+###  7. 设置播放音频方式 
 
-**函数名称**
+函数名称
 
 	/*!
 	@method
@@ -278,7 +278,7 @@ layout: docs
 	*/
 	- (BOOL)switchAudioOutputDevice:(EMAudioOutputDevice)outputDevice;
 
-**示例代码**
+示例代码
 	
 	// 使用耳机播放
 	[[EaseMob sharedInstance].deviceManager switchAudioOutputDevice:eAudioOutputDevice_earphone];
@@ -286,7 +286,7 @@ layout: docs
 	// 使用扬声器播放
 	[[EaseMob sharedInstance].deviceManager switchAudioOutputDevice:eAudioOutputDevice_speaker];
 		
-** 若想要使用听筒模式, 在播放音频前, 需要先将听筒模式打开, 音频播放完成后, 将听筒模式关闭, 示例代码如下: **
+ 若想要使用听筒模式, 在播放音频前, 需要先将听筒模式打开, 音频播放完成后, 将听筒模式关闭, 示例代码如下: 
 
 	//打开听筒模式(当手机靠近耳朵时, 屏幕会变黑)
 	[[[EaseMob sharedInstance] deviceManager] enableProximitySensor];

@@ -4,9 +4,10 @@ description: 5分钟为你的APP加入聊天功能
 category: emchat
 layout: docs
 ---
-## 单聊:
+## 单聊
 
-### 1. 初始化 ###
+###  初始化 
+
 在Appdelegate生命中期中，加入对应的初始化，以便SDK能正常工作;
 
 	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary 	*)launchOptions
@@ -54,7 +55,7 @@ layout: docs
 		[[EaseMob sharedInstance] applicationWillTerminate:application];
 	}
 	
-### 2. 登录 ###
+###  登录 
 
 如果使用自己的用户体系，需要先**登录您的用户体系**，成功后登录IM部分;
 
@@ -71,15 +72,15 @@ layout: docs
      
 loginInfo包含账号，密码等信息;
 
-### 3. 退出登录 ###
+###  退出登录 
 
 **退出登录时, 需要先退出自己的用户系统, 然后调用下面的方法退出EaseMob服务器**
 
 	[[EaseMob sharedInstance].chatManager asyncLogoff];
 
-### 4. 发送消息 ###
+###  发送消息 
 
-#### 4.1 发送文本消息及表情 ####
+####  发送文本消息及表情 
 
 	EMChatText *text = [[EMChatText alloc] initWithText:str];
 	EMMessageBody *body = [[EaseMob sharedInstance].chatManager createTextMessageBody:text];
@@ -88,9 +89,9 @@ loginInfo包含账号，密码等信息;
 	[[EaseMob sharedInstance].chatManager sendMessage:msg progress:nil error:nil];
 
 
-#### 4.2 发送语音消息 ####
+####  发送语音消息 
 
-##### 4.2.1 录音 #####
+#####  录音 
 
 	EMError *error = nil;
 	[[EaseMob sharedInstance].chatManager startRecordingAudioWithError:&error];
@@ -98,20 +99,20 @@ loginInfo包含账号，密码等信息;
 		NSLog(@"开始录音失败");
 	}
 
-##### 4.2.2 停止录音 #####
+#####  停止录音 
 
 	[[EaseMob sharedInstance].chatManager asyncStopRecordingAudioWithCompletion:
 	^(EMChatVoice *voice, EMError *error){
 	} onQueue:nil];
      
-##### 4.2.3 取消录音 #####
+#####  取消录音 
 
 	[[EaseMob sharedInstance].chatManager asyncCancelRecordingAudioWithCompletion:
 	^(EMChatVoice *voice, EMError *error){
 	} onQueue:nil];
 
 
-##### 4.2.4 发送录音 #####
+#####  发送录音 
 
 录音结束时，会得到一个EMChatVoice对象，之后用对象生成messageBody即可发送;
 
@@ -121,7 +122,7 @@ loginInfo包含账号，密码等信息;
 	[[EaseMob sharedInstance].chatManager sendMessage:msg progress:nil error:nil];
 
 	
-#### 4.3 发送图片消息 ####
+####  发送图片消息 
 
 	//将图片读取到内存
 	UIImage *image = [UIImage imageNamed:@""];
@@ -140,7 +141,7 @@ loginInfo包含账号，密码等信息;
     //发送图片消息
     [[EaseMob sharedInstance].chatManager asyncSendMessage:retureMsg progress:nil];
 
-#### 4.4 发送地理位置消息 ####
+####  发送地理位置消息 
 
 在得到经纬度和位置信息后，可以生成对应的LocationType的Message，之后发送即可;
 	
@@ -149,16 +150,16 @@ loginInfo包含账号，密码等信息;
 	EMMessage *msg = [[EMMessage alloc] initWithReceiver:username bodies:@[body]];
 	[[EaseMob sharedInstance].chatManager sendMessage:msg progress:nil error:nil];
 
-### 5. 接收消息 ###
+###  接收消息 
 
-#### 5.1 实现委托 ####
+####  实现委托 
 
 在需要接受消息的页面，应该首先实现一个delegate:IChatManagerDelegate;
 	
 	@interface RootViewController : UIViewController<IChatManagerDelegate>
 
 
-#### 5.2 注册接收消息 ####
+####  注册接收消息 
 
 	// 注册一个delegate
 	[[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
@@ -173,48 +174,49 @@ loginInfo包含账号，密码等信息;
 
 根据message.messageType 区分是哪种消息，之后做对应的解析;
 	
-### 6.获取聊天记录 ####
+### 获取聊天记录 
 
 根据username可以得到一个conversation;
 
 	EMConversation *conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:username];
                                     
-#### 6.1 根据messageID得到一条聊天记录 ####
+####  根据messageID得到一条聊天记录 
 
 	EMMEssage *message = [conversation loadMessage:message.messageID];
 
-#### 6.2 根据messageID数组，得到一组聊天记录 ####
+####  根据messageID数组，得到一组聊天记录 
 
 	NSArray *messages = [conversation loadMessages:messageIDs];
 	
-#### 6.3 得到所有messages ####
+####  得到所有messages 
 
 	NSArray *messages = [conversation loadAllMessages];
 	
-#### 6.4 根据时间得到要求条数的messages ####
+####  根据时间得到要求条数的messages 
 
 	NSArray *messages = [conversation loadNumbersOfMessages:10 before:[[NSDate new] timeIntervalSince1970]];
                                  	
-### 7.删除聊天记录 ###
+### 删除聊天记录 
 根据username可以得到一个conversation;
 
 	EMConversation *conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:username];
                                     
-#### 7.1 删除一个EMMessage ####
+####  删除一个EMMessage 
 
 	- (BOOL)removeMessage:(EMMessage *)message;
 
-#### 7.2 删除一组EMMessages ####
+####  删除一组EMMessages 
 
 	- (NSUInteger)removeMessages:(NSArray *)messages;
 
-#### 7.3 删除该EMconversation下得所有EMMessages ####
+####  删除该EMconversation下得所有EMMessages 
 
 	- (NSUInteger)removeAllMessages;
 
-### 8. 设置消息状态 ###
+###  设置消息状态 
 
-#### 8.1 获取消息未读数量 ####
+####  获取消息未读数量 
+
 EMConversation中，提供了unreadMessagesCount属性;
 
 	/**
@@ -226,7 +228,8 @@ EMConversation中，提供了unreadMessagesCount属性;
 	- (NSUInteger)unreadMessagesCount;
 
 
-#### 8.2 设置一条消息的已读状态 ####
+####  设置一条消息的已读状态 
+
 EMConversation中，提供了设置某一条message的状态的方法;
 		
 	/**
@@ -239,7 +242,8 @@ EMConversation中，提供了设置某一条message的状态的方法;
 	- (BOOL)markMessage:(EMMessage *)message asRead:(BOOL)isRead;
 	
 	
-#### 8.3 设置EMConversation下所有message为已读 ####
+####  设置EMConversation下所有message为已读 
+
 EMConversation中，提供了设置该EMConversation对象中所有message状态的方法;
 
 	/**

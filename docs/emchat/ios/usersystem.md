@@ -8,6 +8,7 @@ layout: docs
 # 环信集成第三方用户体系
 
 ## 环信账号和第三方用户体系账号集成
+
 环信不提供用户体系。环信只是即时通讯的消息通道，本身不保存任何和具体业务系统相关的用户信息。创建环信账号仅需要以下信息：
 
 
@@ -29,6 +30,7 @@ layout: docs
 
 
 # 环信集成第三方好友体系
+
 环信提供好友体系，但仅仅为了在app范围内控制消息发送权限。
 
 比如某app是一个企业内部移动办公app,因为企业内部同事是彼此了解的，那么此app可能是不需要消息发送权限控制的。即任何人都可以给任何人发消息。
@@ -38,14 +40,14 @@ layout: docs
 
 ## 操作好友列表(iOS)
 
-**[获取好友列表，监听好友列表](#{site.base_url}/docs/emchat/ios/buddylist.html)**
+[获取好友列表，监听好友列表](#{site.base_url}/docs/emchat/ios/buddylist.html)
 	
 ## 操作好友(iOS)
 
-**[根据账号 （查找，添加，删除，黑名单）](#{site.base_url}/docs/emchat/ios/buddymanager.html)**
+[根据账号 （查找，添加，删除，黑名单）](#{site.base_url}/docs/emchat/ios/buddymanager.html)
 
 ## 操作好友列表(Android)
 
-**[获取好友列表，监听好友列表](#{site.base_url}/docs/emchat/android/contactmanager.html)**
+[获取好友列表，监听好友列表](#{site.base_url}/docs/emchat/android/contactmanager.html)
 
 
