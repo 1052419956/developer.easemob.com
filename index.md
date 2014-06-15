@@ -9,7 +9,7 @@ layout: docs
 ## 环信
 
 
-* [Android]()
+* Android
  
 	* [5分钟快速入门无UIDemo](#{site.base_url}/docs/emchat/android/quickstart.html)
 	* [5分钟快速入门有UIDemo](#{site.base_url}/docs/emchat/android/quickstartUI.html)
@@ -46,7 +46,7 @@ layout: docs
 	* [Demo及SDK下载](http://www.easemob.com/downloads.php)
 
  
-* [iOS]()
+* iOS
 	* [5分钟快速入门 - 无UIDemo](#{site.base_url}/docs/emchat/ios/quickstart.html)
 	* [5分钟快速入门 - 有UIDemo](#{site.base_url}/docs/emchat/ios/ChatDemo_UI.html)
 	* [单聊](#{site.base_url}/docs/emchat/ios/singlechat.html)
@@ -81,6 +81,6 @@ layout: docs
 	* [Demo及SDK下载](http://www.easemob.com/downloads.php)
 * [UI模板库](#{site.base_url}/docs/emchat/ui.html)
 * [集成第三方用户体系](#{site.base_url}/docs/emchat/ios/usersystem.html)
-* [REST API]()
+* REST API
 <!--	* [群组管理REST API](#{site.base_url}/docs/emchat/rest/groupmanagement.html) -->
 	* [用户管理REST API](#{site.base_url}/docs/emchat/rest/userapi.html)
