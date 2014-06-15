@@ -7,27 +7,27 @@ layout: docs
 
 # 用户管理REST API
 
-# 1. 用户的json数据结构说明
+## 用户的json数据结构说明
 	{
 	  username: "jliu",  //username是用户的primarykey。需要在appkey的范围内唯一。
 	  password:"123456"//登录密码
 	}
 
-# 2. 名词解释
-    orgName: 是开发者在环信开发者后台注册账号时填写的公司Id。
-    appName: 是开发者在环信开发者后台创建app时填写的app名。
+## 名词解释
+    org_name: 是开发者在环信开发者后台注册账号时填写的公司Id。
+    app_name: 是开发者在环信开发者后台创建app时填写的app名。
 	公司管理员：是开发者在环信开发者后台注册的账号。公司管理员账号可以在自己账号下创建多个app。公司管理员拥有对该公司账号下所有app的操作权限。
 	app管理员：每个app都可以创建app管理员（可选操作）。app管理员拥有app级别的操作权限。
 
-# 3. 用户管理REST API
+## 用户管理REST API
 
 以下所有API均需要公司管理员或app管理员权限才能访问。
 
 强烈建议保护好公司管理员及app管理员的用户名和密码。尽量只在APP的服务器后台对环信用户做增删改查的管理，包括新用户注册。一定不要将公司管理员或app管理员的用户名和密码写死在手机客户端中。
 
-## 3.1 app管理员登录并获取授权token ##
+### app管理员登录并获取授权token
 
-###POST /${orgName}/${appName}/token
+#### POST /${org_name}/${app_name}/token
 
 - 描述： 登录并授权，获得一个token。
 - 权限：
@@ -45,7 +45,7 @@ layout: docs
 
 #### curl示例：
 
-*注：请将URL中的easemob-demo/chatdemo替换成你自己的orgName和appName。并将"username","password"分别替换成你自己的用户名和密码*
+>> 注：请将URL中的easemob-demo/chatdemo替换成你自己的org_name和app_name。并将"username","password"分别替换成你自己的用户名和密码
 		
 	curl -X POST "http://a1.easemob.com/easemob-demo/chatdemo/token" -d '{"grant_type":"password","username":"jliu1","password":"jliu1"}'
 	
@@ -77,13 +77,13 @@ layout: docs
 2. 用户的具体信息。见用户的数据结构
 
 
-## 3.2 创建用户 分两种模式：自由注册 和 仅管理员可注册
+### 创建用户 分两种模式：自由注册 和 仅管理员可注册
 	简要说明：创建一个用户需要注册到两个服务进行注册，一个是app开发者自己的服务器（完整数据），另一个是环信服务器（部分数据）。出于安全因素，环信服务器端进行操
 	作时是需要身份认证的，为了方便开发者，这里使用两种用户创建模式：其中“自由注册”模式下，一个app向环信服务器端注册用户时不用携带管理员身份认证信息；“仅管理员
 	可注册”模式下，一个app向环信服务器注册用户必须携带管理员身份认证信息。
 
-##自由注册 
-###POST /${orgName}/${appName}/users
+## 自由注册 
+### POST /${org_name}/${app_name}/users
 
 - 描述：在指定的org和app中创建一个新的用户
 - 权限： 无
@@ -118,12 +118,12 @@ layout: docs
       	"applicationName" : "chatdemo"
 		}
  
-##仅管理员可注册
-###1. 先获取app管理员token ； 
+## 仅管理员可注册
+### 先获取app管理员token ； 
 详见3.1
 
-###2. 创建用户
-###POST /${orgName}/${appName}/users
+### 创建用户
+### POST /${org_name}/${app_name}/users
 
 - 描述：在指定的org和app中创建一个新的用户
 - 权限： app管理员或org管理员
@@ -160,9 +160,9 @@ layout: docs
   
 注：返回的response json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
-## 3.3 获取指定用户详情 ##
+### 获取指定用户详情
 
-###GET /${orgName}/${appName}/users/${username}
+### GET /${org_name}/${app_name}/users/${username}
 
 - 描述：获取app的指定用户详情
 - 权限：app管理员或org管理员
@@ -175,9 +175,9 @@ layout: docs
 		
 	curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://a1.easemob.com/easemob-demo/chatdemo/users/jliu1"
 
-## 3.4 重置用户密码 ##
+### 重置用户密码
 
-### PUT /${orgName}/${appName}/users/${username}/password
+### PUT /${org_name}/${app_name}/users/${username}/password
 
 - 描述： 重置用户密码
 - 权限：app管理员或org管理员
@@ -194,9 +194,9 @@ layout: docs
 
 
 
-## 3.5 删除用户 ##
+### 删除用户
 
-### DELETE /${orgName}/${appName}/users/${username}
+### DELETE /${org_name}/${app_name}/users/${username}
 - 描述：删除app的指定用户
 - 权限：app管理员或org管理员
 - url参数：无

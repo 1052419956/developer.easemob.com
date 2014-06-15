@@ -356,11 +356,11 @@ SDK](/app-services-sdks#javascript).
             _callTimeoutCallback: null
             _end: 1378413997721
             _start: 1378413997493
-            appName: "your-app"
+            app_name: "your-app"
             buildCurl: false
             logging: true
             logoutCallback: null
-            orgName: "your-org"
+            org_name: "your-org"
             __proto__: Object
         _data: Object
             created: 1378405020796
@@ -495,8 +495,8 @@ module](/app-services-sdks#nodejs).
 
     { _client: 
        { URI: 'https://api.usergrid.com',
-         orgName: 'your-org',
-         appName: 'your-app',
+         org_name: 'your-org',
+         app_name: 'your-app',
          authType: 'NONE',
          clientId: undefined,
          clientSecret: undefined,
@@ -839,8 +839,8 @@ module](/app-services-sdks#javascript).
 #### Request:
 
     var dataClient = new Usergrid.Client({
-    orgName:'your-org',
-    appName:'your-app'
+    org_name:'your-org',
+    app_name:'your-app'
     });
 
     var options = {
@@ -1004,8 +1004,8 @@ module](/app-services-sdks#nodejs).
 #### Request:
 
     var dataClient = new Usergrid.client({
-    orgName:'your-org',
-    appName:'your-app'
+    org_name:'your-org',
+    app_name:'your-app'
     });
 
     var options = {

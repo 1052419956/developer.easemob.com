@@ -200,8 +200,8 @@ SDK](/app-services-sdks#javascript).
 
     //create the basic client object
     var dataClient = new Usergrid.Client({
-        orgName:'your-org',
-        appName:'your-app'
+        org_name:'your-org',
+        app_name:'your-app'
     });
 
     //options for the request
@@ -361,8 +361,8 @@ module](/app-services-sdks#nodejs).
 
     //Create the Apache Usergrid client object
     var dataClient = new Usergrid.client({
-        orgName:'your-org',
-        appName:'your-app'
+        org_name:'your-org',
+        app_name:'your-app'
     });
 
     //Specify the options for the request

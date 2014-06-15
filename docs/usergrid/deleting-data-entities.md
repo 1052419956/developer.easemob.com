@@ -232,8 +232,8 @@ SDK](/app-services-sdks#javascript).
 
     //create the basic client object
     var dataClient = new Usergrid.Client({
-        orgName:'your-org',
-        appName:'your-app'
+        org_name:'your-org',
+        app_name:'your-app'
     });
 
     //specify the properties of the entity to be deleted
@@ -331,8 +331,8 @@ module](/app-services-sdks#nodejs).
 
     //create the basic client object
     var dataClient = new Usergrid.client({
-    orgName:'your-org',
-    appName:'your-app'
+    org_name:'your-org',
+    app_name:'your-app'
     });
 
     //specify the properties of the entity to be deleted

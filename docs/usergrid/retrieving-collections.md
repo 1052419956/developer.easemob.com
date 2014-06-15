@@ -271,8 +271,8 @@ SDK](/app-services-sdks#javascript).
 #### Request:
 
     var dataClient = new Usergrid.Client({
-    orgName:'your-org',
-    appName:'your-app'
+    org_name:'your-org',
+    app_name:'your-app'
     });
 
     var options = {
@@ -421,8 +421,8 @@ module](/app-services-sdks#nodejs).
 #### Request:
 
         var dataClient = new Usergrid.client({
-            orgName:'your-org',
-            appName:'your-app'
+            org_name:'your-org',
+            app_name:'your-app'
         });
         
         var options = {

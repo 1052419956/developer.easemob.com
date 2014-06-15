@@ -319,8 +319,8 @@ SDK](/app-services-sdks#javascript).
                
     //Create your client object
     var dataClient = new Usergrid.Client({
-        orgName:'your-org',
-        appName:'your-app'
+        org_name:'your-org',
+        app_name:'your-app'
     });
 
 
@@ -345,8 +345,8 @@ SDK](/app-services-sdks#javascript).
 
     "_client": //Information on the client object used to initiate the call
         "URI":"https://api.usergrid.com",
-        "orgName":"your-org",
-        "appName":"your-app",
+        "org_name":"your-org",
+        "app_name":"your-app",
         "buildCurl":false,
         "logging":false,
         "_callTimeout":30000,
@@ -443,8 +443,8 @@ module](/app-services-sdks#nodejs).
 
     //Create a client object
     var dataClient = new Usergrid.client({
-        orgName:'your-org',
-        appName:'your-app'
+        org_name:'your-org',
+        app_name:'your-app'
     });
 
     //Set the properties for your entity
@@ -666,8 +666,8 @@ SDK](/app-services-sdks#javascript).
 
     //Create a client object with your organization name and application name.
     var dataClient = new Usergrid.Client({
-        orgName:'your-org',
-        appName:'your-app'
+        org_name:'your-org',
+        app_name:'your-app'
     });
 
     //Set the request options: http method, endpoint, body
@@ -823,8 +823,8 @@ module](/app-services-sdks#nodejs).
 
     //Create a client object
     var dataClient = new Usergrid.client({
-        orgName:'your-org',
-        appName:'your-app'
+        org_name:'your-org',
+        app_name:'your-app'
     });         
                 
     //Set the request options: http method, endpoint, body
@@ -1339,8 +1339,8 @@ SDK](/app-services-sdks#javascript).
 
     //Create a client object with your organization name and application name.
     var dataClient = new Usergrid.Client({
-        orgName:'your-org',
-        appName:'your-app'
+        org_name:'your-org',
+        app_name:'your-app'
     });
 
                 
@@ -1540,8 +1540,8 @@ module](/app-services-sdks#nodejs).
 
     //Create a client object
     var dataClient = new Usergrid.client({
-        orgName:'your-org',
-        appName:'your-app'
+        org_name:'your-org',
+        app_name:'your-app'
     });
 
     var options = {
