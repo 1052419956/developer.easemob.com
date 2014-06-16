@@ -10,7 +10,6 @@ layout: docs
 
 
 * Android
- 
 	* [5分钟快速入门无UIDemo](#{site.base_url}/docs/emchat/android/quickstart.html)
 	* [5分钟快速入门有UIDemo](#{site.base_url}/docs/emchat/android/quickstartUI.html)
 	* [自主开发集成聊天配置指导](#{site.base_url}/docs/emchat/android/quickstartinapp.html)
