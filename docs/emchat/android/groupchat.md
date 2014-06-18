@@ -45,6 +45,7 @@ layout: docs
 ### 群聊事件监听
 
 	EMGroupManager.getInstance().addGroupChangeListener(new GroupChangeListener() {
+
 		@Override
 		public void onUserRemoved(String groupId, String groupName) {
 			//当前用户被管理员移除出群聊
@@ -72,9 +73,13 @@ layout: docs
 	});
 
 ### 获取群组信息
-
+	//根据群组ID从本地获取群组信息
 	EMGroup group = EMGroupManager.getInstance().getGroup(groupId);
+	//根据群组ID从服务器获取群组信息
+	EMGroup group =EMGroupManager.getInstance().getGroupFromServer(groupId);
+
 	group.getMembers();//获取群成员
 	group.getOwner();//获取群主
-    
-其它方法详见环信接口文档
+    ...
+	其它方法详见环信接口文档
+
