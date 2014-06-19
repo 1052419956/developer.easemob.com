@@ -11,7 +11,7 @@ layout: docs
 
 ###  环信UI demo
 
-UI demo，此demo比较复杂，包含了一个接近微信的完整的聊天app的所有功能, 包括发文字，表情，图片，语音，位置，群聊，登录，注册，退出登录等。
+UI demo，包含了一个接近微信的完整的聊天app的所有功能, 包括发文字，表情，图片，语音，位置，群聊，登录，注册，退出登录等。
 
 环信UI demo源代码已在github上开源供开发者下载，以帮助开发者更好的学习了解环信SDK。
 
@@ -241,7 +241,7 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 		
 	}
 
-#### 9.监听连接状态：见MainActivity.java ####
+#### 9.监听连接状态和账号多处登录被迫下线：见MainActivity.java ####
 
     private class MyConnectionListener implements ConnectionListener{
 
@@ -252,7 +252,14 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 
 		@Override
 		public void onDisConnected(String errorString) {
-			
+			if(errorString!=null&&errorString.contains("conflict"))
+			{
+				//收到帐号在其他手机登录
+				// TODO 
+			}else{
+				
+				//"连接不到聊天服务器"
+			}
 		}
 
 		@Override

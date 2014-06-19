@@ -37,10 +37,10 @@ layout: docs
 ### 获取群聊列表
 
 	//从服务器获取自己加入的和创建的群聊列表
-	EMGroupManager.getInstance().getGroupsFromServer();
+	List<EMGroup> grouplist = EMGroupManager.getInstance().getGroupsFromServer();
 
 	//从本地加载群聊列表，节省了每次从服务器加载数据的时间
-	EMGroupManager.getInstance().getAllGroups();
+	List<EMGroup> grouplist = EMGroupManager.getInstance().getAllGroups();
 
 ### 群聊事件监听
 

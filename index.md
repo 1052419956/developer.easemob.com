@@ -7,7 +7,7 @@ layout: docs
 
 
 ## 环信
-
+* [开发指南---新手指引](/docs/emchat/android/guide.html)
 
 * Android
 	* [5分钟快速入门无UIDemo](/docs/emchat/android/quickstart.html)
