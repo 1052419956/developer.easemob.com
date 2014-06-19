@@ -50,20 +50,20 @@ layout: docs
 - response： 聊天记录(json),默认返回10条记录
 
 		{
-		....
-		count : 10, //返回的数量
-		cursor : "asdsdfaee" //游标，用于分页查询
-		entities : [
-			{
-			聊天记录entity
-			}
-			...
-		]
-		....
+    		....
+    		count : 10, //返回的数量
+    		cursor : "asdsdfaee" //游标，用于分页查询
+    		entities : [
+    			{
+    			聊天记录entity
+    			}
+    			...
+    		]
+    		....
 		}	
-- 错误代码：
 
 #### 使用示例1：获取最新的20条记录
+
 在url后面加上参数`ql=order by timestamp desc，limit=20`,实际使用时需要对"="后边的内容进行utf8 encode转义
 		
 curl示例
@@ -72,16 +72,24 @@ curl示例
 
 
 #### 使用示例2：获取某个时间段内的消息
-在url后面加上参数`ql=select * where timestamp<1403164734226 and timestamp>1403166586000 order by timestamp desc`,同上"="后的参数需要转义
+
+在url后面加上参数`ql=select * where timestamp<1403164734226 and timestamp>1403166586000 order by timestamp desc`, 同上"="后的参数需要转义
 
 curl示例
 
 	curl -X get -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "http://a1.easemob.com/easemob-demo/chatdemoui/chatmessages?ql=select+*+where+timestamp%3C1403164734226+and+timestamp%3E1403163586000+order+by+timestamp+desc"
 
 #### 使用示例3：分页获取数据
+
 使用limit参数获取数据完毕后，如果后边还有数据，会返回一个不为空的cursor回来，使用这个cursor就能进行分页获取了，具体可参考[文档](http://developer.easemob.com/docs/emchat/rest/pagingquery.html)。
 
-分页示例：根据之前获取数据返回的cursor继续获取后面的20条数据。在url后面加上参数`ql=order by timestamp desc，limit=20,cursor=MTYxOTcyOTYyNDpnR2tBQVFNQWdHa0FCZ0ZHczBKN0F``3Q0FkUUFRYUdpdkt2ZU1FZU9vNU4zVllyT2pqUUNBZFFBUWFHaXZJUGVNRWVPMjdMRWo5b0w4dEFB`,同上参数需要转义
+分页示例：根据之前获取数据返回的cursor继续获取后面的20条数据。在url后面加上参数
+
+    ql=order by timestamp desc
+    limit=20
+    cursor=MTYxOTcyOTYyNDpnR2tBQVFNQWdHa0FCZ0ZHczBKN0F3Q0FkUUFRYUdpdkt2ZU1FZU9vNU4zVllyT2pqUUNBZFFBUWFHaXZJUGVNRWVPMjdMRWo5b0w4dEFB
+
+同上参数需要转义
 
 curl示例
 
