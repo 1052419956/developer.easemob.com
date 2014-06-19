@@ -1,11 +1,11 @@
-  ---
+---
 title: 环信
 description: 5分钟为你的APP加入完整的微信聊天功能
 category: emchat
 layout: docs
 ---
 
-# 新手指引
+## 新手指引
 
  环信即时通讯云是移动即时通讯能力的云计算 PaaS (Platform as a Service, 平台即服务) 平台服务商。为此，我们为广大开发者提供了基于互联网和移动终端的单聊，群聊，富媒体消息，实时语音，实时视频，多人语音视频，流媒体播放及互动等通讯能力的相关SDK,帮助开发者快速集成到自己的APP当中，另外我们提供了开放的API接口文档，以供参考。
 
@@ -46,3 +46,9 @@ layout: docs
 
 ![alt text](appkey.png "Title")
 ![alt text](appkey1.png "Title")
+
+## 2.APP应用集成
+
+2.1 [5分钟快速入门-android](/docs/emchat/android/quickstart.html)
+
+2.2 [5分钟快速入门-ios](/docs/emchat/ios/quickstart.html)
