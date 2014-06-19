@@ -79,7 +79,7 @@ layout: docs
 	}
 
 
-关于EASEMOB_APPKEY，请登录或注册[环信开发者后台(http://console.easemob.com),申请APPKEY后，进行相关配置。
+关于EASEMOB_APPKEY，请登录或注册[环信开发者后台(https://console.easemob.com),申请APPKEY后，进行相关配置。
 
 ## 从源代码级别深入了解环信demo (iOS) 
 

@@ -61,7 +61,7 @@ layout: docs
 		- request body： 无
 
 		curl示例：
-		curl -X POST -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://a1.easemob.com/easemob-demo/chatdemo/users/stliu/roles/admin"
+		curl -X POST -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "https://a1.easemob.com/easemob-demo/chatdemo/users/stliu/roles/admin"
 	
 ### app管理员登录并获取授权token
 
@@ -85,7 +85,7 @@ layout: docs
 
 >> 注：请将URL中的easemob-demo/chatdemo替换成你自己的org_name和app_name。并将"username","password"分别替换成你自己的用户名和密码
 		
-	curl -X POST "http://a1.easemob.com/easemob-demo/chatdemo/token" -d '{"grant_type":"password","username":"jliu1","password":"jliu1"}'
+	curl -X POST "https://a1.easemob.com/easemob-demo/chatdemo/token" -d '{"grant_type":"password","username":"jliu1","password":"jliu1"}'
 	
 				
 如果这个用户之前已经注册了, 并且这里提供的密码正确的话, response会返回
@@ -133,7 +133,7 @@ layout: docs
 
 #### curl示例：
 		
-	curl -X POST -i "http://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
+	curl -X POST -i "https://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
 
 #### response返回:
 		
@@ -142,7 +142,7 @@ layout: docs
 		"application" : "a2e433a0-ab1a-11e2-a134-85fca932f094",
 		"params" : { },
 		"path" : "/users",
-		"uri" : "http://a1.easemob.com/easemob-demo/chatdemo/users",
+		"uri" : "https://a1.easemob.com/easemob-demo/chatdemo/users",
 		"entities" : [ {
 			"uuid" : "7f90f7ca-bb24-11e2-b2d0-6d8e359945e4",
 			"name" : "jliu0003",
@@ -176,7 +176,7 @@ layout: docs
 
 #### curl示例：
 		
-	curl -X POST -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
+	curl -X POST -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "https://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
 
 #### response返回:
 		
@@ -185,7 +185,7 @@ layout: docs
 		"application" : "a2e433a0-ab1a-11e2-a134-85fca932f094",
 		"params" : { },
 		"path" : "/users",
-		"uri" : "http://a1.easemob.com/easemob-demo/chatdemo/users",
+		"uri" : "https://a1.easemob.com/easemob-demo/chatdemo/users",
 		"entities" : [ {
 			"uuid" : "7f90f7ca-bb24-11e2-b2d0-6d8e359945e4",
 			"name" : "jliu0003",
@@ -215,7 +215,7 @@ layout: docs
 
 #### curl示例：
 		
-	curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://a1.easemob.com/easemob-demo/chatdemo/users/jliu1"
+	curl -X GET -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "https://a1.easemob.com/easemob-demo/chatdemo/users/jliu1"
 
 ## 重置用户密码
 
@@ -232,7 +232,7 @@ layout: docs
  
 #### curl示例：
 		
-	curl -X PUT -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "http://a1.easemob.com/easemob-demo/chatdemo/users/jliu/password" -d '{"newpassword" : "newpwd"}'
+	curl -X PUT -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "https://a1.easemob.com/easemob-demo/chatdemo/users/jliu/password" -d '{"newpassword" : "newpwd"}'
 
 ## 删除用户
 
@@ -246,4 +246,4 @@ layout: docs
 
 #### curl示例：
 		
-	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "http://a1.easemob.com/easemob-demo/chatdemo/users/jliu"
+	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "https://a1.easemob.com/easemob-demo/chatdemo/users/jliu"

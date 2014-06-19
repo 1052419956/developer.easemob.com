@@ -42,4 +42,4 @@ layout: docs
 	<meta-data android:name="EASEMOB_APPKEY"  android:value="你申请的appkey" />
 	<service android:name="com.easemob.chat.EMChatService" />
 
-关于EASEMOB_APPKEY，请登录或注册[环信开发者后台](http://console.easemob.com),申请APPKEY后，进行相关配置。（测试demo中 APPKEY为*easemob-demo#chatdemo*）
+关于EASEMOB_APPKEY，请登录或注册[环信开发者后台](https://console.easemob.com),申请APPKEY后，进行相关配置。（测试demo中 APPKEY为*easemob-demo#chatdemo*）
