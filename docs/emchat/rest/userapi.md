@@ -61,7 +61,7 @@ layout: docs
 		- request body： 无
 
 		curl示例：
-		curl -X POST -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k"http://a1.easemob.com/easemob-demo/chatdemo/users/stliu/roles/admin"
+		curl -X POST -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "http://a1.easemob.com/easemob-demo/chatdemo/users/stliu/roles/admin"
 	
 ### app管理员登录并获取授权token
 
