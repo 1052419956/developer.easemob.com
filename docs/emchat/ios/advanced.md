@@ -5,11 +5,10 @@ category: emchat
 layout: docs
 ---
 
-##高级话题:
+## 高级话题
 
-===
 
-## 自定义消息类型 ##
+### 自定义消息类型
 
 EMMessage支持用户自定义扩展
 	

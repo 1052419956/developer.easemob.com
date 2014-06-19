@@ -267,8 +267,8 @@ SDK](/app-services-sdks#javascript).
 
     //Create the Apache Usergrid client object
     var dataClient = new Usergrid.Client({
-        orgName:'your-org',
-        appName:'your-app'
+        org_name:'your-org',
+        app_name:'your-app'
     });
 
     //Specify the UUID of the entity to be updated
@@ -401,8 +401,8 @@ module](/app-services-sdks#nodejs).
 
     //Create the Apache Usergrid client object
     var dataClient = new Usergrid.client({
-        orgName:'your-org',
-        appName:'your-app'
+        org_name:'your-org',
+        app_name:'your-app'
     });
 
     //Specify the UUID of the entity to be updated
@@ -802,8 +802,8 @@ SDK](/app-services-sdks#javascript).
 
     //Create the Apache Usergrid client object
     var dataClient = new Usergrid.Client({
-        orgName:'your-org',
-        appName:'your-app'
+        org_name:'your-org',
+        app_name:'your-app'
     });
 
     //Specify the UUID of the entity to be updated
@@ -938,8 +938,8 @@ module](/app-services-sdks#nodejs).
 
     //Create the Apache Usergrid client object
     var dataClient = new Usergrid.client({
-        orgName:'your-org',
-        appName:'your-app'
+        org_name:'your-org',
+        app_name:'your-app'
     });
 
     //Specify the UUID of the entity to be updated

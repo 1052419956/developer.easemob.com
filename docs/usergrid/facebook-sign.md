@@ -225,8 +225,8 @@ to the JavaScript SDK for Apache Usergrid. You need to do this before you
 can use the SDK. Here’s the code to create a client:
 
     var client = new Usergrid.Client({
-        orgName:'yourorgname',
-        appName:'yourappname',
+        org_name:'yourorgname',
+        app_name:'yourappname',
         logging: true, //optional - turn on logging, off by default
         buildCurl: true //optional - turn on curl commands, off by default
     });

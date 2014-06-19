@@ -8,59 +8,63 @@ layout: docs
 # 快速入门（五分钟运行环信demo)  
 
 
-## 1.下载环信demo (iOS) ##
+## 下载环信demo (iOS) 
 
-### 1.1 什么是环信demo ###
+### 什么是环信demo 
 
 环信demo展示了怎样使用环信SDK快速创建一个完整的类微信聊天APP。展示的功能包括：环信SDK初始化，登录，登出，注册消息接收listener, 发送消息。
 
 环信demo源代码已在github上开源供开发者下载，以帮助开发者更好的学习了解环信SDK。
 
-### 1.2 下载环信demo ###
-
-    
+### 下载环信demo 
 
 1. 下载环信Demo及SDK： [下载](http://www.easemob.com/downloads.php)
-
 
 2. 解压缩iOSSDK.zip后会得到以下目录结构：
  
  ![alt text](example_layout.png "Title")
 
 
-## 2.运行环信demo (iOS) ##
+## 运行环信demo (iOS) 
 
-1. 在模拟器中运行chatdemo-nonui工程。(或者使用手机上的Safari浏览器访问 [www.easemob.com/downloads/chatdemo.html](http://www.easemob.com/downloads/chatdemo.html)直接安装。)
+在模拟器中运行chatdemo-nonui工程。
+
+或者使用手机上的Safari浏览器访问 [www.easemob.com/downloads/chatdemo.html](http://www.easemob.com/downloads/chatdemo.html)直接安装
 
  
-3. 运行chatdemo-nonui: 点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来，显示如下图。
+运行chatdemo-nonui: 
 
+点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来，显示如下图。
 
- ![alt text](demo.png "demo")
+![alt text](demo.png "demo")
+
+## 快速集成 
+
+### 下载EaseMobSDK: 
+
+下载EaseMobSDK [下载链接](http://www.easemob.com/downloads/iOSSDK.zip)
+
+### 将EaseMobSDK拖入到项目中 
+
+![alt text](import.png "Title")
  
+### 加入依赖库 
 
-## 3.快速集成 ##
-
-### 1.下载EaseMobSDK: ###
-下载EaseMobSDK
-[下载链接](http://www.easemob.com/downloads/iOSSDK.zip)
-
-### 2.将EaseMobSDK拖入到项目中 ###
- ![alt text](import.png "Title")
+![alt text](addLib.png "Lib")
  
-### 3.加入依赖库 ###
- ![alt text](addLib.png "Lib")
- 
-### 4.设置Linker ###
+### 设置Linker 
+
 ![alt text](link.png "link")
 
-*	向Other Linker Flags 中添加 -ObjC。(如果已有，则不需要再添加)
+向Other Linker Flags 中添加 -ObjC。(如果已有，则不需要再添加)
 
-### 5.设置Architectures ###
+### 设置Architectures 
+
 ![alt text](Active.png "Active")
 
-### 6.初始化EaseMobSDK ###
-** 在AppDelegate中注册SDK **
+### 初始化EaseMobSDK 
+
+在AppDelegate中注册SDK
 
 	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary 	*)launchOptions
 	{
@@ -74,22 +78,20 @@ layout: docs
 		return YES;
 	}
 
- *	关于EASEMOB_APPKEY，请登录或注册环信开发者[(http://console.easemob.com)](http://console.easemob.com),登陆管理后台,申请APPKEY后，进行相关配置。
 
-  
- 
+关于EASEMOB_APPKEY，请登录或注册[环信开发者后台(http://console.easemob.com),申请APPKEY后，进行相关配置。
 
-## 7. 从源代码级别深入了解环信demo (iOS) ##
+## 从源代码级别深入了解环信demo (iOS) 
 
 
-### 7.1. 深入理解环信demo背后的代码 ###
+### 深入理解环信demo背后的代码 
 
-#### 1.注册listener,以接收聊天消息:RootViewController.m ####
+#### 注册listener,以接收聊天消息:RootViewController.m 
 
     [[EaseMob sharedInstance].chatManager addDelegate:self
                                         delegateQueue:nil];
 
-#### 2. 登录：见RandViewController+Login ####
+#### 登录：见RandViewController+Login 
 
     [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:username
                                                         password:@"123456"
@@ -101,11 +103,11 @@ layout: docs
      } onQueue:nil];
 
 
-#### 3. 退出登录：见RandViewController+Login.m ####
+#### 退出登录：见RandViewController+Login.m 
 
 	[[EaseMob sharedInstance].userManager asyncLogoff];
 
-#### 4. 发送消息：见RootViewController+sendChat.m ####
+#### 发送消息：见RootViewController+sendChat.m 
 
     EMChatText *text = [[EMChatText alloc] initWithText:message];
     EMMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:text];
@@ -119,7 +121,7 @@ layout: docs
                                                 error:nil];
 
 
-#### 5. 接收聊天消息并显示：见RootViewController.m ####
+#### 接收聊天消息并显示：见RootViewController.m 
 
 	-(void)didReceiveMessage:(EMMessage *)message {
     	EMMessageBody *body = message.messageBodies.lastObject;

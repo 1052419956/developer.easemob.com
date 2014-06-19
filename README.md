@@ -1,5 +1,7 @@
 这个项目使用的是 Awestruct 来从模板编译成静态网页, 但是现在在ruby gem上面的awestruct有问题, 需要装一个最新版本的, 所以, 要运行本项目, 首先
 
+
+
 ### 安装rvm
 
 打开[rvm的网站](https://rvm.io)然后跟着这里的安装文档安装rvm

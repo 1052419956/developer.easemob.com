@@ -7,9 +7,9 @@ layout: docs
 
 
 ## 易用户
-* [什么是易用户SDK：无需后台，快速搭建用户体系](#{site.base_url}/docs/emuser/whatisemuser.html)
-* [用户体系REST API](#{site.base_url}/docs/emuser/usersystem.html)
-* [组织架构REST API](#{site.base_url}/docs/emuser/organization.html)
+* [什么是易用户SDK：无需后台，快速搭建用户体系](/docs/emuser/whatisemuser.html)
+* [用户体系REST API](/docs/emuser/usersystem.html)
+* [组织架构REST API](/docs/emuser/organization.html)
 
 
 
@@ -19,4 +19,4 @@ layout: docs
 	* [5分钟快速入门]()
 	* [Android 易推SDK使用详解]()
 	* [Demo及SDK下载]()-->
-* [REST API](#{site.base_url}/docs/empush/)
+* [REST API](/docs/empush/)

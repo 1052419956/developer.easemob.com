@@ -18,7 +18,7 @@ layout: docs
 
 ## 创建部门 ##
 
-### POST /${orgName}/${appName}/groups
+### POST /${org_name}/${app_name}/groups
 
 * 描述: 创建一个新的部门
 * 权限: app用户登录
@@ -76,7 +76,7 @@ layout: docs
 
 ## 删除部门  ##
 
-### DELETE /${orgName}/${appName}/groups/${部门path}
+### DELETE /${org_name}/${app_name}/groups/${部门path}
 
 * 描述:删除一个部门
 * 权限: app用户登录
@@ -132,7 +132,7 @@ layout: docs
 
 
 ## 修改部门    
-### PUT /${orgName}/${appName}/groups/${部门path}
+### PUT /${org_name}/${app_name}/groups/${部门path}
 
 * 描述:更新部门信息
 * 权限: app用户登录
@@ -185,7 +185,7 @@ layout: docs
 注：如果要修改的部门不存在，则会创建一个新部门
 
 ## 获取部门列表  ##
-### GET /${orgName}/${appName}/groups
+### GET /${org_name}/${app_name}/groups
 * 描述:获得部门列表
 * 权限: app用户登录
 * Url参数: 
@@ -231,7 +231,7 @@ layout: docs
         
 ## 获得指定部门详情
 
-### GET /${orgName}/${appName}/groups/${部门path}
+### GET /${org_name}/${app_name}/groups/${部门path}
 * 描述:获得指定部门
 * 权限: app用户登录
 * Url参数: 无
@@ -275,7 +275,7 @@ layout: docs
     }
        
 ## 修改员工部门属性  ##
-### PUT /${orgName}/${appName}/users/${userName} ###
+### PUT /${org_name}/${app_name}/users/${userName} ###
 * 描述:修改用户的部门信息
 * 权限: app用户登录
 * Url参数: 无
@@ -325,7 +325,7 @@ layout: docs
 
 
 ## 查询部门所属员工  ##
-### GET /${orgName}/${appName}/groups/${部门path}/has/users
+### GET /${org_name}/${app_name}/groups/${部门path}/has/users
 * 描述:获得部门所属员工
 * 权限: app用户登录
 * Url参数: 

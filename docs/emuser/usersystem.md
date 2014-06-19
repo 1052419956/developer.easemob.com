@@ -156,7 +156,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 2.3 在Org下创建App ##
 
-###POST/management/organizations/${orgName}/applications###
+###POST/management/organizations/${org_name}/applications###
 
 - 描述：创建app用户 ？
 - 权限：admin管理员
@@ -245,7 +245,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 2.4 获取指定Org下的App列表 ##
 
-### GET/management/organizations/${orgName}/applications ###
+### GET/management/organizations/${org_name}/applications ###
 
 - 描述：获取应用列表
 - 权限：
@@ -273,12 +273,12 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 2.5 获取指定Org下的用户列表（即获取该Org的管理员用户列表） ##
 
-###GET /management/organizations/${orgName}/users ###
+###GET /management/organizations/${org_name}/users ###
 
 - 描述：获取组织内管理员的用户列表
 - 权限：admin
 - url参数：
-- response body：orgName, authentication token
+- response body：org_name, authentication token
 - 错误代码：
 
 #### url示例：
@@ -353,12 +353,12 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 3.2 获取指定App详情 ##
 
-### GET/management/organizations/${orgName}/applications/${appName}
+### GET/management/organizations/${org_name}/applications/${app_name}
 
 - 描述：获取app详情
 - 权限：
 - url参数：
-- response返回： orgName, appName, authentication token
+- response返回： org_name, app_name, authentication token
 - 错误代码：
 
 #### curl示例：				
@@ -445,7 +445,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 4.1 app用户登录并获取授权token ##
 
-###POST/${orgName}/${appName}/token
+###POST/${org_name}/${app_name}/token
 
 - 描述： 登录并授权，获得一个token。
 - 权限：admin
@@ -487,7 +487,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
  
 ## 4.2 创建app的用户 ##
 
-###POST/${orgName}/${appName}/users
+###POST/${org_name}/${app_name}/users
 
 - 描述：创建一个新的app user
 - 权限： application access
@@ -552,7 +552,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 4.3 获取app的用户列表 ##
 
-###GET/${orgName}/${appName}/users
+###GET/${org_name}/${app_name}/users
 
 - 描述：获取app用户列表
 - 权限：admin
@@ -567,12 +567,12 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 4.4 获取app的指定用户详情 ##
 
-###GET/${orgName}/${appName}/users/${userName}
+###GET/${org_name}/${app_name}/users/${userName}
 
 - 描述：获取app的指定用户详情
 - 权限：
 - url参数：
-- response body： orgName, authentication token
+- response body： org_name, authentication token
 - 错误代码：
 
 #### curl示例：
@@ -581,7 +581,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 4.5 查找用户 ##
 
-###GET /${orgName}/${appName}/users
+###GET /${org_name}/${app_name}/users
 - 描述：查找用户
 - 权限：
 - url参数：
@@ -602,7 +602,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 4.7 查询app的现有用户总数 ##
 
-###GET /${orgName}/${appName}/counters
+###GET /${org_name}/${app_name}/counters
 
 - 描述：查询app的现有用户总数
 - 权限：admin
@@ -617,11 +617,11 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 4.8 删除app的指定用户 ##
 
-### DELETE /${orgName}/${appName}/users/${userName}
+### DELETE /${org_name}/${app_name}/users/${userName}
 - 描述：删除app的指定用户
 - 权限：
 - url参数：
-- response body： orgName, authentication token
+- response body： org_name, authentication token
 - 错误代码：
 
 #### curl示例：
@@ -630,7 +630,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 4.9 更新App的用户信息 ##
 
-### PUT /${orgName}/${appName}/users/${username}
+### PUT /${org_name}/${app_name}/users/${username}
 
 - 描述： 更新用户信息
 - 权限：app用户级别登录
@@ -668,7 +668,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 ## 4.11 生成随机用户id ##
 很多app都需要为用户产生一个账号，比如陌陌号，qq号。这个账号一般是一个数字（便于记忆，便于告诉他人）。这个账号一般不能用自增长的数字，而需要是一个随机数字，以避免他人猜到账号，或者根据账号数字猜测app的总用户数
 
-### GET /${orgName}/${appName}/users/${userName}？
+### GET /${org_name}/${app_name}/users/${userName}？
 
 - 描述： 随机生成用户id
 - 权限：admin
@@ -683,7 +683,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 ## 4.12 根据用户手机号登陆（通过手机号查找用户） ##
 很多app都是通过用户号登陆。但在实际系统中，我们并不能用手机号作为用户账号，因为这样会导致用户手机号码泄露。通过手机号登陆的实际操作过程是先通过用户手机号查询用户账号，然后再通过用户账号登陆。
 
-###GET /${orgName}/${appName}/users/${userName}？？
+###GET /${org_name}/${app_name}/users/${userName}？？
 
 - 描述： 根据手机号查找用户
 - 权限：
@@ -698,7 +698,7 @@ user：App的用户。每个App可以有自己的用户。每个app的用户都�
 
 ## 4.13 重置用户密码 ##
 
-### PUT /${orgName}/${appName}/users/${username}/password
+### PUT /${org_name}/${app_name}/users/${username}/password
 
 - 描述： 重置用户密码
 - 权限：app用户级别登录

@@ -5,7 +5,7 @@ category: baas
 layout: docs
 ---
 ### 统计一周内每天的新增用户数量
-GET /${orgName}/${appName}/counters
+GET /${org_name}/${app_name}/counters
 * 描述:获得小区列表
 * 权限: app授权
 * Url参数: start_time=1388505600000&end_time=1390060800000&resolution=day&counter=application.collection.users&pad=true
@@ -138,7 +138,7 @@ GET /${orgName}/${appName}/counters
 
 
 ### 统计当前总用户数量
-GET /${orgName}/${appName}/counters
+GET /${org_name}/${app_name}/counters
 * 描述:获得当前总用户数量
 * 权限: app授权
 * Url参数: counter=application.collection.users
