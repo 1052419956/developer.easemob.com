@@ -187,6 +187,24 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 		
 	   };
 
+
+#### 发送聊天消息并显示
+
+    //创建一个消息(本条信息是一条文本，可以通过EMMessage.Type选择其他类型)
+    EMMessage msg = EMMessage.createSendMessage(EMMessage.Type.TXT);
+     //设置消息的接收方
+     msg.setReceipt(username);
+     //设置消息内容。本消息类型为文本消息。
+     TextMessageBody body = new TextMessageBody(tvMsg.getText().toString());
+      msg.addBody(body);
+	try {
+      //发送消息
+     EMChatManager.getInstance().sendMessage(msg);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
 #### 接收聊天消息并显示
 
 

@@ -49,6 +49,6 @@ layout: docs
 
 ## 2.APP应用集成
 
-2.1 [5分钟快速入门-android](/docs/emchat/android/quickstart.html)
+2.1 [5分钟快速入门-android](/docs/emchat/android/quickstartUI.html)
 
 2.2 [5分钟快速入门-ios](/docs/emchat/ios/quickstart.html)
