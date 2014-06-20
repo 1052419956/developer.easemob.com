@@ -22,9 +22,11 @@ layout: docs
 
 ![alt text](console.png "Title")
 
-在注册页面中填写详细资料（企信ID，只限于数字,字母,横线,且不能以横线开头和结尾！），如下图：
+在注册页面中填写详细资料（企业ID，只限于数字,字母,横线,且不能以横线开头和结尾！），如下图：
 
 （企业ID会存在于生成的APPKEY中，如：测试demo中 APPKEY为*easemob-demo#chatdemo*，则easemob-demo为填写的企业ID）
+
+注：如果是个人应用开发的话，企业ID直接写成自己定义的ID就可以
 
 ![alt text](consoleregister.png "Title")
 
