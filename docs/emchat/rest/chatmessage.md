@@ -19,6 +19,7 @@ layout: docs
                     {
                         "msg": "hhhhhh", //消息内容
                         "type": "txt" //消息类型。txt:文本消息, img:图片, loc：位置, audio：语音
+						"chat_type": "chat" //用来判断单聊还是群聊。chat:单聊，groupchat:群聊
 						"length": 3, //语音时长，单位为秒，这个属性只有语音消息有
                         "url": "", //图片语音等文件的网络url，图片和语音消息有这个属性
                         "filename": "22.png", //文件名字，图片和语音消息有这个属性
