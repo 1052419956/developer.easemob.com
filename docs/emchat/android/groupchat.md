@@ -12,11 +12,18 @@ layout: docs
 这部分与单聊是一样的，详情见[单聊](http://developer.easemob.com/docs/emchat/android/singlechat.html)
 
 ### 新建群聊
+创建私有群
 
 	//groupName：要创建的群聊的名称
 	//desc：群聊简介
 	//members：群聊成员,为空时这个创建的群组只包含自己
-	EMGroupManager.getInstance().createGroup(groupName, desc, members);
+	EMGroupManager.getInstance().createPrivateGroup(groupName, desc, members);
+
+创建公开群
+
+	//前面三个参数和创建私有群一致，第四个参数暂时固定传false即可
+	EMGroupManager.getInstance().createPublicGroup(groupName, desc, members, false);
+	
 
 ### 群聊加人
 
@@ -26,6 +33,10 @@ layout: docs
 
 	//把username从群聊里删除
 	EMGroupManager.getInstance().removeUserFromGroup(groupId, username);
+
+### 加入某个群聊
+	//暂时只能用于只能加入到某个公开群
+	EMGroupManager.getInstance().joinGroup(groupid);
 
 ### 退出群聊
 
@@ -41,6 +52,10 @@ layout: docs
 
 	//从本地加载群聊列表，节省了每次从服务器加载数据的时间
 	List<EMGroup> grouplist = EMGroupManager.getInstance().getAllGroups();
+
+	//获取所有公开群列表
+	List<EMGroupInfo> groupsList = EMGroupManager.getInstanc().getAllPublicGroupsFromServer();
+
 
 ### 群聊事件监听
 
