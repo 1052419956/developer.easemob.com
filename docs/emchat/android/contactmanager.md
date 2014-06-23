@@ -24,14 +24,15 @@ layout: docs
 
 ### 同意好友请求
 
-同意username的好友请求
-
+	//同意username的好友请求
 	EMChatManager.getInstance().acceptInvitation(username);
+
+### 拒绝好友请求
+	EMChatManager.getInstance().refuseInvitation(username);
 
 ### 监听好友请求，同意好友请求等事件
 
-注册一个好友请求等的BroadcastReceiver
-    
+	//注册一个好友请求等的BroadcastReceiver   
 	IntentFilter inviteIntentFilter = new IntentFilter(EMChatManager.getInstance().getContactInviteEventBroadcastAction());
 	registerReceiver(contactInviteReceiver, inviteIntentFilter);
 	

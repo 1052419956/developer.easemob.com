@@ -9,8 +9,7 @@ layout: docs
 
 ### 初始化环信聊天SDK
 
-建议在application中初始化
-
+	//最好在application中初始化
 	EMChat.getInstance().init(getApplicationContext());
 
 ### 登陆聊天服务器
@@ -81,7 +80,10 @@ layout: docs
 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.IMAGE);
 	//如果是群聊，设置chattype,默认是单聊
 	message.setChatType(ChatType.GroupChat);
+	
 	ImageMessageBody body = new ImageMessageBody(new File(filePath));
+	// 默认超过100k的图片会压缩后发给对方，可以设置成发送原图
+	// body.setSendOriginalImage(true);
     message.addBody(body);
 	message.setReceipt(username);
 	conversation.addMessage(message);
@@ -164,6 +166,29 @@ layout: docs
     //删除当前会话的某条聊天记录
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
     conversation.removeMessage(deleteMsg.msgId);
+
+
+### 设置自定义的消息提示
+app在后台时，新消息会通过notification的方式，在手机状态栏提示新消息，可以把提示的内容换成自定义的内容(在application的oncreate()里设置)。
+
+		//获取到配置options对象
+		EMChatOptions options = EMChatManager.getInstance().getChatOptions();
+		//设置自定义的文字提示
+ 		options.setNotifyText(new OnMessageNotifyListener() {
+			
+			@Override
+			public String onNewMessageNotify(EMMessage message) {
+				//可以根据message的类型提示不同文字，这里为一个简单的示例
+				return "你的好基友" + message.getFrom() + "发来了一条消息哦";
+			}
+			
+			@Override
+			public String onLatestMessageNotify(EMMessage message, int fromUsersNum, int messageNum) {
+				return fromUsersNum + "个基友，发来了" + messageNum + "条消息";
+			}
+		});
+
+
 
 ### 新消息提示
 SDK中提供了方便的新消息提醒功能。可以在收到消息时调用，提醒用户有新消息
