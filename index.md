@@ -48,6 +48,7 @@ layout: docs
 * iOS
 	* [5分钟快速入门 - 无UIDemo](/docs/emchat/ios/quickstart.html)
 	* [5分钟快速入门 - 有UIDemo](/docs/emchat/ios/ChatDemo_UI.html)
+    * [制作推送证书](/docs/emchat/ios/push/certificate.html)
 	* [单聊](/docs/emchat/ios/singlechat.html)
 		* [初始化](/docs/emchat/ios/singlechat.html)
 		* [登录鉴权](/docs/emchat/ios/singlechat.html)
