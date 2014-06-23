@@ -67,7 +67,7 @@ layout: docs
 
 #### 填写的证书名称
 
-这个名称只是个有意义的名字, 对推送并不直接相关, 并上传之前导出的P12文件, 密码则为此P12文件的密码, 证书类型请根据具体情况选择
+这个名称是个有意义的名字, 对推送直接相关, 稍后会在源码的修改里继续用到这个名字. 上传之前导出的P12文件, 密码则为此P12文件的密码, 证书类型请根据具体情况选择
 
 (创建的是Apple Push Notification service SSL Sandbox请选择*开发环境*; Apple Push Notification service SSL Production请选择*生产环境*), 
 
