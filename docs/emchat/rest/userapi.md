@@ -43,27 +43,27 @@ layout: docs
 
 ### 创建app管理员
 
-#### 方式一  进入环信开发者后台创建
+<!-- #### 方式一  进入环信开发者后台创建 -->
 
 以管理员身份登录环信开发者后台 -> 进入到每个app应用概况页 -> 点击"添加应用管理员"即可添加app管理员。创建结束后会跳转到用户列表页，app管理员会出现在"用户管理"下的用户列表中。可以像操作IM用户一样操作app管理员用户（包括重置密码、删除用户） 
 
-#### 方式二  通过发送POST请求创建
+<!-- #### 方式二  通过发送POST请求创建
 
-	1. 创建一个普通IM用户
-		此处参见"创建用户".
+    1. 创建一个普通IM用户
+        此处参见"创建用户".
 
-	2. 给这个IM用户授予app管理员权限
-		提示：需要app管理员权限或者org管理员权限
-		POST /${orgname}/${appname}/users/${username}/roles/admin
-		- 描述： 给一个普通IM用户授予app管理员权限。
-		- 权限： app管理员或org管理员
-		- url参数： 无
-		- request body： 无
+    2. 给这个IM用户授予app管理员权限
+        提示：需要app管理员权限或者org管理员权限
+        POST /${orgname}/${appname}/users/${username}/roles/admin
+        - 描述： 给一个普通IM用户授予app管理员权限。
+        - 权限： app管理员或org管理员
+        - url参数： 无
+        - request body： 无
 
-		curl示例：
-		curl -X POST -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "https://a1.easemob.com/easemob-demo/chatdemo/users/stliu/roles/admin"
-	
-### app管理员登录并获取授权token
+        curl示例：
+        curl -X POST -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "https://a1.easemob.com/easemob-demo/chatdemo/users/stliu/roles/admin"
+     -->
+### 使用app管理员账号和密码登录并获取授权token
 
 #### POST /{org_name}/{app_name}/token
 
@@ -79,7 +79,28 @@ layout: docs
 		}
 
 - response： 授权结果(json),其中access_token为授权后的token
-- 错误代码：
+
+### 使用app的client_id 和 client_secret登陆并获取授权token
+
+client_id 和 client_secret可以在[环信管理后台](https://console.easemob.com)的app详情页面看到
+
+#### POST /{org_name}/{app_name}/token
+
+- 描述： 登录并授权，获得一个token。
+- 权限：
+- url参数： 无
+- request body： 授权数据（json格式）。
+
+		{
+		  "grant_type": "client_credentials",
+	  	  "client_id": "jliu1",
+	  	  "client_secret": "jliu1"
+		}
+
+- response： 授权结果(json),其中access_token为授权后的token
+
+
+使用app管理员的用户名密码和使用app的client_id, client_secret获取到的token并无区别, 这个token都具有操作整个app内部所有api的权限, 我们建议在做服务器端继承的时候, 在程序中使用 client_id和 client_secret的方式, 在登陆管理后台的时候使用账号密码
 
 #### curl示例：
 
