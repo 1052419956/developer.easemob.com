@@ -67,7 +67,7 @@ layout: docs
 
 #### POST /{org_name}/{app_name}/token
 
-- 描述： 登录并授权，获得一个token。
+- 描述： 登录并授权，获得一个token。token的有效期是七天, 在token返回值的 expires_in中有定义, 这个的值是秒, 在有效期内不需要再次获取toke。
 - 权限：
 - url参数： 无
 - request body： 授权数据（json格式）。
@@ -223,6 +223,22 @@ client_id 和 client_secret可以在[环信管理后台](https://console.easemob
   
 注：返回的response json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
+## 批量创建用户
+
+### POST /{org_name}/{app_name}/users [{"username":"u1", "password":"p1"}, {"username":"u2", "password":"p2"}]
+ /{org_name}/{app_name}/users/{username}
+- 描述：批量注册IM用户  建议批量不要过多, 在20-60之间
+- 权限：app管理员或org管理员
+- url参数：无
+- request body： 无
+- response： 无
+- 错误代码：
+
+#### curl示例：
+		
+	curl -X POST -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "https://a1.easemob.com/easemob-demo/chatdemo/users" -d '[{"username":"u1", "password":"p1"}, {"username":"u2", "password":"p2"}]'
+
+
 ### 获取指定用户详情
 
 ### GET /{org_name}/{app_name}/users/{username}
@@ -268,3 +284,17 @@ client_id 和 client_secret可以在[环信管理后台](https://console.easemob
 #### curl示例：
 		
 	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "https://a1.easemob.com/easemob-demo/chatdemo/users/jliu"
+
+## 批量删除用户
+
+### DELETE /{org_name}/{app_name}/users?limit=300
+- 描述：删除app的指定数量的IM用户 一次删除300个用户,数量值可以修改 建议这个数值不要过大, 在100-500之间, 也就是批量一次性删除300-500用户 
+- 权限：app管理员或org管理员
+- url参数：无
+- request body： 无
+- response： 无
+- 错误代码：
+
+#### curl示例：
+		
+	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "https://a1.easemob.com/easemob-demo/chatdemo/users?limit=300"
