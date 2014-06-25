@@ -79,6 +79,6 @@ layout: docs
 
 ### 在APP源代码中进行最后的设置
 
-#### 在调用`[[EaseMob sharedInstance] registerSDKWithAppKey:@"easemob-demo#chatdemoui" apnsCertName:apnsFilename];`的这句里, 把上面设置的证书名称传进来
+#### 在调用`[[EaseMob sharedInstance] registerSDKWithAppKey:@"easemob-demo#chatdemoui" apnsCertName:apnsCertName];`的这句里, 把上面设置的证书名称传进来
 
 #### 4.2. 编译, 运行
