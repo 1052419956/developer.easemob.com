@@ -32,6 +32,8 @@ layout: docs
 
 ### 监听好友请求，同意好友请求等事件
 
+**已过时**，使用后面的"监听好友状态事件"里的方式：EMContactManager.getInstance().setContactListener(new EMContactListener())监听好友改变事件。
+
 	//注册一个好友请求等的BroadcastReceiver   
 	IntentFilter inviteIntentFilter = new IntentFilter(EMChatManager.getInstance().getContactInviteEventBroadcastAction());
 	registerReceiver(contactInviteReceiver, inviteIntentFilter);
@@ -55,20 +57,33 @@ layout: docs
 		}
 	}
 
-### 监听好友列表变化
+### 监听好友状态事件
 
 	EMContactManager.getInstance().setContactListener(new EMContactListener() {
 			
-		@Override
-		public void onContactDeleted(List<String> usernameList) {
-			//好友删除的回调
+			@Override
+			public void onContactAgreed(String username) {
+				//好友请求被同意
+			}
 			
-		}
-		
-		@Override
-		public void onContactAdded(List<String> usernameList) {
-			//好友增加的回调
-			//返回的usernameList可能在原来的好友列表中已经有了，
-			//使用的时候务必判断原来的列表中是否已经包含回调中的好友。
-		}
-	});
+			@Override
+			public void onContactRefused(String username) {
+				//好友请求被拒绝
+			}
+			
+			@Override
+			public void onContactInvited(String username, String reason) {
+				//收到好友邀请
+			}
+			
+			@Override
+			public void onContactDeleted(List<String> usernameList) {
+				//被删除时回调此方法
+			}
+			
+			
+			@Override
+			public void onContactAdded(List<String> usernameList) {
+				//增加了联系人时回调此方法
+			}
+		});
