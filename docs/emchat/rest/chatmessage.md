@@ -10,12 +10,13 @@ layout: docs
 环信支持app把聊天记录通过REST接口导出
 
 ## 聊天记录数据结构
+
 	{
 			"type": "chatmessage",
 		    "from": "zw123", //发送人username
             "msg_id": "5I02W-16-8278a", //消息id
             "payload": {
-                "bodies": [ 消息bodies
+                "bodies": [ //消息bodies
                     {
                         "msg": "hhhhhh", //消息内容
                         "type": "txt" //消息类型。txt:文本消息, img:图片, loc：位置, audio：语音
