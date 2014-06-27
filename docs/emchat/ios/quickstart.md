@@ -109,8 +109,8 @@ layout: docs
 
 #### 发送消息：见RootViewController+sendChat.m 
 
-    EMChatText *text = [[EMChatText alloc] initWithText:message];
-    EMMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:text];
+	EMChatText *text = [[EMChatText alloc] initWithText:message];
+    EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:text];
     
     EMMessage *msg = [[EMMessage alloc]
                       initWithReceiver:@"bot"
@@ -121,12 +121,13 @@ layout: docs
                                                 error:nil];
 
 
+
 #### 接收聊天消息并显示：见RootViewController.m 
 
 	-(void)didReceiveMessage:(EMMessage *)message {
     	EMMessageBody *body = message.messageBodies.lastObject;
 		if (body.messageBodyType == eMessageBodyType_Text) {
-			NSString *msg = ((EMTextMessageBody *)body).text.text;
+			NSString *msg = ((EMTextMessageBody *)body).text;
 			NSLog(@"收到的消息---%@",msg);
 	    }
 	}

@@ -19,12 +19,22 @@ layout: docs
     	[self.window makeKeyAndVisible];
     
     	// 让SDK得到App目前的各种状态，以便让SDK做出对应当前场景的操作
-		[[EaseMob sharedInstance] registerSDKWithAppKey:@"easemob-demo#chatdemoui"];
-		[[EaseMob sharedInstance] application:application
-			didFinishLaunchingWithOptions:launchOptions];
+    	NSString *apnsCertName = nil;
+	#if DEBUG
+    	apnsCertName = @"chatdemoui_dev";
+	#else
+    	apnsCertName = @"chatdemoui";
+	#endif
+    	[[EaseMob sharedInstance] registerSDKWithAppKey:@"easemob-demo#chatdemo" apnsCertName:apnsCertName];
+
 		return YES;
 	}
-
+	
+	-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken{
+		// 让SDK得到App目前的各种状态，以便让SDK做出对应当前场景的操作
+    	[[EaseMob sharedInstance] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+	}
+	
 	- (void)applicationWillResignActive:(UIApplication *)application
 	{
 		// 让SDK得到App目前的各种状态，以便让SDK做出对应当前场景的操作
@@ -83,7 +93,7 @@ loginInfo包含账号，密码等信息;
 ####  发送文本消息及表情 
 
 	EMChatText *text = [[EMChatText alloc] initWithText:str];
-	EMMessageBody *body = [[EaseMob sharedInstance].chatManager createTextMessageBody:text];
+	EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:text];
 	EMMessage *msg = [[EMMessage alloc] initWithReceiver:username
 	bodies:@[body]];
 	[[EaseMob sharedInstance].chatManager sendMessage:msg progress:nil error:nil];
@@ -116,7 +126,7 @@ loginInfo包含账号，密码等信息;
 
 录音结束时，会得到一个EMChatVoice对象，之后用对象生成messageBody即可发送;
 
-	EMMessageBody *body = [[EMVoiceMessageBody alloc]initWithMessage:voice];
+	EMVoiceMessageBody *body = [[EMVoiceMessageBody alloc]initWithMessage:voice];
 	EMMessage *msg = [[EMMessage alloc] initWithReceiver:username
 	bodies:@[body]];
 	[[EaseMob sharedInstance].chatManager sendMessage:msg progress:nil error:nil];
@@ -146,7 +156,7 @@ loginInfo包含账号，密码等信息;
 在得到经纬度和位置信息后，可以生成对应的LocationType的Message，之后发送即可;
 	
 	EMChatLocation *chatLocation = [[EMChatLocation alloc] initWithLatitude:latitude longitude:longitude address:address];
-	EMMessageBody *body = [[EMLocationMessageBody alloc] initWithMessage:chatLocation];
+	EMLocationMessageBody *body = [[EMLocationMessageBody alloc] initWithMessage:chatLocation];
 	EMMessage *msg = [[EMMessage alloc] initWithReceiver:username bodies:@[body]];
 	[[EaseMob sharedInstance].chatManager sendMessage:msg progress:nil error:nil];
 
