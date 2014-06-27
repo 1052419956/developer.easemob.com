@@ -26,7 +26,7 @@ UI demo，包含了一个接近微信的完整的聊天app的所有功能, 包�
 
 ## 运行环信demo (Android) 
 
-在手机上安装chatdemo-ui.apk (apk位于androidsdk/examples/ChatDemoUI目录下)，安装成功后，运行此app，注册账号，并登陆。
+在手机上安装chatdemo-ui.apk (apk位于androidsdk/examples/ChatDemoUI目录下)，安装成功后，运行此app，注册账号(用户名不能有大写字母)，并登陆。
 
 ![alt text](register1.png "demo") 
 
@@ -85,8 +85,8 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 
 #### 注册
 
-见RegisterActivity
-
+见RegisterActivity，注意用户名不能有大写字母
+	
 	final String appkey = EMChatConfig.getInstance().APPKEY;
 	new Thread(new Runnable() {
 		public void run() {
