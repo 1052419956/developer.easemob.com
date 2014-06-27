@@ -21,9 +21,9 @@ layout: docs
     	// 让SDK得到App目前的各种状态，以便让SDK做出对应当前场景的操作
     	NSString *apnsCertName = nil;
 	#if DEBUG
-    	apnsCertName = @"chatdemoui_dev";
+    	apnsCertName = @"chatdemo_dev";
 	#else
-    	apnsCertName = @"chatdemoui";
+    	apnsCertName = @"chatdemo";
 	#endif
     	[[EaseMob sharedInstance] registerSDKWithAppKey:@"easemob-demo#chatdemo" apnsCertName:apnsCertName];
 
