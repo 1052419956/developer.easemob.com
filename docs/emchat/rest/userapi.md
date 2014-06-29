@@ -47,38 +47,7 @@ layout: docs
 
 以管理员身份登录环信开发者后台 -> 进入到每个app应用概况页 -> 点击"添加应用管理员"即可添加app管理员。创建结束后会跳转到用户列表页，app管理员会出现在"用户管理"下的用户列表中。可以像操作IM用户一样操作app管理员用户（包括重置密码、删除用户） 
 
-<!-- #### 方式二  通过发送POST请求创建
 
-    1. 创建一个普通IM用户
-        此处参见"创建用户".
-
-    2. 给这个IM用户授予app管理员权限
-        提示：需要app管理员权限或者org管理员权限
-        POST /${orgname}/${appname}/users/${username}/roles/admin
-        - 描述： 给一个普通IM用户授予app管理员权限。
-        - 权限： app管理员或org管理员
-        - url参数： 无
-        - request body： 无
-
-        curl示例：
-        curl -X POST -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "https://a1.easemob.com/easemob-demo/chatdemo/users/stliu/roles/admin"
-     -->
-### 使用app管理员账号和密码登录并获取授权token
-
-#### POST /{org_name}/{app_name}/token
-
-- 描述： 登录并授权，获得一个token。token的有效期是七天, 在token返回值的 expires_in中有定义, 这个的值是秒, 在有效期内不需要再次获取toke。
-- 权限：
-- url参数： 无
-- request body： 授权数据（json格式）。
-
-		{
-		  "grant_type":"password",
-	  	  "username":"jliu1",
-	  	  "password":"jliu1"
-		}
-
-- response： 授权结果(json),其中access_token为授权后的token
 
 ### 使用app的client_id 和 client_secret登陆并获取授权token
 
@@ -100,43 +69,35 @@ client_id 和 client_secret可以在[环信管理后台](https://console.easemob
 - response： 授权结果(json),其中access_token为授权后的token
 
 
-使用app管理员的用户名密码和使用app的client_id, client_secret获取到的token并无区别, 这个token都具有操作整个app内部所有api的权限, 我们建议在做服务器端继承的时候, 在程序中使用 client_id和 client_secret的方式, 在登陆管理后台的时候使用账号密码
+这个token都具有操作整个app内部所有api的权限, 我们建议在做服务器端继承的时候, 在程序中使用 client_id和 client_secret的方式, 在登陆管理后台的时候使用账号密码
 
 #### curl示例：
 
->> 注：请将URL中的easemob-demo/chatdemo替换成你自己的org_name和app_name。并将"username","password"分别替换成你自己的用户名和密码
+>> 注：请将URL中的easemob-demo/chatdemo替换成你自己的org_name和app_name。并将"client_id","client_secret"分别替换成你自己App中的值
 		
-	curl -X POST "https://a1.easemob.com/easemob-demo/chatdemo/token" -d '{"grant_type":"password","username":"jliu1","password":"jliu1"}'
+	curl -X POST "https://a1.easemob.com/easemob-demo/chatdemo/token" -d '{"grant_type":"client_credentials","client_id":"jliu1","client_secret":"jliu1"}'
 	
 				
-如果这个用户之前已经注册了, 并且这里提供的密码正确的话, response会返回
+Response 的返回结果如下：
 		
-	{	  	
-        "access_token":"YWMtNda4DFzyEeOrOy_LuVzHjAAAAULiG1IrN8opggpytUDFmJkiocawbINICYk",
-		"expires_in":604800,
-		"user":{
-            "uuid":"1f3c832a-5cf1-11e3-b3c3-53fbf4b08789",
-            "type":"user",
-            "created":1386167643218,
-            "modified":1386167643218,
-            "username":"test1",
-            "activated":true
-        }
-	}
+    {
+        "access_token": "YWMtowpVAP9yEeOihk3Cy3TsXwAAAUcLE-Bkfko63p9yHqqF6MsOLaOJPzSHDB8",
+        "expires_in": 604800,
+        "application": "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5"
+    }
 
 从这个返回值中, 可以得到两部分信息:
 
-1. token
+1. access_token
 
-     这个是服务器用来标识这个用户已经登陆的, 用户登陆后的所有操作(这里的操作指的是app访问服务器的request), 都需要把这个token加到header当中, 在本文档后面所有描述到得request都会有这个header   
+     这个是服务器用来做权限验证的，后续的所有操作(这里的操作指的是app访问服务器的request), 都需要把这个token加到header当中, 在本文档后面所有描述到得request都会有这个header   
 
          -H "Authorization: Bearer YWMtNda4DFzyEeOrOy_LuVzHjAAAAULiG1IrN8opggpytUDFmJkiocawbINICYk"
 
-2. 用户的具体信息
+2. expires_in
 
-    见用户的数据结构
-
-
+    access token的有效期， 单位为秒， 现在默认的有效期是七天（60*60*24 ＝ 604800）， 所以在七天内是不需要重复获取的
+        
 ### 创建IM用户 分两种模式：开发注册 和 授权注册
 
    说明：创建一个用户需要注册到两个服务进行注册，一个是app开发者自己的服务器（完整数据），另一个是环信服务器（部分数据）。出于安全因素，环信服务器端进行操作时是需要身份认证的，为了方便开发者，这里使用两种用户创建模式：其中"开放注册"模式下，一个app向环信服务器端注册用户时不用携带管理员身份认证信息；"授权注册"模式下，一个app向环信服务器注册用户必须携带管理员身份认证信息。推荐使用"授权注册",这样可以防止某些已经获取了注册url和知晓注册流程的人恶意向服务器大量注册垃圾用户。
