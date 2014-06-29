@@ -53,12 +53,12 @@ layout: docs
 
 ###  2. 将环信和现有APP的用户体系集成
 
-见**[集成用户体系文档](#{site.base_url}/docs/emchat/usersystem.html)**
+见**[集成用户体系文档](/docs/emchat/usersystem.html)**
 
 
 ###  3. 将环信和现有APP的好友体系集成
 
-见**[集成好友体系文档](#{site.base_url}/docs/emchat/friendsystem.html)**
+见**[集成好友体系文档](/docs/emchat/friendsystem.html)**
 
 
 ###  4. 客户端集成
