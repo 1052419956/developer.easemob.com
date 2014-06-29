@@ -7,24 +7,26 @@ layout: docs
 
 ## 新手指引
 
- 环信即时通讯云是移动即时通讯能力的云计算 PaaS (Platform as a Service, 平台即服务) 平台服务商。为此，我们为广大开发者提供了基于互联网和移动终端的单聊，群聊，富媒体消息，实时语音，实时视频，多人语音视频，流媒体播放及互动等通讯能力的相关SDK,帮助开发者快速集成到自己的APP当中，另外我们提供了开放的API接口文档，以供参考。
+集成环信非常简单，通常只需要几小时到几天时间。集成环信所需要的步骤如下：
+
+1. 注册环信开发者账号
+2. 将环信和现有APP的用户体系集成
+3. 将环信和现有APP的好友体系集成（可选）
+4. Android或iOS客户端集成
 
 
+###  1. 注册环信开发者账号
 
-## 1.环信开发者
-
-###  1.1注册账号
-
-在环信官网上点击[登录/注册](http://www.easemob.com/)，跳转到环信管理后台登录页面（如果您已注册过，直接登录），在后台登录页面，点击注册按钮，进行注册，如下图：
+在环信官网上点击[注册](https://console.easemob.com/?comeFrom=easemobHome)，跳转到环信管理后台注册页面，如下图：
 
 ![alt text](registericon.png "Title")
 
 
 ![alt text](console.png "Title")
 
-在注册页面中填写详细资料（企业ID，只限于数字,字母,横线,且不能以横线开头和结尾！），如下图：
+在注册页面中填写详细资料，如下图：
 
-（企业ID会存在于生成的APPKEY中，如：测试demo中 APPKEY为*easemob-demo#chatdemo*，则easemob-demo为填写的企业ID）
+企业ID，只限于数字,字母,横线,且不能以横线开头和结尾。企业ID会存在于生成的APPKEY中，如：测试demo中 APPKEY为*easemob-demo#chatdemo*，则easemob-demo为填写的企业ID）
 
 注：如果是个人应用开发的话，企业ID直接写成自己定义的ID就可以
 
@@ -49,8 +51,18 @@ layout: docs
 ![alt text](appkey.png "Title")
 ![alt text](appkey1.png "Title")
 
-## 2.APP应用集成
+###  2. 将环信和现有APP的用户体系集成
 
-2.1 [5分钟快速入门-android](/docs/emchat/android/quickstartUI.html)
+见**[集成用户体系文档](#{site.base_url}/docs/emchat/usersystem.html)**
 
-2.2 [5分钟快速入门-ios](/docs/emchat/ios/quickstart.html)
+
+###  3. 将环信和现有APP的好友体系集成
+
+见**[集成好友体系文档](#{site.base_url}/docs/emchat/friendsystem.html)**
+
+
+###  4. 客户端集成
+
+####  4.1 [5分钟快速入门-android](/docs/emchat/android/quickstartUI.html)
+
+####  4.2 [5分钟快速入门-iOS](/docs/emchat/ios/quickstart.html)
