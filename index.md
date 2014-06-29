@@ -7,12 +7,14 @@ layout: docs
 
 
 ## 环信
-* [开发指南---新手指引](/docs/emchat/android/guide.html)
+* [开发指南---新手指引](/docs/emchat/guide.html)
+* [集成用户体系](/docs/emchat/usersystem.html)
+* [集成好友体系](/docs/emchat/friendsystem.html)
 
 * Android
 	* [5分钟快速入门无UIDemo](/docs/emchat/android/quickstart.html)
 	* [5分钟快速入门有UIDemo](/docs/emchat/android/quickstartUI.html)
-	* [自主开发集成聊天配置指导](/docs/emchat/android/quickstartinapp.html)
+	* [集成环信SDK配置指导](/docs/emchat/android/quickstartinapp.html)
 	* [单聊](/docs/emchat/android/singlechat.html)
 		* [初始化](/docs/emchat/android/singlechat.html)
 		* [登录鉴权](/docs/emchat/android/singlechat.html)
@@ -80,8 +82,7 @@ layout: docs
 	* [Apple Doc](http://easemob.com/apidoc/iOS/chat/)
 	* [Demo及SDK下载](http://www.easemob.com/downloads.php)
 * [UI模板库](/docs/emchat/ui.html)
-* [集成第三方用户体系](/docs/emchat/ios/usersystem.html)
-* REST API
+* 服务器端REST API
 <!--	* [群组管理REST API](/docs/emchat/rest/groupmanagement.html) -->
 	* [用户管理REST API](/docs/emchat/rest/userapi.html)
 	* [聊天记录REST API](/docs/emchat/rest/chatmessage.html)
