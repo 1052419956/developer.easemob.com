@@ -98,13 +98,17 @@ Response 的返回结果如下：
 
     access token的有效期， 单位为秒， 现在默认的有效期是七天（60*60*24 ＝ 604800）， 所以在七天内是不需要重复获取的
         
-### 创建IM用户 分两种模式：开放注册 和 授权注册
+## 创建环信账号 分两种模式：开放注册 和 授权注册
 
-   说明：创建一个用户需要注册到两个服务进行注册，一个是app开发者自己的服务器（完整数据），另一个是环信服务器（部分数据）。出于安全因素，环信服务器端进行操作时是需要身份认证的，为了方便开发者，这里使用两种用户创建模式：其中"开放注册"模式下，一个app向环信服务器端注册用户时不用携带管理员身份认证信息；"授权注册"模式下，一个app向环信服务器注册用户必须携带管理员身份认证信息。推荐使用"授权注册",这样可以防止某些已经获取了注册url和知晓注册流程的人恶意向服务器大量注册垃圾用户。
 
-### 开放注册模式
+- "开放注册"模式：注册环信账号时不用携带管理员身份认证信息；
 
-### POST /{org_name}/{app_name}/users
+
+- "授权注册"模式：注册环信账号必须携带管理员身份认证信息。推荐使用"授权注册"，这样可以防止某些已经获取了注册url和知晓注册流程的人恶意向服务器大量注册垃圾用户。
+
+### 开放注册模式示例
+
+#### POST /{org_name}/{app_name}/users
 
 - 描述：在指定的org和app中创建一个新的用户
 - 权限： 无
@@ -130,7 +134,7 @@ Response 的返回结果如下：
 			"name" : "jliu0003",
 			"created" : 1368377620796,
 			"modified" : 1368377620796,
-			"username" : "jliu0003",
+			"username" : "jliu",
     		}
       	} ],
       	"timestamp" : 1368377620793,
@@ -138,14 +142,15 @@ Response 的返回结果如下：
       	"organization" : "easemob-demo",
       	"applicationName" : "chatdemo"
 	}
- 
+ 注：返回的response json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+
 ### 授权注册模式
 
-### 先获取app管理员token
+#### 先获取app管理员token
 
-详见3.1
+详见_“使用app的client_id 和 client_secret登陆并获取授权token”_
 
-### 创建用户
+#### 创建用户
 
 ### POST /{org_name}/{app_name}/users
 
@@ -160,6 +165,8 @@ Response 的返回结果如下：
 		
 	curl -X POST -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "https://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
 
+注：可以看到，授权注册模式创建用户时，请求多带了一个名为"Authorization"的header，这个header的值就是管理员的token，例如: -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k"
+
 #### response返回:
 		
 	{
@@ -173,7 +180,7 @@ Response 的返回结果如下：
 			"name" : "jliu0003",
 			"created" : 1368377620796,
 			"modified" : 1368377620796,
-			"username" : "jliu0003",
+			"username" : "jliu",
     		}
       	} ],
       	"timestamp" : 1368377620793,
@@ -187,11 +194,11 @@ Response 的返回结果如下：
 ## 批量创建用户
 
 ### POST /{org_name}/{app_name}/users [{"username":"u1", "password":"p1"}, {"username":"u2", "password":"p2"}]
- /{org_name}/{app_name}/users/{username}
+
 - 描述：批量注册IM用户  建议批量不要过多, 在20-60之间
 - 权限：app管理员或org管理员
 - url参数：无
-- request body： 无
+- request body： 要创建的用户的json数组。每个用户是json格式，见用户的数据结构。
 - response： 无
 - 错误代码：
 
@@ -200,7 +207,7 @@ Response 的返回结果如下：
 	curl -X POST -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "https://a1.easemob.com/easemob-demo/chatdemo/users" -d '[{"username":"u1", "password":"p1"}, {"username":"u2", "password":"p2"}]'
 
 
-### 获取指定用户详情
+## 获取指定用户详情
 
 ### GET /{org_name}/{app_name}/users/{username}
 
@@ -249,7 +256,7 @@ Response 的返回结果如下：
 ## 批量删除用户
 
 ### DELETE /{org_name}/{app_name}/users?limit=300
-- 描述：删除某个app下指定数量的IM用户 上述url可一次删除300个用户,这个300用户是指按创建时间逆序排列的300用户，即从当前时间起往前数,数值可以修改 建议这个数值在100-500之间，不要过大
+- 描述：删除某个app下指定数量的环信账号。上述url可一次删除300个用户,这个300用户是指按创建时间逆序排列的300用户，即从当前时间起往前数,数值可以修改 建议这个数值在100-500之间，不要过大
 - 权限：app管理员或org管理员
 - url参数：无
 - request body： 无
