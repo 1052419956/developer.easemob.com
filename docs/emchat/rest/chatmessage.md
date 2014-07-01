@@ -32,7 +32,7 @@ layout: docs
                 }
             ]
 			"ext": { //自定义扩展属性
-                    "key1": "value1"   //你设置的key和value的值
+                    "key1": "value1",   //你设置的key和value的值
 					...
             },
         },
