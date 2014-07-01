@@ -24,6 +24,6 @@ profiles:
       :pretty: false
     
     deploy:
-      host: hk1
+      host: ebs5
       path: /home/easemob/apps/data/nginx/developer.easemob.com
       uncommitted: true
