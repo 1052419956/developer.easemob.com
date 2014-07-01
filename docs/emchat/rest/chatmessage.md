@@ -22,14 +22,19 @@ layout: docs
                     "type": "txt" //消息类型。txt:文本消息, img:图片, loc：位置, audio：语音
 					"chat_type": "chat" //用来判断单聊还是群聊。chat:单聊，groupchat:群聊
 					"length": 3, //语音时长，单位为秒，这个属性只有语音消息有
-                    "url": "", //图片语音等文件的网络url，图片和语音消息有这个属性
+                	"url": "", //图片语音等文件的网络url，图片和语音消息有这个属性
                     "filename": "22.png", //文件名字，图片和语音消息有这个属性
                     "secret": "pCY80PdfEeO4Jh9URCOfMQWU9QYsJytynu4n-yhtvAhmt1g9", //获取文件的secret，图片和语音消息有这个属性
 					"lat": 39.983805, //发送的位置的纬度，只有位置消息有这个属性
                     "lng": 116.307417, //位置经度，只有位置消息有这个属性
                     "addr": "北京市海淀区北四环西路66号" //位置消息详细地址，只有位置消息有这个属性
+
                 }
             ]
+			"ext": { //自定义扩展属性
+                    "key1": "value1"   //你设置的key和value的值
+					...
+            },
         },
         "timestamp": 1403099033211, //消息发送时间
         "to": "1402541206787" //接收人的username或者接收group的id

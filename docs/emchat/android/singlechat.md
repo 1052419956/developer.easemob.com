@@ -169,6 +169,7 @@ layout: docs
 
 
 ### 设置自定义的消息提示
+
 app在后台时，新消息会通过notification的方式，在手机状态栏提示新消息，可以把提示的内容换成自定义的内容(在application的oncreate()里设置)。
 
 		//获取到配置options对象
@@ -188,6 +189,30 @@ app在后台时，新消息会通过notification的方式，在手机状态栏�
 			}
 		});
 
+### 设置自定义notification点击跳转intent
+
+用户点击notification消息，sdk会有默认的跳转intent，开发者可以设置自己的跳转intent，这里以uidemo的代码为例
+
+		// 获取到EMChatOptions对象
+		EMChatOptions options = EMChatManager.getInstance().getChatOptions();
+		//设置notification点击listener
+		options.setOnNotificationClickListener(new OnNotificationClickListener() {
+		
+			@Override
+			public Intent onNotificationClick(EMMessage message) {
+				Intent intent = new Intent(applicationContext, ChatActivity.class);
+				ChatType chatType = message.getChatType();
+				if(chatType == ChatType.Chat){ //单聊信息
+					intent.putExtra("userId", message.getFrom());
+					intent.putExtra("chatType", ChatActivity.CHATTYPE_SINGLE);
+				}else{ //群聊信息
+					//message.getTo()为群聊id
+					intent.putExtra("groupId", message.getTo());
+					intent.putExtra("chatType", ChatActivity.CHATTYPE_GROUP);
+				}
+				return intent;
+			}
+		});
 
 
 ### 新消息提示
