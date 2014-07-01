@@ -70,10 +70,19 @@ layout: docs
 	{
 		self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 		self.window.backgroundColor = [UIColor whiteColor];
-		
-		[[EaseMob sharedInstance] registerSDKWithAppKey:@"easemob-demo#chatdemoui"];
-		[[EaseMob sharedInstance] application:application
-			didFinishLaunchingWithOptions:launchOptions];
+   
+		// 真机的情况下,notification提醒设置
+		UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge |
+		UIRemoteNotificationTypeSound |
+		UIRemoteNotificationTypeAlert;
+		[[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
+
+		//注册 APNS文件的名字, 需要与后台上传证书时的名字一一对应
+		NSString *apnsCertName = @"chatdemo";
+		[[EaseMob sharedInstance] registerSDKWithAppKey:@"easemob-demo#chatdemo" apnsCertName:apnsCertName];
+		[[EaseMob sharedInstance] enableBackgroundReceiveMessage];
+		[[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    
 		[self.window makeKeyAndVisible];
 		return YES;
 	}
@@ -125,7 +134,7 @@ layout: docs
 #### 接收聊天消息并显示：见RootViewController.m 
 
 	-(void)didReceiveMessage:(EMMessage *)message {
-    	EMMessageBody *body = message.messageBodies.lastObject;
+    	id<IEMMessageBody> body = [message.messageBodies firstObject];
 		if (body.messageBodyType == eMessageBodyType_Text) {
 			NSString *msg = ((EMTextMessageBody *)body).text;
 			NSLog(@"收到的消息---%@",msg);
