@@ -10,7 +10,7 @@ layout: docs
 
 # 用户管理REST API
 
-## 用户的json数据结构说明
+## aa用户的json数据结构说明
 	{
 	  username: "jliu",  //username是用户的primarykey。需要在appkey的范围内唯一。
 	  password:"123456"  //登录密码
