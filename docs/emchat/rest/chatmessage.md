@@ -225,7 +225,14 @@ curl示例
 - 描述：给某个用不发送消息，username为对方的username
 - 权限：app管理员或org管理员
 - url参数： 无
-- request body：{"msg":{//消息内容，参考聊天记录里的bodies内容}}
+- request body：{"msg":{//消息内容，参考聊天记录里的bodies内容}},譬如：
+		{
+			"msg":{
+				"type":"text",
+				"msg":"你好"
+			}
+		}
+
 - response：
  
 		{
