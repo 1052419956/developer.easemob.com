@@ -53,7 +53,7 @@ image message://图片消息
 			"type":"img",//图片消息类型
 			"url":"https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/65e54a4a-fd0b-11e3-b821-ebde7b50cc4b",//上传图片消息地址,在上传图片成功后会返回uuid
 			"filename":"test1.jpg",//图片名称
-			"thumb":"http://storage.easemob.com/getthumbnail.php?filename=chatdemo/chat/image/test120140208T123347.jpg",//上传缩略图地址
+			"thumb":"https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/496334fa-f53f-11e3-9eb7-4fbb06ff7876",//上传缩略图地址
 			"secret":"DRGM8OZrEeO1vafuJSo2IjHBeKlIhDp0GCnFu54xOF3M6KLr",//secret在上传图片后会返回，只有含有secret才能够下载此图片
 			"thumb_secret":"DRGM8OZrEeO1vafuJSo2IjHBeKlIhDp0GCnFu54xOF3M6KLr"//thumb_secret在上传缩略图后会返回，
 		}]}
