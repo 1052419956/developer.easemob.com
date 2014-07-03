@@ -40,6 +40,43 @@ layout: docs
         "to": "1402541206787" //接收人的username或者接收group的id
 	}
 
+
+txt message://文本消息
+
+         {  "from":"test2","to":"test1","bodies":[{
+			"type":"txt"//文本消息类型
+			,"msg":"hello from test2"//消息内容
+		 }]}
+image message://图片消息
+
+         {  "from":"test1","to":"test2","bodies":[{
+			"type":"img",//图片消息类型
+			"url":"https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/65e54a4a-fd0b-11e3-b821-ebde7b50cc4b",//上传图片消息地址,在上传图片成功后会返回uuid
+			"filename":"test1.jpg",//图片名称
+			"thumb":"http://storage.easemob.com/getthumbnail.php?filename=chatdemo/chat/image/test120140208T123347.jpg",//上传缩略图地址
+			"secret":"DRGM8OZrEeO1vafuJSo2IjHBeKlIhDp0GCnFu54xOF3M6KLr",//secret在上传图片后会返回，只有含有secret才能够下载此图片
+			"thumb_secret":"DRGM8OZrEeO1vafuJSo2IjHBeKlIhDp0GCnFu54xOF3M6KLr"//thumb_secret在上传缩略图后会返回，
+		}]}
+voice message://语音消息
+
+         {  "from":"test2","to":"test1","bodies":[{
+			"type":"audio",//语音消息类型
+			"url":"https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/0637e55a-f606-11e3-ba23-51f25fd1215b",//上传语音远程地址，在上传语音后会返回uuid
+			"filename":"test1.amr",//语音名称
+			"length":10, //语音时间（单位秒）
+			"secret":"DRGM8OZrEeO1vafuJSo2IjHBeKlIhDp0GCnFu54xOF3M6KLr"//secret在上传文件后会返回
+		}]}
+location message://地址位置消息
+
+          {"from":"test1","to":"test2","bodies":[{
+			"type":"loc",//位置消息类型
+			"addr":"西城区西便门桥 ",//要发送的地址
+			"lat":39.9053,//纬度
+			"lng":116.36302//经度
+		  }]}
+
+
+
 ## 聊天消息REST API
 
 以下所有API均需要公司管理员或app管理员权限才能访问。
