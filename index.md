@@ -8,7 +8,7 @@ layout: docs
 
 ## 环信
 * [开发指南---新手指引](/docs/emchat/guide.html)
-* [集成用户体系](/docs/emchat/usersystem.html)
+* [集成用户体系(怎样处理APP用户的头像和昵称）](/docs/emchat/usersystem.html)
 * [集成好友体系](/docs/emchat/friendsystem.html)
 
 * Android
