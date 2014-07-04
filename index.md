@@ -86,4 +86,5 @@ layout: docs
 <!--	* [群组管理REST API](/docs/emchat/rest/groupmanagement.html) -->
 	* [用户管理REST API](/docs/emchat/rest/userapi.html)
 	* [聊天记录REST API](/docs/emchat/rest/chatmessage.html)
+	* [发送消息 REST API](/docs/emchat/rest/sendmessage.html)
 
