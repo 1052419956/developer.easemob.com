@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <id>http://developer.github.com/</id>
+  <id>http://developer.easemob.com/</id>
   <title>环信近况</title>
   <updated>2014-06-22T16:00:00Z</updated>
-  <link rel="alternate" href="http://developer.github.com/" />
-  <link rel="self" href="http://developer.github.com/changes.atom" />
+  <link rel="alternate" href="http://developer.easemob.com/" />
+  <link rel="self" href="http://developer.easemob.com/changes.atom" />
   <author>
     <name>easemob</name>
     <uri>https://github.com/easemob</uri>
   </author>
   <entry>
-    <id>tag:developer.github.com,2014-06-23:/changes/2014-06-23-the-github-enterprise-api-documentation-has-a-new-home/</id>
+    <id>tag:developer.easemob.com,2014-06-23:/changes/2014-06-23-the-github-enterprise-api-documentation-has-a-new-home/</id>
     <title type="html">The GitHub Enterprise API documentation has a new home!</title>
     <published>2014-06-22T16:00:00Z</published>
     <updated>2014-06-22T16:00:00Z</updated>
@@ -18,7 +18,7 @@
       <name>gjtorikian</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-06-23-the-github-enterprise-api-documentation-has-a-new-home/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-06-23-the-github-enterprise-api-documentation-has-a-new-home/" />
     <content type="html">&lt;p&gt;&lt;a href="https://enterprise.github.com"&gt;GitHub Enterprise&lt;/a&gt; offers the same set of APIs as GitHub.com, as well as its own set of Enterprise-specific functionality.&lt;/p&gt;
 
 &lt;p&gt;The GitHub Enterprise API has been documented on &lt;a href="https://enterprise.github.com/help"&gt;the Enterprise Help site&lt;/a&gt; for some time. We’ve now &lt;a href="https://developer.github.com/v3/enterprise/"&gt;moved the resources to this site&lt;/a&gt; to be hosted alongside the rest of the GitHub API documentation.&lt;/p&gt;
@@ -27,7 +27,7 @@
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-06-19:/changes/2014-06-19-combined-status-api-pagination/</id>
+    <id>tag:developer.easemob.com,2014-06-19:/changes/2014-06-19-combined-status-api-pagination/</id>
     <title type="html">Pagination in the Combined Status API</title>
     <published>2014-06-18T16:00:00Z</published>
     <updated>2014-06-18T16:00:00Z</updated>
@@ -35,7 +35,7 @@
       <name>bhuga</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-06-19-combined-status-api-pagination/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-06-19-combined-status-api-pagination/" />
     <content type="html">&lt;p&gt;We’re getting close to bringing the &lt;a href="/v3/repos/statuses/#get-the-combined-status-for-a-specific-ref"&gt;Combined Status API&lt;/a&gt; out of preview
 mode, and have just a couple of small changes to make before it’s :sparkles:.&lt;/p&gt;
 
@@ -51,7 +51,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-06-11:/changes/2014-06-11-improved-ci-support-for-deployments-api/</id>
+    <id>tag:developer.easemob.com,2014-06-11:/changes/2014-06-11-improved-ci-support-for-deployments-api/</id>
     <title type="html">Improved CI support for the Deployments API</title>
     <published>2014-06-10T16:00:00Z</published>
     <updated>2014-06-10T16:00:00Z</updated>
@@ -59,7 +59,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
       <name>atmos</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-06-11-improved-ci-support-for-deployments-api/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-06-11-improved-ci-support-for-deployments-api/" />
     <content type="html">&lt;p&gt;Today we’re making a few minor changes to the &lt;a href="https://developer.github.com/changes/2014-01-09-preview-the-new-deployments-api/"&gt;Deployments API preview&lt;/a&gt;. With the introduction of &lt;a href="https://developer.github.com/changes/2014-03-27-combined-status-api/"&gt;combined statuses&lt;/a&gt; in a &lt;a href="https://developer.github.com/changes/2014-04-10-deployment-api-preview-extension/"&gt;recent update&lt;/a&gt;, we noticed a few inconsistencies with the API that we’d like to remedy.&lt;/p&gt;
 
 &lt;p&gt;We’re introducing a new parameter called &lt;code&gt;required_contexts&lt;/code&gt;. This parameter accepts an array of named &lt;a href="https://developer.github.com/v3/repos/statuses/"&gt;commit status&lt;/a&gt; contexts that are ensured to be in a “success” state before the deployment is created. This allows you to verify that more than one system verified your code before you deploy it.&lt;/p&gt;
@@ -73,7 +73,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-06-09:/changes/2014-06-09-new-attributes-for-pull-request-review-comment-events/</id>
+    <id>tag:developer.easemob.com,2014-06-09:/changes/2014-06-09-new-attributes-for-pull-request-review-comment-events/</id>
     <title type="html">New attributes for PullRequestReviewComment events</title>
     <published>2014-06-08T16:00:00Z</published>
     <updated>2014-06-08T16:00:00Z</updated>
@@ -81,7 +81,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
       <name>jdpace</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-06-09-new-attributes-for-pull-request-review-comment-events/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-06-09-new-attributes-for-pull-request-review-comment-events/" />
     <content type="html">&lt;p&gt;We’ve enhanced the &lt;a href="https://developer.github.com/v3/activity/events/types/#pullrequestreviewcommentevent"&gt;PullRequestReviewComment events payloads&lt;/a&gt; to include &lt;code&gt;action&lt;/code&gt; and &lt;code&gt;pull_request&lt;/code&gt; attributes. With the addition of the &lt;code&gt;pull_request&lt;/code&gt; attribute, you now have immediate access to detailed information about the pull request without needing an additional API request.&lt;/p&gt;
 
 &lt;p&gt;If you have any questions or feedback, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=PullRequestReviewComment+Event+Payloads"&gt;get in touch&lt;/a&gt;.&lt;/p&gt;
@@ -89,7 +89,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-05-19:/changes/2014-05-19-deployments-api-updates/</id>
+    <id>tag:developer.easemob.com,2014-05-19:/changes/2014-05-19-deployments-api-updates/</id>
     <title type="html">New attributes for the Deployments API</title>
     <published>2014-05-18T16:00:00Z</published>
     <updated>2014-05-18T16:00:00Z</updated>
@@ -97,7 +97,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
       <name>atmos</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-05-19-deployments-api-updates/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-05-19-deployments-api-updates/" />
     <content type="html">&lt;p&gt;We’re continuing to iterate on the &lt;a href="https://developer.github.com/changes/2014-01-09-preview-the-new-deployments-api/"&gt;Deployments API preview&lt;/a&gt;, and we’re starting to see it satisfy more and more use cases. Today we’re introducing new attributes for Deployments and Deployment Statuses as well as a few payload changes.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;This is a breaking change for Deployment Status payloads&lt;/strong&gt;. If you’re trying out this new API during its preview period, you’ll need to update your code to continue working with it.&lt;/p&gt;
@@ -184,7 +184,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-05-09:/changes/2014-05-09-improved-pagination-for-the-repository-commits-api/</id>
+    <id>tag:developer.easemob.com,2014-05-09:/changes/2014-05-09-improved-pagination-for-the-repository-commits-api/</id>
     <title type="html">Improved pagination for the Repository Commits API</title>
     <published>2014-05-08T16:00:00Z</published>
     <updated>2014-05-08T16:00:00Z</updated>
@@ -192,7 +192,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
       <name>izuzak</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-05-09-improved-pagination-for-the-repository-commits-api/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-05-09-improved-pagination-for-the-repository-commits-api/" />
     <content type="html">&lt;p&gt;The &lt;a href="/v3/repos/commits/"&gt;Repository Commits API&lt;/a&gt; now supports an additional approach for paginating &lt;a href="/v3/repos/commits/#list-commits-on-a-repository"&gt;commit lists&lt;/a&gt;. As of today, this endpoint supports the “standard” &lt;a href="/v3/#pagination"&gt;&lt;code&gt;page&lt;/code&gt; and &lt;code&gt;per_page&lt;/code&gt; parameters&lt;/a&gt; for controlling pagination. This API now uses these parameters by default when constructing &lt;a href="/v3/#pagination"&gt;page links&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id="improved-results-and-increased-consistency"&gt;Improved results and increased consistency&lt;/h2&gt;
@@ -207,7 +207,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-05-06:/changes/2014-05-06-gist-api-now-truncating-large-files/</id>
+    <id>tag:developer.easemob.com,2014-05-06:/changes/2014-05-06-gist-api-now-truncating-large-files/</id>
     <title type="html">Changes to Gist API response for large files</title>
     <published>2014-05-05T16:00:00Z</published>
     <updated>2014-05-05T16:00:00Z</updated>
@@ -215,7 +215,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
       <name>leongersing</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-05-06-gist-api-now-truncating-large-files/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-05-06-gist-api-now-truncating-large-files/" />
     <content type="html">&lt;p&gt;In order to provide a faster, more robust API for Gist, we are making two changes to better handle large files in &lt;a href="/v3/gists/#detailed-gist-representation"&gt;Gist API responses&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id="truncating-file-contents-larger-than-one-megabyte"&gt;Truncating file contents larger than one megabyte&lt;/h3&gt;
@@ -251,7 +251,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-04-25:/changes/2014-04-25-user-content-security/</id>
+    <id>tag:developer.easemob.com,2014-04-25:/changes/2014-04-25-user-content-security/</id>
     <title type="html">New user content domains</title>
     <published>2014-04-24T16:00:00Z</published>
     <updated>2014-04-24T16:00:00Z</updated>
@@ -259,7 +259,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
       <name>azizshamim</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-04-25-user-content-security/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-04-25-user-content-security/" />
     <content type="html">&lt;h2 id="securing-your-content"&gt;Securing your content&lt;/h2&gt;
 
 &lt;p&gt;The &lt;a href="https://bounty.github.com"&gt;GitHub Bug Bounty program&lt;/a&gt; recently identified a few cross-domain vulnerabilities related to user-generated content, and we’ve shipped improvements today to address those issues.&lt;/p&gt;
@@ -298,7 +298,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-04-22:/changes/2014-04-22-deprecating-beta-media-type/</id>
+    <id>tag:developer.easemob.com,2014-04-22:/changes/2014-04-22-deprecating-beta-media-type/</id>
     <title type="html">Deprecating the beta media type</title>
     <published>2014-04-21T16:00:00Z</published>
     <updated>2014-04-21T16:00:00Z</updated>
@@ -306,7 +306,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
       <name>jasonrudolph</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-04-22-deprecating-beta-media-type/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-04-22-deprecating-beta-media-type/" />
     <content type="html">&lt;p&gt;Now that the GitHub API is &lt;a href="/changes/2014-01-07-upcoming-change-to-default-media-type/"&gt;serving the v3 media type by default&lt;/a&gt;, we are deprecating the legacy &lt;a href="/v3/versions/#beta"&gt;beta media type&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;We will eventually remove support for the beta media type, but we have no official retirement date to annouce at the moment. When the time comes, rest assured that we’ll announce the retirement with plenty of notice. In the meantime, existing API clients that rely on the beta media type should start making plans to migrate to v3. The beta media type differs from v3 in &lt;a href="/v3/versions/#differences-from-beta-version"&gt;just a few places&lt;/a&gt;. In most cases, migrating an application from the beta media type to the v3 media type is smooth and painless.&lt;/p&gt;
@@ -316,7 +316,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-04-10:/changes/2014-04-10-deployment-api-preview-extension/</id>
+    <id>tag:developer.easemob.com,2014-04-10:/changes/2014-04-10-deployment-api-preview-extension/</id>
     <title type="html">Extending the preview period for the Deployments API</title>
     <published>2014-04-09T16:00:00Z</published>
     <updated>2014-04-09T16:00:00Z</updated>
@@ -324,7 +324,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
       <name>atmos</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-04-10-deployment-api-preview-extension/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-04-10-deployment-api-preview-extension/" />
     <content type="html">&lt;p&gt;The preview period for the new &lt;a href="/changes/2014-01-09-preview-the-new-deployments-api/"&gt;Deployments API&lt;/a&gt; continues to yield valuable feedback from developers. In early March, we used that feedback to &lt;a href="/changes/2014-03-03-deployments-api-updates/"&gt;improve the payload format&lt;/a&gt; that integrations can use to customize deployments. A few weeks later, we began integrating with the new &lt;a href="/changes/2014-03-27-combined-status-api/"&gt;Combined Status API&lt;/a&gt; to help ensure that only verified code gets deployed, even if you have multiple systems verifying different aspects of your software.&lt;/p&gt;
 
 &lt;p&gt;To give developers time to explore these recent refinements to the Deployments API, we’re extending the preview period for a little while longer. As always, if you have any questions or feedback, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=Deployments+API"&gt;get in touch&lt;/a&gt;.&lt;/p&gt;
@@ -332,7 +332,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-04-09:/changes/2014-04-09-reminder-about-default-media-type-change/</id>
+    <id>tag:developer.easemob.com,2014-04-09:/changes/2014-04-09-reminder-about-default-media-type-change/</id>
     <title type="html">Reminder: Default media type will change on April 15</title>
     <published>2014-04-08T16:00:00Z</published>
     <updated>2014-04-08T16:00:00Z</updated>
@@ -340,7 +340,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
       <name>jasonrudolph</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-04-09-reminder-about-default-media-type-change/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-04-09-reminder-about-default-media-type-change/" />
     <content type="html">&lt;p&gt;Just a friendly reminder: On April 15, 2014, the GitHub API will start serving the v3 media type by default. Please see the &lt;a href="/changes/2014-01-07-upcoming-change-to-default-media-type/"&gt;original announcement&lt;/a&gt; for full details about &lt;a href="/changes/2014-01-07-upcoming-change-to-default-media-type/#whats-changing"&gt;this change&lt;/a&gt;, &lt;a href="/changes/2014-01-07-upcoming-change-to-default-media-type/#who-is-affected"&gt;who it affects&lt;/a&gt;, and &lt;a href="/changes/2014-01-07-upcoming-change-to-default-media-type/#what-should-you-do"&gt;how to ensure that you are prepared&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;If you have any questions, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=Upcoming+change+to+default+API+media+type"&gt;get in touch&lt;/a&gt;.&lt;/p&gt;
@@ -348,7 +348,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-04-08:/changes/2014-04-08-reset-api-tokens/</id>
+    <id>tag:developer.easemob.com,2014-04-08:/changes/2014-04-08-reset-api-tokens/</id>
     <title type="html">Recommendation: Reset OAuth authorizations</title>
     <published>2014-04-07T16:00:00Z</published>
     <updated>2014-04-07T16:00:00Z</updated>
@@ -356,7 +356,7 @@ count represents the number of contexts submitted for the given commit.&lt;/p&gt
       <name>pengwynn</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-04-08-reset-api-tokens/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-04-08-reset-api-tokens/" />
     <content type="html">&lt;p&gt;As &lt;a href="https://github.com/blog/1818-security-heartbleed-vulnerability"&gt;announced earlier today&lt;/a&gt;, we are actively responding
 to the recently-disclosed &lt;a href="https://github.com/blog/1818-security-heartbleed-vulnerability"&gt;Heartbleed security
 vulnerability&lt;/a&gt; in OpenSSL. While at this time GitHub has
@@ -378,7 +378,7 @@ tokens&lt;/a&gt; or &lt;a href="/v3/oauth_authorizations/#revoke-an-authorizatio
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-04-07:/changes/2014-04-07-understanding-search-results-and-potential-timeouts/</id>
+    <id>tag:developer.easemob.com,2014-04-07:/changes/2014-04-07-understanding-search-results-and-potential-timeouts/</id>
     <title type="html">Understanding search results and potential timeouts</title>
     <published>2014-04-06T16:00:00Z</published>
     <updated>2014-04-06T16:00:00Z</updated>
@@ -386,7 +386,7 @@ tokens&lt;/a&gt; or &lt;a href="/v3/oauth_authorizations/#revoke-an-authorizatio
       <name>izuzak</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-04-07-understanding-search-results-and-potential-timeouts/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-04-07-understanding-search-results-and-potential-timeouts/" />
     <content type="html">&lt;p&gt;Some queries are computationally expensive for our search infrastructure to
 execute. To keep the &lt;a href="/v3/search"&gt;Search API&lt;/a&gt; fast for everyone, we limit how
 long any individual query can run. In rare situations when a query exceeds the
@@ -408,7 +408,7 @@ possible. If you have any questions, &lt;a href="https://github.com/contact?form
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-04-04:/changes/2014-04-04-create-public-repo-without-repo-scope/</id>
+    <id>tag:developer.easemob.com,2014-04-04:/changes/2014-04-04-create-public-repo-without-repo-scope/</id>
     <title type="html">Grant access to create public repositories without granting access to private repositories</title>
     <published>2014-04-03T16:00:00Z</published>
     <updated>2014-04-03T16:00:00Z</updated>
@@ -416,7 +416,7 @@ possible. If you have any questions, &lt;a href="https://github.com/contact?form
       <name>pengwynn</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-04-04-create-public-repo-without-repo-scope/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-04-04-create-public-repo-without-repo-scope/" />
     <content type="html">&lt;p&gt;The &lt;a href="/v3/repos/#create"&gt;Create Repository method&lt;/a&gt; now allows creating public repositories via
 OAuth with &lt;code&gt;public_repo&lt;/code&gt; &lt;a href="/v3/oauth/#scopes"&gt;scope&lt;/a&gt;.  This means you can safely grant third
 party applications the ability to create public repositories on your behalf
@@ -427,7 +427,7 @@ without granting access to your private repositories.&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-03-27:/changes/2014-03-27-combined-status-api/</id>
+    <id>tag:developer.easemob.com,2014-03-27:/changes/2014-03-27-combined-status-api/</id>
     <title type="html">Preview the New Combined Status API</title>
     <published>2014-03-26T16:00:00Z</published>
     <updated>2014-03-26T16:00:00Z</updated>
@@ -435,7 +435,7 @@ without granting access to your private repositories.&lt;/p&gt;
       <name>bhuga</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-03-27-combined-status-api/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-03-27-combined-status-api/" />
     <content type="html">&lt;p&gt;What does it mean for a branch to be “green?” The &lt;a href="/v3/repos/statuses/"&gt;Status API&lt;/a&gt; helps
 thousands of teams answer that question. Developers use it to record the status
 of continuous integration builds, contributor license agreements, code coverage
@@ -481,7 +481,7 @@ that point, this new API will be stable and suitable for production use.&lt;/p&g
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-03-18:/changes/2014-03-18-paginating-method-changes/</id>
+    <id>tag:developer.easemob.com,2014-03-18:/changes/2014-03-18-paginating-method-changes/</id>
     <title type="html">Pagination changes for some resource lists</title>
     <published>2014-03-17T16:00:00Z</published>
     <updated>2014-03-17T16:00:00Z</updated>
@@ -489,7 +489,7 @@ that point, this new API will be stable and suitable for production use.&lt;/p&g
       <name>pengwynn</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-03-18-paginating-method-changes/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-03-18-paginating-method-changes/" />
     <content type="html">&lt;p&gt;In an effort to keep the API fast for everyone, we’re enabling
 &lt;a href="/v3/#pagination"&gt;pagination&lt;/a&gt; on some API methods that previously did not support it.
 Beginning today, the methods below will paginate if you include &lt;code&gt;page&lt;/code&gt; or
@@ -614,7 +614,7 @@ GET /user/keys
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-03-12:/changes/2014-03-12-page-build-event-for-webhooks/</id>
+    <id>tag:developer.easemob.com,2014-03-12:/changes/2014-03-12-page-build-event-for-webhooks/</id>
     <title type="html">Page Build Event for Webhooks</title>
     <published>2014-03-11T16:00:00Z</published>
     <updated>2014-03-11T16:00:00Z</updated>
@@ -622,7 +622,7 @@ GET /user/keys
       <name>benbalter</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-03-12-page-build-event-for-webhooks/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-03-12-page-build-event-for-webhooks/" />
     <content type="html">&lt;p&gt;We’ve made it even easier to track the status of your &lt;a href="http://pages.github.com/"&gt;GitHub Pages&lt;/a&gt; builds. By subscribing to the new &lt;a href="/v3/activity/events/types/#pagebuildevent"&gt;&lt;code&gt;page_build&lt;/code&gt;&lt;/a&gt; event, your application will receive an event payload containing the results of each build. (As always, these builds occur automatically following each push to a GitHub Pages-enabled branch.)&lt;/p&gt;
 
 &lt;p&gt;If you have a &lt;a href="/webhooks/"&gt;webhook&lt;/a&gt; with the &lt;a href="https://github.com/blog/1778-webhooks-level-up"&gt;“send me everything” option&lt;/a&gt; selected (or if you use the “&lt;a href="/changes/2014-02-24-wildcard-event-for-webhooks/"&gt;wildcard event&lt;/a&gt;” via the API), you will receive the &lt;code&gt;page_build&lt;/code&gt; event after the next build of your GitHub Pages site. Alternatively, if you prefer to subscribe to specific event types, you can add to the new &lt;code&gt;page_build&lt;/code&gt; event to your webhooks via your repository’s webhook settings page or via the &lt;a href="/v3/repos/hooks/"&gt;webhooks API&lt;/a&gt;.&lt;/p&gt;
@@ -632,7 +632,7 @@ GET /user/keys
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-03-05:/changes/2014-03-05-reminder-about-upcoming-cutover-test/</id>
+    <id>tag:developer.easemob.com,2014-03-05:/changes/2014-03-05-reminder-about-upcoming-cutover-test/</id>
     <title type="html">Reminder: March 12 Cutover Test for Default Media Type</title>
     <published>2014-03-04T16:00:00Z</published>
     <updated>2014-03-04T16:00:00Z</updated>
@@ -640,7 +640,7 @@ GET /user/keys
       <name>jasonrudolph</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-03-05-reminder-about-upcoming-cutover-test/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-03-05-reminder-about-upcoming-cutover-test/" />
     <content type="html">&lt;p&gt;In January, we announced an &lt;a href="/changes/2014-01-07-upcoming-change-to-default-media-type/"&gt;upcoming change to the default media type&lt;/a&gt;. To help developers assess the impact of that change before it becomes permanent, we’re performing a &lt;a href="/changes/2014-01-07-upcoming-change-to-default-media-type/#cutover-test"&gt;24-hour cutover test next week&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;From approximately 12:01am UTC to 11:59pm UTC on March 12, the API will &lt;a href="/changes/2014-01-07-upcoming-change-to-default-media-type/#whats-changing"&gt;respond with the v3 media type by default&lt;/a&gt;. (See the &lt;a href="http://www.timeanddate.com/worldclock/fixedtime.html?iso=20140312T00&amp;amp;p1=1440"&gt;start time for the cutover test in your time zone&lt;/a&gt;.)&lt;/p&gt;
@@ -652,7 +652,7 @@ GET /user/keys
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-03-04:/changes/2014-03-04-timezone-handling-changes/</id>
+    <id>tag:developer.easemob.com,2014-03-04:/changes/2014-03-04-timezone-handling-changes/</id>
     <title type="html">Improved timezone handling in the API</title>
     <published>2014-03-03T16:00:00Z</published>
     <updated>2014-03-03T16:00:00Z</updated>
@@ -660,7 +660,7 @@ GET /user/keys
       <name>dbussink</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-03-04-timezone-handling-changes/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-03-04-timezone-handling-changes/" />
     <content type="html">&lt;p&gt;We have improved support for handling timezones in our API. For example, if you
 create commits through the API, we now allow for specifying timezone information
 more accurately.&lt;/p&gt;
@@ -717,7 +717,7 @@ to create the git commit.&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-03-03:/changes/2014-03-03-deployments-api-updates/</id>
+    <id>tag:developer.easemob.com,2014-03-03:/changes/2014-03-03-deployments-api-updates/</id>
     <title type="html">New Payload Format for Deployments</title>
     <published>2014-03-02T16:00:00Z</published>
     <updated>2014-03-02T16:00:00Z</updated>
@@ -725,7 +725,7 @@ to create the git commit.&lt;/p&gt;
       <name>atmos</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-03-03-deployments-api-updates/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-03-03-deployments-api-updates/" />
     <content type="html">&lt;p&gt;As we &lt;a href="/changes/2014-01-09-preview-the-new-deployments-api/"&gt;iterate on the preview&lt;/a&gt; for the new Deployments API, we’re making sure that it’s friendly to work with for the apps built on top of it.&lt;/p&gt;
 
 &lt;h2 id="deserialize-deployment-payloads"&gt;Deserialize Deployment Payloads&lt;/h2&gt;
@@ -741,7 +741,7 @@ to create the git commit.&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-02-28:/changes/2014-02-28-issue-and-pull-query-enhancements/</id>
+    <id>tag:developer.easemob.com,2014-02-28:/changes/2014-02-28-issue-and-pull-query-enhancements/</id>
     <title type="html">Query enhancements for listing issues and pull requests</title>
     <published>2014-02-27T16:00:00Z</published>
     <updated>2014-02-27T16:00:00Z</updated>
@@ -749,7 +749,7 @@ to create the git commit.&lt;/p&gt;
       <name>pengwynn</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-02-28-issue-and-pull-query-enhancements/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-02-28-issue-and-pull-query-enhancements/" />
     <content type="html">&lt;p&gt;We’ve made it even easier to list all &lt;a href="/v3/issues/#list-issues"&gt;issues&lt;/a&gt; and &lt;a href="/v3/pulls/#list-pull-requests"&gt;pull requests&lt;/a&gt; via the API.
 The &lt;code&gt;state&lt;/code&gt; parameter now supports a value of &lt;code&gt;all&lt;/code&gt; that will return issues and
 pull requests regardless of state.&lt;/p&gt;
@@ -770,7 +770,7 @@ $ curl https://api.github.com/repos/rails/rails/pulls\?sort\=long-running\&amp;a
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-02-25:/changes/2014-02-25-organization-oauth-scopes/</id>
+    <id>tag:developer.easemob.com,2014-02-25:/changes/2014-02-25-organization-oauth-scopes/</id>
     <title type="html">OAuth scopes for organization and team resources</title>
     <published>2014-02-24T16:00:00Z</published>
     <updated>2014-02-24T16:00:00Z</updated>
@@ -778,7 +778,7 @@ $ curl https://api.github.com/repos/rails/rails/pulls\?sort\=long-running\&amp;a
       <name>pengwynn</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-02-25-organization-oauth-scopes/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-02-25-organization-oauth-scopes/" />
     <content type="html">&lt;p&gt;As a follow up to &lt;a href="http://developer.github.com/changes/2014-02-24-finer-grained-scopes-for-ssh-keys/"&gt;the new scopes&lt;/a&gt; we announced yesterday, we’ve
 introduced even more OAuth scopes for working with organization and team
 resources:&lt;/p&gt;
@@ -799,7 +799,7 @@ you have any questions or feedback, &lt;a href="https://github.com/contact?form%
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-02-24:/changes/2014-02-24-wildcard-event-for-webhooks/</id>
+    <id>tag:developer.easemob.com,2014-02-24:/changes/2014-02-24-wildcard-event-for-webhooks/</id>
     <title type="html">Wildcard Event for Webhooks</title>
     <published>2014-02-23T16:00:00Z</published>
     <updated>2014-02-23T16:00:00Z</updated>
@@ -807,7 +807,7 @@ you have any questions or feedback, &lt;a href="https://github.com/contact?form%
       <name>kdaigle</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-02-24-wildcard-event-for-webhooks/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-02-24-wildcard-event-for-webhooks/" />
     <content type="html">&lt;p&gt;We’ve made a small change to make it easier for webhook integrators to receive “everything”.
 Instead of adding every event to your webhook, you can now opt-in to all events (including
 all new events in the future) by using the &lt;a href="/webhooks/#wildcard-event"&gt;wildcard event&lt;/a&gt; (&lt;code&gt;*&lt;/code&gt;).&lt;/p&gt;
@@ -818,7 +818,7 @@ begin receiving those too.&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-02-24:/changes/2014-02-24-finer-grained-scopes-for-ssh-keys/</id>
+    <id>tag:developer.easemob.com,2014-02-24:/changes/2014-02-24-finer-grained-scopes-for-ssh-keys/</id>
     <title type="html">Finer-grained OAuth scopes for SSH keys</title>
     <published>2014-02-23T16:00:00Z</published>
     <updated>2014-02-23T16:00:00Z</updated>
@@ -826,7 +826,7 @@ begin receiving those too.&lt;/p&gt;
       <name>pengwynn</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-02-24-finer-grained-scopes-for-ssh-keys/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-02-24-finer-grained-scopes-for-ssh-keys/" />
     <content type="html">&lt;p&gt;As &lt;a href="https://github.com/blog/1786-enhanced-oauth-security-for-ssh-keys"&gt;we announced&lt;/a&gt;, we’ve made some important changes to the way that API consumers manage SSH keys.&lt;/p&gt;
 
 &lt;h2 id="finer-grained-oauth-scopes"&gt;Finer-grained OAuth scopes&lt;/h2&gt;
@@ -859,7 +859,7 @@ begin receiving those too.&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-02-21:/changes/2014-02-21-gist-raw-file-url-change/</id>
+    <id>tag:developer.easemob.com,2014-02-21:/changes/2014-02-21-gist-raw-file-url-change/</id>
     <title type="html">Gist raw file URI change</title>
     <published>2014-02-20T16:00:00Z</published>
     <updated>2014-02-20T16:00:00Z</updated>
@@ -867,13 +867,13 @@ begin receiving those too.&lt;/p&gt;
       <name>spicycode</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-02-21-gist-raw-file-url-change/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-02-21-gist-raw-file-url-change/" />
     <content type="html">&lt;p&gt;The raw host for all Gist files is changing immediately.  This change was made to further isolate user content from trusted GitHub applications.
 The new host is &lt;code&gt;https://gist.githubusercontent.com&lt;/code&gt;.  Existing URIs will redirect to the new host.&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-02-20:/changes/2014-02-19-repo-contributors-for-empty-repos/</id>
+    <id>tag:developer.easemob.com,2014-02-20:/changes/2014-02-19-repo-contributors-for-empty-repos/</id>
     <title type="html">Repository Contributors and Empty Repositories</title>
     <published>2014-02-19T16:00:00Z</published>
     <updated>2014-02-19T16:00:00Z</updated>
@@ -881,14 +881,14 @@ The new host is &lt;code&gt;https://gist.githubusercontent.com&lt;/code&gt;.  Ex
       <name>izuzak</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-02-19-repo-contributors-for-empty-repos/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-02-19-repo-contributors-for-empty-repos/" />
     <content type="html">&lt;p&gt;We’ve made a small change to the &lt;a href="/v3/repos/#list-contributors"&gt;Repository Contributors API&lt;/a&gt; in the way empty repositories are handled. Previously, the API returned a &lt;code&gt;404 Not Found&lt;/code&gt; status when the list of contributors was fetched for an empty repository. To improve consistency with other API endpoints and reduce confusion, the API now returns a &lt;code&gt;204 No Content&lt;/code&gt; status instead.&lt;/p&gt;
 
 &lt;p&gt;If you notice any strangeness, &lt;a href="https://github.com/contact?form%5Bsubject%5D=APIv3"&gt;just let us know&lt;/a&gt;.&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-02-13:/changes/2014-02-13-exposing-the-page-api/</id>
+    <id>tag:developer.easemob.com,2014-02-13:/changes/2014-02-13-exposing-the-page-api/</id>
     <title type="html">Introducing the Pages API</title>
     <published>2014-02-12T16:00:00Z</published>
     <updated>2014-02-12T16:00:00Z</updated>
@@ -896,7 +896,7 @@ The new host is &lt;code&gt;https://gist.githubusercontent.com&lt;/code&gt;.  Ex
       <name>gjtorikian</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-02-13-exposing-the-page-api/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-02-13-exposing-the-page-api/" />
     <content type="html">&lt;p&gt;We’ve created &lt;a href="/v3/repos/pages/"&gt;a new API to GitHub Pages&lt;/a&gt;. This API is accessible
 by owners of a Pages repo, whether it’s owned by an individual or an organization.&lt;/p&gt;
 
@@ -907,7 +907,7 @@ on previous Pages builds.&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-02-10:/changes/2014-02-10-repo-hook-scopes/</id>
+    <id>tag:developer.easemob.com,2014-02-10:/changes/2014-02-10-repo-hook-scopes/</id>
     <title type="html">New scopes for managing repository hooks</title>
     <published>2014-02-09T16:00:00Z</published>
     <updated>2014-02-09T16:00:00Z</updated>
@@ -915,7 +915,7 @@ on previous Pages builds.&lt;/p&gt;
       <name>pengwynn</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-02-10-repo-hook-scopes/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-02-10-repo-hook-scopes/" />
     <content type="html">&lt;p&gt;Many third party services need to set up &lt;a href="http://developer.github.com/v3/repos/hooks/"&gt;hooks&lt;/a&gt; in order to act upon events
 in your repositories. Today, we’ve introduced three new &lt;a href="http://developer.github.com/v3/oauth/#scopes"&gt;scopes&lt;/a&gt; that provide
 more granular access to your repository hooks without allowing access to your
@@ -935,7 +935,7 @@ repository contents:&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-02-10:/changes/2014-2-10-ping-event-for-webhooks/</id>
+    <id>tag:developer.easemob.com,2014-02-10:/changes/2014-2-10-ping-event-for-webhooks/</id>
     <title type="html">Ping Event for Webhooks</title>
     <published>2014-02-09T16:00:00Z</published>
     <updated>2014-02-09T16:00:00Z</updated>
@@ -943,7 +943,7 @@ repository contents:&lt;/p&gt;
       <name>kdaigle</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-2-10-ping-event-for-webhooks/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-2-10-ping-event-for-webhooks/" />
     <content type="html">&lt;p&gt;With the release of our &lt;a href="https://github.com/blog/1778-webhooks-level-up"&gt;new webhook UI&lt;/a&gt;, we included a new
 &lt;a href="/webhooks/#ping-event"&gt;ping event&lt;/a&gt; that webhooks will receive. When you
 create a new webhook, we will send this event as an initial test of the webhook.&lt;/p&gt;
@@ -958,7 +958,7 @@ you won’t be limited by the &lt;code&gt;push&lt;/code&gt; event requirement th
 </content>
   </entry>
   <entry>
-    <id>tag:developer.github.com,2014-01-29:/changes/2014-01-29-audit-org-members-for-2fa/</id>
+    <id>tag:developer.easemob.com,2014-01-29:/changes/2014-01-29-audit-org-members-for-2fa/</id>
     <title type="html">Audit organization members for two-factor authentication</title>
     <published>2014-01-28T16:00:00Z</published>
     <updated>2014-01-28T16:00:00Z</updated>
@@ -966,7 +966,7 @@ you won’t be limited by the &lt;code&gt;push&lt;/code&gt; event requirement th
       <name>pengwynn</name>
       <uri>https://github.com/easemob</uri>
     </author>
-    <link rel="alternate" href="http://developer.github.com/changes/2014-01-29-audit-org-members-for-2fa/" />
+    <link rel="alternate" href="http://developer.easemob.com/changes/2014-01-29-audit-org-members-for-2fa/" />
     <content type="html">&lt;p&gt;We’ve added a &lt;a href="/v3/orgs/members/#audit-two-factor-auth"&gt;new filter&lt;/a&gt; for listing members of an organization without
 &lt;a href="https://github.com/blog/1614-two-factor-authentication"&gt;two-factor authentication&lt;/a&gt; enabled:&lt;/p&gt;
 

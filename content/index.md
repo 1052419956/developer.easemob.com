@@ -27,17 +27,17 @@ layout: overview
     <li class="highlight-module">
       <a href="/guides/"><span class="mega-octicon octicon-file-text"></span></a>
       <h2><a href="/guides/">入门指引</a></h2>
-      <p>刚刚开始接触环信? 我们准备了大量的入门手册和示例, 能够帮助您快速的上手, 在短时间内集成环信到您的App中.</p>
+      <p>刚刚开始接触环信? 我们为您准备了大量的入门手册和示例.</p>
     </li>
     <li class="highlight-module">
       <a href="/libraries/"><span class="mega-octicon octicon-code"></span></a>
-      <h2><a href="/libraries/">SDK和Demo App下载</a></h2>
-      <p>We’ve got you covered. Use the GitHub API in your favorite language.</p>
+      <h2><a href="/libraries/">下载中心</a></h2>
+      <p>我们提供了各种版本的SDK和实例Demo供您下载.</p>
     </li>
     <li class="highlight-module">
       <a href="http://github.com/contact"><span class="mega-octicon octicon-mail-read"></span></a>
-      <h2><a href="http://github.com/contact">支持中心</a></h2>
-      <p>Are you stuck? Already tried our <a href="/v3/troubleshooting/">troubleshooting guide</a>? Talk to a supportocat.</p>
+      <h2><a href="http://github.com/contact">在线支持</a></h2>
+      <p>遇到问题了? 如果我们的<a href="/v3/troubleshooting/">文档</a>不能帮助您的话, 请来这里寻求支持.</p>
     </li>
   </ul>
 </div>
