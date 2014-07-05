@@ -1,30 +1,23 @@
-source 'https://rubygems.org'
+source "http://rubygems.org"
 
-# Main site dependencies
-gem 'awestruct', '0.5.5'
-gem 'uglifier', '~> 2.0.1'       # Ruby wrapper for UglifyJS JavaScript compressor
-gem 'cssminify', '~> 1.0.2'      # CSS compression using YUI compressor
-gem 'rb-fsevent', '~> 0.9.3'     # FSEvents API with Signals catching (without RubyCocoa)
-gem 'kramdown', '~> 1.0.1'       # Kramdown works on all platforms, rdiscount only on mri
-gem 'htmlcompressor', '~> 0.0.3' # Adds in HTML minification, helps remove the warning on awestruct startup
-gem 'asciidoctor', '~> 0.1.3'    # Asciidoc renderer
-gem 'coderay', '~> 1.0.9'        # Coderay for code highlighting in asciidoc
-gem 'rake', '~> 10.1.0'
-gem 'execjs'
+ruby '1.9.3'
 
-## Non Windows
-gem 'therubyracer', :platforms => :ruby
+gem 'builder'
+gem 'coderay'
+gem 'kramdown', '~> 0.13.2'
+gem 'mime-types', '~> 1.16'
+gem 'nanoc', '~> 3.7'
+gem 'nokogiri', '~> 1.6.0'
+gem 'rouge', '~> 1.4'
+gem 'rake', '~> 0.9.2'
+gem 'thin'
+gem 'yajl-ruby', '~> 0.8.2'
 
-## Windows
-gem 'win32-open3-19', :platforms => [:mswin, :mingw]
+group :development do
+  gem 'adsf'
+  gem 'fssm'
+end
 
-# Test dependencies
-gem 'rspec'
-
-# To enable guard and livereload
-gem 'guard'
-gem 'guard-livereload'
-gem 'yajl-ruby'
-
-gem 'slim', '>= 1.3.6'                                  # If using slim instead of haml
-gem 'git'
+group :test do
+  gem 'html-proofer', '~> 0.6.1'
+end

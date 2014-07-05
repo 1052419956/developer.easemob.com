@@ -1,41 +1,140 @@
-这个项目使用的是 Awestruct 来从模板编译成静态网页, 但是现在在ruby gem上面的awestruct有问题, 需要装一个最新版本的, 所以, 要运行本项目, 首先
+# developer.github.com
 
+This is a GitHub API resource built with [nanoc][nanoc].
 
+All submissions are welcome. To submit a change, fork this repo, commit your changes, and send us a [pull request](http://help.github.com/send-pull-requests/).
 
+## Setup
 
+Ruby 1.9 is required to build the site.
 
+Get the nanoc gem, plus kramdown for Markdown parsing:
 
-### 安装rvm
+```sh
+$ bundle install
+```
 
-打开[rvm的网站](https://rvm.io)然后跟着这里的安装文档安装rvm
+You can see the available commands with nanoc:
 
-### 使用rvm来安装ruby
+```sh
+$ bundle exec nanoc -h
+```
 
-	rvm install 1.9.3
+Nanoc has [some nice documentation](http://nanoc.ws/docs/tutorial/) to get you started.  Though if you're mainly concerned with editing or adding content, you won't need to know much about nanoc.
 
-这里我们使用ruby 1.9.3这个版本
+[nanoc]: http://nanoc.stoneship.org/
 
-###  使用taobao的源来替换ruby gem的官方源(这样速度快些)
+## Styleguide
 
-步骤查看[这里](http://ruby.taobao.org)
+Not sure how to structure the docs?  Here's what the structure of the
+API docs should look like:
 
-### 安装rake
+    # API title
 
-	gem install rake bundle
+    * TOC
+    {:toc}
 
-### 编译awestruct
+    ## API endpoint title
 
-首先, 需要checkout出源代码
+        [VERB] /path/to/endpoint
 
-	git clone git@github.com:awestruct/awestruct.git
-	
-然后编译并安装
+    ### Parameters
 
-	rake install
-	
-### 开始编译网站
+    Name | Type | Description
+    -----|------|--------------
+    `name`|`type` | Description.
 
-	git clone git@github.com:jervisliu/easemob.com.git
-	cd easemob.com
-	bundle install
-	rake clean preview			
+    ### Input (request JSON body)
+
+    Name | Type | Description
+    -----|------|--------------
+    `name`|`type` | Description.
+
+    ### Response
+
+    <%= headers 200, :pagination => default_pagination_rels, 'X-Custom-Header' => "value" %>
+    <%= json :resource_name %>
+
+**Note**: We're using [Kramdown Markdown extensions](http://kramdown.rubyforge.org/syntax.html), such as definition lists.
+
+### JSON Responses
+
+We specify the JSON responses in Ruby so that we don't have to write
+them by hand all over the docs.  You can render the JSON for a resource
+like this:
+
+```erb
+<%= json :issue %>
+```
+
+This looks up `GitHub::Resources::ISSUE` in `lib/resources.rb`.
+
+Some actions return arrays.  You can modify the JSON by passing a block:
+
+```erb
+<%= json(:issue) { |hash| [hash] } %>
+```
+
+### Terminal blocks
+
+You can specify terminal blocks with `pre.terminal` elements.  (It'd be
+nice if Markdown could do this more cleanly.)
+
+```html
+<pre class="terminal">
+$ curl foobar
+....
+</pre>
+```
+
+This is not a `curl` tutorial though. Not every API call needs
+to show how to access it with `curl`.
+
+## Development
+
+Nanoc compiles the site into static files living in `./output`.  It's
+smart enough not to try to compile unchanged files:
+
+```sh
+$ bundle exec nanoc compile
+Loading site data...
+Compiling site...
+   identical  [0.00s]  output/css/960.css
+   identical  [0.00s]  output/css/pygments.css
+   identical  [0.00s]  output/css/reset.css
+   identical  [0.00s]  output/css/styles.css
+   identical  [0.00s]  output/css/uv_active4d.css
+      update  [0.28s]  output/index.html
+      update  [1.31s]  output/v3/gists/comments/index.html
+      update  [1.92s]  output/v3/gists/index.html
+      update  [0.25s]  output/v3/issues/comments/index.html
+      update  [0.99s]  output/v3/issues/labels/index.html
+      update  [0.49s]  output/v3/issues/milestones/index.html
+      update  [0.50s]  output/v3/issues/index.html
+      update  [0.05s]  output/v3/index.html
+
+Site compiled in 5.81s.
+```
+
+You can setup whatever you want to view the files. If using the adsf
+gem (as listed in the Gemfile), you can start Webrick:
+
+```sh
+$ bundle exec nanoc view
+$ open http://localhost:3000
+```
+
+Compilation times got you down?  Use `autocompile`!
+
+```sh
+$ bundle exec nanoc autocompile
+```
+
+This starts a web server too, so there's no need to run `nanoc view`.
+One thing: remember to add trailing slashes to all nanoc links!
+
+## Deploy
+
+```sh
+$ bundle exec rake publish
+```

@@ -1,219 +1,83 @@
-# This file is a rake build file. The purpose of this file is to simplify
-# setting up and using Awestruct. It's not required to use Awestruct, though it
-# does save you time (hopefully). If you don't want to use rake, just ignore or
-# delete this file.
-#
-# If you're just getting started, execute this command to install Awestruct and
-# the libraries on which it depends:
-#
-#  rake setup
-#
-# The setup task installs the necessary libraries according to which Ruby
-# environment you are using. If you want the libraries kept inside the project,
-# execute this command instead:
-#
-#  rake setup[local]
-#
-# IMPORTANT: To install gems, you'll need development tools on your machine,
-# which include a C compiler, the Ruby development libraries and some other
-# development libraries as well.
-#
-# There are also tasks for running Awestruct. The build will auto-detect
-# whether you are using Bundler and, if you are, wrap calls to awestruct in
-# `bundle exec`.
-#
-# To run in Awestruct in development mode, execute:
-#
-#  rake
-#
-# To clean the generated site before you build, execute:
-#
-#  rake clean preview
-#
-# To deploy using the production profile, execute:
-#
-#  rake deploy
-#
-# To get a list of all tasks, execute:
-#
-#  rake -T
-#
-# Now you're Awestruct with rake!
+require 'nanoc3/tasks'
+require 'tmpdir'
 
-$use_bundle_exec = true
-$install_gems = ['awestruct -v "~> 0.5.4.rc"', 'rb-inotify -v "~> 0.9.0"']
-$awestruct_cmd = nil
-task :default => :preview
+task :default => [:test]
 
-desc 'Setup the environment to run Awestruct'
-task :setup, [:env] => :init do |task, args|
-  next if !which('awestruct').nil?
+desc "Compile the site"
+task :compile do
+  `nanoc compile`
+end
 
-  if File.exist? 'Gemfile'
-    if args[:env] == 'local'
-      require 'fileutils'
-      FileUtils.remove_file 'Gemfile.lock', true
-      FileUtils.remove_dir '.bundle', true
-      system 'bundle install --binstubs=_bin --path=.bundle'
+desc "Test the output"
+task :test => [:clean, :remove_output_dir, :compile] do
+  require 'html/proofer'
+  HTML::Proofer.new("./output").run
+end
+
+desc "Remove the output dir"
+task :remove_output_dir do
+  FileUtils.rm_r('output') if File.exist?('output')
+end
+
+# Prompt user for a commit message; default: P U B L I S H :emoji:
+def commit_message(no_commit_msg = false)
+  publish_emojis = [':boom:', ':rocket:', ':metal:', ':bulb:', ':zap:',
+    ':sailboat:', ':gift:', ':ship:', ':shipit:', ':sparkles:', ':rainbow:']
+  default_message = "P U B L I S H #{publish_emojis.sample}"
+
+  unless no_commit_msg
+    print "Enter a commit message (default: '#{default_message}'): "
+    STDOUT.flush
+    mesg = STDIN.gets.chomp.strip
+  end
+
+  mesg = default_message if mesg.nil? || mesg == ''
+  mesg.gsub(/'/, '') # Allow this to be handed off via -m '#{message}'
+end
+
+desc "Publish to http://developer.github.com"
+task :publish, [:no_commit_msg] => [:clean, :remove_output_dir] do |t, args|
+  mesg = commit_message(args[:no_commit_msg])
+  sh "nanoc compile"
+
+  # save precious files
+  if ENV['IS_HEROKU']
+    `git checkout origin/gh-pages`
+  else
+    `git checkout gh-pages`
+  end
+  tmpdir = Dir.mktmpdir
+  FileUtils.cp_r("enterprise", tmpdir)
+  FileUtils.cp("robots.txt", tmpdir)
+  `git checkout master`
+
+  ENV['GIT_DIR'] = File.expand_path(`git rev-parse --git-dir`.chomp)
+  ENV['RUBYOPT'] = nil
+  old_sha = `git rev-parse refs/remotes/origin/gh-pages`.chomp
+  Dir.chdir('output') do
+    ENV['GIT_INDEX_FILE'] = gif = '/tmp/dev.gh.i'
+    ENV['GIT_WORK_TREE'] = Dir.pwd
+    File.unlink(gif) if File.file?(gif)
+    # restore precious files
+    FileUtils.cp_r("#{tmpdir}/enterprise", ".")
+    FileUtils.cp("#{tmpdir}/robots.txt", ".")
+    FileUtils.rm_rf(tmpdir) if File.exists?(tmpdir)
+    `git add -A`
+    tsha = `git write-tree`.strip
+    puts "Created tree   #{tsha}"
+    # Heroku runs git@1.7, we don't have the luxury of -m
+    if ENV['IS_HEROKU']
+      `echo #{mesg} > changelog`
+      csha = `git commit-tree #{tsha} -p #{old_sha} < changelog`.strip
+    elsif old_sha.size == 40
+      csha = `git commit-tree #{tsha} -p #{old_sha} -m '#{mesg}'`.strip
     else
-      system 'bundle install'
+      csha = `git commit-tree #{tsha} -m '#{mesg}'`.strip
     end
-  else
-    if args[:env] == 'local'
-      $install_gems.each do |gem|
-        msg "Installing #{gem}..."
-        system "gem install --bindir=_bin --install-dir=.bundle #{gem}"
-      end
-    else
-      $install_gems.each do |gem|
-        msg "Installing #{gem}..."
-        system "gem install #{gem}"
-      end
-    end
-  end
-  msg 'Run awestruct using `awestruct` or `rake`'
-  # Don't execute any more tasks, need to reset env
-  exit 0
-end
-
-desc 'Update the environment to run Awestruct'
-task :update => :init do
-  if File.exist? 'Gemfile'
-    system 'bundle update'
-  else
-    system 'gem update awestruct'
-  end
-  # Don't execute any more tasks, need to reset env
-  exit 0
-end
-
-desc 'Build and preview the site locally in development mode'
-task :preview => :check do
-  run_awestruct '-d'
-end
-
-# provide a serve task for those used to Jekyll commands
-desc 'An alias to the preview task'
-task :serve => :preview
-
-desc 'Generate the site using the specified profile (default: development)'
-task :gen, [:profile] => :check do |task, args|
-  profile = args[:profile] || 'development'
-  profile = 'production' if profile == 'prod'
-  run_awestruct "-P #{profile} -g --force"
-end
-
-desc 'Generate the site and deploy to production'
-task :deploy => :check do
-  run_awestruct '-P production -g --force --deploy'
-end
-
-desc 'Clean out generated site and temporary files'
-task :clean, :spec do |task, args|
-  require 'fileutils'
-  dirs = ['.awestruct', '.sass-cache', '_site']
-  if args[:spec] == 'all'
-    dirs << '_tmp'
-  end
-  dirs.each do |dir|
-    FileUtils.remove_dir dir unless !File.directory? dir
-  end
-end
-
-# Perform initialization steps, such as setting up the PATH
-task :init do
-  # Detect using gems local to project
-  if File.exist? '_bin'
-    ENV['PATH'] = "_bin#{File::PATH_SEPARATOR}#{ENV['PATH']}"
-    ENV['GEM_HOME'] = '.bundle'
-  end
-end
-
-desc 'Check to ensure the environment is properly configured'
-task :check => :init do
-  if !File.exist? 'Gemfile'
-    if which('awestruct').nil?
-      msg 'Could not find awestruct.', :warn
-      msg 'Run `rake setup` or `rake setup[local]` to install from RubyGems.'
-      # Enable once the rubygem-awestruct RPM is available
-      #msg 'Run `sudo yum install rubygem-awestruct` to install via RPM. (Fedora >= 18)'
-      exit 1
-    else
-      $use_bundle_exec = false
-      next
-    end
-  end
-
-  begin
-    require 'bundler'
-    Bundler.setup
-  rescue LoadError
-    $use_bundle_exec = false
-  rescue StandardError => e
-    msg e.message, :warn
-    if which('awestruct').nil?
-      msg 'Run `rake setup` or `rake setup[local]` to install required gems from RubyGems.'
-    else
-      msg 'Run `rake update` to install additional required gems from RubyGems.'
-    end
-    exit e.status_code
-  end
-end
-
-# Execute Awestruct
-def run_awestruct(args, opts = {})
-  cmd = "#{$use_bundle_exec ? 'bundle exec ' : ''}awestruct #{args}"
-  if RUBY_VERSION < '1.9'
-    opts[:spawn] = false
-  else
-    opts[:spawn] ||= true
-  end
-
-  puts "Running command: #{cmd}"
-  if opts[:spawn]
-    pid = spawn cmd
-    Signal.trap(:INT) {
-      # wait for rack server to receive signal and shutdown
-      Process.wait pid
-      # now we go down
-      exit
-    }
-    Process.wait pid
-  else
-    system cmd
-  end
-end
-
-# A cross-platform means of finding an executable in the $PATH.
-# Respects $PATHEXT, which lists valid file extensions for executables on Windows
-#
-#  which 'awestruct'
-#  => /usr/bin/awestruct
-def which(cmd, opts = {})
-  unless $awestruct_cmd.nil? || opts[:clear_cache]
-    return $awestruct_cmd
-  end
-
-  $awestruct_cmd = nil
-  exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
-  ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
-    exts.each do |ext|
-      candidate = File.join path, "#{cmd}#{ext}"
-      if File.executable? candidate
-        $awestruct_cmd = candidate
-        return $awestruct_cmd
-      end
-    end
-  end
-  return $awestruct_cmd
-end
-
-# Print a message to STDOUT
-def msg(text, level = :info)
-  case level
-  when :warn
-    puts "\e[31m#{text}\e[0m"
-  else
-    puts "\e[33m#{text}\e[0m"
+    puts "Created commit #{csha}"
+    puts `git show #{csha} --stat`
+    puts "Updating gh-pages from #{old_sha}"
+    `git update-ref refs/heads/gh-pages #{csha}`
+    `git push origin gh-pages`
   end
 end
