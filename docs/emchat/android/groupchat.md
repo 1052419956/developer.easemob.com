@@ -12,22 +12,27 @@ layout: docs
 这部分与单聊是一样的，详情见[单聊](http://developer.easemob.com/docs/emchat/android/singlechat.html)
 
 ### 新建群聊
-创建私有群
+####创建私有群
 
 	//groupName：要创建的群聊的名称
 	//desc：群聊简介
 	//members：群聊成员,为空时这个创建的群组只包含自己
-	EMGroupManager.getInstance().createPrivateGroup(groupName, desc, members);
+	//allowInvite:是否允许群成员邀请人进群
+	EMGroupManager.getInstance().createPrivateGroup(groupName, desc, members,allowInvite);
 
-创建公开群
+####创建公开群 
+公开群可以被用户搜索到，并且可以直接加入或者申请加入
 
-	//前面三个参数和创建私有群一致，第四个参数暂时固定传false即可
-	EMGroupManager.getInstance().createPublicGroup(groupName, desc, members, false);
+	//前面三个参数和创建私有群一致
+	//needApprovalRequired:如果创建的公开群用需要户自由加入，就传false。否则需要申请，等群主批准后才能加入，传true
+	EMGroupManager.getInstance().createPublicGroup(groupName, desc, members, needApprovalRequired);
 	
 
 ### 群聊加人
-
+	//群主加人调用此方法
 	EMGroupManager.getInstance().addUsersToGroup(groupId, newmembers);
+	//私有群里，如果开放了群成员邀请，群成员邀请调用下面方法
+	EMGroupManager.getInstance().inviteUser(groupId, newmembers, null);
 
 ### 群聊减人
 
@@ -35,9 +40,12 @@ layout: docs
 	EMGroupManager.getInstance().removeUserFromGroup(groupId, username);
 
 ### 加入某个群聊
-	//暂时只能用于只能加入到某个公开群
-	EMGroupManager.getInstance().joinGroup(groupid);
+暂时只能用于公开群
 
+	//如果群开群是自由加入的，即group.isMembersOnly()为false，直接join
+	EMGroupManager.getInstance().joinGroup(groupid);
+	//需要申请和验证才能加入的，即group.isMembersOnly()为true，调用下面方法
+	EMGroupManager.getInstance().applyJoinToGroup(groupid, "求加入");
 ### 退出群聊
 
 	EMGroupManager.getInstance().exitFromGroup(groupId);
@@ -84,6 +92,23 @@ layout: docs
 		@Override
 		public void onGroupDestroy(String groupId, String groupName) {
 			//群聊被创建者解散
+		}
+		@Override
+		public void onApplicationReceived(String groupId, String groupName, String applyer, String reason) {
+			//收到加群申请
+			
+		}
+
+		@Override
+		public void onApplicationAccept(String groupId, String groupName, String accepter) {
+			//加群申请被同意
+			
+		}
+
+		@Override
+		public void onApplicationDeclined(String groupId, String groupName, String decliner, String reason) {
+			// 加群申请被拒绝
+			
 		}
 	});
 
