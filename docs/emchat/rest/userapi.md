@@ -65,8 +65,8 @@ client_id 和 client_secret可以在[环信管理后台](https://console.easemob
 
 		{
 		  "grant_type": "client_credentials",
-	  	  "client_id": "jliu1",
-	  	  "client_secret": "jliu1"
+	  	  "client_id": "YXA6wDs-MARqEeSO0VcBzaqg5A",
+	  	  "client_secret": "YXA6JOMWlLap_YbI_ucz77j-4-mI0JA"
 		}
 
 - response： 授权结果(json),其中access_token为授权后的token
