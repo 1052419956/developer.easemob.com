@@ -69,7 +69,7 @@ layout: docs
 
 #### curl示例
 		
-	curl -X POST -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "http://a1.easemob.com/easemob-demo/chatdemoui/users/zw123/messages" -d '{"type":"text","msg":"hello singlechat"}'
+	curl -X POST -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "http://a1.easemob.com/easemob-demo/chatdemoui/users/zw123/messages" -d '{"msg":{"type":"text","msg":"hello singlechat"}}'
 
 
 ### 给群组发送消息
@@ -95,4 +95,4 @@ layout: docs
 		}
 
 #### curl示例
-	curl -X POST -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "http://a1.easemob.com/easemob-demo/chatdemoui/users/zw123/messages" -d '{"type":"text","msg":"hello groupchat"}'
+	curl -X POST -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "http://a1.easemob.com/easemob-demo/chatdemoui/users/zw123/messages" -d '{"msg":{"type":"text","msg":"hello groupchat"}}'
