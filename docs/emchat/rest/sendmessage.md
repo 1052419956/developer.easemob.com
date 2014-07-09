@@ -16,20 +16,20 @@ layout: docs
 * request body：	无		
 * response： 
 
-    {
-        "action": "get",
-        "application": "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
-        "params": {},
-        "uri": "https://a1.easemob.com/easemob-demo/chatdemoui",
-        "entities": [],
-        "data": {
-            "stliu": "online"  //注意, 这里返回的是用户名和在线状态的键值对, 值为 online 或者 offline
-        },
-        "timestamp": 1404932199220,
-        "duration": 743,
-        "organization": "easemob-demo",
-        "applicationName": "chatdemoui"
-    }
+        {
+            "action": "get",
+            "application": "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
+            "params": {},
+            "uri": "https://a1.easemob.com/easemob-demo/chatdemoui",
+            "entities": [],
+            "data": {
+                "stliu": "online"  //注意, 这里返回的是用户名和在线状态的键值对, 值为 online 或者 offline
+            },
+            "timestamp": 1404932199220,
+            "duration": 743,
+            "organization": "easemob-demo",
+            "applicationName": "chatdemoui"
+        }
 #### curl示例：
 	
 	curl -X GET -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "https://a1.easemob.com/easemob-demo/chatdemoui/users/zw123/status"
