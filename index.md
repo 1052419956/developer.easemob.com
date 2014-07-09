@@ -87,5 +87,5 @@ layout: docs
     * [入门](/docs/emchat/rest/gettingstart.html)
 	* [用户管理](/docs/emchat/rest/userapi.html)
 	* [聊天记录](/docs/emchat/rest/chatmessage.html)
-	* [发送消息](/docs/emchat/rest/sendmessage.html)
+	* [聊天相关API](/docs/emchat/rest/sendmessage.html)
 
