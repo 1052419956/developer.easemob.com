@@ -20,7 +20,7 @@ layout: docs
 
     
 
-1. 下载环信sdk及demo：[下载链接](http://www.easemob.com/downloads.php)
+1. 到[环信官网](http://www.easemob.com)下载
 
 2. 解压缩easemob-sdk-2.0.0.zip后会得到以下目录结构：
  
