@@ -47,7 +47,6 @@ layout: docs
 填写好应用名称后，点确定，创建成功，系统会为你生成APPKEY以及相关配置信息，如下图：
 
 ![alt text](appkey.png "Title")
-![alt text](appkey1.png "Title")
 
 ###  2. 将环信和现有APP的用户体系集成
 
