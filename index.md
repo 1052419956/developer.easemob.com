@@ -43,7 +43,7 @@ layout: docs
 		* [高级话题](/docs/emchat/android/advanced.html)
 			* [公开群组： 设置群组属性为公开或非公开群组。搜索所有公开群组。加入公开群组](/docs/emchat/android/groupchat.html)
 			* [群组自定义属性](/docs/emchat/android/groupchat.html)
-	* [Java Doc](http://www.easemob.com/apidoc/chat/)
+	* [Java Doc](/apidoc/chat/)
 	* [Demo及SDK下载](http://www.easemob.com/downloads.php)
 
  
@@ -79,7 +79,7 @@ layout: docs
 		* [高级话题](/docs/emchat/ios/groupchat.html)
 			* [公开群组： 设置群组属性为公开或非公开群组。搜索所有公开群组。加入公开群组](/docs/emchat/ios/groupchat.html)
 			* [群组自定义属性](/docs/emchat/ios/groupchat.html)
-	* [Apple Doc](http://easemob.com/apidoc/iOS/chat/)
+	* [Apple Doc](/apidoc/iOS/chat/)
 	* [Demo及SDK下载](http://www.easemob.com/downloads.php)
 * [UI模板库](/docs/emchat/ui.html)
 * 服务器端REST API
