@@ -9,7 +9,7 @@ layout: docs
 
 ### 初始化环信聊天SDK
 
-	//最好在application中初始化
+	//必须在application中初始化，否则后续使用sdk的方法时可能会报一些莫名其妙的空指针等异常
 	EMChat.getInstance().init(getApplicationContext());
 
 ### 登陆聊天服务器
