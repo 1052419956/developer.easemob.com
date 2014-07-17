@@ -269,3 +269,23 @@ Response 的返回结果如下：
 #### curl示例：
 		
 	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "https://a1.easemob.com/easemob-demo/chatdemo/users?limit=300"
+
+
+## 好友管理
+
+### 给一个用户添加一个好友
+
+    POST /{org_name}/{app_name}/users/{owner_username}/contacts/users/{friend_username}
+    
+这里的 *owner_username* 是要添加好友的用户名, *friend_username* 是被添加的用户名
+
+注意, 这里需要管理员权限的, 并且这个请求执行完成之后, 这两个用户是互为好友的关系的, 不需要对方同意
+
+### 删除一个用户的好友
+
+    DELETE /{org_name}/{app_name}/users/{owner_username}/contacts/users/{friend_username}
+    
+
+### 查看一个用户的所有好友
+
+    GET /{org_name}/{app_name}/users/{owner_username}/contacts/users

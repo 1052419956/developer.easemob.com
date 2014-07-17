@@ -126,15 +126,16 @@ layout: docs
 参数
 
     {
-        "groupname":"testrestgrp12", 
-        "desc":"server create group", 
-        "public":true, 
-        "owner":"jma1", 
-        "members":["jma2","jma3"]
+        "groupname":"testrestgrp12", //群组名称, 此属性为必须的
+        "desc":"server create group", //群组描述, 此属性为必须的
+        "public":true, //是否是公开群, 此属性为必须的
+        "approval":true, //加入公开群是否需要批准, 没有这个属性的话默认是true, 此属性为可选的
+        "owner":"jma1", //群组的管理员, 此属性为必须的
+        "members":["jma2","jma3"] //群组成员,此属性为可选的
     }
 返回值 
 
-    {"groupid":"1404882944671671"}
+    {"groupid":"1404882944671671"} //返回群组id
 
 ## 删除群组
 
