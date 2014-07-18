@@ -20,7 +20,7 @@ layout: docs
 
     
 
-1. 到[环信官网](http://www.easemob.com)下载
+1. 到[环信官网](http://www.easemob.com/downloads.php)下载
 
 2. 解压缩easemob-sdk-2.0.0.zip后会得到以下目录结构：
  
@@ -79,7 +79,7 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 			account.setText(getAccount());
 			pwd.setText("123456");
 			CreateAccountTask task = new CreateAccountTask();
-			task.execute("easemob-demo#chatdemo_" + account.getText().toString(), "123456", "chatdemo");
+			task.execute(account.getText().toString(), "123456", "chatdemo");
 
 			}
 		});

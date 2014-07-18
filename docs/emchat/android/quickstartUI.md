@@ -159,34 +159,6 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 		EMChatManager.getInstance().addConnectionListener(new MyConnectionListener());
 
 
-#### 好友请求，好友同意
-
-
-       private BroadcastReceiver contactInviteReceiver = new BroadcastReceiver(){
-
-		@Override
-		public void onReceive(Context context, Intent intent) {
-			//请求理由
-			final String reason = intent.getStringExtra("reason");
-			final boolean isResponse = intent.getBooleanExtra("isResponse", false);
-			//消息发送方username
-			final String from = intent.getStringExtra("username");
-			
-			//接到邀请的消息，如果不处理(同意或拒绝)，掉线后，服务器会自动再发过来，所有客户端不要重复提醒
-			
-					
-			//sdk暂时只提供同意好友请求方法，不同意选项可以参考微信增加一个忽略按钮。
-		
-			//提示有新消息
-			EMNotifier.getInstance(getApplicationContext()).notifyOnNewMsg();
-			
-			
-			abortBroadcast();
-			
-		}
-		
-	   };
-
 
 #### 发送聊天消息并显示
 
@@ -223,7 +195,7 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
     }
 
 
-#### 7. 消息回执BroadcastReceiver：见MainActivity.java ####
+#### 消息回执BroadcastReceiver：见MainActivity.java ####
 
     private BroadcastReceiver ackMessageReceiver = new BroadcastReceiver() {
 		
@@ -241,7 +213,7 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 
 
 
-#### 8.联系人变化listener：见MainActivity.java ####
+#### 联系人变化listener：见MainActivity.java ####
 
     private class MyContactListener implements EMContactListener{
 
@@ -259,7 +231,7 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 		
 	}
 
-#### 9.监听连接状态和账号多处登录被迫下线：见MainActivity.java ####
+#### 监听连接状态和账号多处登录被迫下线：见MainActivity.java ####
 
     private class MyConnectionListener implements ConnectionListener{
 
