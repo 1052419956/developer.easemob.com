@@ -85,6 +85,12 @@ layout: docs
             "applicationName": "chatdemoui"
         }
 
+#### curl示例：
+
+        curl -X POST -i -H "Authorization: Bearer YWMteQLx2A_2EeScd4Eqg9vrmQAAAUd3T2vgZqdT6ug-z4PCMK8pPSmjNMwTLCo" "https://a1.easemob.com/easemob-demo/chatdemoui/messages" -d '{"target_type":"users", "target":["jma1"], "msg":{"type":"txt","msg":"hello message from rest api"}, "from":"jma2"}'
+
+        curl -X POST -i -H "Authorization: Bearer YWMteQLx2A_2EeScd4Eqg9vrmQAAAUd3T2vgZqdT6ug-z4PCMK8pPSmjNMwTLCo" "https://a1.easemob.com/easemob-demo/chatdemoui/messages" -d '{"target_type":"chatgroups", "target":["1405852047041"], "msg":{"type":"txt","msg":"hello group messsage from rest api"}, "from":"jma2"}'
+
 ## 群组相关API
 
 
