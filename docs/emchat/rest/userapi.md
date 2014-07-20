@@ -78,7 +78,7 @@ client_id 和 client_secret可以在[环信管理后台](https://console.easemob
 
 >> 注：请将URL中的easemob-demo/chatdemo替换成你自己的org_name和app_name。并将"client_id","client_secret"分别替换成你自己App中的值
 		
-	curl -X POST "https://a1.easemob.com/easemob-demo/chatdemo/token" -d '{"grant_type":"client_credentials","client_id":"jliu1","client_secret":"jliu1"}'
+	curl -X POST "https://a1.easemob.com/easemob-demo/chatdemo/token" -d '{"grant_type":"client_credentials","client_id":"YXA6wDs-MARqEeSO0VcBzaqg5A","client_secret":"YXA6JOMWlLap_YbI_ucz77j-4-mI0JA"}'
 	
 				
 Response 的返回结果如下：
