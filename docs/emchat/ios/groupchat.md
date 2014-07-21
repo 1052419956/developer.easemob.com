@@ -137,7 +137,7 @@ layout: docs
 	EMError *error;
 	EMGroup *chatGroup = [[EaseMob sharedInstance].chatManager addOccupants:(被邀请的用户名列表) toGroup:(groupId) welcomeMessage:@"欢迎加入" error:&error];
 
-###4.群组减人
+###4.群组踢人
 
 接口
 
@@ -235,120 +235,9 @@ layout: docs
 
 **需要创建者权限**
 
-接口及用法同<5、退出群聊>，SDK中会判断调用者是否是创建者，如果是则解散群组。
+接口及用法同<5、退出群聊>，SDK中会判断调用者是否是创建者，如果是则解散群组。  
 
-###7.获取与自己相关的群组列表（加入或者创建的）
-
-接口
-
-	/**
-	 @brief  获取与我相关的群组列表（自己创建的，加入的）(同步方法)
-	 @param pError 获取错误信息
-	 @return 群组列表
-	 @discussion
-	        获取列表成功 判断条件：*pError == nil && returnArray != nil
-	 */
-	- (NSArray *)fetchMyGroupsListWithError:(EMError **)pError;
-	
-	/*!
-	 @method
-	 @brief      获取与我相关的群组列表（自己创建的，加入的）(异步方法)
-	 @discussion    
-	        执行后, 回调[didUpdateGroupList:error]会被触发
-	 */
-	- (void)asyncFetchMyGroupsList;
-	
-	/*!
-	 @method
-	 @brief 获取与我相关的群组列表（自己创建的，加入的）(异步方法)
-	 @param completion 消息完成后的回调
-	 @param aQueue     回调block时的线程
-	 @discussion
-	        获取列表成功 判断条件：completion中，error == nil && groups != nil
-	 */
-	- (void)asyncFetchMyGroupsListWithCompletion:(void (^)(NSArray *groups,
-	                                                  EMError *error))completion
-	                                onQueue:(dispatch_queue_t)aQueue;
-	
-调用示例
-
-	[[EaseMob sharedInstance].chatManager asyncFetchMyGroupsListWithCompletion:^(NSArray *groups, EMError *error) {
-        //code
-    } onQueue:nil];
-    
-###8.获取公开群组列表
-
-接口
-
-	/*!
-	 @method
-	 @brief 获取所有公开群组
-	 @param pError 错误信息
-	 @return 获取的所有群组列表
-	 */
-	- (NSArray *)fetchAllPublicGroupsWithError:(EMError **)pError;
-	
-	/*!
-	 @method
-	 @brief 异步方法, 获取所有公开群组
-	 @discussion
-	        执行后, 回调didFetchAllPublicGroups:error:会被触发
-	 */
-	- (void)asyncFetchAllPublicGroups;
-	
-	/*!
-	 @method
-	 @brief 异步方法, 获取所有公开群组
-	 @param completion 消息完成后的回调
-	 @param aQueue     回调block时的线程
-	 */
-	- (void)asyncFetchAllPublicGroupsWithCompletion:(void (^)(NSArray *groups,
-	                                                          EMError *error))completion
-	                                        onQueue:(dispatch_queue_t)aQueue;
-	                                        
-调用示例
-
-	[[EaseMob sharedInstance].chatManager asyncFetchAllPublicGroupsWithCompletion:^(NSArray *groups, EMError *error) {
-	        //code
-	    } onQueue:nil];
-	    
-###9.搜索公开群组	 
-
-接口
-
-	/*!
-	 @method
-	 @brief  根据groupId搜索公开群(同步方法)
-	 @param groupId  群组id(完整id)
-	 @param pError   搜索失败的错误
-	 @return 搜索到的群组
-	 @discussion
-	        搜索群组成功 判断条件：*pError == nil && returnGroup != nil
-	 */
-	- (EMGroup *)searchPublicGroupWithGroupId:(NSString *)groupId
-	                                    error:(EMError **)pError;
-	
-	/*!
-	 @method
-	 @brief  根据groupId搜索公开群(异步方法)
-	 @param groupId    公开群组的ID(完整id)
-	 @param completion 消息完成后的回调
-	 @param aQueue     回调block时的线程
-	 @discussion
-	        搜索群组成功 判断条件：completion中，error == nil && group != nil
-	 */
-	- (void)asyncSearchPublicGroupWithGroupId:(NSString *)groupId
-	                               completion:(void (^)(EMGroup *group,
-	                                                    EMError *error))completion
-	                                  onQueue:(dispatch_queue_t)aQueue;
-	                                        
-调用示例
-
-	[[EaseMob sharedInstance].chatManager asyncSearchPublicGroupWithGroupId:(groupId) completion:^(EMGroup *group, EMError *error) {
-        //code
-    } onQueue:nil];   
-
-###10.群组事件监听
+###7.群组事件监听
 
 **前提条件**
 
@@ -496,3 +385,114 @@ layout: docs
 	 */
 	- (void)didApplyJoinPublicGroup:(EMGroup *)group
 	                          error:(EMError *)error;
+	                          
+###8.获取与自己相关的群组列表（加入或者创建的）
+
+接口
+
+	/**
+	 @brief  获取与我相关的群组列表（自己创建的，加入的）(同步方法)
+	 @param pError 获取错误信息
+	 @return 群组列表
+	 @discussion
+	        获取列表成功 判断条件：*pError == nil && returnArray != nil
+	 */
+	- (NSArray *)fetchMyGroupsListWithError:(EMError **)pError;
+	
+	/*!
+	 @method
+	 @brief      获取与我相关的群组列表（自己创建的，加入的）(异步方法)
+	 @discussion    
+	        执行后, 回调[didUpdateGroupList:error]会被触发
+	 */
+	- (void)asyncFetchMyGroupsList;
+	
+	/*!
+	 @method
+	 @brief 获取与我相关的群组列表（自己创建的，加入的）(异步方法)
+	 @param completion 消息完成后的回调
+	 @param aQueue     回调block时的线程
+	 @discussion
+	        获取列表成功 判断条件：completion中，error == nil && groups != nil
+	 */
+	- (void)asyncFetchMyGroupsListWithCompletion:(void (^)(NSArray *groups,
+	                                                  EMError *error))completion
+	                                onQueue:(dispatch_queue_t)aQueue;
+	
+调用示例
+
+	[[EaseMob sharedInstance].chatManager asyncFetchMyGroupsListWithCompletion:^(NSArray *groups, EMError *error) {
+        //code
+    } onQueue:nil];
+    
+###9.获取公开群组列表
+
+接口
+
+	/*!
+	 @method
+	 @brief 获取所有公开群组
+	 @param pError 错误信息
+	 @return 获取的所有群组列表
+	 */
+	- (NSArray *)fetchAllPublicGroupsWithError:(EMError **)pError;
+	
+	/*!
+	 @method
+	 @brief 异步方法, 获取所有公开群组
+	 @discussion
+	        执行后, 回调didFetchAllPublicGroups:error:会被触发
+	 */
+	- (void)asyncFetchAllPublicGroups;
+	
+	/*!
+	 @method
+	 @brief 异步方法, 获取所有公开群组
+	 @param completion 消息完成后的回调
+	 @param aQueue     回调block时的线程
+	 */
+	- (void)asyncFetchAllPublicGroupsWithCompletion:(void (^)(NSArray *groups,
+	                                                          EMError *error))completion
+	                                        onQueue:(dispatch_queue_t)aQueue;
+	                                        
+调用示例
+
+	[[EaseMob sharedInstance].chatManager asyncFetchAllPublicGroupsWithCompletion:^(NSArray *groups, EMError *error) {
+	        //code
+	    } onQueue:nil];
+	    
+###10.搜索公开群组	 
+
+接口
+
+	/*!
+	 @method
+	 @brief  根据groupId搜索公开群(同步方法)
+	 @param groupId  群组id(完整id)
+	 @param pError   搜索失败的错误
+	 @return 搜索到的群组
+	 @discussion
+	        搜索群组成功 判断条件：*pError == nil && returnGroup != nil
+	 */
+	- (EMGroup *)searchPublicGroupWithGroupId:(NSString *)groupId
+	                                    error:(EMError **)pError;
+	
+	/*!
+	 @method
+	 @brief  根据groupId搜索公开群(异步方法)
+	 @param groupId    公开群组的ID(完整id)
+	 @param completion 消息完成后的回调
+	 @param aQueue     回调block时的线程
+	 @discussion
+	        搜索群组成功 判断条件：completion中，error == nil && group != nil
+	 */
+	- (void)asyncSearchPublicGroupWithGroupId:(NSString *)groupId
+	                               completion:(void (^)(EMGroup *group,
+	                                                    EMError *error))completion
+	                                  onQueue:(dispatch_queue_t)aQueue;
+	                                        
+调用示例
+
+	[[EaseMob sharedInstance].chatManager asyncSearchPublicGroupWithGroupId:(groupId) completion:^(EMGroup *group, EMError *error) {
+        //code
+    } onQueue:nil]; 
