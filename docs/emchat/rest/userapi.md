@@ -259,7 +259,7 @@ Response 的返回结果如下：
 ## 批量删除用户
 
 ### DELETE /{org_name}/{app_name}/users?limit=300
-- 描述：删除某个app下指定数量的环信账号。上述url可一次删除300个用户,这个300用户是指按创建时间逆序排列的300用户，即从当前时间起往前数,数值可以修改 建议这个数值在100-500之间，不要过大
+- 描述：删除某个app下指定数量的环信账号。上述url可一次删除300个用户,数值可以修改 建议这个数值在100-500之间，不要过大
 - 权限：app管理员或org管理员
 - url参数：无
 - request body： 无
@@ -270,6 +270,23 @@ Response 的返回结果如下：
 		
 	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "https://a1.easemob.com/easemob-demo/chatdemo/users?limit=300"
 
+
+需要注意的是, 这里只是批量的一次性删除掉300个用户, 具体删除哪些并没有制定, 可以在返回值中查看到哪些用户被删除掉了
+
+可以通过增加查询条件来做到精确的删除, 例如:
+
+1. 按照创建时间来排序(降序)
+
+        DELETE /{org_name}/{app_name}/users?ql=order+by+created+desc&limit=300
+
+2. 按照创建时间来排序(升序)
+
+        DELETE /{org_name}/{app_name}/users?ql=order+by+created+asc&limit=300
+        
+3. 按时间段来删除
+
+        
+    使用ql=created> {起始时间戳} and created < {结束时间戳} 的查询语句, 时间戳是timestamp类型的, 并且需要对ql进行http url encode
 
 ## 好友管理
 
