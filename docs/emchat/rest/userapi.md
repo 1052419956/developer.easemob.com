@@ -311,6 +311,7 @@ Response 的返回结果如下：
 	"organization":"easemob-demo",
 	"applicationName":"chatdemoui"
 	}
+
 ### 删除一个用户的好友
 
     DELETE /{org_name}/{app_name}/users/{owner_username}/contacts/users/{friend_username}
