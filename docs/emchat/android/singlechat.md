@@ -102,6 +102,22 @@ layout: docs
     conversation.addMessage(message);
 	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
 
+
+### 发送文件消息
+	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
+	// 创建一个文件消息
+	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.FILE);
+	// 如果是群聊，设置chattype,默认是单聊
+	if (chatType == CHATTYPE_GROUP)
+		message.setChatType(ChatType.GroupChat);
+	//设置接收人的username
+	message.setReceipt(username);
+	// add message body
+	NormalFileMessageBody body = new NormalFileMessageBody(new File(filePath));
+	message.addBody(body);
+	conversation.addMessage(message);
+	EMChatManager.getInstance().sendMessage(message, new EMCallBack());
+
 ### 接收消息
 
 注册一个相应broadcast，用来接收消息
