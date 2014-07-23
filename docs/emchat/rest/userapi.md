@@ -232,15 +232,15 @@ Response 的返回结果如下：
 - 描述： 重置用户密码
 - 权限：app管理员或org管理员
 - url参数：无
-- request body： 新密码
+- request body： 请求体的json中必须包含“newpassword”这个key,value就是新密码指定的字符串。
 
-		'{"newpassword" : "newpwd"}'
+		'{"newpassword" : "123456"}'
 - response： 更新后的用户信息，json格式。见用户的数据结构。
 - 错误代码：
  
 #### curl示例：
 		
-	curl -X PUT -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "https://a1.easemob.com/easemob-demo/chatdemo/users/jliu/password" -d '{"newpassword" : "newpwd"}'
+	curl -X PUT -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "https://a1.easemob.com/easemob-demo/chatdemo/users/jliu/password" -d '{"newpassword" : "123456"}'
 
 ## 删除用户
 
@@ -281,6 +281,36 @@ Response 的返回结果如下：
 
 注意, 这里需要管理员权限的, 并且这个请求执行完成之后, 这两个用户是互为好友的关系的, 不需要对方同意
 
+- 权限：app管理员或org管理员
+- url参数：无
+- request body： 无
+- response： 无
+- 错误代码：
+
+#### curl示例：
+		
+	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEU2" "https://a1.easemob.com/easemob-demo/chatdemo/users?limit=300"
+	
+	Respone 
+	{
+	"action":"post","application":"4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5","params":{},
+	"path":"/users/aa6160da-eb01-11e3-ab09-15edd986e7b7/contacts",
+	"uri":"http://a1.easemob.com/easemob-demo/chatdemoui/users/aa6160da-eb01-11e3-ab09-15edd986e7b7/contacts",
+	"entities":[
+		{
+		"uuid":"0086742a-dc9b-11e3-a782-1b5d581c57a9",
+		"type":"user",
+		"created":1400204403810,
+		"modified":1400204403810,
+		"username":"yantao",
+		"activated":true
+		}
+	],
+
+	"timestamp":1406086326974,"duration":242,
+	"organization":"easemob-demo",
+	"applicationName":"chatdemoui"
+	}
 ### 删除一个用户的好友
 
     DELETE /{org_name}/{app_name}/users/{owner_username}/contacts/users/{friend_username}
