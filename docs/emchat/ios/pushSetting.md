@@ -13,9 +13,25 @@ layout: docs
 
 	EMPushNotificationOptions *options = [[EaseMob sharedInstance].chatManager pushNotificationOptions];
 	
-###2.修改消息推送设置
+###2.修改消息推送设置   
+
+####1.已登录状态下，单独修改推送的消息显示昵称
+
+接口
+
+	/*!
+	 @property
+	 @brief 当前登陆用户的昵称, 默认为用户名
+	 */
+	@property (nonatomic, strong) NSString *nickname;
 	
-接口   将配置信息同步到服务器
+调用示例
+
+	[[EaseMob sharedInstance].chatManager setNickname:nameTextField.text];
+
+####2.已登录状态下，将配置信息同步到服务器（昵称，推送消息类型，是否开启免打扰，免打扰时限）
+
+接口
 
 	/*!
 	 @method
