@@ -304,7 +304,6 @@ Response 的返回结果如下：
 - url参数：无
 - request body： 无
 - response： 无
-- 错误代码：
 
 #### curl示例：
 		
