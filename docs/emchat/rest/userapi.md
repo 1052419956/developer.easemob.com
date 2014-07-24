@@ -17,18 +17,20 @@ layout: docs
 	  password:"123456"  //登录密码 123456
 	}
 
-## 用户名规则
+## 环信ID规则
 
-当App和环信集成的时候， 需要把App系统内的已有用户和新注册的用户和环信继承， 为每个已有用户创建一个环信的账号， 并且App有新用户注册的时候， 需要同步的在环信中注册。
+当App和环信集成的时候， 需要把App系统内的已有用户和新注册的用户和环信继承， 为每个已有用户创建一个环信的账号(环信ID)， 并且App有新用户注册的时候， 需要同步的在环信中注册。
 
-在注册环信账户的时候， 需要注意环信的**用户名规则**：
+在注册环信账户的时候， 需要注意**环信ID的规则**：
 
-* 用户名需要使用英文字母和（或）数字的组合
-* 用户名不能使用中文
-* 用户名不能使用email地址
-* 用户名中间不能有空格或者井号（#）等特殊字符
+* 环信ID需要使用英文字母和（或）数字的组合
+* 环信ID不能使用中文
+* 环信ID不能使用email地址
+* 环信ID中间不能有空格或者井号（#）等特殊字符
 
-因为一个用户的环信用户名和他的在App中的用户名并不需要一致， 只需要有一个明确的对应关系， 例如， 用户名是 _stliu@apache.org_, 当这个用户登陆到App的时候， 可以登陆成功之后， 再登陆环信的服务器， 所以这时候， 只需要能够从 _stliu@apache.org_ 推导出这个用户的环信用户名即可
+另: 本文档中可能会交错使用"环信ID"和"环信ID"两个术语, 但是请注意, 这里两个的意思是一样的
+
+因为一个用户的环信ID和他的在App中的用户名并不需要一致， 只需要有一个明确的对应关系， 例如， 用户名是 _stliu@apache.org_, 当这个用户登陆到App的时候， 可以登陆成功之后， 再登陆环信的服务器， 所以这时候， 只需要能够从 _stliu@apache.org_ 推导出这个用户的环信ID即可
 
 我们推荐可以使用 _md5_ 函数， 对用户名进行加密， 因为很多app的用户名选择使用的是 _email_ 或者 _手机号_ 等注册的， 这时候， 用户名实际上也是用户的隐私信息， 如果直接使用这种用户名到环信注册， 相当于app把用户的隐私信息暴露给了环信的， 从环信的角度， 我们也不希望知道App用户的任何信息的
 
@@ -232,15 +234,15 @@ Response 的返回结果如下：
 - 描述： 重置用户密码
 - 权限：app管理员或org管理员
 - url参数：无
-- request body： 新密码
+- request body： 请求体的json中必须包含“newpassword”这个key,value就是新密码指定的字符串。
 
-		'{"newpassword" : "newpwd"}'
+		'{"newpassword" : "123456"}'
 - response： 更新后的用户信息，json格式。见用户的数据结构。
 - 错误代码：
  
 #### curl示例：
 		
-	curl -X PUT -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "https://a1.easemob.com/easemob-demo/chatdemo/users/jliu/password" -d '{"newpassword" : "newpwd"}'
+	curl -X PUT -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "https://a1.easemob.com/easemob-demo/chatdemo/users/jliu/password" -d '{"newpassword" : "123456"}'
 
 ## 删除用户
 
@@ -259,7 +261,7 @@ Response 的返回结果如下：
 ## 批量删除用户
 
 ### DELETE /{org_name}/{app_name}/users?limit=300
-- 描述：删除某个app下指定数量的环信账号。上述url可一次删除300个用户,这个300用户是指按创建时间逆序排列的300用户，即从当前时间起往前数,数值可以修改 建议这个数值在100-500之间，不要过大
+- 描述：删除某个app下指定数量的环信账号。上述url可一次删除300个用户,数值可以修改 建议这个数值在100-500之间，不要过大
 - 权限：app管理员或org管理员
 - url参数：无
 - request body： 无
@@ -271,6 +273,23 @@ Response 的返回结果如下：
 	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "https://a1.easemob.com/easemob-demo/chatdemo/users?limit=300"
 
 
+需要注意的是, 这里只是批量的一次性删除掉300个用户, 具体删除哪些并没有制定, 可以在返回值中查看到哪些用户被删除掉了
+
+可以通过增加查询条件来做到精确的删除, 例如:
+
+1. 按照创建时间来排序(降序)
+
+        DELETE /{org_name}/{app_name}/users?ql=order+by+created+desc&limit=300
+
+2. 按照创建时间来排序(升序)
+
+        DELETE /{org_name}/{app_name}/users?ql=order+by+created+asc&limit=300
+        
+3. 按时间段来删除
+
+        
+    使用ql=created> {起始时间戳} and created < {结束时间戳} 的查询语句, 时间戳是timestamp类型的, 并且需要对ql进行http url encode
+
 ## 好友管理
 
 ### 给一个用户添加一个好友
@@ -280,6 +299,37 @@ Response 的返回结果如下：
 这里的 *owner_username* 是要添加好友的用户名, *friend_username* 是被添加的用户名
 
 注意, 这里需要管理员权限的, 并且这个请求执行完成之后, 这两个用户是互为好友的关系的, 不需要对方同意
+
+- 权限：app管理员或org管理员
+- url参数：无
+- request body： 无
+- response： 无
+- 错误代码：
+
+#### curl示例：
+		
+	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEU2" "https://a1.easemob.com/easemob-demo/chatdemo/users?limit=300"
+	
+	Respone 
+	{
+	"action":"post","application":"4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5","params":{},
+	"path":"/users/aa6160da-eb01-11e3-ab09-15edd986e7b7/contacts",
+	"uri":"http://a1.easemob.com/easemob-demo/chatdemoui/users/aa6160da-eb01-11e3-ab09-15edd986e7b7/contacts",
+	"entities":[
+		{
+		"uuid":"0086742a-dc9b-11e3-a782-1b5d581c57a9",
+		"type":"user",
+		"created":1400204403810,
+		"modified":1400204403810,
+		"username":"yantao",
+		"activated":true
+		}
+	],
+
+	"timestamp":1406086326974,"duration":242,
+	"organization":"easemob-demo",
+	"applicationName":"chatdemoui"
+	}
 
 ### 删除一个用户的好友
 

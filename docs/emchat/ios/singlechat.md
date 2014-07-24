@@ -205,7 +205,10 @@ loginInfo包含账号，密码等信息;
 	
 ####  根据时间得到要求条数的messages 
 
-	NSArray *messages = [conversation loadNumbersOfMessages:10 before:[[NSDate new] timeIntervalSince1970]];
+**SDK 中保存的timeStamp 乘以了 1000，所以获取的时候，也需要乘以1000**
+
+	NSTimeInterval before = [[NSDate date] timeIntervalSince1970] * 1000;
+	NSArray *messages = [_conversation loadNumbersOfMessages:10 before:before];
                                  	
 ### 删除聊天记录 
 根据username可以得到一个conversation;
