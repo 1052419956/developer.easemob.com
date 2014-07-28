@@ -26,9 +26,10 @@ layout: docs
 * 环信ID需要使用英文字母和（或）数字的组合
 * 环信ID不能使用中文
 * 环信ID不能使用email地址
+* 环信ID不能使用UUID
 * 环信ID中间不能有空格或者井号（#）等特殊字符
 
-另: 本文档中可能会交错使用"环信ID"和"环信ID"两个术语, 但是请注意, 这里两个的意思是一样的
+另: 本文档中可能会交错使用"环信ID"和"环信用户名"两个术语, 但是请注意, 这里两个的意思是一样的
 
 因为一个用户的环信ID和他的在App中的用户名并不需要一致， 只需要有一个明确的对应关系， 例如， 用户名是 _stliu@apache.org_, 当这个用户登陆到App的时候， 可以登陆成功之后， 再登陆环信的服务器， 所以这时候， 只需要能够从 _stliu@apache.org_ 推导出这个用户的环信ID即可
 
@@ -304,11 +305,10 @@ Response 的返回结果如下：
 - url参数：无
 - request body： 无
 - response： 无
-- 错误代码：
 
 #### curl示例：
 		
-	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEU2" "https://a1.easemob.com/easemob-demo/chatdemo/users?limit=300"
+	curl -X POST -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEU2" "https://a1.easemob.com/easemob-demo/chatdemo/users?limit=300"
 	
 	Respone 
 	{

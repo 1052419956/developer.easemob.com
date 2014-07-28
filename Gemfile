@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://ruby.taobao.org/'
 
 # Main site dependencies
 gem 'awestruct', '0.5.5'
