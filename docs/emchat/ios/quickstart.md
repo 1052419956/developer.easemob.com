@@ -114,7 +114,7 @@ layout: docs
 
 #### 退出登录：见RandViewController+Login.m 
 
-	[[EaseMob sharedInstance].userManager asyncLogoff];
+	[[EaseMob sharedInstance].chatManager asyncLogoff];
 
 #### 发送消息：见RootViewController+sendChat.m 
 
