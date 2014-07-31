@@ -116,7 +116,7 @@ Response 的返回结果如下：
 
 #### POST /{org_name}/{app_name}/users
 
-- 描述：在指定的org和app中创建一个新的用户
+- 描述：在url指定的org和app中创建一个新的用户
 - 权限： 无
 - url参数： 无
 - request body： 要创建的用户，json格式。见用户的数据结构。
@@ -160,7 +160,7 @@ Response 的返回结果如下：
 
 ### POST /{org_name}/{app_name}/users
 
-- 描述：在指定的org和app中创建一个新的用户
+- 描述：在url指定的org和app中创建一个新的用户
 - 权限： app管理员或org管理员
 - url参数： 无
 - request body： 要创建的用户，json格式。见用户的数据结构。
@@ -217,7 +217,7 @@ Response 的返回结果如下：
 
 ### GET /{org_name}/{app_name}/users/{username}
 
-- 描述：获取app的指定用户详情
+- 描述：获取app的指定{username}的用户详情
 - 权限：app管理员或org管理员
 - url参数：无
 - request body： 无
@@ -232,7 +232,7 @@ Response 的返回结果如下：
 
 ### PUT /{org_name}/{app_name}/users/{username}/password
 
-- 描述： 重置用户密码
+- 描述： 重置用户密码 用户名在url中的{username}指定
 - 权限：app管理员或org管理员
 - url参数：无
 - request body： 请求体的json中必须包含“newpassword”这个key,value就是新密码指定的字符串。
@@ -248,7 +248,7 @@ Response 的返回结果如下：
 ## 删除用户
 
 ### DELETE /{org_name}/{app_name}/users/{username}
-- 描述：删除app的指定用户
+- 描述：删除app的指定用户  用户名在url中的{username}指定
 - 权限：app管理员或org管理员
 - url参数：无
 - request body： 无
@@ -272,7 +272,6 @@ Response 的返回结果如下：
 #### curl示例：
 		
 	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "https://a1.easemob.com/easemob-demo/chatdemo/users?limit=300"
-
 
 需要注意的是, 这里只是批量的一次性删除掉300个用户, 具体删除哪些并没有制定, 可以在返回值中查看到哪些用户被删除掉了
 
