@@ -48,6 +48,7 @@ layout: docs
 	EMGroupManager.getInstance().joinGroup(groupid);
 	//需要申请和验证才能加入的，即group.isMembersOnly()为true，调用下面方法
 	EMGroupManager.getInstance().applyJoinToGroup(groupid, "求加入");
+
 ### 退出群聊
 
 	EMGroupManager.getInstance().exitFromGroup(groupId);
