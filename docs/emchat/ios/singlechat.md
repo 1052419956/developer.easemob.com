@@ -189,7 +189,7 @@ loginInfo包含账号，密码等信息;
 
 根据username可以得到一个conversation;
 
-	EMConversation *conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:username];
+	EMConversation *conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:username isGroup:isGroup];
                                     
 ####  根据messageID得到一条聊天记录 
 
