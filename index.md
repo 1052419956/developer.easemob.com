@@ -64,6 +64,7 @@ layout: docs
 		* [好友列表管理：查找好友（根据账号），添加好友，删除好友](/docs/emchat/ios/buddymanager.html)
 		* [高级话题](/docs/emchat/ios/advanced.html)
 			* [扩展自定义消息类型](/docs/emchat/ios/advanced.html)
+			* [黑名单](/docs/emchat/ios/blacklist.html)
 			* [消息回执：已发送，已接收，已阅读](/docs/emchat/ios/advanced.html)
 			<!--* [阅后即焚](/docs/emchat/ios/advanced.html)-->
 		* [新消息提醒](/docs/emchat/ios/newMessageRemind.html)
