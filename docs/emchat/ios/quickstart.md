@@ -48,9 +48,12 @@ layout: docs
 
 ![alt text](import.png "Title")
  
-### 加入依赖库 
+### SDK依赖库 
 
 ![alt text](addLib.png "Lib")
+
+### UIDemo依赖库 
+![alt text](addUIDemoLib.png "UIDemoLib")
  
 ### 设置Linker 
 
