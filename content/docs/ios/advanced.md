@@ -1,0 +1,123 @@
+---
+title: 环信
+---
+
+## 高级话题
+
+
+### 自定义消息类型
+
+EMMessage支持用户自定义扩展
+	
+	/*!
+	@property
+	@abstract 消息扩展
+	*/	
+	@property (nonatomic, strong) NSDictionary *ext;
+
+	
+将需要自定义的object放入字典中，发送时就可以一起发出。	
+
+
+发送自定义消息
+
+
+ 	// 自定义消息
+	EMChatText *userObject = [[EMChatText alloc] initWithText:@""];
+	EMMessageBody *body = [[EMTextMessageBody alloc]
+                           initWithChatObject:userObject];
+ 
+    EMMessage *msg = [[EMMessage alloc] initWithReceiver:username
+                                                  bodies:@[body]];
+ 
+    
+    NSMutableDictionary *vcardProperty = [NSMutableDictionary dictionary];
+	// obj:需要发送object
+	// objKey:obj对应的key
+   	[vcardProperty setObject:obj forKey:objKey];        
+  
+    msg.ext = vcardProperty;
+    
+    // 发送消息
+	[[EaseMob sharedInstance].chatManager asyncSendMessage:msg progress:nil];
+    
+ 
+ 
+接收自定义消息
+
+	-(void)didReceiveMessage:(EMMessage *)message
+	{
+		if(message.ext){
+			// obj:接受到的obj对象
+			// objKey:obj对应的key
+			NSObject *obj = [message.ext objectForKey:objKey];
+		}			
+	}
+
+
+## 黑名单
+
+### 获取黑民单列表
+
+接口
+
+	/*!
+	 @method
+	 @brief 获取黑名单（同步方法）
+	 @discussion
+	 @param pError 错误信息
+	 @result 黑名单（username）
+	 */
+	- (NSArray *)fetchBlockedList:(EMError **)pError;
+	
+	/*!
+	 @method
+	 @brief 获取黑名单（异步方法）
+	 @discussion
+	 函数执行完, 回调[didUpdateBlockedList:]会被触发
+	 */
+	- (void)asyncFetchBlockedList;
+	
+	/*!
+	 @method
+	 @brief 获取黑名单（异步方法）
+	 @param completion     创建完成后的回调
+	 @param aQueue         回调block时的线程
+	 @discussion
+	 获取黑名单成功 判断条件：completion中，error == nil
+	 函数执行完, 会调用参数completion
+	 */
+	- (void)asyncFetchBlockedListWithCompletion:(void (^)(NSArray *blockedList, EMError *error))completion
+	                                    onQueue:(dispatch_queue_t)aQueue;
+	                                    
+
+
+### 把用户加入到黑民单
+	
+接口
+
+	/*!
+	 @method
+	 @brief 将username的用户加到黑名单（该用户不会被从好友中删除，若想删除，请自行调用删除接口）
+	 @discussion
+	 @param username        加入黑名单的用户username
+	 @param relationship    黑名单关系（both:双向都不接受消息；
+	                                  from:能给黑名单中的人发消息，接收不到黑名单中的人发的消息;
+	                                  to:暂不支持）
+	 @result 是否成功的向服务器发送了block信息（不包含：服务器是否成功将用户加入黑名单）
+	 */
+	- (EMError *)blockBuddy:(NSString *)username
+	           relationship:(EMRelationship)relationship;
+
+### 把用户从黑名单中移除
+	
+接口
+
+	/*!
+	 @method
+	 @brief 将username的用户移出黑名单
+	 @discussion
+	 @param username 移出黑名单的用户username
+	 @result 是否成功的向服务器发送了unblock信息（不包含：服务器是否成功将用户移出黑名单）
+	 */
+	- (EMError *)unblockBuddy:(NSString *)username;
