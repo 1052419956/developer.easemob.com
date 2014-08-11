@@ -18,7 +18,7 @@ layout: docs
 
 ### 下载环信demo 
 
-1. 下载环信Demo及SDK： [下载](http://www.easemob.com/downloads.php)
+1. 下载环信Demo及SDK： [下载](http://www.easemob.com/sdk/)
 
 2. 解压缩iOSSDK.zip后会得到以下目录结构：
  

@@ -19,7 +19,7 @@ layout: docs
 
 #### 下载环信Demo及SDK
 
-请到[这里下载](http://www.easemob.com/downloads.php)环信Demo及SDK
+请到[这里下载](http://www.easemob.com/sdk/)环信Demo及SDK
 
 **SDK压缩包下载后, 有20M左右, 解压后, SDK的静态库 libEaseMobClientSDKLite.a 会有42M左右, 静态库这么大的原因是因为静态库包含了三个Architectures:i386、ARMV7、ARMV7S。**
 

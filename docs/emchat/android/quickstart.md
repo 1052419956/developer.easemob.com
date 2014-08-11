@@ -20,7 +20,7 @@ layout: docs
 
     
 
-1. 到[环信官网](http://www.easemob.com/downloads.php)下载
+1. 到[环信官网](http://www.easemob.com/sdk/)下载
 
 2. 解压缩easemob-sdk-2.0.0.zip后会得到以下目录结构：
  
