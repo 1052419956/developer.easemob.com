@@ -30,6 +30,7 @@ layout: docs
             "organization": "easemob-demo",
             "applicationName": "chatdemoui"
         }
+
 #### curl示例：
 		curl -X GET -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "https://a1.easemob.com/easemob-demo/chatdemoui/users/zw123/status"
 
