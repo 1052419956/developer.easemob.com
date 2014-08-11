@@ -2,12 +2,13 @@
 title: 环信
 ---
 
-##群聊:
+* TOP
+{:toc}
 
-###1.收发消息及聊天记录相关等
+##收发消息及聊天记录相关等
 这部分与单聊是一样的，详情见单聊[http://developer.easemob.com/docs/emchat/ios/singlechat.html](http://developer.easemob.com/docs/emchat/ios/singlechat.html)
 
-###2.新建群组
+##新建群组
 
 接口
 
@@ -80,7 +81,7 @@ title: 环信
 	        //code
 	    } onQueue:nil];
 
-###3.群组加人
+##群组加人
 
 接口
 
@@ -134,7 +135,7 @@ title: 环信
 	EMError *error;
 	EMGroup *chatGroup = [[EaseMob sharedInstance].chatManager addOccupants:(被邀请的用户名列表) toGroup:(groupId) welcomeMessage:@"欢迎加入" error:&error];
 
-###4.群组踢人
+##群组踢人
 
 接口
 
@@ -186,7 +187,7 @@ title: 环信
 	                        //code
 	                    } onQueue:nil];
 
-###5.退出群组
+##退出群组
 
 接口
 
@@ -228,13 +229,13 @@ title: 环信
 	        //code
 	    } onQueue:nil];
 
-###6.解散群组
+##解散群组
 
 **需要创建者权限**
 
 接口及用法同<5、退出群聊>，SDK中会判断调用者是否是创建者，如果是则解散群组。  
 
-###7.群组事件监听
+##群组事件监听
 
 **前提条件**
 
@@ -383,7 +384,7 @@ title: 环信
 	- (void)didApplyJoinPublicGroup:(EMGroup *)group
 	                          error:(EMError *)error;
 	                          
-###8.获取与自己相关的群组列表（加入或者创建的）
+##获取与自己相关的群组列表（加入或者创建的）
 
 接口
 
@@ -422,7 +423,7 @@ title: 环信
         //code
     } onQueue:nil];
     
-###9.获取公开群组列表
+##获取公开群组列表
 
 接口
 
@@ -458,7 +459,7 @@ title: 环信
 	        //code
 	    } onQueue:nil];
 	    
-###10.搜索公开群组	 
+##搜索公开群组	 
 
 接口
 
