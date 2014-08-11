@@ -1,4 +1,4 @@
-Crashlog created at 2014-08-11 19:51:17 +0800
+Crashlog created at 2014-08-11 23:32:38 +0800
 
 ===== MESSAGE:
 
@@ -6,7 +6,7 @@ Nanoc::Errors::UnknownLayout: The site does not have a layout with identifier â€
 
 ===== COMPILATION STACK:
 
-  - [item]   /docs/andriod/quickstart/ (rep default)
+  - [item]   /docs/andriod/blacklist/ (rep default)
 
 ===== STACK TRACE:
 
