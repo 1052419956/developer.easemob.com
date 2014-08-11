@@ -42,7 +42,7 @@ layout: docs
 
 ### 下载EaseMobSDK: 
 
-下载EaseMobSDK [下载链接](http://www.easemob.com/downloads/iOSSDK.zip)
+下载EaseMobSDK [下载链接](http://www.easemob.com/sdk/)
 
 ### 将EaseMobSDK拖入到项目中 
 
