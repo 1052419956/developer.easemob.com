@@ -13,8 +13,8 @@ layout: docs
 * 描述： 查看一个用户的在线状态
 * 权限：app管理员或org管理员
 * url参数： 无
-* request body：	无		
-* response： 
+* request body：	无
+* response：
 
         {
             "action": "get",
@@ -30,8 +30,8 @@ layout: docs
             "organization": "easemob-demo",
             "applicationName": "chatdemoui"
         }
+
 #### curl示例：
-	
 	curl -X GET -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "https://a1.easemob.com/easemob-demo/chatdemoui/users/zw123/status"
 
 ### 发送消息
@@ -56,17 +56,16 @@ layout: docs
                 "type" : "txt",
                 "msg" : "hello from rest" //消息内容，参考[聊天记录](http://developer.easemob.com/docs/emchat/rest/chatmessage.html)里的bodies内容
                 },
-            "from" : "jma2", //表示这个消息是谁发出来的, 可以没有这个属性, 那么就会显示是admin, 如果有的话, 则会显示是这个用户发出的    
+            "from" : "jma2", //表示这个消息是谁发出来的, 可以没有这个属性, 那么就会显示是admin, 如果有的话, 则会显示是这个用户发出的
             "ext" : { //扩展属性, 由app自己定义
                 "attr1" : "v1",
                 "attr2" : "v2"
-            }    
-    
+            }
         }
 
 
 * response：
- 
+
         {
             "action": "post",
             "application": "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
@@ -98,7 +97,7 @@ layout: docs
 ## 获取app中所有的群组
 
     GET /{org}/{app}/chatgroups
-    
+
 返回值
 
         {
@@ -123,7 +122,7 @@ layout: docs
             "applicationName": "chatdemoui",
             "count": 0
         }
-                
+
 
 ## 创建一个群组
 
@@ -139,7 +138,7 @@ layout: docs
         "owner":"jma1", //群组的管理员, 此属性为必须的
         "members":["jma2","jma3"] //群组成员,此属性为可选的
     }
-返回值 
+返回值
 
     {"groupid":"1404882944671671"} //返回群组id
 
