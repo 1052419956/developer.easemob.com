@@ -1,187 +1,192 @@
 {
   "pages": [
     {
-      "url": "/docs/",
+      "url": "/docs/emchat/",
       "title": "环信",
       "section": "API/&aring;&frac14;&#128;&aring;&#143;&#145;&aelig;&#140;&#135;&aring;&#141;&#151;&acirc;&#128;&#148;&aelig;&#150;&deg;&aelig;&#137;&#139;&aelig;&#140;&#135;&aring;&frac14;&#149;"
     },
     {
-      "url": "/docs/andriod/",
-      "title": "环信",
-      "section": "API/Android"
-    },
-    {
-      "url": "/docs/andriod/advanced/",
+      "url": "/docs/emchat/android/",
       "title": "环信",
       "section": "API/"
     },
     {
-      "url": "/docs/andriod/blacklist/",
+      "url": "/docs/emchat/android/advanced/",
       "title": "环信",
       "section": "API/"
     },
     {
-      "url": "/docs/andriod/contactmanager/",
+      "url": "/docs/emchat/android/blacklist/",
       "title": "环信",
       "section": "API/"
     },
     {
-      "url": "/docs/andriod/groupchat/",
-      "title": "环信",
-      "section": "API/Android"
-    },
-    {
-      "url": "/docs/andriod/networkabnormal/",
+      "url": "/docs/emchat/android/contactmanager/",
       "title": "环信",
       "section": "API/"
     },
     {
-      "url": "/docs/andriod/quickstart/",
+      "url": "/docs/emchat/android/groupchat/",
       "title": "环信",
       "section": "API/Android"
     },
     {
-      "url": "/docs/andriod/quickstartUI/",
-      "title": "环信",
-      "section": "API/Android"
-    },
-    {
-      "url": "/docs/andriod/quickstartinapp/",
-      "title": "环信",
-      "section": "API/Android"
-    },
-    {
-      "url": "/docs/andriod/singlechat/",
-      "title": "环信",
-      "section": "API/Android"
-    },
-    {
-      "url": "/docs/contactmanager/",
+      "url": "/docs/emchat/android/networkabnormal/",
       "title": "环信",
       "section": "API/"
     },
     {
-      "url": "/docs/friendsystem/",
+      "url": "/docs/emchat/android/quickstart/",
+      "title": "环信",
+      "section": "API/Android"
+    },
+    {
+      "url": "/docs/emchat/android/quickstartUI/",
+      "title": "环信",
+      "section": "API/Android"
+    },
+    {
+      "url": "/docs/emchat/android/quickstartinapp/",
+      "title": "环信",
+      "section": "API/Android"
+    },
+    {
+      "url": "/docs/emchat/android/singlechat/",
+      "title": "环信",
+      "section": "API/Android"
+    },
+    {
+      "url": "/docs/emchat/contactmanager/",
+      "title": "环信",
+      "section": "API/"
+    },
+    {
+      "url": "/docs/emchat/friendsystem/",
       "title": "环信",
       "section": "API/&eacute;&#155;&#134;&aelig;&#136;&#144;&aring;&yen;&frac12;&aring;&#143;&#139;&auml;&frac12;&#147;&ccedil;&sup3;&raquo;"
     },
     {
-      "url": "/docs/groupchat/",
+      "url": "/docs/emchat/groupchat/",
       "title": "环信",
       "section": "API/"
     },
     {
-      "url": "/docs/guide/",
+      "url": "/docs/emchat/guide/",
       "title": "环信",
       "section": "API/"
     },
     {
-      "url": "/docs/ios/",
+      "url": "/docs/emchat/ios/",
+      "title": "环信",
+      "section": "API/"
+    },
+    {
+      "url": "/docs/emchat/ios/ChatDemo_UI/",
       "title": "环信",
       "section": "API/iOS"
     },
     {
-      "url": "/docs/ios/ChatDemo_UI/",
+      "url": "/docs/emchat/ios/advanced/",
+      "title": "环信",
+      "section": "API/"
+    },
+    {
+      "url": "/docs/emchat/ios/blacklist/",
+      "title": "环信",
+      "section": "API/"
+    },
+    {
+      "url": "/docs/emchat/ios/buddylist/",
+      "title": "环信",
+      "section": "API/"
+    },
+    {
+      "url": "/docs/emchat/ios/buddymanager/",
+      "title": "环信",
+      "section": "API/"
+    },
+    {
+      "url": "/docs/emchat/ios/device/",
+      "title": "环信",
+      "section": "API/"
+    },
+    {
+      "url": "/docs/emchat/ios/groupchat/",
       "title": "环信",
       "section": "API/iOS"
     },
     {
-      "url": "/docs/ios/advanced/",
+      "url": "/docs/emchat/ios/newMessageRemind/",
       "title": "环信",
       "section": "API/"
     },
     {
-      "url": "/docs/ios/blacklist/",
+      "url": "/docs/emchat/ios/push/",
       "title": "环信",
       "section": "API/"
     },
     {
-      "url": "/docs/ios/buddylist/",
-      "title": "环信",
-      "section": "API/"
-    },
-    {
-      "url": "/docs/ios/buddymanager/",
-      "title": "环信",
-      "section": "API/"
-    },
-    {
-      "url": "/docs/ios/device/",
-      "title": "环信",
-      "section": "API/"
-    },
-    {
-      "url": "/docs/ios/groupchat/",
+      "url": "/docs/emchat/ios/push/certificate/",
       "title": "环信",
       "section": "API/iOS"
     },
     {
-      "url": "/docs/ios/newMessageRemind/",
+      "url": "/docs/emchat/ios/pushSetting/",
+      "title": "环信",
+      "section": "API/iOS"
+    },
+    {
+      "url": "/docs/emchat/ios/quickstart/",
+      "title": "环信",
+      "section": "API/iOS"
+    },
+    {
+      "url": "/docs/emchat/ios/singlechat/",
+      "title": "环信",
+      "section": "API/iOS"
+    },
+    {
+      "url": "/docs/emchat/rest/",
       "title": "环信",
       "section": "API/"
     },
     {
-      "url": "/docs/ios/push/",
-      "title": "环信",
-      "section": "API/"
-    },
-    {
-      "url": "/docs/ios/push/certificate/",
-      "title": "环信",
-      "section": "API/iOS"
-    },
-    {
-      "url": "/docs/ios/pushSetting/",
-      "title": "环信",
-      "section": "API/iOS"
-    },
-    {
-      "url": "/docs/ios/quickstart/",
-      "title": "环信",
-      "section": "API/iOS"
-    },
-    {
-      "url": "/docs/ios/singlechat/",
-      "title": "环信",
-      "section": "API/iOS"
-    },
-    {
-      "url": "/docs/rest/",
+      "url": "/docs/emchat/rest/chatmessage/",
       "title": "环信",
       "section": "API/&aelig;&#156;&#141;&aring;&#138;&iexcl;&aring;&#153;&uml;&ccedil;&laquo;&macr;REST API"
     },
     {
-      "url": "/docs/rest/chatmessage/",
+      "url": "/docs/emchat/rest/gettingstart/",
       "title": "环信",
       "section": "API/&aelig;&#156;&#141;&aring;&#138;&iexcl;&aring;&#153;&uml;&ccedil;&laquo;&macr;REST API"
     },
     {
-      "url": "/docs/rest/gettingstart/",
-      "title": "环信",
-      "section": "API/&aelig;&#156;&#141;&aring;&#138;&iexcl;&aring;&#153;&uml;&ccedil;&laquo;&macr;REST API"
-    },
-    {
-      "url": "/docs/rest/sendmessage/",
-      "title": "环信",
-      "section": "API/&aelig;&#156;&#141;&aring;&#138;&iexcl;&aring;&#153;&uml;&ccedil;&laquo;&macr;REST API"
-    },
-    {
-      "url": "/docs/rest/userapi/",
-      "title": "环信",
-      "section": "API/&aelig;&#156;&#141;&aring;&#138;&iexcl;&aring;&#153;&uml;&ccedil;&laquo;&macr;REST API"
-    },
-    {
-      "url": "/docs/singlechat/",
+      "url": "/docs/emchat/rest/pagingquery/",
       "title": "环信",
       "section": "API/"
     },
     {
-      "url": "/docs/ui/",
+      "url": "/docs/emchat/rest/sendmessage/",
+      "title": "环信",
+      "section": "API/&aelig;&#156;&#141;&aring;&#138;&iexcl;&aring;&#153;&uml;&ccedil;&laquo;&macr;REST API"
+    },
+    {
+      "url": "/docs/emchat/rest/userapi/",
+      "title": "环信",
+      "section": "API/&aelig;&#156;&#141;&aring;&#138;&iexcl;&aring;&#153;&uml;&ccedil;&laquo;&macr;REST API"
+    },
+    {
+      "url": "/docs/emchat/singlechat/",
+      "title": "环信",
+      "section": "API/"
+    },
+    {
+      "url": "/docs/emchat/ui/",
       "title": "环信",
       "section": "API/UI&aelig;&uml;&iexcl;&aelig;&#157;&iquest;&aring;&ordm;&#147;"
     },
     {
-      "url": "/docs/usersystem/",
+      "url": "/docs/emchat/usersystem/",
       "title": "环信",
       "section": "API/&eacute;&#155;&#134;&aelig;&#136;&#144;&ccedil;&#148;&uml;&aelig;&#136;&middot;&auml;&frac12;&#147;&ccedil;&sup3;&raquo;(&aelig;&#128;&#142;&aelig;&nbsp;&middot;&aring;&curren;&#132;&ccedil;&#144;&#134;APP&ccedil;&#148;&uml;&aelig;&#136;&middot;&ccedil;&#154;&#132;&aring;&curren;&acute;&aring;&#131;&#143;&aring;&#146;&#140;&aelig;&#152;&micro;&ccedil;&sect;&deg;&iuml;&frac14;&#137;"
     },
