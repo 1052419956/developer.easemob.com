@@ -6,7 +6,7 @@ title: 环信
 {:toc}
 
 ##收发消息及聊天记录相关等
-这部分与单聊是一样的，详情见单聊[http://developer.easemob.com/docs/emchat/ios/singlechat.html](http://developer.easemob.com/docs/emchat/ios/singlechat.html)
+这部分与单聊是一样的，详情见单聊[http://developer.easemob.com/docs/emchat/ios/singlechat](http://developer.easemob.com/docs/emchat/ios/singlechat)
 
 ##新建群组
 
@@ -497,7 +497,7 @@ title: 环信
 
 
 ##Apple Doc
-[Apple Doc](http://newdev.easemob.com/apidoc/IOS/chat/)
+[Apple Doc](http://developer.easemob.com/apidoc/IOS/chat/)
 
 ##Demo及SDK下载
 [Demo及SDK下载](http://www.easemob.com/sdk/)

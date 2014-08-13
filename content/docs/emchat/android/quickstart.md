@@ -17,11 +17,11 @@ title: 环信
 
     
 
-1. 到[环信官网](http://www.easemob.com/downloads.php)下载
+1. 到[环信官网](http://www.easemob.com/sdk/)下载
 
 2. 解压缩easemob-sdk-2.0.0.zip后会得到以下目录结构：
  
- ![alt text](demo_dirs1.jpg "Title")
+ ![alt text](/demo_dirs1.jpg "Title")
 
 
 ## 运行环信demo (Android) 
@@ -30,12 +30,12 @@ title: 环信
 
 在手机上安装chatdemo-nonui.apk(apk位于androidsdk/examples/ChatDemoNonUI根目录下),安装成功后，运行chatdemo-nonui:点击生成账号按钮，系统将会为你自动创建一个临时账号
 
-   ![alt text](login.png "demo")
+   ![alt text](/login.png "demo")
  
 
 点击登陆按钮，进入应用中，点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
 
- ![alt text](demo.png "demo")
+ ![alt text](/demo.png "demo")
 
 
 ## 从源代码级别深入了解环信demo (Android)
@@ -46,7 +46,7 @@ title: 环信
 
 Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的ChatDemoNonUI路径,点击“Finish”。
 
-![alt text](guide1.png "demo")
+![alt text](/guide1.png "demo")
 
 
 ### 深入理解环信demo背后的代码

@@ -11,7 +11,7 @@ title: 环信
 
 ### 收发消息及聊天记录相关等
 
-这部分与单聊是一样的，详情见[单聊](http://developer.easemob.com/docs/emchat/android/singlechat.html)
+这部分与单聊是一样的，详情见[单聊](http://developer.easemob.com/docs/emchat/android/singlechat)
 
 ## 新建群聊
 ####创建私有群
@@ -164,7 +164,7 @@ title: 环信
 	其它方法详见环信接口文档
 
 ##Java Doc
-[Java Doc](http://newdev.easemob.com/apidoc/chat/)
+[Java Doc](http://developer.easemob.com/apidoc/chat/)
 
 ##Demo及SDK下载
 [Demo及SDK下载](http://www.easemob.com/sdk/)

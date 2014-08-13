@@ -15,11 +15,11 @@ title: 环信
 
 ### 下载环信demo 
 
-1. 下载环信Demo及SDK： [下载](http://www.easemob.com/downloads.php)
+1. 下载环信Demo及SDK： [下载](http://www.easemob.com/sdk/)
 
 2. 解压缩iOSSDK.zip后会得到以下目录结构：
  
- ![alt text](example_layout.png "Title")
+ ![alt text](/example_layout_IOS.png "Title")
 
 
 ## 运行环信demo (iOS) 
@@ -33,7 +33,7 @@ title: 环信
 
 点击“发送文本消息”，会发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来，显示如下图。
 
-![alt text](demo.png "demo")
+![alt text](/demoIOS.png "demo")
 
 ## 快速集成 
 
@@ -43,24 +43,24 @@ title: 环信
 
 ### 将EaseMobSDK拖入到项目中 
 
-![alt text](import.png "Title")
+![alt text](/import.png "Title")
  
 ### SDK依赖库 
 
-![alt text](addLib.png "Lib")
+![alt text](/addLib.png "Lib")
 
 ### UIDemo依赖库 
-![alt text](addUIDemoLib.png "UIDemoLib")
+![alt text](/addUIDemoLib.png "UIDemoLib")
  
 ### 设置Linker 
 
-![alt text](link.png "link")
+![alt text](/link.png "link")
 
 向Other Linker Flags 中添加 -ObjC。(如果已有，则不需要再添加)
 
 ### 设置Architectures 
 
-![alt text](Active.png "Active")
+![alt text](/Active.png "Active")
 
 ### 初始化EaseMobSDK 
 
