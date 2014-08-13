@@ -154,7 +154,7 @@ API 为
 
 获取token请参考[用户管理REST API](http://developer.easemob.com/docs/emchat/rest/userapi.html)
 
-
+###获取聊天记录
 #### GET /{org_name}/{app_name}/chatmessages
 - 描述： 获取聊天记录
 - 权限：app管理员或org管理员
