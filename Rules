@@ -27,7 +27,23 @@ compile '/feed/' do
   filter :kramdown, :toc_levels => [2]
 end
 
+compile '/docs/baas/*' do
+end
+compile '/docs/downloads/*' do
+end
+compile '/docs/empush/*' do
+end
+compile '/docs/emuser/*' do
+end
+compile '/docs/usergrid/*' do
+end
 
+
+compile '/apidoc/*' do
+  filter :erb
+  filter :kramdown, :toc_levels => [2]
+  layout 'apidoc'
+end
 
 compile '/docs/*' do
   filter :search
@@ -84,6 +100,7 @@ route '/static/*' do
   item.identifier[7..-2]
 end
 
+
 route '/CNAME/' do
   '/CNAME'
 end
@@ -91,6 +108,26 @@ end
 route '/feed' do
   '/changes.atom'
 end
+
+# 放什么，就输出什么对应的html文件
+route '/docs/baas/*' do
+  item.identifier.chop + '.html'
+end
+route '/docs/downloads/*' do
+  item.identifier.chop + '.html'
+end
+route '/docs/empush/*' do
+  item.identifier + 'index.html'
+end
+route '/docs/emuser/*' do
+  item.identifier.chop + '.html'
+end
+route '/docs/usergrid/*' do
+  item.identifier.chop + '.html'
+end
+
+
+
 
 route '*' do
   item.identifier + 'index.html'

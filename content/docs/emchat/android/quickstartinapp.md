@@ -9,9 +9,9 @@ title: 环信
 在自行开发的应用中，集成环信聊天需要把libs文件夹下的`easemobchat_2.0.4.jar`拷贝到你的项目的libs文件夹底下，jar名字的后面的2.0.4可能会跟你下载的不一致，这是版本号，以实际为准。如果集成过2.0.4之前sdk的开发者，集成此sdk时，需要把httpmime这个jar从libs底下移除。
 
 
-![alt text](demo_dirs_new.jpg "demo") 
+![alt text](/demo_dirs_new.jpg "demo") 
 
- ![alt text](project_libs.jpg "demo")
+ ![alt text](/project_libs.jpg "demo")
 
 ### 添加环信的配置信息
 

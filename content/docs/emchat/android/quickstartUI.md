@@ -14,25 +14,25 @@ UI demo，包含了一个接近微信的完整的聊天app的所有功能, 包�
 
 ### 下载环信sdk及demo 
     
-下载环信sdk及demo：[下载链接](http://www.easemob.com/downloads.php)
+下载环信sdk及demo：[下载链接](http://www.easemob.com/sdk/)
 
  解压缩easemob-sdk-2.0.0.zip后会得到以下目录结构：
  
- ![alt text](demo_dirs1.jpg "Title")
+ ![alt text](/demo_dirs1.jpg "Title")
 
 
 ## 运行环信demo (Android) 
 
 在手机上安装chatdemo-ui.apk (apk位于androidsdk/examples/ChatDemoUI目录下)，安装成功后，运行此app，注册账号(用户名不能有大写字母)，并登陆。
 
-![alt text](register1.png "demo") 
+![alt text](/register1.png "demo") 
 
-![alt text](login1.png "demo")
+![alt text](/login1.png "demo")
 
 
 登陆之后，进入通讯录点击右上角的加号，添加好友成功后，就可以互发消息了。
 
- ![alt text](contact_add.png "demo") ![alt text](chat.png "demo")
+ ![alt text](/contact_add.png "demo") ![alt text](/chat.png "demo")
 	
 
 ## 从源代码级别深入了解环信demo (Android)
@@ -43,7 +43,7 @@ UI demo，包含了一个接近微信的完整的聊天app的所有功能, 包�
 
 Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Project from Existing Code”， 选择解压后的"androidsdk/examples"目录下的chatdemo-nonui路径,点击“Finish”。
 
-![alt text](guide1.png "demo")
+![alt text](/guide1.png "demo")
 
 
 ### 深入理解环信demo背后的代码

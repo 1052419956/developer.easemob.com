@@ -16,19 +16,19 @@ title: 环信
 
 #### 下载环信Demo及SDK
 
-请到[这里下载](http://www.easemob.com/downloads.php)环信Demo及SDK
+请到[这里下载](http://www.easemob.com/sdk/)环信Demo及SDK
 
 **SDK压缩包下载后, 有20M左右, 解压后, SDK的静态库 libEaseMobClientSDKLite.a 会有42M左右, 静态库这么大的原因是因为静态库包含了三个Architectures:i386、ARMV7、ARMV7S。**
 
 **应用集成SDK后build的iPA安装包，会在原有的基础上变大1.5-2M，对安装包的大小不会有很大的影响的**
 
-  ![alt text](example_layout.png "Demo")
+  ![alt text](/example_layout_IOS.png "Demo")
   
 #### 运行程序
 
 账号不支持中文
 
- ![alt text](chatUIDemoLogin.png "Demo")
+ ![alt text](/chatUIDemoLogin.png "Demo")
  
 #### 登录成功进入首页
 
@@ -38,25 +38,25 @@ title: 环信
 
 设置：退出登录
 
- ![alt text](chatUIDemoHome.png "Demo")
+ ![alt text](/chatUIDemoHome.png "Demo")
  
 #### 添加好友
 
 运行程序并登录账号2。点击“通讯录”页面的“+”
 
- ![alt text](chatUIDemoOther.png "Demo")
+ ![alt text](/chatUIDemoOther.png "Demo")
  
 输入好友用户名（账号1），进行搜索添加
  
- ![alt text](chatUIDemoAddFriend.png "Demo")
+ ![alt text](/chatUIDemoAddFriend.png "Demo")
  
 在账号1接收账号2的好友申请
  
- ![alt text](chatUIDemoApplyList.png "Demo")
+ ![alt text](/chatUIDemoApplyList.png "Demo")
  
 #### 账号1和账号2互发消息
 
- ![alt text](chatUIDemoChatList.png "Demo") 
+ ![alt text](/chatUIDemoChatList.png "Demo") 
  
 ### 其他说明
 #### 监测网络状态
@@ -70,7 +70,7 @@ title: 环信
     	
 	}
 	
-![alt text](chatUIDemoNetwork.png "Demo") 
+![alt text](/chatUIDemoNetwork.png "Demo") 
 
 #### 账号在其它设备登录
 
