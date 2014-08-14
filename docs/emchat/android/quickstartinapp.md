@@ -47,6 +47,7 @@ layout: docs
 ### app打包混淆
 
 在proguard文件中加入以下keep
+并需要把sdk的debug 标志设为false
 
 		-keep class com.easemob.** {*;}
 		-keep class org.jivesoftware.** {*;}
