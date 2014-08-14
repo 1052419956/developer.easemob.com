@@ -23,12 +23,14 @@ layout: docs
 	                    "type": "txt" //消息类型。txt:文本消息, img:图片, loc：位置, audio：语音
 						"length": 3, //语音时长，单位为秒，这个属性只有语音消息有
 	                	"url": "", //图片语音等文件的网络url，图片和语音消息有这个属性
-	                    "filename": "22.png", //文件名字，图片和语音消息有这个属性
+						"thumb": "", //缩量图url，设成跟url一样就行，图片消息有这个属性
+	                    "filename": "22.png", //文件名字，图片和语音等文件类型消息有这个属性
+						"file_length": 155164  //文件大小，文件相关消息有这个消息
 	                    "secret": "pCY80PdfEeO4Jh9URCOfMQWU9QYsJytynu4n-yhtvAhmt1g9", //获取文件的secret，图片和语音消息有这个属性
 						"lat": 39.983805, //发送的位置的纬度，只有位置消息有这个属性
 	                    "lng": 116.307417, //位置经度，只有位置消息有这个属性
 	                    "addr": "北京市海淀区北四环西路66号" //位置消息详细地址，只有位置消息有这个属性
-	
+						"size":{"width":960,"height":720}  //图片尺寸，图片消息又这个属性
 	                }
 	            ]
 				"ext": { //自定义扩展属性
@@ -53,9 +55,12 @@ image message://图片消息
 			"type":"img",//图片消息类型
 			"url":"https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/65e54a4a-fd0b-11e3-b821-ebde7b50cc4b",//上传图片消息地址,在上传图片成功后会返回uuid
 			"filename":"test1.jpg",//图片名称
-			"thumb":"https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/496334fa-f53f-11e3-9eb7-4fbb06ff7876",//上传缩略图地址
+			"thumb":"https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/496334fa-f53f-11e3-9eb7-4fbb06ff7876",//图片的缩略图地址，跟url一直即可。注意这个属性不能少
 			"secret":"DRGM8OZrEeO1vafuJSo2IjHBeKlIhDp0GCnFu54xOF3M6KLr",//secret在上传图片后会返回，只有含有secret才能够下载此图片
 			"thumb_secret":"DRGM8OZrEeO1vafuJSo2IjHBeKlIhDp0GCnFu54xOF3M6KLr"//thumb_secret在上传缩略图后会返回，
+			"file_length":155164, //文件大小
+			"size":{"width":960,"height":720} //大图的尺寸 
+
 		}]}
 voice message://语音消息
 
