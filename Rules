@@ -111,7 +111,7 @@ end
 
 # 放什么，就输出什么对应的html文件
 route '/docs/baas/*' do
-  item.identifier.chop + '.html'
+  item.identifier.chop + ('.' + item[:extension])
 end
 route '/docs/downloads/*' do
   item.identifier.chop + '.html'
