@@ -1,45 +1,40 @@
-Crashlog created at 2014-08-11 23:32:38 +0800
+Crashlog created at 2014-08-14 14:02:53 +0800
 
 ===== MESSAGE:
 
-Nanoc::Errors::UnknownLayout: The site does not have a layout with identifier “docs”.
+SyntaxError: /Users/bate/Desktop/workFolder/huanxin/developer.easemob.com/Rules:114: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  item.identifier.chop + （'.' + item[:extension]）
+                             ^
+/Users/bate/Desktop/workFolder/huanxin/developer.easemob.com/Rules:114: syntax error, unexpected tIDENTIFIER, expecting keyword_end
 
 ===== COMPILATION STACK:
 
-  - [item]   /docs/andriod/blacklist/ (rep default)
+  (empty)
 
 ===== STACK TRACE:
 
-  0. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/compilation/item_rep_proxy.rb:97:in `layout_with_identifier'
-  1. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/compilation/item_rep_proxy.rb:65:in `layout'
-  2. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/compilation/rule_context.rb:74:in `layout'
-  3. /Users/bate/Desktop/workFolder/huanxin/developer.easemob.com/Rules:38:in `block in parse'
-  4. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/compilation/rule.rb:70:in `instance_eval'
-  5. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/compilation/rule.rb:70:in `apply_to'
-  6. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/compilation/compiler.rb:386:in `compile_rep'
-  7. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/compilation/compiler.rb:342:in `block in compile_reps'
-  8. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/compilation/compiler.rb:335:in `loop'
-  9. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/compilation/compiler.rb:335:in `compile_reps'
-  10. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/compilation/compiler.rb:89:in `run'
-  11. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/source_data/site.rb:59:in `compile'
-  12. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/commands/compile.rb:397:in `block in run'
-  13. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/commands/compile.rb:438:in `run_listeners_while'
-  14. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/commands/compile.rb:396:in `run'
-  15. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/command_runner.rb:14:in `block in call'
-  16. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/error_handler.rb:74:in `handle_while'
-  17. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/error_handler.rb:26:in `handle_while'
-  18. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/command_runner.rb:13:in `call'
-  19. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/cri-2.6.1/lib/cri/command_dsl.rb:223:in `block in runner'
-  20. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/cri-2.6.1/lib/cri/command.rb:298:in `call'
-  21. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/cri-2.6.1/lib/cri/command.rb:298:in `run_this'
-  22. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/cri-2.6.1/lib/cri/command.rb:251:in `run'
-  23. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/cri-2.6.1/lib/cri/command.rb:264:in `run'
-  24. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli.rb:59:in `block in run'
-  25. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/error_handler.rb:74:in `handle_while'
-  26. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/error_handler.rb:26:in `handle_while'
-  27. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli.rb:57:in `run'
-  28. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/bin/nanoc:20:in `<top (required)>'
-  29. /Users/bate/.rvm/gems/ruby-1.9.3-p547/bin/nanoc:23:in `load'
+  0. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/compilation/rules_collection.rb:94:in `instance_eval'
+  1. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/compilation/rules_collection.rb:94:in `parse'
+  2. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/compilation/rules_collection.rb:83:in `load'
+  3. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/compilation/compiler.rb:121:in `load'
+  4. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/base/source_data/site.rb:255:in `load'
+  5. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/command_runner.rb:63:in `load_site'
+  6. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/commands/compile.rb:392:in `run'
+  7. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/command_runner.rb:14:in `block in call'
+  8. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/error_handler.rb:74:in `handle_while'
+  9. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/error_handler.rb:26:in `handle_while'
+  10. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/command_runner.rb:13:in `call'
+  11. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/cri-2.6.1/lib/cri/command_dsl.rb:223:in `block in runner'
+  12. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/cri-2.6.1/lib/cri/command.rb:298:in `call'
+  13. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/cri-2.6.1/lib/cri/command.rb:298:in `run_this'
+  14. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/cri-2.6.1/lib/cri/command.rb:251:in `run'
+  15. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/cri-2.6.1/lib/cri/command.rb:264:in `run'
+  16. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli.rb:59:in `block in run'
+  17. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/error_handler.rb:74:in `handle_while'
+  18. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli/error_handler.rb:26:in `handle_while'
+  19. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/lib/nanoc/cli.rb:57:in `run'
+  20. /Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/nanoc-3.7.0/bin/nanoc:20:in `<top (required)>'
+  21. /Users/bate/.rvm/gems/ruby-1.9.3-p547/bin/nanoc:23:in `load'
 
 ===== VERSION INFORMATION:
 
@@ -48,7 +43,7 @@ Running ruby 1.9.3 (2014-05-14) on x86_64-darwin13.1.0 with RubyGems 2.2.2.
 
 ===== SYSTEM INFORMATION:
 
-Darwin newdev.easemob.com 13.1.0 Darwin Kernel Version 13.1.0: Thu Jan 16 19:40:37 PST 2014; root:xnu-2422.90.20~2/RELEASE_X86_64 x86_64
+Darwin bate.local 13.1.0 Darwin Kernel Version 13.1.0: Thu Jan 16 19:40:37 PST 2014; root:xnu-2422.90.20~2/RELEASE_X86_64 x86_64
 
 ===== INSTALLED GEMS:
 
@@ -80,7 +75,7 @@ Darwin newdev.easemob.com 13.1.0 Darwin Kernel Version 13.1.0: Thu Jan 16 19:40:
 
 ===== ENVIRONMENT:
 
-Apple_PubSub_Socket_Render => "/tmp/launch-CEdoKZ/Render"
+Apple_PubSub_Socket_Render => "/tmp/launch-gxNKUv/Render"
 BUNDLE_BIN_PATH => "/Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/bundler-1.6.5/bin/bundle"
 BUNDLE_GEMFILE => "/Users/bate/Desktop/workFolder/huanxin/developer.easemob.com/Gemfile"
 CLICOLOR => "1"
@@ -93,7 +88,6 @@ LOGNAME => "bate"
 LSCOLORS => "gxfxaxdxcxegedabagacfx"
 MANPATH => "/Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/kramdown-0.13.8/man"
 MY_RUBY_HOME => "/Users/bate/.rvm/rubies/ruby-1.9.3-p547"
-OLDPWD => "/Users/bate/Desktop/workFolder/huanxin"
 PATH => "/Users/bate/.rvm/gems/ruby-1.9.3-p547/bin:/Users/bate/.rvm/gems/ruby-1.9.3-p547@global/bin:/Users/bate/.rvm/rubies/ruby-1.9.3-p547/bin:/Users/bate/.rvm/bin:/opt/local/bin:/opt/local/sbin:/usr/local/nginx/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 PWD => "/Users/bate/Desktop/workFolder/huanxin/developer.easemob.com"
 RUBYLIB => "/Users/bate/.rvm/gems/ruby-1.9.3-p547/gems/bundler-1.6.5/lib"
@@ -102,7 +96,7 @@ RUBY_VERSION => "ruby-1.9.3-p547"
 SECURITYSESSIONID => "186a4"
 SHELL => "/bin/bash"
 SHLVL => "1"
-SSH_AUTH_SOCK => "/tmp/launch-Zve3TF/Listeners"
+SSH_AUTH_SOCK => "/tmp/launch-tFvRRo/Listeners"
 TERM => "xterm-256color"
 TERM_PROGRAM => "Apple_Terminal"
 TERM_PROGRAM_VERSION => "326"
