@@ -184,6 +184,11 @@ layout: docs
     conversation.removeMessage(deleteMsg.msgId);
 
 
+### 清空通知栏的消息提示
+	//在BaseActivity的onResume()调用即可
+	EMChatManager.getInstance().activityResumed();
+
+
 ### 设置自定义的消息提示
 
 app在后台时，新消息会通过notification的方式，在手机状态栏提示新消息，可以把提示的内容换成自定义的内容(在application的oncreate()里设置)。

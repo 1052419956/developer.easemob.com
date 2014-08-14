@@ -22,6 +22,9 @@ layout: docs
 	//allowInvite:是否允许群成员邀请人进群
 	EMGroupManager.getInstance().createPrivateGroup(groupName, desc, members,allowInvite);
 
+	//前一种方法创建的群聊默认最大群聊用户数为200，传入maxUsers后设置自定义的最大用户数，最大为2000
+	EMGroupManager.getInstance().createPrivateGroup(groupName, desc, members,allowInvite,maxUsers);
+
 ####创建公开群 
 公开群可以被用户搜索到，并且可以直接加入或者申请加入
 
@@ -29,6 +32,8 @@ layout: docs
 	//needApprovalRequired:如果创建的公开群用需要户自由加入，就传false。否则需要申请，等群主批准后才能加入，传true
 	EMGroupManager.getInstance().createPublicGroup(groupName, desc, members, needApprovalRequired);
 	
+	//前一种方法创建的群聊默认最大群聊用户数为200，传入maxUsers后设置自定义的最大用户数，最大可以设为2000
+	EMGroupManager.getInstance().createPublicGroup(groupName, desc, members, needApprovalRequired,maxUsers);
 
 ### 群聊加人
 	//群主加人调用此方法
@@ -58,15 +63,29 @@ layout: docs
 
 ### 获取群聊列表
 
-	//从服务器获取自己加入的和创建的群聊列表
+	//从服务器获取自己加入的和创建的群聊列表，此api获取的群组sdk会自动保存到内存和db。注意，获取到的列表里的群聊只有groupname和groupid的简单信息
 	List<EMGroup> grouplist = EMGroupManager.getInstance().getGroupsFromServer();
 
-	//从本地加载群聊列表，节省了每次从服务器加载数据的时间
+	//从本地加载群聊列表
 	List<EMGroup> grouplist = EMGroupManager.getInstance().getAllGroups();
 
 	//获取所有公开群列表
 	List<EMGroupInfo> groupsList = EMGroupManager.getInstanc().getAllPublicGroupsFromServer();
 
+### 获取群聊详情
+
+	//根据群聊ID从本地获取群聊信息
+	EMGroup group = EMGroupManager.getInstance().getGroup(groupId);
+	//根据群聊ID从服务器获取群聊信息
+	EMGroup group =EMGroupManager.getInstance().getGroupFromServer(groupId);
+	
+	//保存获取下来的群聊信息
+	EMGroupManager.getInstance().createOrUpdateLocalGroup(returnGroup);
+
+	group.getMembers();//获取群成员
+	group.getOwner();//获取群主
+    ...
+	其它方法详见环信javadoc
 
 ### 群聊事件监听
 
@@ -115,14 +134,5 @@ layout: docs
 		}
 	});
 
-### 获取群组信息
-	//根据群组ID从本地获取群组信息
-	EMGroup group = EMGroupManager.getInstance().getGroup(groupId);
-	//根据群组ID从服务器获取群组信息
-	EMGroup group =EMGroupManager.getInstance().getGroupFromServer(groupId);
 
-	group.getMembers();//获取群成员
-	group.getOwner();//获取群主
-    ...
-	其它方法详见环信接口文档
 
