@@ -623,7 +623,7 @@ a .mega-octicon {
 
 .sidebar-shell {
   position: relative;
-  float: right;
+  float: left;
   margin: 20px 0 0;
   width: 280px;
 }
@@ -938,7 +938,7 @@ a .mega-octicon {
 .content {
   width: 630px;
   position: relative;
-  float: left;
+  float: right;
   color: #393939;
   z-index: 2;
   font-size: 14px;
