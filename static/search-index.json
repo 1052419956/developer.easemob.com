@@ -1,11 +1,6 @@
 {
   "pages": [
     {
-      "url": "/docs/",
-      "title": "环信",
-      "section": "API/"
-    },
-    {
       "url": "/docs/emchat/",
       "title": "环信",
       "section": "API/&aring;&frac14;&#128;&aring;&#143;&#145;&aelig;&#140;&#135;&aring;&#141;&#151;&acirc;&#128;&#148;&aelig;&#150;&deg;&aelig;&#137;&#139;&aelig;&#140;&#135;&aring;&frac14;&#149;"
@@ -253,27 +248,27 @@
     {
       "url": "/v3/enterprise/",
       "title": "Enterprise",
-      "section": "API/Enterprise"
+      "section": "API/"
     },
     {
       "url": "/v3/enterprise/admin_stats/",
       "title": "Admin Stats",
-      "section": "API/Enterprise"
+      "section": "API/"
     },
     {
       "url": "/v3/enterprise/license/",
       "title": "License",
-      "section": "API/Enterprise"
+      "section": "API/"
     },
     {
       "url": "/v3/enterprise/management_console/",
       "title": "Management Console",
-      "section": "API/Enterprise"
+      "section": "API/"
     },
     {
       "url": "/v3/enterprise/search_indexing/",
       "title": "Search Indexing",
-      "section": "API/Enterprise"
+      "section": "API/"
     },
     {
       "url": "/v3/gists/",
@@ -398,12 +393,12 @@
     {
       "url": "/v3/pulls/",
       "title": "Pull Requests",
-      "section": "API/Pull Requests"
+      "section": "API/"
     },
     {
       "url": "/v3/pulls/comments/",
       "title": "Review Comments",
-      "section": "API/Pull Requests"
+      "section": "API/"
     },
     {
       "url": "/v3/rate_limit/",
@@ -413,87 +408,87 @@
     {
       "url": "/v3/repos/",
       "title": "Repositories",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/repos/collaborators/",
       "title": "Collaborators",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/repos/comments/",
       "title": "Comments",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/repos/commits/",
       "title": "Commits",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/repos/contents/",
       "title": "Contents",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/repos/deployments/",
       "title": "Deployments",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/repos/downloads/",
       "title": "Downloads",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/repos/forks/",
       "title": "Forks",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/repos/hooks/",
       "title": "Webhooks",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/repos/keys/",
       "title": "Deploy Keys",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/repos/merging/",
       "title": "Merging",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/repos/pages/",
       "title": "Pages",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/repos/releases/",
       "title": "Releases",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/repos/statistics/",
       "title": "Statistics",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/repos/statuses/",
       "title": "Statuses",
-      "section": "API/Repositories"
+      "section": "API/"
     },
     {
       "url": "/v3/search/",
       "title": "Search",
-      "section": "API/Search"
+      "section": "API/"
     },
     {
       "url": "/v3/search/legacy/",
       "title": "Legacy Search",
-      "section": "API/Search"
+      "section": "API/"
     },
     {
       "url": "/v3/troubleshooting/",
@@ -503,22 +498,22 @@
     {
       "url": "/v3/users/",
       "title": "Users",
-      "section": "API/Users"
+      "section": "API/"
     },
     {
       "url": "/v3/users/emails/",
       "title": "User Emails",
-      "section": "API/Users"
+      "section": "API/"
     },
     {
       "url": "/v3/users/followers/",
       "title": "User Followers",
-      "section": "API/Users"
+      "section": "API/"
     },
     {
       "url": "/v3/users/keys/",
       "title": "User Public Keys",
-      "section": "API/Users"
+      "section": "API/"
     },
     {
       "url": "/v3/versions/",
