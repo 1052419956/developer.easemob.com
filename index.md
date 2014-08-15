@@ -45,7 +45,7 @@ layout: docs
 			* [公开群组： 设置群组属性为公开或非公开群组。搜索所有公开群组。加入公开群组](/docs/emchat/android/groupchat.html)
 			* [群组自定义属性](/docs/emchat/android/groupchat.html)
 	* [Java Doc](/apidoc/chat/)
-	* [Demo及SDK下载](http://www.easemob.com/downloads.php)
+	* [Demo及SDK下载](http://www.easemob.com/sdk/)
 
  
 * iOS
@@ -83,7 +83,7 @@ layout: docs
 			* [公开群组： 创建群组时设置群组属性为公开或非公开群组。搜索所有公开群组。加入公开群组](/docs/emchat/ios/groupchat.html)
 			* [群组自定义属性](/docs/emchat/ios/groupchat.html)
 	* [Apple Doc](/apidoc/iOS/chat/)
-	* [Demo及SDK下载](http://www.easemob.com/downloads.php)
+	* [Demo及SDK下载](http://www.easemob.com/sdk/)
 * [UI模板库](/docs/emchat/ui.html)
 * 服务器端REST API
 <!--	* [群组管理REST API](/docs/emchat/rest/groupmanagement.html) -->
