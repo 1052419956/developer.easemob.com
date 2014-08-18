@@ -39,19 +39,18 @@ compile '/docs/usergrid/*' do
 end
 
 
-compile '/apidoc/*' do
-  filter :erb
-  filter :kramdown, :toc_levels => [2]
-  layout 'apidoc'
-end
 
 compile '/docs/*' do
   filter :search
   filter :erb
   filter :kramdown, :toc_levels => [2]
   filter :colorize_syntax,
-    :colorizers => {:javascript => :rouge}
-  layout item[:layout] || 'api'
+    :colorizers => {:java => :rouge,
+                    :objective_c => :rouge,
+                    :javascript => :rouge
+                    }
+  layout item[:layout] || 'docs'
+#  layout item[:layout] || 'api'
 end
 
 compile '/v3/*' do
