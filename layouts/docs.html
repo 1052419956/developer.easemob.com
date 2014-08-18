@@ -1,0 +1,21 @@
+<%= render 'head' %>
+
+<body class="api">
+  <%= render 'header' %>
+  <%= render 'secondnav' %>
+  
+  <div id="wrapper">
+
+    <% if @item[:sidebar] %>
+        <%= render  @item[:sidebar] %>
+    <% end %>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+
+  </div><!-- #wrapper -->
+
+  <%= render 'footer' %>
+</body>
+</html>
