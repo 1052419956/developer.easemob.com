@@ -53,20 +53,21 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 
 #### 初始化：见DemoApplication.java
 
-    public class DemoApplication extends Application {
-    
-        public static Context appContext;
-        @Override
-        public void onCreate() { 
-           super.onCreate();
-           appContext = this;
-     
-           //初始化环信SDK
-           Log.d("DemoApplication", "Initialize EMChat SDK");
-           EMChat.getInstance().init(appContext);
-        }
-    }
+<pre class="hll"><code class="language-java">
+public class DemoApplication extends Application {
 
+    public static Context appContext;
+    @Override
+    public void onCreate() { 
+       super.onCreate();
+       appContext = this;
+ 
+       //初始化环信SDK
+       Log.d("DemoApplication", "Initialize EMChat SDK");
+       EMChat.getInstance().init(appContext);
+    }
+}
+</code></pre>
 #### 注册：见LoginActivity.java
 
 	// 注册临时账号  缺省密码： 123456

@@ -66,27 +66,28 @@ title: 环信
 
 在AppDelegate中注册SDK
 
-	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary 	*)launchOptions
-	{
-		self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-		self.window.backgroundColor = [UIColor whiteColor];
-   
-		// 真机的情况下,notification提醒设置
-		UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge |
-		UIRemoteNotificationTypeSound |
-		UIRemoteNotificationTypeAlert;
-		[[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
+<pre class="hll"><code class="language-objective_c">
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary 	*)launchOptions
+{
+	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	self.window.backgroundColor = [UIColor whiteColor];
 
-		//注册 APNS文件的名字, 需要与后台上传证书时的名字一一对应
-		NSString *apnsCertName = @"chatdemo";
-		[[EaseMob sharedInstance] registerSDKWithAppKey:@"easemob-demo#chatdemo" apnsCertName:apnsCertName];
-		[[EaseMob sharedInstance] enableBackgroundReceiveMessage];
-		[[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
-    
-		[self.window makeKeyAndVisible];
-		return YES;
-	}
+	// 真机的情况下,notification提醒设置
+	UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge |
+	UIRemoteNotificationTypeSound |
+	UIRemoteNotificationTypeAlert;
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
 
+	//注册 APNS文件的名字, 需要与后台上传证书时的名字一一对应
+	NSString *apnsCertName = @"chatdemo";
+	[[EaseMob sharedInstance] registerSDKWithAppKey:@"easemob-demo#chatdemo" apnsCertName:apnsCertName];
+	[[EaseMob sharedInstance] enableBackgroundReceiveMessage];
+	[[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+
+	[self.window makeKeyAndVisible];
+	return YES;
+}
+</code></pre>
 
 关于EASEMOB_APPKEY，请登录或注册[环信开发者后台(https://console.easemob.com),申请APPKEY后，进行相关配置。
 
