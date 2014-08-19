@@ -243,9 +243,9 @@ SDK中提供了方便的新消息提醒功能。可以在收到消息时调用�
     
     chatOptions = EMChatManager.getInstance().getChatOptions();
 
-设置是否启用新消息提醒 
+设置是否启用新消息提醒(打开或者关闭消息声音和震动提示)
 
-    chatOptions.setNotificationEnable(true|false); //默认为true 开启新消息提醒
+    chatOptions.setNotifyBySoundAndVibrate(true|false); //默认为true 开启新消息提醒
     
 设置是否启用新消息声音提醒 
 
@@ -258,6 +258,10 @@ SDK中提供了方便的新消息提醒功能。可以在收到消息时调用�
 设置语音消息播放是否设置为扬声器播放
 
 	chatOptions.setUseSpeaker(true|false); //默认为true 开启扬声器播放
+
+设置后台接收新消息时是否通过通知栏提示
+
+	chatOptions.setShowNotificationInBackgroud(true|false) //默认为true
 
 附：
 
