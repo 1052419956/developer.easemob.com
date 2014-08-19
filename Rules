@@ -27,6 +27,13 @@ compile '/feed/' do
   filter :kramdown, :toc_levels => [2]
 end
 
+#about  关于我们
+compile '/about/*' do
+  filter :kramdown, :toc_levels => [2]
+  filter :erb
+  layout 'about'
+end 
+
 compile '/docs/baas/*' do
 end
 compile '/docs/downloads/*' do
