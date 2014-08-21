@@ -125,4 +125,3 @@ HTTP 1.0 和 1.1 这两个版本的协议, 有一个最主要的不同是在1.1�
 ### 示例代码
 
 环信提供了如何调用REST服务的示例代码, 可以在[这里](https://github.com/easemob/emchat-server-examples)找到.
-
