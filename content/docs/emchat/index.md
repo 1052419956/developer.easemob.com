@@ -2,6 +2,8 @@
 title: 环信
 ---
 
+* TOC
+{:toc}
 # 新手指引
 
 集成环信非常简单，通常只需要几小时到几天时间。集成环信所需要的步骤如下：
@@ -12,7 +14,7 @@ title: 环信
 4. Android或iOS客户端集成
 
 
-###  1. 注册环信开发者账号
+##  1. 注册环信开发者账号
 
 在环信官网上点击[注册](https://console.easemob.com/?comeFrom=easemobHome)，跳转到环信管理后台注册页面，如下图：
 
@@ -45,17 +47,17 @@ title: 环信
 
 ![alt text](/appkey.png "Title")
 
-###  2. 将环信和现有APP的用户体系集成
+##  2. 将环信和现有APP的用户体系集成
 
 见**[集成用户体系文档](/docs/emchat/usersystem)**
 
 
-###  3. 将环信和现有APP的好友体系集成
+##  3. 将环信和现有APP的好友体系集成
 
 见**[集成好友体系文档](/docs/emchat/friendsystem)**
 
 
-###  4. 客户端集成
+##  4. 客户端集成
 
 ####  4.1 [5分钟快速入门-android](/docs/emchat/android/quickstartUI)
 
