@@ -7,7 +7,7 @@ secondnavios: true
 #群聊：
 
 ##收发消息及聊天记录相关等
-这部分与单聊是一样的，详情见单聊[http://developer.easemob.com/docs/ios/singlechat](http://developer.easemob.com/docs/emchat/ios/singlechat)
+这部分与单聊是一样的，详情见单聊[http://developer.easemob.com/docs/ios/singlechat](http://developer.easemob.com/docs/ios/singlechat)
 
 ##新建群组
 

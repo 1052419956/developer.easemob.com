@@ -17,11 +17,11 @@ sidebar: gettingstartsidebar
 APP需要将现有APP的好友关系导入到环信的好友体系中，这样环信才有足够的信息去控制谁可以给谁发消息。
 
 ### 将已上线的APP的现有用户的好友体系导入到环信
-**[好友列表管理REST API](/docs/emchat/rest/userapi)**提供了一个修改环信账号好友体系的REST方法。对一个已经上线，已经有很多现有用户的APP来说，只需要写一个脚本，循环调用修改环信账号好友体系的REST方法即可。
+**[好友列表管理REST API](/docs/rest/userapi)**提供了一个修改环信账号好友体系的REST方法。对一个已经上线，已经有很多现有用户的APP来说，只需要写一个脚本，循环调用修改环信账号好友体系的REST方法即可。
 
 
 ### APP用户好友列表更新时也同步更新环信账号的好友体系
-**[好友列表管理REST API](/docs/emchat/rest/userapi)**提供了一个修改环信账号好友体系的REST方法。即每次当AP业务后台的用户的好友列表发生变化时，也在环信上更新该APP用户的好友体系。
+**[好友列表管理REST API](/docs/rest/userapi)**提供了一个修改环信账号好友体系的REST方法。即每次当AP业务后台的用户的好友列表发生变化时，也在环信上更新该APP用户的好友体系。
 
 ### 打开或关闭发送消息权限控制
 如前文所述，是否在环信中建立好友体系，是否开启或关闭发送消息的权限控制，是由APP管理者自己决定的。
@@ -31,10 +31,10 @@ APP需要将现有APP的好友关系导入到环信的好友体系中，这样�
 
 ## iOS客户端操作好友列表
 
-**[获取好友列表，监听好友列表](/docs/emchat/ios/singlechat/#section-24)**
+**[获取好友列表，监听好友列表](/docs/ios/singlechat/#section-24)**
 
-**[根据账号 （查找，添加，删除，黑名单）](/docs/emchat/ios/singlechat/#section-26)**
+**[根据账号 （查找，添加，删除，黑名单）](/docs/ios/singlechat/#section-26)**
 
 ## Android客户端操作好友列表
 
-**[好友列表管理](/docs/emchat/android/singlechat/#section-20)**
+**[好友列表管理](/docs/android/singlechat/#section-20)**

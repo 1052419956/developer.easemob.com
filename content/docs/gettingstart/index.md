@@ -49,16 +49,16 @@ sidebar: gettingstartsidebar
 
 ###  2. 将环信和现有APP的用户体系集成
 
-见**[集成用户体系文档](/docs/emchat/usersystem)**
+见**[集成用户体系文档](/docs/gettingstart/usersystem)**
 
 
 ###  3. 将环信和现有APP的好友体系集成
 
-见**[集成好友体系文档](/docs/emchat/friendsystem)**
+见**[集成好友体系文档](/docs/gettingstart/friendsystem)**
 
 
 ###  4. 客户端集成
 
-####  4.1 [5分钟快速入门-android](/docs/emchat/android/quickstartUI)
+####  4.1 [5分钟快速入门-android](/docs/android/quickstartUI)
 
-####  4.2 [5分钟快速入门-iOS](/docs/emchat/ios/quickstart)
+####  4.2 [5分钟快速入门-iOS](/docs/ios/quickstart)
