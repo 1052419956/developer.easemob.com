@@ -22,10 +22,6 @@ end
 compile '/CNAME/' do
 end
 
-compile '/feed/' do
-  filter :erb
-  filter :kramdown, :toc_levels => [2]
-end
 
 #about  关于我们
 compile '/about/*' do
@@ -45,60 +41,26 @@ end
 compile '/docs/usergrid/*' do
 end
 
-
-
+# 文档
 compile '/docs/*' do
-  filter :search
   filter :erb
   filter :kramdown, :toc_levels => [2]
   filter :colorize_syntax,
-    :colorizers => {:java => :rouge,
-                    :objective_c => :rouge,
-                    :javascript => :rouge
-                    }
+         :colorizers => {:java => :rouge,
+                        :objective_c => :rouge,
+                        :javascript => :rouge
+                        }
   layout item[:layout] || 'docs'
-#  layout item[:layout] || 'api'
-end
-
-compile '/v3/*' do
-  filter :search
-  filter :erb
-  filter :kramdown, :toc_levels => [2]
-  filter :colorize_syntax,
-    :colorizers => {:javascript => :rouge}
-  layout item[:layout] || 'api'
-end
-
-%w(v3 */).each do |version|
-  compile "/changes/#{version}" do
-    filter :erb
-    filter :kramdown, :toc_levels => [2]
-    filter :colorize_syntax,
-      :colorizers => {:javascript => :rouge}
-    layout 'changes' if version[0] == '*'
-    layout item[:layout] || 'blog'
-  end
-end
-
-compile '/guides/*' do
-  filter :kramdown, :toc_levels => [2]
-  filter :erb
-  filter :colorize_syntax, :default_colorizer => :rouge
-  layout item[:layout] || 'guides'
-end
-
-compile '/webhooks/*' do
-  filter :kramdown, :toc_levels => [2]
-  filter :erb
-  filter :colorize_syntax, :default_colorizer => :rouge
-  layout item[:layout] || 'webhooks'
 end
 
 compile '*' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
   filter :colorize_syntax,
-    :colorizers => {:javascript => :rouge}
+         :colorizers => {:java => :rouge,
+                        :objective_c => :rouge,
+                        :javascript => :rouge
+                        }
   layout item[:layout] || 'default'
 end
 
@@ -111,9 +73,6 @@ route '/CNAME/' do
   '/CNAME'
 end
 
-route '/feed' do
-  '/changes.atom'
-end
 
 # 放什么，就输出什么对应的html文件
 route '/docs/baas/*' do
@@ -131,8 +90,6 @@ end
 route '/docs/usergrid/*' do
   item.identifier.chop + '.html'
 end
-
-
 
 
 route '*' do
