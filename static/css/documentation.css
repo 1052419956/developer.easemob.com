@@ -792,6 +792,7 @@ a .mega-octicon {
   margin: 0 auto;
   max-width: 980px;
   clear: both;
+  left:90px;
 }
 
 #footer a:hover {
