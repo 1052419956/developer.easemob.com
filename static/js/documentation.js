@@ -1,5 +1,9 @@
 // Init sidebar
-$(function() {
+//$(function() {
+  // 不能等待domready再执行下面代码
+  // 因为页面上有两个站外的js严重影响性能
+  // 让用户看到了本该隐藏起来的导航、文案等
+  // 为此需要保证，以下代码查找的dom结构必须在此js加载之前完成载入
   var activeItem,
       helpList = $('#js-sidebar .js-topic'),
       firstOccurance = true,
@@ -315,4 +319,4 @@ $(function() {
     $(document).off('click', '.js-full-image', dismissFullImage);
     return $('.js-full-image').remove();
   };
-});
+//});

@@ -1082,3 +1082,26 @@ a.demo_android:hover,a.demo_iphone:hover{background-color:#0080b1}
 #footer a {
 	text-decoration: none;
 }
+
+/* 重置掉document.css的样式*/
+
+body #header {
+	font:16px/26px "Microsoft yahei","微软雅黑",Helvetica, Arial, Tahoma, Verdana, sans-serif; /*Helvetica Neue*/
+}
+#footer {
+	font:16px/26px "Microsoft yahei","微软雅黑",Helvetica, Arial, Tahoma, Verdana, sans-serif; /*Helvetica Neue*/
+	color:#666;
+}
+
+#footer h2{
+	margin: 0;
+	font:16px/26px "Microsoft yahei","微软雅黑",Helvetica, Arial, Tahoma, Verdana, sans-serif; /*Helvetica Neue*/
+}
+
+.footer-left dd.foot-fn {
+	margin-bottom: 0;
+}
+
+#footer p {
+	margin: 0;
+}

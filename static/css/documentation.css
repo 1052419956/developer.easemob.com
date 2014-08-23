@@ -1415,3 +1415,8 @@ pre span.comment {color: #aaa;}
 }
 
 /* @end */
+
+/*重置style.css的样式*/
+#wrapper {
+  background: transparent;
+}
