@@ -52,6 +52,19 @@ compile '/docs/*' do
   layout item[:layout] || 'docs'
 end
 
+
+# console
+compile '/console/*' do
+  filter :erb
+  filter :kramdown, :toc_levels => [2]
+  filter :colorize_syntax,
+         :colorizers => {:java => :rouge,
+                        :objective_c => :rouge,
+                        :javascript => :rouge
+                        }
+  layout item[:layout] || 'console'
+end
+
 compile '*' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
