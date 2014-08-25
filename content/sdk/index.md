@@ -20,15 +20,15 @@ var _hmt = _hmt || [];
 				<ul class="step_icon">
 					<li>
 						<span class="ios_icon"></span>
-						<a class="ios_btn" id="iosHref" onclick="_hmt.push(['_trackEvent', 'style', 'click', 'FengStyle'])" href=" http://www.easemob.com/downloads/iOSSDK.zip">下载IOS版开发包（SDK+文档+Demo)</a>
+						<a class="ios_btn" id="iosHref" onclick="_hmt.push(['_trackEvent', 'IMSDK', 'click', 'iosSDK'])" href=" http://www.easemob.com/downloads/iOSSDK.zip">下载IOS版开发包（SDK+文档+Demo)</a>
  						
-						<span><em><a href="http://developer.easemob.com/docs/emchat/ios/quickstart.html"  target="_blank">5分钟快速入门</a> | <a href="http://developer.easemob.com/docs/emchat/ios/singlechat.html" target="_blank">iOS SDK 集成指南</a></em>V 2.0.6　下载次数：9613</span>
+						<span><em><a href="http://developer.easemob.com/docs/emchat/ios/quickstart.html"  target="_blank">5分钟快速入门</a> | <a href="http://developer.easemob.com/docs/emchat/ios/singlechat.html" target="_blank">iOS SDK 集成指南</a></em>V 2.0.7　下载次数：11036</span>
 					</li>
 					<li class="li_away">
 						<span class="andriod_icon"></span>
-						<a  id="androidHref" class="ios_btn andriod_btn" onclick="_hmt.push(['_trackEvent', 'style', 'click', 'FengStyle'])" href="http://www.easemob.com/downloads/androidsdk.zip">下载Andriod版开发包（SDK+文档+Demo)</a>
+						<a  id="androidHref" class="ios_btn andriod_btn" onclick="_hmt.push(['_trackEvent', 'IMSDK', 'click', 'AndroidSDK'])" href="http://www.easemob.com/downloads/androidsdk.zip">下载Andriod版开发包（SDK+文档+Demo)</a>
  						
-						<span><em><a href="http://developer.easemob.com/docs/emchat/android/quickstart.html"  target="_blank">5分钟快速入门</a> | <a href="http://developer.easemob.com/docs/emchat/android/singlechat.html" target="_blank">Android SDK 集成指南</a></em>V 2.0.6　下载次数：10926</span>
+						<span><em><a href="http://developer.easemob.com/docs/emchat/android/quickstart.html"  target="_blank">5分钟快速入门</a> | <a href="http://developer.easemob.com/docs/emchat/android/singlechat.html" target="_blank">Android SDK 集成指南</a></em>V 2.0.7　下载次数：12115</span>
 					</li>
 				</ul>
 			</div>
@@ -38,6 +38,26 @@ var _hmt = _hmt || [];
 			<div class="history_date">
 				<ul class="history_left">
 			      	<h2 class="first">iOS SDK 更新日志</h2>
+			      	<li>
+						<h3><em></em><span>版本：V2.0.7 2014-08-14</span></h3>
+						<dl>
+							<dt>
+							    <span>新功能/改进：<br/>
+							    
+									1、创建群组时，支持传最大成员数 EMGroupStyleSetting.groupMaxUsersCount，3 ~ 2000，ios默认是200；<br/>
+									2、已创建的群组，获取详情时增加属性： 群组实际总人数和群组;<br/>
+									3、添加 获取群组详情相关信息的接口;<br/>
+									4、添加图片压缩比率开关 IChatImageOptions;<br/>
+									5、后台发送纯文字信息（暂不支持发送图片），客户端正常显示。<br>
+                                    Bug Fix：<br/>
+									1、创建群组时，invitees中去除创建者自己的username。<br/>
+									 性能优化<br/>
+									1、优化聊天记录搜索功能；<br/>
+									2、优化聊天记录获取。<br/>
+                                </span>
+							</dt>
+						</dl>
+					</li>
 			      	<li>
 						<h3><em></em><span>版本：V2.0.6 2014-07-31</span></h3>
 						<dl>
@@ -217,21 +237,40 @@ var _hmt = _hmt || [];
 			    </ul>
 
 			    <ul class="history_right">
-			    	<h2 class="first">Andriod SDK 更新日志</h2>
+				<h2 class="first">Andriod SDK 更新日志</h2>
+						<li>
+						<h3><em></em><span>版本：V2.0.7 2014-08-19</span></h3>
+							<dl>
+								<dt>
+									<span>新功能/改进：<br/>
+										1、加入了log 文件。环信sdk的debug 信息会存储到log文件<br/>
+										2、加入群组成员限制，群组人数达到最大限制时不让再加<br/>
+										3、demo更新支持显示非联系人<br/>
+										4、优化的聊天窗口里图片的显示<br/>
+										5、demo文字消息支持网页链接提示<br/>									
+										 Bug Fix：<br/>
+										1、修复了再次进入应用，未读数显示不对的问题<br/>		
+										2、修复了离线消息的时间问题<br/>
+										3、修复在某些机型上不能收发文件及视频消息的bug<br/>
+									</span>
+								</dt>
+							</dl>
+					</li>
+				
 						<li>
 						<h3><em></em><span>版本：V2.0.6 2014-08-01</span></h3>
 							<dl>
 								<dt>
-									<span>新功能/改进：</br>
-										1、黑名单功能</br>
-										2、创建群组支持设置群最大用户数以及获取群组成员数</br>
-										3、支持导入自己的消息</br>
-										4、支持群组消息设成只显示数目不提示消息</br>
-										5、优化群组查询</br>
-										6、其他小的API及优化</br>										
-										 Bug Fix：</br>
-										1、修复一次性发送多张图片消息，显示发送的数目不对的问题</br>		
-										2、修复发送图片语音等文件消息过慢的问题</br>
+									<span>新功能/改进：<br/>
+										1、黑名单功能<br/>
+										2、创建群组支持设置群最大用户数以及获取群组成员数<br/>
+										3、支持导入自己的消息<br/>
+										4、支持群组消息设成只显示数目不提示消息<br/>
+										5、优化群组查询<br/>
+										6、其他小的API及优化<br/>										
+										 Bug Fix：<br/>
+										1、修复一次性发送多张图片消息，显示发送的数目不对的问题<br/>		
+										2、修复发送图片语音等文件消息过慢的问题<br/>
 									</span>
 								</dt>
 							</dl>
@@ -241,15 +280,15 @@ var _hmt = _hmt || [];
 						<h3><em></em><span>版本：V2.0.5 2014-07-23</span></h3>
 							<dl>
 								<dt>
-									<span>新功能/改进：</br>
-										1、demo及sdk支持收发文件消息</br>
-										2、demo提供视频录制</br>
-										3、Text Message支持json数据做为message body</br>
-										4、sdk支持username使用大写字母，sdk会自动转为小写</br>
-										 Bug Fix：</br>
-										1、修复有时候语音无法播放的问题</br>
-										2、修复UI demo上连接状态有时候显示不对的问题</br>
-										3、修复自定义通知内容, 有时候不管用的问题</br>					
+									<span>新功能/改进：<br/>
+										1、demo及sdk支持收发文件消息<br/>
+										2、demo提供视频录制<br/>
+										3、Text Message支持json数据做为message body<br/>
+										4、sdk支持username使用大写字母，sdk会自动转为小写<br/>
+										 Bug Fix：<br/>
+										1、修复有时候语音无法播放的问题<br/>
+										2、修复UI demo上连接状态有时候显示不对的问题<br/>
+										3、修复自定义通知内容, 有时候不管用的问题<br/>				
 									</span>
 								</dt>
 							</dl>
@@ -258,15 +297,15 @@ var _hmt = _hmt || [];
 						<h3><em></em><span>版本：V2.0.4 2014-07-16</span></h3>
 						<dl>
 							<dt>
-								<span>新功能/改进：</br>
-									1、合并jar 文件，简化安装包。环信sdk只需要一个 easemobchatsdk.jar</br>
-									2、增大http 操作的超时时间以适应弱网络情况</br>
-									3、显示语音消息下载进度，下载成功才可以播放</br>
-									4、优化EMChatService</br>
-									 Bug Fix：</br>
-									1、修复了断网情况下收不到群组邀请和群组删除消息的问题</br>
-									2、修复了有些情况的网络切换后没有自动重连到服务器的问题</br>
-									3、修复了公开群离线被踢收不到回调的bug</br>					
+								<span>新功能/改进：<br/>
+									1、合并jar 文件，简化安装包。环信sdk只需要一个 easemobchatsdk.jar<br/>
+									2、增大http 操作的超时时间以适应弱网络情况<br/>
+									3、显示语音消息下载进度，下载成功才可以播放<br/>
+									4、优化EMChatService<br/>
+									 Bug Fix：<br/>
+									1、修复了断网情况下收不到群组邀请和群组删除消息的问题<br/>
+									2、修复了有些情况的网络切换后没有自动重连到服务器的问题<br/>
+									3、修复了公开群离线被踢收不到回调的bug<br/>					
 								</span>
 							</dt>
 						</dl>
@@ -275,14 +314,14 @@ var _hmt = _hmt || [];
 						<h3><em></em><span>版本：V2.0.3 2014-07-07</span></h3>
 						<dl>
 							<dt>
-								<span>新功能/改进：</br>
-									1、公开群支持用户申请群主批准入群</br>
-									2、支持发送视频文件</br>
-									3、android 和 iOS 表情互通</br>
-									 Bug Fix：</br>
-									1、修复大小写用户登陆无法发消息的问题</br>
-									2、修复加入，退出公开群相关的几个问题</br>
-									3、修复公开群显示乱码问题</br>							  
+								<span>新功能/改进：<br/>
+									1、公开群支持用户申请群主批准入群<br/>
+									2、支持发送视频文件<br/>
+									3、android 和 iOS 表情互通<br/>
+									 Bug Fix：<br/>
+									1、修复大小写用户登陆无法发消息的问题<br/>
+									2、修复加入，退出公开群相关的几个问题<br/>
+									3、修复公开群显示乱码问题<br/>							  
 								</span>
 							</dt>
 						</dl>
@@ -291,17 +330,17 @@ var _hmt = _hmt || [];
 						<h3><em></em><span>版本：V2.0.2 2014-06-30</span></h3>
 						<dl>
 							<dt>
-							    <span>新功能/改进：</br>
-									1、群组增加选项允许成员邀请其他用户入群</br>
-									2、增大socket timeout时间</br>
-									3、改变 intent action 特殊字符以支持在AndroidManifest 里面声明message receiver</br>
-									4、SDK 支持开机自启动，并修改UI demo</br>
-									5、支持开发者自定义 notification intent 的行为</br>
-									6、发送接收文件改成使用https</br>
-									 Bug Fix：</br>
-									1、修复加入退出公开群组的相关bug</br>
-									2、修复UI 连接状态显示bug</br>
-									3、修复离线添加好友问题</br>
+							    <span>新功能/改进：<br/>
+									1、群组增加选项允许成员邀请其他用户入群<br/>
+									2、增大socket timeout时间<br/>
+									3、改变 intent action 特殊字符以支持在AndroidManifest 里面声明message receiver<br/>
+									4、SDK 支持开机自启动，并修改UI demo<br/>
+									5、支持开发者自定义 notification intent 的行为<br/>
+									6、发送接收文件改成使用https<br/>
+									 Bug Fix：<br/>
+									1、修复加入退出公开群组的相关bug<br/>
+									2、修复UI 连接状态显示bug<br/>
+									3、修复离线添加好友问题<br/>
 
 							    </span>
 							</dt>
@@ -312,7 +351,7 @@ var _hmt = _hmt || [];
 						<dl>
 							<dt>
 							    <span>1、A断网后,群主把A踢出群。A连网后，还有此群，在群里发消息，显示发送失败<br/>
-							    2、加好友时好友同意了,有时好友列表里没有此好友
+							    2、加好友时好友同意了,有时好友列表里没有此好友<br/>
 							    </span>
 							</dt>
 						</dl>
@@ -332,7 +371,7 @@ var _hmt = _hmt || [];
 							<dt>
 							    <span>1、UIDemo增加同一账号在不同手机上登录时踢出旧账号的功能<br />
 							    	2、UIDemo修复消息回执的已读状态的自动刷新问题<br />
-							    	3、UIDemo添加好友，如果对方已经是好友，应该提醒“XXX已经是您的好友”。
+							    	3、UIDemo添加好友，如果对方已经是好友，应该提醒“XXX已经是您的好友”。<br/>
 							    </span>
 							</dt>
 						</dl>
@@ -343,7 +382,7 @@ var _hmt = _hmt || [];
 							<dt>
 							    <span>1、修复发送添加好友邀请后，如果对方忽略请求，对方会在每次上线后重复收到请求的bug<br />
 							    	2、UIDemo增加扬声器播放声音选项。<br />
-							    	3、修复小米联想手机上语音播放控件的选中状态问题。
+							    	3、修复小米联想手机上语音播放控件的选中状态问题。<br/>
 							    </span>
 							</dt>
 						</dl>
@@ -353,9 +392,9 @@ var _hmt = _hmt || [];
 						<dl>
 							<dt>
 							    <span>1、把缺省UI模板改为彩色”时尚版“。但同时也将会提供别的风格（目前有企业版）提供下载。多处UI改进。我们的目标不是提供一个demo演示，而是提供一个产品级别的完整聊天产品的源码。让大家拿去就能用
-<br />
+								<br />
 							    	2、无SD卡时拍照闪退fix。<br />
-							    	3、文档增加声音，震动控制说明。
+							    	3、文档增加声音，震动控制说明。<br/>
 							    </span>
 							</dt>
 						</dl>
