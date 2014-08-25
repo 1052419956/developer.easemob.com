@@ -124,6 +124,43 @@ layout: docs
         }
 
 
+
+## 获取app中一个群组的详情
+    GET /{org}/{app}/chatgroups/{group_id}
+
+   curl 示例 :
+     
+     curl -X GET -H "Authorization:Bearer YWMtQ6sCzCxEEeS1YIMUJAft7wAAAUgwzXD_vO-EJFGKUWFfO1x8aeWhbOTGZGw" -i "https://a1.easemob.com/easemob-demo/4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5/chatgroups/1408518613503"
+返回值
+
+        {
+          "action" : "get",
+          "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
+          "params" : { },
+          "uri" : "https://a1.easemob.com/easemob-demo/chatdemoui/chatgroups/14085186135
+        03",
+          "entities" : [ ],
+          "data" : [ {
+            "id" : "1408518613503",
+            "name" : "Jay13800138000",
+            "description" : "",
+            "public" : false,
+            "membersonly" : true,
+            "allowinvites" : false,
+            "maxusers" : 200,
+            "affiliations" : [ {
+              "member" : "13800138004"
+            }, {
+              "owner" : "13800138001"
+            } ]
+          } ],
+          "timestamp" : 1408963418687,
+          "duration" : 199,
+          "organization" : "easemob-demo",
+          "applicationName" : "chatdemoui"
+        }
+
+
 ## 创建一个群组
 
     POST /chatgroups {}
