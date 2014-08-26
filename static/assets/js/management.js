@@ -398,7 +398,7 @@ function formSubmit(){
 				$('#username').val(regUserName);
 			
 				// 告知发送邮件
-				window.location.href = 'regist_org_success.html?mailSuffix='+mailSuffix+'&regEmail='+regEmail;
+				window.location.href = '/console/regist_org_success?mailSuffix='+mailSuffix+'&regEmail='+regEmail;
 			},
 			error: function(respData, textStatus, jqXHR) {
 				var str = JSON.stringify(respData.responseText).replace('}','').replace('{','').split(',');
@@ -501,8 +501,8 @@ function sysAdminLogin() {
 				  $.cookie('orgName',orgName,{path:'/',expires:date});
 				  $.cookie('loginuuid',loginuuid,{path:'/',expires:date});
 				  
-					window.location.href = 'app_list.html';
-					location.replace('app_list.html');
+					window.location.href = '/console/app_list';
+					location.replace('/console/app_list');
 				}
 		});
 	}
@@ -576,8 +576,8 @@ function orgAdminLogin() {
 				    $.cookie('orgName',orgName,{path:'/',expires:date});
 				    $.cookie('loginuuid',loginuuid,{path:'/',expires:date});
 				  
-					window.location.href = 'app_list.html';
-					location.replace('app_list.html');
+					window.location.href = '/console/app_list';
+					location.replace('/console/app_list');
 				}
 		});
 	} else {
@@ -658,7 +658,7 @@ function appAdminLogin() {
 				  $.cookie('orgName',org,{path:'/',expires:date});
 				  $.cookie('appName',app,{path:'/',expires:date});
 				  
-					window.location.href = 'app_profile.html';
+					window.location.href = '/console/app_profile';
 				}
 		});
 	}
@@ -672,7 +672,7 @@ function logout() {
 	$.cookie("cuserName",null,{path:"/"});
 	$.cookie("orgName",null,{path:"/"});
 	// 转到登陆页面
-	window.location.href = "index.html";
+	window.location.href = "/console/";
 }
 
 // 时间格式转换 1399434332770 -> 
@@ -698,7 +698,7 @@ function adminInfo(){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'index.html';
+		window.location.href = '/console/';
 	} else {
 		$.ajax({
 			url:baseUrl + '/management/organizations/'+orgName+'/users',
@@ -737,7 +737,7 @@ function updateAdminInfo(username, companyName, telephone){
 	
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'index.html';
+		window.location.href = '/console/';
 	} else {
 		$.ajax({
 			url: baseUrl + '/management/users/' + username,
@@ -855,7 +855,7 @@ function updateAdminPasswd(){
 
 // app列表页
 function toAppList(){
-	window.location.href = "app_list.html";
+	window.location.href = "/console/app_list";
 }
 
 // 创建应用表单校验
@@ -922,7 +922,7 @@ function saveNewApp(){
 	
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'index.html';
+		window.location.href = '/console/';
 	} else {
 		if(createAppFormValidate()){
 			// 保存数据
@@ -940,7 +940,7 @@ function saveNewApp(){
 				success: function(respData, textStatus, jqXHR) {
 					alert('app创建成功!');
 					$(respData.entities).each(function(){
-						window.location.href = 'app_profile.html?appUuid=' + this.uuid;
+						window.location.href = '/console/app_profile?appUuid=' + this.uuid;
 					});
 				}
 			});
@@ -964,7 +964,7 @@ function updateChatroomPageStatus(appUuid){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/chatrooms?limit=1000',
@@ -1011,7 +1011,7 @@ function updateUsersPageStatus(){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/users?limit=1000',
@@ -1068,7 +1068,7 @@ function updateUsersAdminPageStatus(){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid +'/roles/admin/users?limit=1000',
@@ -1124,7 +1124,7 @@ function updateIMPageStatus(owner_username){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/users/'+owner_username+'/contacts/users?limit=1000',
@@ -1180,9 +1180,9 @@ function getAppList(){
 	userCount = 0;
 	if(!access_token || access_token=='') {
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
-		var loading = '<tr id="tr_loading"><td class="text-center" colspan="9"><img src ="assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
+		var loading = '<tr id="tr_loading"><td class="text-center" colspan="9"><img src ="/assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
 		$('#appListBody').empty();
 		$('#appListBody').append(loading);
 		$.ajax({
@@ -1233,7 +1233,7 @@ function getAppList(){
 						}
 					});
 					
-					option += '<tr><td class="text-center"><a href="app_profile.html?appUuid='+value+'&Application='+key+'">'+key+'</a></td>'+
+					option += '<tr><td class="text-center"><a href="/console/app_profile?appUuid='+value+'&Application='+key+'">'+key+'</a></td>'+
 						 	'<td class="text-center">'+userCount+'</td>'+
 					   	//'<td class="text-center">800/500</td>'+
 						 	//'<td class="text-center">800/500</td>'+
@@ -1272,7 +1272,7 @@ function deleteApp(appUuid){
 			},
 			success: function(respData, textStatus, jqXHR) {
 				alert('提示\n\napp删除成功!');
-				window.location.href = 'app_list.html';
+				window.location.href = '/console/app_list';
 			}
 		});
 	}
@@ -1286,7 +1286,7 @@ function getAppProfile(appUuid){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
 		// 获取app基本信息
 		$.ajax({
@@ -1398,7 +1398,7 @@ function getAppProfileforAppAdmin(appUuid){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
 		$.ajax({
 			url:baseUrl+'/management/organizations/'+ orgName +'/applications/' + appUuid,
@@ -1638,9 +1638,9 @@ function getAppUserList(appUuid, pageAction){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
-		var loading = '<tr id="tr_loading"><td class="text-center" colspan="9"><img src ="assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
+		var loading = '<tr id="tr_loading"><td class="text-center" colspan="9"><img src ="/assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
 		$('#appUserBody').empty();
 		$('#appUserBody').append(loading);
 		var userPage = $.cookie('userPage');
@@ -1783,7 +1783,7 @@ function showUpdateInfo(appUuid, username){
 	
 	if(!access_token || access_token=='') {
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'index.html';
+		window.location.href = '/console/index';
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/users/' + username,
@@ -1957,7 +1957,7 @@ function searchUser(appUuid, queryString){
 	
 	if(!access_token || access_token=='') {
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'index.html';
+		window.location.href = '/console/';
 	} else {
 		
 		$.ajax({
@@ -2443,7 +2443,7 @@ function getAppChatrooms(appUuid,pageAction){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
 		if('forward' == pageAction){
 			pageNo += 1;
@@ -2455,7 +2455,7 @@ function getAppChatrooms(appUuid,pageAction){
 		if(typeof(pageAction)!='undefined' && pageAction != ''){	
 			tmp = '&cursor=' + cursors[pageNo];
 		}
-		var loading = '<tr id="tr_loading"><td class="text-center" colspan="3"><img src ="assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
+		var loading = '<tr id="tr_loading"><td class="text-center" colspan="3"><img src ="/assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
 		$('#appChatroomBody').empty();
 		$('#appChatroomBody').append(loading);
 		$.ajax({
@@ -2543,7 +2543,7 @@ function getqunzuAppChatrooms(appUuid,qunzuid,pageAction){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
 		if('forward' == pageAction){
 			pageNo += 1;
@@ -2555,7 +2555,7 @@ function getqunzuAppChatrooms(appUuid,qunzuid,pageAction){
 		if(typeof(pageAction)!='undefined' && pageAction != ''){	
 			tmp = '&cursor=' + cursors[pageNo];
 		}
-		var loading = '<tr id="tr_loading"><td class="text-center" colspan="3"><img src ="assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
+		var loading = '<tr id="tr_loading"><td class="text-center" colspan="3"><img src ="/assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
 		$('#appChatroomBody').empty();
 		$('#appChatroomBody').append(loading);
 		$.ajax({
@@ -2653,7 +2653,7 @@ function getqunzuAppChatrooms(appUuid,qunzuid,pageAction){
 }
 // 查看群组成员
 function togroupaddAppAdminuserusers(appUuid,groupid){
-	window.location.href = 'app_qunzu_list.html?appUuid=' + appUuid + '&groupid=' + groupid;
+	window.location.href = '/console/app_qunzu_list?appUuid=' + appUuid + '&groupid=' + groupid;
 }
 	
 // 获取群组成员列表
@@ -2665,7 +2665,7 @@ function getAppChatroomsuser(appUuid,groupid,pageAction){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
 		if('forward' == pageAction){
 			pageNo += 1;
@@ -2779,7 +2779,7 @@ function deleteAppChatroom(appUuid,groupuuid){
 			},
 			success:function(respData){
 				alert('提示\n\n删除成功!');
-				window.location.href = 'app_group.html?appUuid='+appUuid;
+				window.location.href = '/console/app_group?appUuid='+appUuid;
 			}
 		});
 	}
@@ -2954,7 +2954,7 @@ function updatequnzuPageStatus(){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/notifiers?limit=1000',
@@ -3016,7 +3016,7 @@ function getAppCredentials(appUuid, pageAction){
 		if(typeof(pageAction)!='undefined' && pageAction != ''){	
 			temp = '&cursor='+cursors[pageNo];
 		}
-		var loading = '<tr id="tr_loading"><td class="text-center" colspan="5"><img src ="assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
+		var loading = '<tr id="tr_loading"><td class="text-center" colspan="5"><img src ="/assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
 		$('#appCredentialBody').empty();
 		$('#appCredentialBody').append(loading);
 	$.ajax({
@@ -3139,7 +3139,7 @@ function deleteAppCredential(credentialId,appUuid){
 //==============================================================IM=======================================================================
 // 用户好友列表
 function toAppIMList(owner_username){
-	window.location.href = 'app_IM_list.html?appUuid='+appUuid+'&owner_username='+owner_username;
+	window.location.href = '/console/app_IM_list?appUuid='+appUuid+'&owner_username='+owner_username;
 }
 //获取用户好友列表
 function getAppIMList(appUuid, owner_username){
@@ -3149,9 +3149,9 @@ function getAppIMList(appUuid, owner_username){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
-		var loading = '<tr id="tr_loading"><td class="text-center" colspan="3"><img src ="assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
+		var loading = '<tr id="tr_loading"><td class="text-center" colspan="3"><img src ="/assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
 		$('#appIMBody').empty();
 		$('#appIMBody').append(loading);
 		$.ajax({
@@ -3215,7 +3215,7 @@ function deleteAppIMFriend(appUuid, owner_username, friend_username){
 	var access_token = $.cookie('access_token');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
 		if(window.confirm('确定删除此好友？')){
 			$.ajax({
@@ -3304,7 +3304,7 @@ function getAppUsersAdminList(appUuid, pageAction){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = 'login.html';
+		window.location.href = '/console/login';
 	} else {
 		if('next' == pageAction){
 			pageNo += 1;
@@ -3315,7 +3315,7 @@ function getAppUsersAdminList(appUuid, pageAction){
 		if(typeof(pageAction)!='undefined' && pageAction != ''){	
 			temp = '&cursor='+cursors[pageNo];
 		}
-		var loading = '<tr id="tr_loading"><td class="text-center" colspan="4"><img src ="assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
+		var loading = '<tr id="tr_loading"><td class="text-center" colspan="4"><img src ="/assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
 		$('#appUserAdminBody').empty();
 		$('#appUserAdminBody').append(loading);
 		$.ajax({

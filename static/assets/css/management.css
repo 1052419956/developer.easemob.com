@@ -30,3 +30,20 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	background-position:center center !important;
 	background-repeat:no-repeat !important;
 }
+
+/*add css */
+.console-body .btn{
+	height: auto;
+}
+
+.console-body .container-fluid {
+	clear: both;
+}
+
+#menu_topmenu {
+	margin: 0;
+}
+
+#menu_topmenu .menu-item {
+	line-height: 26px;
+}
