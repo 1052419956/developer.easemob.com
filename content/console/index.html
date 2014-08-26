@@ -53,7 +53,7 @@ title: 环信开发者中心
 		}
 		var token = $.cookie('access_token');
 		if(token != null && typeof(token)!='undefined'){
-			window.location.href = 'app_list.html';
+			window.location.href = '/console/app_list';
 			return;
 		}
 		
@@ -477,6 +477,5 @@ function getBrowser() {
 </div>
 
 <script src="/assets/js/management.js"></script>
-
 <!--add this line-->
 </div>

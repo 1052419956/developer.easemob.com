@@ -29,27 +29,27 @@ title: 环信开发者中心
 	
 	// 应用概述页
 	function toApppofile(){
-		window.location.href = 'app_profile.html?appUuid='+appUuid;
+		window.location.href = '/console/app_profile?appUuid='+appUuid;
 	}
 	
 	// 用户管理页
 	function toAppUsersPage(){
-		window.location.href = 'app_users.html?appUuid='+appUuid;
+		window.location.href = '/console/app_users?appUuid='+appUuid;
 	}
 	
 	// 群组管理页
 	function toAppChatroomsPage(){
-		window.location.href = 'app_chatrooms.html?appUuid='+appUuid;
+		window.location.href = '/console/app_chatrooms?appUuid='+appUuid;
 	}
 	
 	// 推送证书管理页
 	function toAppCredentialsPage(){
-		window.location.href = 'app_credentials.html?appUuid='+appUuid;
+		window.location.href = '/console/app_credentials?appUuid='+appUuid;
 	}
 	
 	// 数据统计页面
 	function toApppofileCounter(){
-		window.location.href = 'app_profile_counter.html?appUuid='+appUuid;
+		window.location.href = '/console/app_profile_counter?appUuid='+appUuid;
 	}
 </script>
 
@@ -62,8 +62,8 @@ title: 环信开发者中心
       <div style="min-height: 40px;" id="sidebar-shortcuts-mini"> </div>
     </div>
     <ul class="nav nav-list">
-			<li class="active"> <a href="app_list.html" target="_self"> <i class="icon-ambulance"></i> <span>我的应用</span> </a></li>
-			<li> <a href="admin_home.html" target="_self"> <i class="icon-user"></i> <span>个人信息</span> </a></li>
+			<li class="active"> <a href="/console/app_list" target="_self"> <i class="icon-ambulance"></i> <span>我的应用</span> </a></li>
+			<li> <a href="/console/admin_home" target="_self"> <i class="icon-user"></i> <span>个人信息</span> </a></li>
     </ul>
     <div id="sidebar-collapse"> <i class="icon-double-angle-left"></i> </div>
   </div>

@@ -93,7 +93,10 @@ input[type="submit"]:active, .btn:active {background:#004b95;}
 .follow_item li.weixin{background-position:0 -29px;}
 
 /* Menu */
+/*
 .nav {float:left;height:35px;margin:40px 0 0 0;margin:41px 0 0 0\0;}
+*/
+#header .nav {float:left;height:35px;margin:40px 0 0 0;margin:41px 0 0 0\0;}
 .menu-item {float:left;margin-left:25px;position:relative;z-index:100;border-top:2px solid transparent;}
 .menu-item a {padding:16px 11px;color:#0080B1;font-size:16px;text-decoration:none;}
 .menu-item:hover,
