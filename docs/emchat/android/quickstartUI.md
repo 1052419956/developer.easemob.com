@@ -90,7 +90,8 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 	new Thread(new Runnable() {
 		public void run() {
 			try {
-				// 调用sdk注册方法	EMChatManager.getInstance().createAccountOnServer(username, pwd);
+				// 调用sdk注册方法
+					EMChatManager.getInstance().createAccountOnServer(username, pwd);
 			} catch (final Exception e) {
 			
 			}
