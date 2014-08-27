@@ -278,137 +278,137 @@ title: 环信开发者中心
     </div>
   </div>
 </div>
-	<!--修改密码-->
-		<div id="passwordMondify" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h3 id="myModalLabel">重置IM用户密码</h3>
-			</div>
-			<div class="modal-body">
-				<div class="row-fluid">
-					<div class="span12">
-						<div class="control-group">
-							<label class="control-label" for="pwdMondify">新密码：</label>
-							<div class="controls">
-								<input type="password" id="pwdMondify" name="pwdMondify" value="" placeholder="请输入新密码(1位以上字母或数字)" onKeyUp="value=removeAllSpace(value)" onBlur="value=removeAllSpace(value)"  onpaste='return false' oncopy='return false' />
-								<input type="hidden" id="usernameMondify" name="usernameMondify" value=""/>
-								<input type="hidden" id="appUuidHidd" name="appUuidHidd" value=""/>
-								<span style="color: red;" id="pwdMondifySpan"></span>
-							</div>
-						</div>
+<!--修改密码-->
+<div id="passwordMondify" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">重置IM用户密码</h3>
+	</div>
+	<div class="modal-body">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="control-group">
+					<label class="control-label" for="pwdMondify">新密码：</label>
+					<div class="controls">
+						<input type="password" id="pwdMondify" name="pwdMondify" value="" placeholder="请输入新密码(1位以上字母或数字)" onKeyUp="value=removeAllSpace(value)" onBlur="value=removeAllSpace(value)"  onpaste='return false' oncopy='return false' />
+						<input type="hidden" id="usernameMondify" name="usernameMondify" value=""/>
+						<input type="hidden" id="appUuidHidd" name="appUuidHidd" value=""/>
+						<span style="color: red;" id="pwdMondifySpan"></span>
 					</div>
 				</div>
-				<div class="row-fluid">
-					<div class="span12">
-						<div class="control-group">
-							<label class="control-label" for="pwdMondifytwo">再次输入新密码：</label>
-							<div class="controls">
-								<input type="password" id="pwdMondifytwo" name="pwdMondifytwo" value="" placeholder="请再次输入新密码" onKeyUp="value=removeAllSpace(value)" onBlur="value=removeAllSpace(value)"  onpaste='return false' oncopy='return false' />
-								<span style="color: red;" id="pwdMondifytwoSpan"></span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="modal-footer"> 
-				<a class="btn" onClick="updateAppUserPassword();" href="javascript:void(0);">修改</a>
-				<button class="btn" data-dismiss="modal" onClick="clsSpan()" aria-hidden="true">关闭</button>
 			</div>
 		</div>
-       <!--修改密码-->
-        <!--发送消息-->
-				<div id="sendMessage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-header">
-				<button id="closeButn" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h3 id="myModalLabel">发送消息</h3>
-			</div>
-			<div class="modal-body">
-				<div class="row-fluid">
-					<div class="span12">
-						<div class="control-group">
-							<label class="control-label" for="messegeContent">消息内容：</label>
-							<div class="controls" id="div1">
-                            	<textarea style="width:500px; height:100px;" id="messegeContent" name="messegeContent" ></textarea>
-								<input type="hidden" id="usernameMessage" name="usernameMessage" value=""/>
-								<input type="hidden" id="appUuidMessage" name="appUuidMessage" value=""/>
-							</div>
-						</div>
-                             <form id="myForm" method="POST" enctype="multipart/form-data" action=""> 
-						<div class="control-group">
-							<label class="control-label" for="messegeContent">路径：</label>
-							<div class="controls" id="div1">
-                         	<input type="text" readonly="readonly" id="f_file"/>
-					      	      	<input type="button" value="浏览..." class="btn btn-mini btn-primary" onClick="file.click()" />
-                                    <input type="button" value="确定" class="btn btn-mini btn-primary" onClick="imgMessage()" />
-													<input type="file" name="file" id="file" onChange="f_file.value=this.value;validateSuffix(this.value)" style="display:none">
-                                                    <input type="hidden" id="share-secret" />
-							</div>
-						</div>
-                         </form>
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="control-group">
+					<label class="control-label" for="pwdMondifytwo">再次输入新密码：</label>
+					<div class="controls">
+						<input type="password" id="pwdMondifytwo" name="pwdMondifytwo" value="" placeholder="请再次输入新密码" onKeyUp="value=removeAllSpace(value)" onBlur="value=removeAllSpace(value)"  onpaste='return false' oncopy='return false' />
+						<span style="color: red;" id="pwdMondifytwoSpan"></span>
 					</div>
 				</div>
-		
-			</div>
-			
-			<div class="modal-footer"> 
-				<a class="btn" onClick="sendMessage();" href="javascript:void(0);">发送</a>
-				<button id="messageCloseBtn" class="btn" data-dismiss="modal" onClick="clsSpan()" aria-hidden="true">关闭</button>
 			</div>
 		</div>
-        <!--发送消息end-->
-        <!--修改信息-->
-		<div id="updateInfo" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-header">
-				<button id="infoCloseButn" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h3 id="myModalLabel">修改信息</h3>
-			</div>
-			<div class="modal-body">
-				<div class="row-fluid">
-					<div class="span12">
-						<div class="control-group">
-							<label class="control-label" for="username">用户名：</label>
-							<div class="controls">
-                            	<span id="username" name="username"></span>
-								<input type="hidden" id="appUuidInfo" name="appUuidInfo" value=""/>
-							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label" for="messegeType">消息提醒：</label>
-							<div class="controls">
-                         		<input type="radio" style="opacity:1;" name="messageType" id="messageType_0" value="0"/>&nbsp;&nbsp;&nbsp;&nbsp;仅通知
-                                <input type="radio" style="opacity:1;" name="messageType" id="messageType_1" value="1"/>&nbsp;&nbsp;&nbsp;&nbsp;发送详情
-							</div>
-						</div>
-                        <div class="control-group">
-							<label class="control-label" for="nickname">昵称：</label>
-							<div class="controls">
-                <input name="nickname" id="nickname" type="text" />
-							</div>
-						</div>
-              <div class="control-group">
-							<label class="control-label" for="notification">免打扰模式：</label>
-							<div class="controls">
-              	<input type="radio" style="opacity:1;" name="notification" id="notification_true" value="true" onChange="showTimeDiv(true)"/>&nbsp;&nbsp;&nbsp;&nbsp;开启
-                <input type="radio" style="opacity:1;" name="notification" id="notification_false" value="false" onChange="showTimeDiv(false)"/>&nbsp;&nbsp;&nbsp;&nbsp;不开启
-							</div>
-						</div>
+	</div>
+	
+	<div class="modal-footer"> 
+		<a class="btn" onClick="updateAppUserPassword();" href="javascript:void(0);">修改</a>
+		<button class="btn" data-dismiss="modal" onClick="clsSpan()" aria-hidden="true">关闭</button>
+	</div>
+</div>
+<!--修改密码-->
+<!--发送消息-->
+<div id="sendMessage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button id="closeButn" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">发送消息</h3>
+	</div>
+	<div class="modal-body">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="control-group">
+					<label class="control-label" for="messegeContent">消息内容：</label>
+					<div class="controls" id="div1">
+                    	<textarea style="width:500px; height:100px;" id="messegeContent" name="messegeContent" ></textarea>
+						<input type="hidden" id="usernameMessage" name="usernameMessage" value=""/>
+						<input type="hidden" id="appUuidMessage" name="appUuidMessage" value=""/>
 					</div>
-              <div class="control-group" id="notification_time_div">
-							<label class="control-label" for="notification_starttime">免打扰时段(范围:00 ~ 23)：</label>
-							<div class="controls">
-                <input name="notification_starttime" id="notification_starttime" style="width:60px" type="text" /> --
-                <input name="notification_endtime" id="notification_endtime" style="width:60px" type="text" />
-							</div>
-						</div>
 				</div>
-		
-			</div>
-			
-			<div class="modal-footer"> 
-				<a class="btn" onClick="updateInfoHTML();" href="javascript:void(0);">确定</a>
-				<button class="btn" data-dismiss="modal" onClick="clsSpan()" aria-hidden="true">关闭</button>
+                     <form id="myForm" method="POST" enctype="multipart/form-data" action=""> 
+				<div class="control-group">
+					<label class="control-label" for="messegeContent">路径：</label>
+					<div class="controls" id="div1">
+                 	<input type="text" readonly="readonly" id="f_file"/>
+			      	      	<input type="button" value="浏览..." class="btn btn-mini btn-primary" onClick="file.click()" />
+                            <input type="button" value="确定" class="btn btn-mini btn-primary" onClick="imgMessage()" />
+											<input type="file" name="file" id="file" onChange="f_file.value=this.value;validateSuffix(this.value)" style="display:none">
+                                            <input type="hidden" id="share-secret" />
+					</div>
+				</div>
+                 </form>
 			</div>
 		</div>
-        <!--修改信息end-->   
+
+	</div>
+	
+	<div class="modal-footer"> 
+		<a class="btn" onClick="sendMessage();" href="javascript:void(0);">发送</a>
+		<button id="messageCloseBtn" class="btn" data-dismiss="modal" onClick="clsSpan()" aria-hidden="true">关闭</button>
+	</div>
+</div>
+<!--发送消息end-->
+<!--修改信息-->
+<div id="updateInfo" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button id="infoCloseButn" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">修改信息</h3>
+	</div>
+	<div class="modal-body">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="control-group">
+					<label class="control-label" for="username">用户名：</label>
+					<div class="controls">
+                    	<span id="username" name="username"></span>
+						<input type="hidden" id="appUuidInfo" name="appUuidInfo" value=""/>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="messegeType">消息提醒：</label>
+					<div class="controls">
+                 		<input type="radio" style="opacity:1;" name="messageType" id="messageType_0" value="0"/>&nbsp;&nbsp;&nbsp;&nbsp;仅通知
+                        <input type="radio" style="opacity:1;" name="messageType" id="messageType_1" value="1"/>&nbsp;&nbsp;&nbsp;&nbsp;发送详情
+					</div>
+				</div>
+                <div class="control-group">
+					<label class="control-label" for="nickname">昵称：</label>
+					<div class="controls">
+        <input name="nickname" id="nickname" type="text" />
+					</div>
+				</div>
+      <div class="control-group">
+					<label class="control-label" for="notification">免打扰模式：</label>
+					<div class="controls">
+      	<input type="radio" style="opacity:1;" name="notification" id="notification_true" value="true" onChange="showTimeDiv(true)"/>&nbsp;&nbsp;&nbsp;&nbsp;开启
+        <input type="radio" style="opacity:1;" name="notification" id="notification_false" value="false" onChange="showTimeDiv(false)"/>&nbsp;&nbsp;&nbsp;&nbsp;不开启
+					</div>
+				</div>
+			</div>
+      <div class="control-group" id="notification_time_div">
+					<label class="control-label" for="notification_starttime">免打扰时段(范围:00 ~ 23)：</label>
+					<div class="controls">
+        <input name="notification_starttime" id="notification_starttime" style="width:60px" type="text" /> --
+        <input name="notification_endtime" id="notification_endtime" style="width:60px" type="text" />
+					</div>
+				</div>
+		</div>
+
+	</div>
+	
+	<div class="modal-footer"> 
+		<a class="btn" onClick="updateInfoHTML();" href="javascript:void(0);">确定</a>
+		<button class="btn" data-dismiss="modal" onClick="clsSpan()" aria-hidden="true">关闭</button>
+	</div>
+</div>
+<!--修改信息end-->   
 

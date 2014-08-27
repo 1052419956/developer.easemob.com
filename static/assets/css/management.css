@@ -47,3 +47,20 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 #menu_topmenu .menu-item {
 	line-height: 26px;
 }
+
+#menu_topmenu .sub-menu .menu-item {
+	line-height: 25px;
+}
+
+#header .menu-item ul {
+	margin: 0;
+}
+
+#page-content {
+	min-height: 400px;
+}
+
+.console-body .row-fluid .count .auto-height-credentials {
+	height: auto;
+	min-height: 230px;
+}
