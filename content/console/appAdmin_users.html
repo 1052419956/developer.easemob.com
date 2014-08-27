@@ -140,43 +140,41 @@ title: 环信开发者中心
     </div>
   </div>
 </div>
-	<!--修改密码-->
-		<div id="passwordMondify" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h3 id="myModalLabel">重置IM用户密码</h3>
-			</div>
-			<div class="modal-body">
-				<div class="row-fluid">
-					<div class="span12">
-						<div class="control-group">
-							<label class="control-label" for="pwdMondify">新密码：</label>
-							<div class="controls">
-								<input type="password" id="pwdMondify" name="pwdMondify" value="" placeholder="请输入新密码(6-14位字母或数字)" onkeyup="value=removeAllSpace(value)" onblur="value=removeAllSpace(value)" />
-								<input type="hidden" id="usernameMondify" name="usernameMondify" value=""/>
-								<input type="hidden" id="appUuidHidd" name="appUuidHidd" value=""/>
-								<span style="color: red;" id="pwdMondifySpan"></span>
-							</div>
-						</div>
+<!--修改密码-->
+<div id="passwordMondify" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">重置IM用户密码</h3>
+	</div>
+	<div class="modal-body">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="control-group">
+					<label class="control-label" for="pwdMondify">新密码：</label>
+					<div class="controls">
+						<input type="password" id="pwdMondify" name="pwdMondify" value="" placeholder="请输入新密码(6-14位字母或数字)" onkeyup="value=removeAllSpace(value)" onblur="value=removeAllSpace(value)" />
+						<input type="hidden" id="usernameMondify" name="usernameMondify" value=""/>
+						<input type="hidden" id="appUuidHidd" name="appUuidHidd" value=""/>
+						<span style="color: red;" id="pwdMondifySpan"></span>
 					</div>
 				</div>
-				<div class="row-fluid">
-					<div class="span12">
-						<div class="control-group">
-							<label class="control-label" for="pwdMondifytwo">再次输入新密码：</label>
-							<div class="controls">
-								<input type="password" id="pwdMondifytwo" name="pwdMondifytwo" value="" placeholder="请再次输入新密码" onkeyup="value=removeAllSpace(value)" onblur="value=removeAllSpace(value)" />
-								<span style="color: red;" id="pwdMondifytwoSpan"></span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="modal-footer"> 
-				<a class="btn" onclick="updateAppUserPassword();" href="javascript:void(0);">修改</a>
-				<button class="btn" data-dismiss="modal" onclick="clsSpan()" aria-hidden="true">关闭</button>
 			</div>
 		</div>
-</body>
-</html>
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="control-group">
+					<label class="control-label" for="pwdMondifytwo">再次输入新密码：</label>
+					<div class="controls">
+						<input type="password" id="pwdMondifytwo" name="pwdMondifytwo" value="" placeholder="请再次输入新密码" onkeyup="value=removeAllSpace(value)" onblur="value=removeAllSpace(value)" />
+						<span style="color: red;" id="pwdMondifytwoSpan"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal-footer"> 
+		<a class="btn" onclick="updateAppUserPassword();" href="javascript:void(0);">修改</a>
+		<button class="btn" data-dismiss="modal" onclick="clsSpan()" aria-hidden="true">关闭</button>
+	</div>
+</div>
