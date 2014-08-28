@@ -56,6 +56,27 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	margin: 0;
 }
 
+#header .menu-item:hover .sub-menu {
+	margin-top: 12px;
+}
+
+.console-body .footer-left dd {
+	margin-left: 0;
+}
+
+.console-body .footer-left dl {
+	margin-bottom: 0;
+}
+
+.console-body .footer-left dt.foot-lg img {
+	vertical-align: baseline;
+}
+
+.console-body .footer-left dt.foot-lg,
+.console-body .footer-right li {
+	line-height: 26px;
+}
+
 #page-content {
 	min-height: 400px;
 }
@@ -63,4 +84,8 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 .console-body .row-fluid .count .auto-height-credentials {
 	height: auto;
 	min-height: 230px;
+}
+
+.min-height-result {
+	min-height: 500px;
 }
