@@ -15,6 +15,7 @@ layout: docs
 	* [5分钟快速入门无UIDemo](/docs/emchat/android/quickstart.html)
 	* [5分钟快速入门有UIDemo](/docs/emchat/android/quickstartUI.html)
 	* [集成环信SDK配置指导](/docs/emchat/android/quickstartinapp.html)
+	* [设置登录用户昵称](/docs/emchat/android/setnickname.html)
 	* [单聊](/docs/emchat/android/singlechat.html)
 		* [初始化](/docs/emchat/android/singlechat.html)
 		* [登录鉴权](/docs/emchat/android/singlechat.html)
