@@ -80,6 +80,10 @@ function showCode(boxId){
 
 // 显示不同窗口
 function show_box(boxId){
+	// 修改内容高度，不让弹窗遮挡footer
+	var minHeightObj = $($('.min-height-result')[0]);
+	minHeightObj.css('minHeight', 500);
+
 	// 登录
 	if('login-box' == boxId){
 		$('#login-box').addClass('visible');
@@ -96,6 +100,8 @@ function show_box(boxId){
 	}
 	// 注册
 	if('signup-box' == boxId){
+		minHeightObj.css('minHeight', 850);
+
 		$('#signup-box').addClass('visible');
 		
 		var oldLoginClassVal = $('#login-box').attr('class');
@@ -964,7 +970,7 @@ function updateChatroomPageStatus(appUuid){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/chatrooms?limit=1000',
@@ -1011,7 +1017,7 @@ function updateUsersPageStatus(){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/users?limit=1000',
@@ -1068,7 +1074,7 @@ function updateUsersAdminPageStatus(){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid +'/roles/admin/users?limit=1000',
@@ -1124,7 +1130,7 @@ function updateIMPageStatus(owner_username){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/users/'+owner_username+'/contacts/users?limit=1000',
@@ -1180,7 +1186,7 @@ function getAppList(){
 	userCount = 0;
 	if(!access_token || access_token=='') {
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		var loading = '<tr id="tr_loading"><td class="text-center" colspan="9"><img src ="/assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
 		$('#appListBody').empty();
@@ -1286,7 +1292,7 @@ function getAppProfile(appUuid){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		// 获取app基本信息
 		$.ajax({
@@ -1398,7 +1404,7 @@ function getAppProfileforAppAdmin(appUuid){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		$.ajax({
 			url:baseUrl+'/management/organizations/'+ orgName +'/applications/' + appUuid,
@@ -1638,7 +1644,7 @@ function getAppUserList(appUuid, pageAction){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		var loading = '<tr id="tr_loading"><td class="text-center" colspan="9"><img src ="/assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
 		$('#appUserBody').empty();
@@ -1783,7 +1789,7 @@ function showUpdateInfo(appUuid, username){
 	
 	if(!access_token || access_token=='') {
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/index';
+		window.location.href = '/console';
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/users/' + username,
@@ -2443,7 +2449,7 @@ function getAppChatrooms(appUuid,pageAction){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		if('forward' == pageAction){
 			pageNo += 1;
@@ -2543,7 +2549,7 @@ function getqunzuAppChatrooms(appUuid,qunzuid,pageAction){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		if('forward' == pageAction){
 			pageNo += 1;
@@ -2665,7 +2671,7 @@ function getAppChatroomsuser(appUuid,groupid,pageAction){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		if('forward' == pageAction){
 			pageNo += 1;
@@ -2954,7 +2960,7 @@ function updatequnzuPageStatus(){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/notifiers?limit=1000',
@@ -3149,7 +3155,7 @@ function getAppIMList(appUuid, owner_username){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		var loading = '<tr id="tr_loading"><td class="text-center" colspan="3"><img src ="/assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
 		$('#appIMBody').empty();
@@ -3215,7 +3221,7 @@ function deleteAppIMFriend(appUuid, owner_username, friend_username){
 	var access_token = $.cookie('access_token');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		if(window.confirm('确定删除此好友？')){
 			$.ajax({
@@ -3304,7 +3310,7 @@ function getAppUsersAdminList(appUuid, pageAction){
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
 		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
+		window.location.href = '/console';
 	} else {
 		if('next' == pageAction){
 			pageNo += 1;
