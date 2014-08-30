@@ -1,4 +1,4 @@
-﻿	// Host
+﻿// Host
 //var baseUrl = 'https://api.easemob.com';
 var baseUrl = 'https://a1.easemob.com';
 
@@ -9,25 +9,33 @@ $(function() {
 		
 	// 显示已登录用户nd
 	$('#user_info').html('<small>Welcome,</small>'+$.cookie('cuserName'));
-		
-	// 注册按钮状态
-	$("#agreeCBox").bind("click", function () {
-		if($('#agreeCBox').attr('checked')){
-			$('#formSubBtn').addClass('btn-success');
-			$('#formSubBtn').disabled = false;
+	
+	var agreeCBoxObj = $("#agreeCBox"),
+		formSubBtnObj = $('#formSubBtn');
+
+	function changeBtnStatus() {
+		var statusClass = 'btn-success';
+
+		if(agreeCBoxObj.attr('checked')){
+			formSubBtnObj.addClass(statusClass);
+			formSubBtnObj.disabled = false;
 		} else {
-			$('#formSubBtn').removeClass('btn-success');
-			$('#formSubBtn').disabled = true;
+			formSubBtnObj.removeClass(statusClass);
+			formSubBtnObj.disabled = true;
 		}
-	});
-	if($('#agreeCBox').attr('checked')){
-		$('#formSubBtn').addClass('btn-success');
-		$('#formSubBtn').disabled = false;
-	} else {
-		$('#formSubBtn').removeClass('btn-success');
-		$('#formSubBtn').disabled = true;
 	}
+
+	// 注册按钮状态
+	agreeCBoxObj.bind("click", function () {
+		changeBtnStatus();
+	});
+	changeBtnStatus();
 }) 
+
+function showTipAndLogin() {
+	alert('提示\n\n会话已失效,请重新登录!');
+	window.location.href = '/console';
+}
 
 // 全角转换成半角
 function ToCDB(str) {
@@ -703,8 +711,7 @@ function adminInfo(){
 	var cuser = $.cookie('cuser');
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/';
+		showTipAndLogin();
 	} else {
 		$.ajax({
 			url:baseUrl + '/management/organizations/'+orgName+'/users',
@@ -742,8 +749,7 @@ function updateAdminInfo(username, companyName, telephone){
 	}
 	
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/';
+		showTipAndLogin();
 	} else {
 		$.ajax({
 			url: baseUrl + '/management/users/' + username,
@@ -927,8 +933,7 @@ function saveNewApp(){
 	};
 	
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/';
+		showTipAndLogin();
 	} else {
 		if(createAppFormValidate()){
 			// 保存数据
@@ -969,8 +974,7 @@ function updateChatroomPageStatus(appUuid){
 	var cuser = $.cookie('cuser');
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/chatrooms?limit=1000',
@@ -1016,8 +1020,7 @@ function updateUsersPageStatus(){
 	var cuser = $.cookie('cuser');
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/users?limit=1000',
@@ -1073,8 +1076,7 @@ function updateUsersAdminPageStatus(){
 	var cuser = $.cookie('cuser');
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid +'/roles/admin/users?limit=1000',
@@ -1129,8 +1131,7 @@ function updateIMPageStatus(owner_username){
 	var cuser = $.cookie('cuser');
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/users/'+owner_username+'/contacts/users?limit=1000',
@@ -1185,8 +1186,7 @@ function getAppList(){
 	var orgName = $.cookie('orgName');
 	userCount = 0;
 	if(!access_token || access_token=='') {
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		var loading = '<tr id="tr_loading"><td class="text-center" colspan="9"><img src ="/assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
 		$('#appListBody').empty();
@@ -1291,8 +1291,7 @@ function getAppProfile(appUuid){
 	var cuser = $.cookie('cuser');
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		// 获取app基本信息
 		$.ajax({
@@ -1403,8 +1402,7 @@ function getAppProfileforAppAdmin(appUuid){
 	var cuser = $.cookie('cuser');
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		$.ajax({
 			url:baseUrl+'/management/organizations/'+ orgName +'/applications/' + appUuid,
@@ -1643,8 +1641,7 @@ function getAppUserList(appUuid, pageAction){
 	var cuser = $.cookie('cuser');
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		var loading = '<tr id="tr_loading"><td class="text-center" colspan="9"><img src ="/assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
 		$('#appUserBody').empty();
@@ -1788,8 +1785,7 @@ function showUpdateInfo(appUuid, username){
 	var orgName = $.cookie('orgName');
 	
 	if(!access_token || access_token=='') {
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/users/' + username,
@@ -1962,8 +1958,7 @@ function searchUser(appUuid, queryString){
 	var orgName = $.cookie('orgName');
 	
 	if(!access_token || access_token=='') {
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/';
+		showTipAndLogin();
 	} else {
 		
 		$.ajax({
@@ -2448,8 +2443,7 @@ function getAppChatrooms(appUuid,pageAction){
 	var cuser = $.cookie('cuser');
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		if('forward' == pageAction){
 			pageNo += 1;
@@ -2548,8 +2542,7 @@ function getqunzuAppChatrooms(appUuid,qunzuid,pageAction){
 	var cuser = $.cookie('cuser');
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		if('forward' == pageAction){
 			pageNo += 1;
@@ -2670,8 +2663,7 @@ function getAppChatroomsuser(appUuid,groupid,pageAction){
 	var cuser = $.cookie('cuser');
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		if('forward' == pageAction){
 			pageNo += 1;
@@ -2959,8 +2951,7 @@ function updatequnzuPageStatus(){
 	var cuser = $.cookie('cuser');
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		$.ajax({
 			url:baseUrl+'/'+ orgName +'/' + appUuid + '/notifiers?limit=1000',
@@ -3154,8 +3145,7 @@ function getAppIMList(appUuid, owner_username){
 	var cuser = $.cookie('cuser');
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		var loading = '<tr id="tr_loading"><td class="text-center" colspan="3"><img src ="/assets/img/loading.gif">&nbsp;&nbsp;&nbsp;<span>正在读取数据...</span></td></tr>';
 		$('#appIMBody').empty();
@@ -3220,8 +3210,7 @@ function deleteAppIMFriend(appUuid, owner_username, friend_username){
 	var orgName = $.cookie('orgName');
 	var access_token = $.cookie('access_token');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		if(window.confirm('确定删除此好友？')){
 			$.ajax({
@@ -3309,8 +3298,7 @@ function getAppUsersAdminList(appUuid, pageAction){
 	var cuser = $.cookie('cuser');
 	var orgName = $.cookie('orgName');
 	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console';
+		showTipAndLogin();
 	} else {
 		if('next' == pageAction){
 			pageNo += 1;
