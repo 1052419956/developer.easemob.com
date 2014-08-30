@@ -93,42 +93,42 @@ title: 环信开发者中心
 	}
 	// 获取app详情:org管理员登录
 	function getAppProfileA(appUuid){
-	// 获取token
-	var owner_username = getQueryString('owner_username');
-	var access_token = $.cookie('access_token');
-	var cuser = $.cookie('cuser');
-	var orgName = $.cookie('orgName');
-	if(!access_token || access_token==''){
-		alert('提示\n\n会话已失效,请重新登录!');
-		window.location.href = '/console/login';
-	} else {
-		// 获取app基本信息
-		$.ajax({
-			url:baseUrl + '/management/organizations/' + orgName + '/applications/' + appUuid,
-			type:'GET',
-			headers:{
-				'Authorization':'Bearer ' + access_token,
-				'Content-Type':'application/json'
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				//alert('提示\n\n数据加载失败,可能是网络原因，请稍后重试!');
-			},
-			success: function(respData, textStatus, jqXHR) {
-				$(respData.entities).each(function(){
-					var uuid = this.uuid;
-					var name = this.name;
-					var created = format(this.created);
-					var modified = format(this.modified);
-					var applicationName = this.applicationName;
-					var organizationName = this.organizationName;
-					var allowOpen = this.allow_open_registration?'开放注册':'授权注册';
-					var tag = this.allow_open_registration?'0':'1';
-					$('#showName').text(applicationName);
-					$('#showUsername').text(owner_username);
-					
-				});
-			}
-		});
+		// 获取token
+		var owner_username = getQueryString('owner_username');
+		var access_token = $.cookie('access_token');
+		var cuser = $.cookie('cuser');
+		var orgName = $.cookie('orgName');
+		if(!access_token || access_token==''){
+			alert('提示\n\n会话已失效,请重新登录!');
+			window.location.href = '/console';
+		} else {
+			// 获取app基本信息
+			$.ajax({
+				url:baseUrl + '/management/organizations/' + orgName + '/applications/' + appUuid,
+				type:'GET',
+				headers:{
+					'Authorization':'Bearer ' + access_token,
+					'Content-Type':'application/json'
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					//alert('提示\n\n数据加载失败,可能是网络原因，请稍后重试!');
+				},
+				success: function(respData, textStatus, jqXHR) {
+					$(respData.entities).each(function(){
+						var uuid = this.uuid;
+						var name = this.name;
+						var created = format(this.created);
+						var modified = format(this.modified);
+						var applicationName = this.applicationName;
+						var organizationName = this.organizationName;
+						var allowOpen = this.allow_open_registration?'开放注册':'授权注册';
+						var tag = this.allow_open_registration?'0':'1';
+						$('#showName').text(applicationName);
+						$('#showUsername').text(owner_username);
+						
+					});
+				}
+			});
 		}
 	}
 	

@@ -310,10 +310,10 @@ title: 环信开发者中心
       var dataString ='<chart rotateYAxisName="0" yAxisName="'+yName+'" chartRightMargin="50" xAxisName="时间 (按'+company+'计)" caption="'+$(':radio:checked').val()+'" subCaption="（单位：'+danwei+'）" useRoundEdges="1" color="333333" bgColor="FFFFFF,FFFFFF" showBorder="0">';
 			for(var i=0;i<labels.length;i++){/*if(flow[i]<0){flow[i]=0;}*/dataString+='<set label="'+labels[i]+'" value="'+flow[i]+'" />';}
 			dataString+='</chart>';
-	  
+
 	  	/*var dataString ="<chart yAxisName='时长' subCaption='用户数据' useRoundEdges='1' color='333333' bgColor='FFFFFF,FFFFFF' showBorder='0'>\n\"*/
       	if (GALLERY_RENDERER && GALLERY_RENDERER.search(/javascript|flash/i)==0)  FusionCharts.setCurrentRenderer(GALLERY_RENDERER);  
-            var chart = new FusionCharts("assets/swf/FusionCharts/Charts/Line.swf", "ChartId_flash", "1000", "500", "0", "1" );
+            var chart = new FusionCharts("/assets/swf/FusionCharts/Charts/Line.swf", "ChartId_flash", "1000", "500", "0", "1" );
             chart.setXMLData( dataString );
             chart.render("canvasUserDiv3");
 				//$('#control_date').trigger('click');//页面加载完成模拟点击事件
@@ -412,13 +412,13 @@ title: 环信开发者中心
 			};
                };
 			applyChatMessagesData(applyRequest,flow,labels,url);
-      var dataString ='<chart rotateYAxisName="0" yAxisName="'+yName+'" chartRightMargin="50" xAxisName="时间 (按'+company+'计)" caption="'+$(':radio:checked').val()+'" subCaption="（单位：'+danwei+'）" useRoundEdges="1" color="333333" bgColor="FFFFFF,FFFFFF" showBorder="0">';
+    var dataString ='<chart rotateYAxisName="0" yAxisName="'+yName+'" chartRightMargin="50" xAxisName="时间 (按'+company+'计)" caption="'+$(':radio:checked').val()+'" subCaption="（单位：'+danwei+'）" useRoundEdges="1" color="333333" bgColor="FFFFFF,FFFFFF" showBorder="0">';
 			for(var i=0;i<labels.length;i++){/*if(flow[i]<0){flow[i]=0;}*/dataString+='<set label="'+labels[i]+'" value="'+flow[i]+'" />';}
 			dataString+='</chart>';
 	  
 	  	/*var dataString ="<chart yAxisName='时长' subCaption='用户数据' useRoundEdges='1' color='333333' bgColor='FFFFFF,FFFFFF' showBorder='0'>\n\"*/
       	if (GALLERY_RENDERER && GALLERY_RENDERER.search(/javascript|flash/i)==0)  FusionCharts.setCurrentRenderer(GALLERY_RENDERER);  
-            var chart = new FusionCharts("assets/swf/FusionCharts/Charts/Line.swf", "ChartId_flash", "1000", "500", "0", "1" );
+            var chart = new FusionCharts("/assets/swf/FusionCharts/Charts/Line.swf", "ChartId_flash", "1000", "500", "0", "1" );
             chart.setXMLData( dataString );
             chart.render("canvasUserDiv3");
 				//$('#control_date').trigger('click');//页面加载完成模拟点击事件
@@ -463,11 +463,15 @@ title: 环信开发者中心
 	function toAppUserAdmin(){
 		window.location.href = '/console/app_users_admin?appUuid='+appUuid;
 	}
+
+	window.onload = getDiv;
 </script>
-
-<!--add this lin-->
-<div onload="getDiv()">
-
+<style type="text/css">
+/*针对此页面单独处理*/
+	#page-content {
+		min-height: 800px;
+	}
+</style>
 
 <div id="main-container" class="container-fluid"> <a href="javascript:void(0);" id="menu-toggler"> <span></span> </a>
   <div id="sidebar">
@@ -554,8 +558,4 @@ title: 环信开发者中心
     	</div>
   	</div>
 	</div>
-</div>
-
-
-<!--add this line-->
 </div>

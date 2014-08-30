@@ -53,6 +53,11 @@ compile '/docs/*' do
 end
 
 
+# 单独处理，是为了让此页面下能正常展示html标签给用户看
+compile '/console/app_profile/*' do
+  layout item[:layout] || 'console'
+end
+
 # console
 compile '/console/*' do
   filter :erb
@@ -101,6 +106,11 @@ route '/docs/emuser/*' do
 end
 route '/docs/usergrid/*' do
   item.identifier.chop + '.html'
+end
+
+
+route '/console/app_profile/*' do
+  item.identifier + 'index.html'
 end
 
 

@@ -89,3 +89,8 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 .min-height-result {
 	min-height: 500px;
 }
+
+#sidebar.menu-min+#main-content  .row-fluid .count .left{
+	height: auto;
+	min-height: 230px;
+}
