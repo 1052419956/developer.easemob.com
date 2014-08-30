@@ -1,4 +1,4 @@
-﻿	// Host
+﻿// Host
 //var baseUrl = 'https://api.easemob.com';
 var baseUrl = 'https://a1.easemob.com';
 
@@ -15,7 +15,7 @@ $(function() {
 
 	function changeBtnStatus() {
 		var statusClass = 'btn-success';
-		
+
 		if(agreeCBoxObj.attr('checked')){
 			formSubBtnObj.addClass(statusClass);
 			formSubBtnObj.disabled = false;
