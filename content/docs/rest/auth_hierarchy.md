@@ -58,7 +58,6 @@ post /{org}/{app}/stliu-books
 授权即是给某个用户赋予某个角色，从而使其拥有某些资源的操作权限。
 
 
-
 ## 认证
 在环信的认证体系中，是通过校验token来做权限认证的。具体说就是用户请求操作某个资源的时候在http头信息中按规则发送token到服务器端，服务器对此token进行校验并返回给客户端校验结果。
 
@@ -66,6 +65,11 @@ post /{org}/{app}/stliu-books
 
 ##获取token
 获取token有两种方式：1. 通过用户名和密码获取 2. 通过client_id和client_secret获取
+
+###1. 通过用户密码获取token
+
+###2. 通过client_id和client_credential获取token
+
 #### 获取client_id和client_secret
 #### 使用app的client_id 和 client_secret登陆并获取授权token
 
