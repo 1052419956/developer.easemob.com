@@ -5,16 +5,16 @@ sidebar: restsidebar
 ---
 
 
-# 环信用户管理介绍
+## 多租户用户体系
 
-## 用户管理REST API
 
-## 用户的json数据结构说明
-
-	{
-	  username: "jliu",  //username是用户的primarykey。需要在appkey的范围内唯一。
-	  password:"123456"  //登录密码 123456
-	}
+## 数据结构
+ > 环信作为一个聊天通道，只需要提供用户ID和口令就够了.
+ 
+ |  属性     |  字段名    | 数据类型  |  描述  |
+ |---------|------------|----------|-------|
+ |  用户ID   | username  | String   | username是用户的primarykey,在appkey的范围内唯一 |
+ |  用户口令 | password   | String   |       |
 
 ## 环信ID规则
 

@@ -5,16 +5,18 @@ sidebar: restsidebar
 ---
 
 
-# 权限 角色 授权 认证
+# 环信认证体系
+
+> 环信认证体系包括一下几个概念：权限 角色 授权 认证
 
 ## 权限 permission
 在环信REST服务体系，权限代表对某个资源的操作能力，包括GET / PUT / POST / DELETE等。
 
 权限的表示：
 
-        get:/*    表示可以获取根路径开始往下的所有资源
-    	get:/users/*    表示可以获取/users开始往下的所有的资源
-    	get,put,post,delete:/**  多个权限表示的简写表示
+    get:/*    表示可以获取根路径开始往下的所有资源
+    get:/users/*    表示可以获取/users开始往下的所有的资源
+    get,put,post,delete:/**  多个权限表示的简写表示
   
 ## 角色 role
 >首先需要明确的是, 一个用户可以有多个roles, 每个role可以有多个permissions, 每个permission定义了一个匹配规则, 来决定一个request是否能够被访问

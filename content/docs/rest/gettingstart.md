@@ -4,7 +4,7 @@ secondnavrest: true
 sidebar: restsidebar
 ---
 
-### 环信服务器端REST平台概述
+## 环信服务器端REST平台概述
 
 #### 关于REST
 > 
@@ -123,6 +123,6 @@ sidebar: restsidebar
 
 &emsp;&emsp;在调用环信的后台服务之前, 需要先登陆获取token, 而根据请求发起人的角色不同, 获取token的方式也不同
 
-### 示例代码
+## 示例代码
 &emsp;&emsp;环信提供了如何调用REST服务的示例代码, 可以在[这里](https://github.com/easemob/emchat-server-examples)找到.
 
