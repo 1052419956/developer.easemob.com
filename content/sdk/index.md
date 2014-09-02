@@ -22,13 +22,19 @@ var _hmt = _hmt || [];
 						<span class="ios_icon"></span>
 						<a class="ios_btn" id="iosHref" onclick="_hmt.push(['_trackEvent', 'IMSDK', 'click', 'iosSDK'])" href=" http://www.easemob.com/downloads/iOSSDK.zip">下载IOS版开发包（SDK+文档+Demo)</a>
  						
-						<span><em><a href="http://developer.easemob.com/docs/emchat/ios/quickstart.html"  target="_blank">5分钟快速入门</a> | <a href="http://developer.easemob.com/docs/emchat/ios/singlechat.html" target="_blank">iOS SDK 集成指南</a></em>V 2.0.8　下载次数：13074</span>
+						<span><em><a href="/docs/ios/quickstart"  target="_blank">5分钟快速入门</a> | <a href="/docs/ios/singlechat" target="_blank">iOS SDK 集成指南</a></em>V 2.0.8　下载次数：13074</span>
 					</li>
 					<li class="li_away">
 						<span class="andriod_icon"></span>
 						<a  id="androidHref" class="ios_btn andriod_btn" onclick="_hmt.push(['_trackEvent', 'IMSDK', 'click', 'AndroidSDK'])" href="http://www.easemob.com/downloads/androidsdk.zip">下载Andriod版开发包（SDK+文档+Demo)</a>
  						
-						<span><em><a href="http://developer.easemob.com/docs/emchat/android/quickstart.html"  target="_blank">5分钟快速入门</a> | <a href="http://developer.easemob.com/docs/emchat/android/singlechat.html" target="_blank">Android SDK 集成指南</a></em>V 2.0.7　下载次数：12115</span>
+						<span><em><a href="/docs/android/quickstart"  target="_blank">5分钟快速入门</a> | <a href="/docs/android/singlechat" target="_blank">Android SDK 集成指南</a></em>V 2.0.8　下载次数：14327</span>
+					</li>
+					<li class="li_away">
+						<span class="webIm_icon"></span>
+						<a  id="androidHref" class="ios_btn andriod_btn" onclick="_hmt.push(['_trackEvent', 'IMSDK', 'click', 'AndroidSDK'])" href="http://www.easemob.com/downloads/androidsdk.zip">下载webIM版开发包（SDK+文档+Demo)</a>
+ 						
+						<span><em><a href="/docs/webim/quickstart"  target="_blank">5分钟快速入门</a> | <a href="/docs/webim/quickstartinapp/" target="_blank">Android SDK 集成指南</a></em>V 2.0.7　下载次数：12115</span>
 					</li>
 				</ul>
 			</div>
@@ -254,6 +260,24 @@ var _hmt = _hmt || [];
 
 			    <ul class="history_right">
 				<h2 class="first">Andriod SDK 更新日志</h2>
+					<li>
+		              <h3><em></em><span>版本：V2.0.8 2014-08-30</span></h3>
+		                <dl>
+		                  <dt>
+		                    <span>新功能/改进：<br/>
+		                      1、优化了token 的获取和更新<br/>
+		                      2、优化了在 wifi 环境下的长连接维护部分<br/>
+		                      3、支持设置用户昵称，ios APNS 推送的时候能显示此名称<br/>
+		                      4、EMChatConfig.getInstance().AccessToken的调用方式改成EMChatManager.getInstance().getAccessToken()<br/>
+		                      5、支持消息notification提示时修改通知的标题<br/>									
+		                       Bug Fix：<br/>
+		                      1、修复了有些情况下网络切换无法自动重连的问题<br/>		
+		                      2、修复了消息中包含某些特殊字符时接收到内容不一致的问题<br/>
+		                      3、修复了concurrent access conversation 的问题<br/>
+		                    </span>
+		                  </dt>
+		                </dl>
+		            </li>
 						<li>
 						<h3><em></em><span>版本：V2.0.7 2014-08-19</span></h3>
 							<dl>
@@ -463,6 +487,25 @@ var _hmt = _hmt || [];
 						<h3><em></em><a href="javascript:void(0);" class="andriod_more" onclick="andriodToggle()"><span>更多……</span></a></h3>
 					</li>
 			    </ul>
+			    <ul class="history_left history_margin_right">
+			      	<h2 class="first">webIM SDK 更新日志</h2><!--
+			      	<li>
+						<h3><em></em><span>版本：V2.0.8 2014-08-28</span></h3>
+						<dl>
+							<dt>
+							    <span>新功能/改进：<br/>
+							    
+									1、EMMessage中新添加了isOfflineMessage属性，在didReceiveMessage的时候， 可以根据是否为离线消息而决定是否重绘界面。
+同时在offline message在接收过程中， 会有willReceiveOfflineMessages和didFinishedReceiveOfflineMessages：发出，用户可以根据此事件决定是否需要重绘UI。<br/>
+									2、屏蔽群消息：接收并提醒 && 只接收不提醒。<br>
+                                    Bug Fix：<br/>
+									1、消息中的图片缩略图，在某些情况下，size.height为0。<br/>
+									2、修正断线重连方面：切到后台，3分钟后，切回前台，有时会掉线的问题。<br/>
+                                </span>
+							</dt>
+						</dl>
+					</li>-->
+				</ul>
 			</div>
 			<script type="text/javascript">
 				function iosToggle(){
