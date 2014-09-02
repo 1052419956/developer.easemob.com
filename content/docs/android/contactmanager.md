@@ -9,30 +9,31 @@ secondnavandroid: true
 ### 获取好友列表
 
 获取好友的usernam list，开发者需要根据username去自己服务器获取好友的详情
-
+<pre class="hll"><code class="language-java">
 	List<String> usernames = EMChatManager.getInstance().getContactUserNames();
-
+</code></pre>
 ### 添加好友
-
+<pre class="hll"><code class="language-java">
 	//参数为要添加的好友的username和添加理由
 	EMContactManager.getInstance().addContact(toAddUsername, reason);
-	
+</code></pre>	
 ### 删除好友
-
+<pre class="hll"><code class="language-java">
 	EMContactManager.getInstance().deleteContact(username);
-
+</code></pre>
 ### 同意好友请求
-
+<pre class="hll"><code class="language-java">
 	//同意username的好友请求
 	EMChatManager.getInstance().acceptInvitation(username);
-
+</code></pre>
 ### 拒绝好友请求
+<pre class="hll"><code class="language-java">
 	EMChatManager.getInstance().refuseInvitation(username);
-
+</code></pre>
 ### 监听好友请求，同意好友请求等事件
 
 **已过时**，使用后面的"监听好友状态事件"里的方式：EMContactManager.getInstance().setContactListener(new EMContactListener())监听好友改变事件。
-
+<pre class="hll"><code class="language-java">
 	//注册一个好友请求等的BroadcastReceiver   
 	IntentFilter inviteIntentFilter = new IntentFilter(EMChatManager.getInstance().getContactInviteEventBroadcastAction());
 	registerReceiver(contactInviteReceiver, inviteIntentFilter);
@@ -55,9 +56,9 @@ secondnavandroid: true
 			//具体ui上的处理参考chatuidemo。
 		}
 	}
-
+</code></pre>
 ### 监听好友状态事件
-
+<pre class="hll"><code class="language-java">
 	EMContactManager.getInstance().setContactListener(new EMContactListener() {
 			
 			@Override
@@ -86,3 +87,4 @@ secondnavandroid: true
 				//增加了联系人时回调此方法
 			}
 		});
+</code></pre>

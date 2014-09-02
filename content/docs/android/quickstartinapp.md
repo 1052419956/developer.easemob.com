@@ -18,7 +18,7 @@ secondnavandroid: true
 ### 添加环信的配置信息
 
 在清单文件AndroidManifest.xml里加入以下权限，以及写上你注册的appkey
-		
+ 		
 	<uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -40,7 +40,7 @@ secondnavandroid: true
 	<meta-data android:name="EASEMOB_APPKEY"  android:value="你申请的appkey" />
 	<!-- 声明sdk所需的service -->
 	<service android:name="com.easemob.chat.EMChatService" />
-
+ 
 关于EASEMOB_APPKEY，请登录或注册[环信开发者后台](https://console.easemob.com),申请APPKEY后，进行相关配置。（测试demo中 APPKEY为*easemob-demo#chatdemo*）
 
 ### app打包混淆
