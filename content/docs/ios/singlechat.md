@@ -597,9 +597,10 @@ EMMessage支持用户自定义扩展
 
 ## 黑名单
 
-### 获取黑民单列表
+### 获取黑名单列表
 
 接口
+
 <pre class="hll"><code class="language-objective_c">
 	/*!
 	 @method
@@ -632,9 +633,9 @@ EMMessage支持用户自定义扩展
 	                                    
 </code></pre>
 
-### 把用户加入到黑民单
+### 把用户加入到黑名单
 	
-接口
+   接口
 
 <pre class="hll"><code class="language-objective_c">
 	/*!
@@ -649,6 +650,7 @@ EMMessage支持用户自定义扩展
 	 */
 	- (EMError *)blockBuddy:(NSString *)username
 	           relationship:(EMRelationship)relationship;
+
 </code></pre>
 
 ### 把用户从黑名单中移除
@@ -687,7 +689,8 @@ SDK中提供了方便的新消息提醒功能。可以在收到消息时调用�
 
 </code></pre>
 
-## 设备调用 
+## 设备调用
+
 ###  录音时获取音量大小 
 
  
