@@ -71,13 +71,13 @@ public class DemoApplication extends Application {
 }
 </code></pre>
 #### 注册：见LoginActivity.java
+    
 <pre class="hll"><code class="language-java">
-	// 注册临时账号  缺省密码： 123456
 	register.setOnClickListener(new OnClickListener() {
 		@Override
 		public void onClick(View v) {
 			account.setText(getAccount());
-			pwd.setText("123456");
+			pwd.setText("123456");// 注册临时账号  缺省密码： 123456
 			CreateAccountTask task = new CreateAccountTask();
 			task.execute(account.getText().toString(), "123456", "chatdemo");
 
@@ -198,6 +198,7 @@ public class DemoApplication extends Application {
         }
     }
 </code></pre>
+
 #### 退出登陆：见MainActivity.java
 <pre class="hll"><code class="language-java">
     @Override
