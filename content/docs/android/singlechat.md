@@ -173,12 +173,12 @@ secondnavandroid: true
 <pre class="hll"><code class="language-java">
 	EMConversation conversation = EMChatManager.getInstance().getConversation(username);
 	//获取此会话的所有消息
-	List<EMMessage> messages = conversation.getAllMessages();
+	List&lt;EMMessage&gt; messages = conversation.getAllMessages();
 	//sdk初始化加载的聊天记录为20条，到顶时需要去db里获取更多
 	//获取startMsgId之前的pagesize条消息，此方法获取的messages sdk会自动存入到此会话中，app中无需再次把获取到的messages添加到会话中
-	List<EMMessage> messages = conversation.loadMoreMsgFromDB(startMsgId, pagesize);
+	List&lt;EMMessage&gt; messages = conversation.loadMoreMsgFromDB(startMsgId, pagesize);
 	//如果是群聊，调用下面此方法
-	List<EMMessage> messages = conversation.loadMoreGroupMsgFromDB(startMsgId, pagesize);
+	List&lt;EMMessage&gt; messages = conversation.loadMoreGroupMsgFromDB(startMsgId, pagesize);
 </code></pre>
 	
 ## 未读消息数变化回调（单一聊天人，所有聊天人）。消息已读设定
@@ -308,7 +308,7 @@ SDK中提供了方便的新消息提醒功能。可以在收到消息时调用�
 
 获取好友的usernam list，开发者需要根据username去自己服务器获取好友的详情
 <pre class="hll"><code class="language-java">
-	List<String> usernames = EMChatManager.getInstance().getContactUserNames();
+	List&lt;String&gt; usernames = EMChatManager.getInstance().getContactUserNames();
     
 </code></pre>
 ### 添加好友

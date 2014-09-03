@@ -10,7 +10,7 @@ secondnavandroid: true
 
 获取好友的usernam list，开发者需要根据username去自己服务器获取好友的详情
 <pre class="hll"><code class="language-java">
-	List<String> usernames = EMChatManager.getInstance().getContactUserNames();
+	List&lt;String&gt; usernames = EMChatManager.getInstance().getContactUserNames();
 </code></pre>
 ### 添加好友
 <pre class="hll"><code class="language-java">

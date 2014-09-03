@@ -84,8 +84,7 @@ public class DemoApplication extends Application {
       }
     });
     }
-
-    private class CreateAccountTask extends AsyncTask<String, Void, String> {
+    private class CreateAccountTask extends AsyncTask&lt;String, Void, String&gt; {
     protected String doInBackground(String... args) {
       String userid = args[0];
       String pwd = args[1];
