@@ -35,7 +35,7 @@ sidebar: restsidebar
 而使用 _md5_ 函数对App用户名进行转换， 则很好的解决了这一问题， 即保证了， 无论App中的用户名规则是什么样子的， 中文， email等等的值， 经过md5函数之后， 都可以得到一个环信中的合法的用户名， 同时， 也保证了App的*真实*用户名信息并没有暴露给环信。
 以下所有API均需要org管理员或app管理员权限才能访问。
 
-> 强烈建议保护好org管理员及app管理员的用户名和密码,尽量只在APP的服务器后台对环信用户做增删改查的管理，包括新用户注册。为了您的信息安全,请一定不要将org管理员或app管理员的用户名和密码写死在手机客户端中,因为手机app很容易被反编译,从而导致别人获取到您的管理员账号和密码,导致数据泄露 .
+强烈建议保护好org管理员及app管理员的用户名和密码,尽量只在APP的服务器后台对环信用户做增删改查的管理，包括新用户注册。为了您的信息安全,请一定不要将org管理员或app管理员的用户名和密码写死在手机客户端中,因为手机app很容易被反编译,从而导致别人获取到您的管理员账号和密码,导致数据泄露 .
 
 ## 注册IM用户[单个]
 在url指定的org和app中创建一个新的用户,分两种模式：开放注册 和 授权注册
@@ -171,6 +171,7 @@ sidebar: restsidebar
 - Response Body ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
 1) username as user_primary_key
+
 #### curl示例：
 		
 	curl -X GET -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EK5eAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6"
@@ -234,6 +235,7 @@ sidebar: restsidebar
 关于分页：如果DB中的数量大于N，返回json会携带一个字段“cursor”,我们把它叫做"游标"，该游标可理解为结果集的指针，值是变化的。往下取数据的时候带着游标，就可以获取到下一页的值。如果还有下一页，返回值里依然还有这个字段，直到没有这个字段，说明已经到最后一页。cursor的意义在于数据(真)分页。
 
 1) 不分页
+
 - Path : /{org_name}/{app_name}/users
 - HTTP Method : GET
 - URL Params ： limit=20
@@ -665,20 +667,19 @@ sidebar: restsidebar
 </code></pre>
 
 ## 删除IM用户[批量]
-> 删除某个app下指定数量的环信账号。上述url可一次删除N个用户,数值可以修改 建议这个数值在100-500之间，不要过大. 需要注意的是, 这里只是批量的一次性删除掉N个用户, 具体删除哪些并没有制定, 可以在返回值中查看到哪些用户被删除掉。
-可以通过增加查询条件来做到精确的删除, 例如:
-> 1. 按照创建时间来排序(降序)
+> 删除某个app下指定数量的环信账号。可一次删除N个用户,数值可以修改.建议这个数值在100-500之间，不要过大. 需要注意的是, 这里只是批量的一次性删除掉N个用户, 具体删除哪些并没有指定, 可以在返回值中查看到哪些用户被删除掉了。
 
-        DELETE /{org_name}/{app_name}/users?ql=order+by+created+desc&limit=300
+> 可以通过增加查询条件来做到精确的删除, 例如:
 
-> 2. 按照创建时间来排序(升序)
+> * 按照创建时间来排序(降序) 
+   + DELETE /{org_name}/{app_name}/users?ql=order+by+created+desc&limit=300
 
-        DELETE /{org_name}/{app_name}/users?ql=order+by+created+asc&limit=300
-        
-> 3. 按时间段来删除
-    使用ql=created> {起始时间戳} and created < {结束时间戳} 的查询语句, 时间戳是timestamp类型的, 并且需要对ql进行http url encode
-    
-    DELETE /{org_name}/{app_name}/users?ql=created > 1409506121910 and created < 1409576121910
+> * 按照创建时间来排序(升序)            
+   + DELETE /{org_name}/{app_name}/users?ql=order+by+created+asc&limit=300        
+
+> * 按时间段来删除
+>    使用ql=created> {起始时间戳} and created < {结束时间戳} 的查询语句, 时间戳是timestamp类型的, 并且需要对ql进行http url encode    
+   + DELETE /{org_name}/{app_name}/users?ql=created > 1409506121910 and created < 1409576121910
 
 - Path : /{org_name}/{app_name}/users
 - HTTP Method : DELETE
