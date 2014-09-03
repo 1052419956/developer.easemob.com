@@ -239,10 +239,10 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 <pre class="hll"><code class="language-java">
     private class MyContactListener implements EMContactListener{
              @Override
-             public void onContactAdded(List<String> usernameList) {
+             public void onContactAdded(List usernameList) {
              }
              @Override
-             public void onContactDeleted(List<String> usernameList) {
+             public void onContactDeleted(List usernameList) {
              }
 	}
 </code></pre>
