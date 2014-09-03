@@ -234,6 +234,13 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 </code></pre>
 
 
+#### aaabbbb #### 
+ 
+<pre class="hll"><code class="language-java">
+    private class MyContactListener implements EMContactListener{
+	}
+</code></pre>
+
 
 #### aaa ####
  
