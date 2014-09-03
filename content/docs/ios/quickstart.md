@@ -100,11 +100,14 @@ secondnavios: true
 
 #### 注册listener,以接收聊天消息:RootViewController.m 
 
+<pre class="hll"><code class="language-objective_c">
     [[EaseMob sharedInstance].chatManager addDelegate:self
                                         delegateQueue:nil];
+</code></pre>
 
 #### 登录：见RandViewController+Login 
 
+<pre class="hll"><code class="language-objective_c">
     [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:username
                                                         password:@"123456"
                                                       completion:
@@ -113,14 +116,17 @@ secondnavios: true
              NSLog(@"登录成功");         
          }
      } onQueue:nil];
-
+</code></pre>
 
 #### 退出登录：见RandViewController+Login.m 
 
+<pre class="hll"><code class="language-objective_c">
 	[[EaseMob sharedInstance].chatManager asyncLogoff];
+</code></pre>
 
 #### 发送消息：见RootViewController+sendChat.m 
 
+<pre class="hll"><code class="language-objective_c">
 	EMChatText *text = [[EMChatText alloc] initWithText:message];
     EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:text];
     
@@ -131,11 +137,12 @@ secondnavios: true
     [[EaseMob sharedInstance].chatManager sendMessage:msg
                                              progress:nil
                                                 error:nil];
-
+</code></pre>
 
 
 #### 接收聊天消息并显示：见RootViewController.m 
 
+<pre class="hll"><code class="language-objective_c">
 	-(void)didReceiveMessage:(EMMessage *)message {
     	id<IEMMessageBody> body = [message.messageBodies firstObject];
 		if (body.messageBodyType == eMessageBodyType_Text) {
@@ -143,6 +150,6 @@ secondnavios: true
 			NSLog(@"收到的消息---%@",msg);
 	    }
 	}
-
+</code></pre>
 
 

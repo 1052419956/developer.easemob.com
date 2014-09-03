@@ -9,7 +9,8 @@ secondnavios: true
 
  
 函数名
- 
+
+<pre class="hll"><code class="language-objective_c"> 
 	/*!
 	@method
 	@brief 获取录音音量大小
@@ -17,8 +18,10 @@ secondnavios: true
 	@result 音量大小
 	*/
 	- (double)peekRecorderVoiceMeter;
+</code></pre>
 	
 示例代码
+<pre class="hll"><code class="language-objective_c"> 
 
 	// touch down
 	-(void)recordButtonTouchDown{
@@ -50,33 +53,37 @@ secondnavios: true
     	...
     }
     
+</code></pre>
     
 ###  判断当前麦克风是否可用 
 
 函数名
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	@method
 	@brief 判断麦克风是否可用
 	@return 麦克风是否可用
 	*/
 	- (BOOL)checkMicrophoneAvailability;
-
+</code></pre>
 
 示例代码
 
+<pre class="hll"><code class="language-objective_c">
 	BOOL isEnabled = [[EaseMob sharedInstance].deviceManager checkMicrophoneAvailability];
     if (isEnabled) {
         NSLog(@"可用");
     }else {
         NSLog(@"不可用");
     }
-
+</code></pre>
 
 ###  距离传感器功能 
 
 属性名称
-	
+
+<pre class="hll"><code class="language-objective_c">	
 	/*!
 	@property
 	@brief 当前设备是否支持距离传感器功能
@@ -95,11 +102,12 @@ secondnavios: true
 	@brief 当前设备距离传感器功能是否处于打开状态
 	*/
 	@property (nonatomic, readonly) BOOL isProximitySensorEnabled;
-	
+</code></pre>	
 
 
 示例代码
 
+<pre class="hll"><code class="language-objective_c">
 	BOOL isSupport = [[EaseMob sharedInstance].deviceManager isSupportProximitySensor];
 	if (isSupport) {
 		NSLog(@"支持");
@@ -120,9 +128,11 @@ secondnavios: true
     }else{
         NSLog(@"传感器未打开");
     }
+</code></pre>
 	
 函数名称
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	@method
 	@brief 打开
@@ -138,9 +148,11 @@ secondnavios: true
 	@result 是否成功关闭
 	*/
 	- (BOOL)disableProximitySensor;
+</code></pre>
 	
 示例代码
 
+<pre class="hll"><code class="language-objective_c">
 	BOOL enable = [[EaseMob sharedInstance].deviceManager enableProximitySensor];
     if (enable) {
         NSLog(@"传感器打开成功");
@@ -154,11 +166,13 @@ secondnavios: true
     }else{
         NSLog(@"传感器关闭失败");
     }
+</code></pre>
     
 ###  播放提示短音 
 
 函数名称
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	@method
 	@brief 收到新消息时, 播放声音
@@ -185,8 +199,11 @@ secondnavios: true
 	- (void)asyncPlayNewMessageWithCompletion:(void (^)(SystemSoundID soundId))completion
                                   onQueue:(dispatch_queue_t)aQueue;
                                   
+</code></pre>
+
 示例代码
 
+<pre class="hll"><code class="language-objective_c">
 	[[EaseMob sharedInstance].deviceManager playNewMessageSound];
 	
 	
@@ -197,12 +214,13 @@ secondnavios: true
      asyncPlayNewMessageWithCompletion:^(SystemSoundID soundId) {
         
     } onQueue:nil];
-    
+</code></pre>    
     
 ###  设备震动 
 
 函数名称
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	@method
 	@brief 新消息到来时, 震动设备
@@ -229,9 +247,11 @@ secondnavios: true
 	*/
 	- (void)asyncPlayVibrationWithCompletion:(void (^)(SystemSoundID soundId))completion
                                  onQueue:(dispatch_queue_t)aQueue;
+</code></pre> 
                                  
 示例代码
 
+<pre class="hll"><code class="language-objective_c">
 	[[EaseMob sharedInstance].deviceManager playVibration];
     
     
@@ -242,32 +262,37 @@ secondnavios: true
      asyncPlayVibrationWithCompletion:^(SystemSoundID soundId) {
         
     } onQueue:nil];
+</code></pre>
     
 ###  摄像头是否可用 
 
 函数名称
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	@method
 	@brief 检查摄像头是否可用
 	@return 摄像头是否可用
 	*/
 	- (BOOL)checkCameraAvailability;
+</code></pre>
 	
 示例代码
-	
+
+<pre class="hll"><code class="language-objective_c">	
 	BOOL enable = [[EaseMob sharedInstance].deviceManager checkCameraAvailability];
     if (enable) {
         NSLog(@"当前摄像头可用");
     }else{
         NSLog(@"当前摄像头不可用");
     }
-	
+</code></pre>	
 	
 ###   设置播放音频方式 
 
 函数名称
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	@method
 	@brief 在耳机和扩音器之间切换音频播放模式
@@ -276,17 +301,21 @@ secondnavios: true
 	@result 是否切换成功
 	*/
 	- (BOOL)switchAudioOutputDevice:(EMAudioOutputDevice)outputDevice;
+</code></pre>
 
 示例代码
-	
+
+<pre class="hll"><code class="language-objective_c">	
 	// 使用耳机播放
 	[[EaseMob sharedInstance].deviceManager switchAudioOutputDevice:eAudioOutputDevice_earphone];
 	
 	// 使用扬声器播放
 	[[EaseMob sharedInstance].deviceManager switchAudioOutputDevice:eAudioOutputDevice_speaker];
+</code></pre>
 		
  若想要使用听筒模式, 在播放音频前, 需要先将听筒模式打开, 音频播放完成后, 将听筒模式关闭, 示例代码如下: 
 
+<pre class="hll"><code class="language-objective_c">
 	//打开听筒模式(当手机靠近耳朵时, 屏幕会变黑)
 	[[[EaseMob sharedInstance] deviceManager] enableProximitySensor];
     id <IChatManager> chatManager = [EaseMob sharedInstance].chatManager;
@@ -296,3 +325,5 @@ secondnavios: true
                          [[[EaseMob sharedInstance] deviceManager] disableProximitySensor];
                      }
                         onQueue:nil];
+
+</code></pre>
