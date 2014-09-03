@@ -11,24 +11,23 @@ sidebar: restsidebar
 
 ## 聊天记录数据结构
 
-		{
-			"type": "chatmessage",
-		    "from": "zw123", //发送人username
-	        "msg_id": "5I02W-16-8278a", //消息id
-			"chat_type": "chat" //用来判断单聊还是群聊。chat:单聊，groupchat:群聊
-	        "payload": {
-	            "bodies": [ //消息bodies
-	                {
-	                    "msg": "hhhhhh", //消息内容
-	                    "type": "txt" //消息类型。txt:文本消息, img:图片, loc：位置, audio：语音
-						"length": 3, //语音时长，单位为秒，这个属性只有语音消息有
-	                	"url": "", //图片语音等文件的网络url，图片和语音消息有这个属性
-	                    "filename": "22.png", //文件名字，图片和语音消息有这个属性
-	                    "secret": "pCY80PdfEeO4Jh9URCOfMQWU9QYsJytynu4n-yhtvAhmt1g9", //获取文件的secret，图片和语音消息有这个属性
-						"lat": 39.983805, //发送的位置的纬度，只有位置消息有这个属性
-	                    "lng": 116.307417, //位置经度，只有位置消息有这个属性
-	                    "addr": "北京市海淀区北四环西路66号" //位置消息详细地址，只有位置消息有这个属性
-	
+	{
+	    "type": "chatmessage",
+	    "from": "zw123", //发送人username
+	    "msg_id": "5I02W-16-8278a", //消息id
+	    "chat_type": "chat" //用来判断单聊还是群聊。chat:单聊，groupchat:群聊
+	    "payload": {
+	    "bodies": [ //消息bodies
+	          {
+	             "msg": "hhhhhh", //消息内容
+	             "type": "txt" //消息类型。txt:文本消息, img:图片, loc：位置, audio：语音
+				 "length": 3, //语音时长，单位为秒，这个属性只有语音消息有
+	             "url": "", //图片语音等文件的网络url，图片和语音消息有这个属性
+	             "filename": "22.png", //文件名字，图片和语音消息有这个属性
+	             "secret": "pCY80PdfEeO4Jh9URCOfMQWU9QYsJytynu4n-yhtvAhmt1g9", //获取文件的secret，图片和语音消息有这个属性
+				 "lat": 39.983805, //发送的位置的纬度，只有位置消息有这个属性
+	             "lng": 116.307417, //位置经度，只有位置消息有这个属性
+	             "addr": "北京市海淀区北四环西路66号" //位置消息详细地址，只有位置消息有这个属性
 	                }
 	            ]
 				"ext": { //自定义扩展属性
@@ -47,6 +46,7 @@ txt message://文本消息
 			"type":"txt"//文本消息类型
 			,"msg":"hello from test2"//消息内容
 		 }]}
+		 
 image message://图片消息
 
          {  "from":"test1","to":"test2","bodies":[{
@@ -57,6 +57,7 @@ image message://图片消息
 			"secret":"DRGM8OZrEeO1vafuJSo2IjHBeKlIhDp0GCnFu54xOF3M6KLr",//secret在上传图片后会返回，只有含有secret才能够下载此图片
 			"thumb_secret":"DRGM8OZrEeO1vafuJSo2IjHBeKlIhDp0GCnFu54xOF3M6KLr"//thumb_secret在上传缩略图后会返回，
 		}]}
+		
 voice message://语音消息
 
          {  "from":"test2","to":"test1","bodies":[{
@@ -66,6 +67,7 @@ voice message://语音消息
 			"length":10, //语音时间（单位秒）
 			"secret":"DRGM8OZrEeO1vafuJSo2IjHBeKlIhDp0GCnFu54xOF3M6KLr"//secret在上传文件后会返回
 		}]}
+		
 location message://地址位置消息
 
           {"from":"test1","to":"test2","bodies":[{
@@ -187,7 +189,7 @@ curl示例
 
 #### 使用示例3：分页获取数据
 
-使用limit参数获取数据完毕后，如果后边还有数据，会返回一个不为空的cursor回来，使用这个cursor就能进行分页获取了，具体可参考[文档](/docs/emchat/rest/pagingquery)。
+使用limit参数获取数据完毕后，如果后边还有数据，会返回一个不为空的cursor回来，使用这个cursor就能进行分页获取了。
 
 分页示例：根据之前获取数据返回的cursor继续获取后面的20条数据。在url后面加上参数
 
