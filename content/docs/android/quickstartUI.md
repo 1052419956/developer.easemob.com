@@ -253,15 +253,12 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 </code></pre>
 
 #### 监听连接状态和账号多处登录被迫下线：见MainActivity.java ####
-
-<pre class="hll"><code class="language-java">
+ 
+   <pre class="hll"><code class="language-java">
     private class MyConnectionListener implements ConnectionListener{
-
 		@Override
 		public void onConnected() {
-			
 		}
-
 		@Override
 		public void onDisConnected(String errorString) {
 			if(errorString!=null&&errorString.contains("conflict"))
@@ -269,39 +266,32 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 				//收到帐号在其他手机登录
 				// TODO 
 			}else{
-				
 				//"连接不到聊天服务器"
 			}
 		}
-
 		@Override
 		public void onReConnected() {
-			
 		}
-
 		@Override
 		public void onReConnecting() {
 		}
-
 		@Override
 		public void onConnecting(String progress) {
 		}
-		
 	}
-</code></pre>
+   </code></pre>
 
 #### 退出登陆 ####
 
-    见MainActivity.java
- 
+   见MainActivity.java
+   <pre class="hll"><code class="language-java">
     @Override
     protected void onPause() {
         super.onPause();
-        
         //登出聊天服务器
         EMChatManager.getInstance().logout();
     }
- 
+   </code></pre>
 
 # 环信demo源代码git地址 #
 
