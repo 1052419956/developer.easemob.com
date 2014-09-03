@@ -100,13 +100,14 @@ public class DemoApplication extends Application {
 	}
 </code></pre>
 #### 登陆：见LoginActivity.java
+
 <pre class="hll"><code class="language-java">
+
     @Override
     protected void onResume() {
         super.onResume();
         //登陆到聊天服务器,此处使用注册的临时账号作为登陆账号
         EMChatManager.getInstance().login(username, password, new EMCallBack() {
-
             @Override
             public void onError(int arg0, final String errorMsg) {
                 runOnUiThread(new Runnable() {
@@ -132,6 +133,7 @@ public class DemoApplication extends Application {
         });
     }
 </code></pre>
+
 #### 注册listener,以接收聊天消息：见MainActivity.java
 <pre class="hll"><code class="language-java">
     @Override
@@ -164,6 +166,7 @@ public class DemoApplication extends Application {
         }
     }
 </code></pre>
+
 #### 接收聊天消息并显示：见MainActivity.java
 <pre class="hll"><code class="language-java">
     private class NewMessageBroadcastReceiver extends BroadcastReceiver {
