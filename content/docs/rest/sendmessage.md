@@ -7,14 +7,20 @@ sidebar: restsidebar
 # 聊天相关API
 
 ### 查看用户在线状态
+> 查看一个用户的在线状态
 
-#### GET /{org}/{app}/users/{username}/status
+- Path : /{org}/{app}/users/{username}/status
+- HTTP Method : GET
+- URL Params ： 无
+- Request Headers : {"Content-Type":"applicatioin/json"}
+- Request Body ： 无
+- Response Body ： 详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
-* 描述： 查看一个用户的在线状态
-* 权限：app管理员或org管理员
-* url参数： 无
-* request body：	无		
-* response： 
+#### curl示例：
+	
+	curl -X GET -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "https://a1.easemob.com/easemob-demo/chatdemoui/users/zw123/status"
+
+#### Response： 
 
         {
             "action": "get",
@@ -30,25 +36,16 @@ sidebar: restsidebar
             "organization": "easemob-demo",
             "applicationName": "chatdemoui"
         }
-#### curl示例：
-	
-	curl -X GET -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "https://a1.easemob.com/easemob-demo/chatdemoui/users/zw123/status"
-
+        
 ### 发送消息
+> 给一个或者多个用户, 或者一个或者多个群组发送消息, 并且通过可选的_from_字段让接收方看到发送方是不同的人,同时, 支持扩展字段, 通过_ext_属性, app可以发送自己专属的消息结构.
 
-此API可以一次给一个或者多个用户, 或者一个或者多个群组发送消息, 并且通过可选的_from_字段, 可以让接收方看到发送方是不同的人,
-例如, 实现服务器替某个用户发消息的功能.
-
-同时, 支持扩展字段, 通过_ext_属性, app可以发送自己专属的消息结构.
-
-#### POST /{org}/{app}/messages
-
-* 描述：给一个或者多个用户或者群组发送消息
-* 权限：app管理员或org管理员
-* url参数： 无
-* request body：
-
-
+- Path : /{org}/{app}/messages
+- Request Method : POST
+- URL Params ： 无
+- Request Headers : {"Content-Type":"applicatioin/json"}
+- Response Body ： 详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+- Request Body ：
         {
             "target_type" : "users", //or chatgroups
             "target" : ["u1", "u2", "u3"], //注意这里需要用数组, 即使只有一个用户, 也要用数组 ['u1']
@@ -61,11 +58,12 @@ sidebar: restsidebar
                 "attr1" : "v1",
                 "attr2" : "v2"
             }    
-    
         }
 
+#### curl示例
+    curl -X POST -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9OcNq-GwPsKwj_TruuxZfFSC2eIQ" "https://a1.easemob.com/easemob-demo/chatdemoui/messages" -d '{"target_type" : "users","target" : ["stliu1", "jma3", "stliu", "jma4"],"msg" : {"type" : "txt","msg" : "hello from rest"},"from" : "jma2", "ext" : {"attr1" : "v1","attr2" : "v2"} }'
 
-* response：
+#### Response：
  
         {
             "action": "post",
@@ -85,16 +83,7 @@ sidebar: restsidebar
             "applicationName": "chatdemoui"
         }
 
-#### curl示例：
-
-        curl -X POST -i -H "Authorization: Bearer YWMteQLx2A_2EeScd4Eqg9vrmQAAAUd3T2vgZqdT6ug-z4PCMK8pPSmjNMwTLCo" "https://a1.easemob.com/easemob-demo/chatdemoui/messages" -d '{"target_type":"users", "target":["jma1"], "msg":{"type":"txt","msg":"hello message from rest api"}, "from":"jma2"}'
-
-        curl -X POST -i -H "Authorization: Bearer YWMteQLx2A_2EeScd4Eqg9vrmQAAAUd3T2vgZqdT6ug-z4PCMK8pPSmjNMwTLCo" "https://a1.easemob.com/easemob-demo/chatdemoui/messages" -d '{"target_type":"chatgroups", "target":["1405852047041"], "msg":{"type":"txt","msg":"hello group messsage from rest api"}, "from":"jma2"}'
-
 ## 群组相关API
-
-
-
 ## 获取app中所有的群组
 
     GET /{org}/{app}/chatgroups

@@ -37,19 +37,19 @@ sidebar: restsidebar
 
 > 强烈建议保护好org管理员及app管理员的用户名和密码,尽量只在APP的服务器后台对环信用户做增删改查的管理，包括新用户注册。为了您的信息安全,请一定不要将org管理员或app管理员的用户名和密码写死在手机客户端中,因为手机app很容易被反编译,从而导致别人获取到您的管理员账号和密码,导致数据泄露 .
 
-## 注册IM用户 
+## 注册IM用户[单个]
 在url指定的org和app中创建一个新的用户,分两种模式：开放注册 和 授权注册
 - "开放注册"模式：注册环信账号时不用携带管理员身份认证信息；
 - "授权注册"模式：注册环信账号必须携带管理员身份认证信息。推荐使用"授权注册"，这样可以防止某些已经获取了注册url和知晓注册流程的人恶意向服务器大量注册垃圾用户。
 
 ### 开放注册
 
-- method : POST 
-- path : /{org_name}/{app_name}/users   
-- headers : {"Content-Type":"applicatioin/json"}
-- query string ： 无
-- request body ： {"username":"${用户名}","password":"${密码}"}
-- response ： 详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+- Path : /{org_name}/{app_name}/users
+- HTTP Method : POST
+- URL Params ： 无
+- Request Headers : {"Content-Type":"applicatioin/json"}
+- Request Body ： {"username":"${用户名}","password":"${密码}"}
+- Response Body ： 详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 #### curl示例：
 		
 	curl -X POST -i "https://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
@@ -77,16 +77,17 @@ sidebar: restsidebar
 	}
 
 ### 授权注册
-- path : /{org_name}/{app_name}/users
-- method : POST
-- query string ： 无
-- headers : {"Content-Type":"applicatioin/json","Authorization":"Bearer ${token}"}
-- request body ： {"username":"${用户名}","password":"${密码}"}
-- response ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+
+- Path : /{org_name}/{app_name}/users
+- HTTP Method : POST
+- URL Params ： 无
+- Request Headers : {"Content-Type":"applicatioin/json","Authorization":"Bearer ${token}"}
+- Request Body ： {"username":"${用户名}","password":"${密码}"}
+- Response Body ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
 #### curl示例：
 		
-	curl -X POST -i -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" "https://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
+	curl -X POST -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" -i  "https://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
 
 #### Response :
 		
@@ -110,19 +111,19 @@ sidebar: restsidebar
       	"applicationName" : "chatdemo"
 	}
 
-## 批量注册IM用户
+## 注册IM用户[批量]
 > 建议批量不要过多, 在20-60之间
 
-- path : /{org_name}/{app_name}/users
-- method : POST
-- query string ： 无
-- headers : {"Content-Type":"applicatioin/json","Authorization":"Bearer ${token}"}
-- request body ： [{"username":"${用户名1}","password":"${密码}"},...,{"username":"${用户名2}","password":"${密码}"}]
-- response ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+- Path : /{org_name}/{app_name}/users
+- HTTP Method : POST
+- URL Params ： 无
+- Request Headers : {"Content-Type":"applicatioin/json","Authorization":"Bearer ${token}"}
+- Request Body ： [{"username":"${用户名1}","password":"${密码}"},...,{"username":"${用户名2}","password":"${密码}"}]
+- Response Body ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
 #### curl示例：
 		
-	curl -X POST -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "https://a1.easemob.com/easemob-demo/chatdemoui/users" -d '[{"username":"u1", "password":"p1"}, {"username":"u2", "password":"p2"}]'
+	curl -X POST -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users" -d '[{"username":"u1", "password":"p1"}, {"username":"u2", "password":"p2"}]'
 
 ### Response :
     {
@@ -151,22 +152,85 @@ sidebar: restsidebar
       "organization" : "easemob-demo",
       "applicationName" : "chatdemoui"
     }
+    
+## 获取IM用户[主键查询]
+> 对users来说，有两个primary key: username 和 uuid,通过他们都可以获取到一个用户
 
-## 获取指定数量的IM用户
+- Path : /{org_name}/{app_name}/users/{user_primary_key}
+- HTTP Method : GET
+- URL Params ：无
+- Request Headers : {"Authorization":"Bearer ${token}"}
+- Request Body ： 无
+- Response Body ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+
+1) username as user_primary_key
+#### curl示例：
+		
+	curl -X GET -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EK5eAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6"
+	
+#### Response 
+
+    {
+      "action" : "get",
+      "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
+      "params" : { },
+      "path" : "/users",
+      "uri" : "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6",
+      "entities" : [ {
+        "uuid" : "628a88ba-dfce-11e3-8cac-51d3cb69b303",
+        "type" : "user",
+        "created" : 1400556326075,
+        "modified" : 1400556326075,
+        "username" : "ywuxvxuir6",
+        "activated" : true
+      } ],
+      "timestamp" : 1409574716897,
+      "duration" : 57,
+      "organization" : "easemob-demo",
+      "applicationName" : "chatdemoui"
+    }
+
+2) uuid as user_primary_key
+#### curl示例：
+
+    curl -X GET -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EK5eAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/628a88ba-dfce-11e3-8cac-51d3cb69b303"
+#### Response 
+
+    {
+      "action" : "get",
+      "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
+      "params" : { },
+      "path" : "/users",
+      "uri" : "https://a1.easemob.com/easemob-demo/chatdemoui/users/628a88ba-dfce-11e3-8cac-51d3cb69b303",
+      "entities" : [ {
+        "uuid" : "628a88ba-dfce-11e3-8cac-51d3cb69b303",
+        "type" : "user",
+        "created" : 1400556326075,
+        "modified" : 1400556326075,
+        "username" : "ywuxvxuir6",
+        "activated" : true
+      } ],
+      "timestamp" : 1409574753086,
+      "duration" : 156,
+      "organization" : "easemob-demo",
+      "applicationName" : "chatdemoui"
+    }
+
+## 获取IM用户[条件查询]
 > 该接口默认返回最近创建的10个用户，如果需要指定获取数量，需加上参数limit=N，N为数量值.
 关于分页：如果DB中的数量大于N，返回json会携带一个字段“cursor”,我们把它叫做"游标"，该游标可理解为结果集的指针，值是变化的。往下取数据的时候带着游标，就可以获取到下一页的值。如果还有下一页，返回值里依然还有这个字段，直到没有这个字段，说明已经到最后一页。cursor的意义在于数据(真)分页。
 
 1) 不分页
-- path : /{org_name}/{app_name}/users
-- method : GET
-- query string ：limit=20
-- headers : {"Authorization":"Bearer ${token}"}
-- request body ： 无
-- response ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+- Path : /{org_name}/{app_name}/users
+- HTTP Method : GET
+- URL Params ： limit=20
+- Request Headers : {"Authorization":"Bearer ${token}"}
+- Request Body ： 无
+- Response Body ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
 #### curl示例：
 		
-	curl -X GET -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" "https://a1.easemob.com/easemob-demo/chatdemoui/users?limit=20"
+	curl -X GET -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users?limit=20"
 
 ### Response :
     {
@@ -332,16 +396,17 @@ sidebar: restsidebar
     }
 
 2) 分页
-- path : /{org_name}/{app_name}/users
-- method : GET
-- query string ：limit=20&cursor=LTU2ODc0MzQzOnNmdTlxdF9LRWVPaVFvMWlBZmc4S3c
-- headers : {"Authorization":"Bearer ${token}"}
-- request body ： 无
-- response ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+
+- Path : /{org_name}/{app_name}/users
+- HTTP Method : GET
+- URL Params ： limit=20&cursor=LTU2ODc0MzQzOnNmdTlxdF9LRWVPaVFvMWlBZmc4S3c
+- Request Headers : {"Authorization":"Bearer ${token}"}
+- Request Body ： 无
+- Response Body ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
 #### curl示例：
 		
-	curl -X GET -i -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EKeAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" "https://a1.easemob.com/easemob-demo/chatdemoui/users?limit=20&cursor=LTU2ODc0MzQzOnNmdTlxdF9LRWVPaVFvMWlBZmc4S3c"
+	curl -X GET -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EKeAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users?limit=20&cursor=LTU2ODc0MzQzOnNmdTlxdF9LRWVPaVFvMWlBZmc4S3c"
 
 ### Response :
     {
@@ -502,81 +567,19 @@ sidebar: restsidebar
       "count" : 20
     }
 
-## 通过user_primary_key获取用户
-> 对users来说，有两个primary key: username 和 uuid,通过他们都可以获取到一个用户
-
-- path : /{org_name}/{app_name}/users/{user_primary_key}
-- method : GET
-- query string ：无
-- headers : {"Authorization":"Bearer ${token}"}
-- request body ： 无
-- response ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
-
-1) username as user_primary_key
-#### curl示例：
-		
-	curl -X GET -i -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EK5eAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6"
-	
-#### Response 
-
-    {
-      "action" : "get",
-      "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
-      "params" : { },
-      "path" : "/users",
-      "uri" : "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6",
-      "entities" : [ {
-        "uuid" : "628a88ba-dfce-11e3-8cac-51d3cb69b303",
-        "type" : "user",
-        "created" : 1400556326075,
-        "modified" : 1400556326075,
-        "username" : "ywuxvxuir6",
-        "activated" : true
-      } ],
-      "timestamp" : 1409574716897,
-      "duration" : 57,
-      "organization" : "easemob-demo",
-      "applicationName" : "chatdemoui"
-    }
-
-2) uuid as user_primary_key
-#### curl示例：
-
-    curl -X GET -i -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EK5eAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" "https://a1.easemob.com/easemob-demo/chatdemoui/users/628a88ba-dfce-11e3-8cac-51d3cb69b303"
-#### Response 
-    {
-      "action" : "get",
-      "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
-      "params" : { },
-      "path" : "/users",
-      "uri" : "https://a1.easemob.com/easemob-demo/chatdemoui/users/628a88ba-dfce-11e3-8cac-51d3cb69b303",
-      "entities" : [ {
-        "uuid" : "628a88ba-dfce-11e3-8cac-51d3cb69b303",
-        "type" : "user",
-        "created" : 1400556326075,
-        "modified" : 1400556326075,
-        "username" : "ywuxvxuir6",
-        "activated" : true
-      } ],
-      "timestamp" : 1409574753086,
-      "duration" : 156,
-      "organization" : "easemob-demo",
-      "applicationName" : "chatdemoui"
-    }
-
-## 条件查询获取用户
+## 获取IM用户[批量查询]
 > 查询通过ql类实现 类似RDB的sql语句。比如说查询username为ywuxvxuir6的用户，查询语句就是：ql=select * where username='ywuxvxuir6',查询语句需要做urlencode成：select%20%2A%20where%20username%3D%27ywuxvxuir6%27
 
-- path : /{org_name}/{app_name}/users/{username}
-- method : GET
-- query string ：ql=select * where username='ywuxvxuir6'
-- headers : {"Authorization":"Bearer ${token}"}
-- request body ： 无
-- response ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+- Path : /{org_name}/{app_name}/users/{username}
+- HTTP Method : GET
+- URL Params ：ql=select * where username='ywuxvxuir6'
+- Request Headers : {"Authorization":"Bearer ${token}"}
+- Request Body ： 无
+- Response Body ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
 #### curl示例：
 		
-	curl -X GET -i -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EKeAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" "https://a1.easemob.com/easemob-demo/chatdemoui/users?ql=select%20%2A%20where%20username%3D%27ywuxvxuir6%27"
+	curl -X GET -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EKeAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users?ql=select%20%2A%20where%20username%3D%27ywuxvxuir6%27"
 
 #### Response
     {
@@ -602,36 +605,15 @@ sidebar: restsidebar
       "count" : 1
     }
 
-## 重置IM用户密码
 
-- path : /{org_name}/{app_name}/users/{user_primary_key}/password
-- method : PUT
-- query string : 无
-- headers : {"Authorization":"Bearer ${token}"}
-- request body ： {"newpassword" : "${新密码指定的字符串}"}
-- response ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
- 
-#### curl示例：
-		
-    curl -X PUT -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EKeAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6/password" -d '{"newpassword" : "123456"}'
+## 删除IM用户[单个]
 
-#### Response
-
-    {
-      "action" : "set user password",
-      "timestamp" : 1409575962124,
-      "duration" : 326
-    }
-
-
-## 删除用户
-
-- path : /{org_name}/{app_name}/users/{user_primary_key}
-- method : DELETE
-- query string : 无
-- headers : {"Authorization":"Bearer ${token}"}
-- request body ： 无
-- response ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+- Path : /{org_name}/{app_name}/users/{user_primary_key}
+- HTTP Method : DELETE
+- URL 参数 : 无
+- Request Headers : {"Authorization":"Bearer ${token}"}
+- Request Body ： 无
+- Response Body ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
 #### curl示例：
 		
@@ -659,7 +641,7 @@ sidebar: restsidebar
       "applicationName" : "chatdemoui"
     }
 
-## 批量删除用户
+## 删除IM用户[批量]
 > 删除某个app下指定数量的环信账号。上述url可一次删除N个用户,数值可以修改 建议这个数值在100-500之间，不要过大. 需要注意的是, 这里只是批量的一次性删除掉N个用户, 具体删除哪些并没有制定, 可以在返回值中查看到哪些用户被删除掉。
 可以通过增加查询条件来做到精确的删除, 例如:
 > 1. 按照创建时间来排序(降序)
@@ -675,12 +657,12 @@ sidebar: restsidebar
     
     DELETE /{org_name}/{app_name}/users?ql=created > 1409506121910 and created < 1409576121910
 
-- path : /{org_name}/{app_name}/users
-- method : DELETE
-- query string : limit=30
-- headers : {"Authorization":"Bearer ${token}"}
-- request body ： 无
-- response ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+- Path : /{org_name}/{app_name}/users
+- HTTP Method : DELETE
+- URL Params : limit=30
+- Request Headers : {"Authorization":"Bearer ${token}"}
+- Request Body ： 无
+- Response Body ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
 #### curl示例：
 		
@@ -743,30 +725,50 @@ sidebar: restsidebar
       "cursor" : "LTU2ODc0MzQzOmJUdWk2dDlCRWVPekJPc3VrWktvU2c"
     }
 
+## 重置IM用户密码
+
+- Path : /{org_name}/{app_name}/users/{user_primary_key}/password
+- HTTP Method : PUT
+- URL Params : 无
+- Request Headers : {"Authorization":"Bearer ${token}"}
+- Request Body ： {"newpassword" : "${新密码指定的字符串}"}
+- Response Body ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+ 
+#### curl示例：
+		
+    curl -X PUT -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EKeAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6/password" -d '{"newpassword" : "123456"}'
+
+#### Response
+
+    {
+      "action" : "set user password",
+      "timestamp" : 1409575962124,
+      "duration" : 326
+    }
+
+
 ## 好友管理
 
-### 给一个用户添加一个好友
+### 添加好友
+> 给一个用户添加好友, 好友必须是和自己在一个app下的IM用户.{owner_username} 是要添加好友的用户名, {friend_username} 是被添加的用户名
 
-    POST /{org_name}/{app_name}/users/{owner_username}/contacts/users/{friend_username}
-    
-这里的 *owner_username* 是要添加好友的用户名, *friend_username* 是被添加的用户名
-
-注意, 这里需要管理员权限的, 并且这个请求执行完成之后, 这两个用户是互为好友的关系的, 不需要对方同意
-
-- 权限：app管理员或org管理员
-- url参数：无
-- request body： 无
-- response： 无
+- Path : /{org_name}/{app_name}/users/{owner_username}/contacts/users/{friend_username}
+- HTTP Method : POST
+- URL Params : 无
+- Request Headers : {"Authorization":"Bearer ${token}"}
+- Request Body ： 无
+- Response Body ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
 #### curl示例：
 		
-	curl -X POST -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEU2" "https://a1.easemob.com/easemob-demo/chatdemo/users?limit=300"
+	curl -X POST -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEU2" -i  "https://a1.easemob.com/easemob-demo/chatdemo/users/jliu/contacts/users/yantao"
 	
-	Respone 
+#### Respone 
+
 	{
 	"action":"post","application":"4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5","params":{},
 	"path":"/users/aa6160da-eb01-11e3-ab09-15edd986e7b7/contacts",
-	"uri":"http://a1.easemob.com/easemob-demo/chatdemoui/users/aa6160da-eb01-11e3-ab09-15edd986e7b7/contacts",
+	"uri":"http://a1.easemob.com/easemob-demo/chatdemoui/users/jliu/contacts/yantao",
 	"entities":[
 		{
 		"uuid":"0086742a-dc9b-11e3-a782-1b5d581c57a9",
@@ -783,67 +785,77 @@ sidebar: restsidebar
 	"applicationName":"chatdemoui"
 	}
 
-### 删除一个用户的好友
+### 解除好友关系
 
-    DELETE /{org_name}/{app_name}/users/{owner_username}/contacts/users/{friend_username}
+- Path : /{org_name}/{app_name}/users/{owner_username}/contacts/users/{friend_username}
+- HTTP Method : DELETE
+- URL Params : 无
+- Request Headers : {"Authorization":"Bearer ${token}"}
+- Request Body ： 无
+- Response Body ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+
+#### curl示例：
+		
+	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEU2" "https://a1.easemob.com/easemob-demo/chatdemo/users/stliu/contacts/users/yantao"
+	
+#### Respone
+
+    {
+      "action" : "delete",
+      "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
+      "params" : { },
+      "path" : "/users/stliu/contacts",
+      "uri" : "https://a1.easemob.com/easemob-demo/chatdemo/users/stliu/contacts/users/yantao",
+      "entities" : [ {
+        "uuid" : "aa6160da-eb01-11e3-ab09-15edd986e7b7",
+        "type" : "user",
+        "created" : 1401787813725,
+        "modified" : 1409739134225,
+        "username" : "88888",
+        "activated" : true,
+        "device_token" : "67aab3a88a0b146b7883e7b0275ffe94f509a4e69e8b1db503b2fa4f9c556dd3",
+        "nickname" : "88888",
+        "notification_display_style" : 0,
+        "notification_no_disturbing" : false,
+        "notification_no_disturbing_end" : 24,
+        "notification_no_disturbing_start" : 0,
+        "notifier_name" : "chatdemoui_dev"
+      } ],
+      "timestamp" : 1409739808288,
+      "duration" : 1575,
+      "organization" : "easemob-demo",
+      "applicationName" : "chatdemoui"
+    }
+
+### 查看好友
+> 查看某个IM用户的好友信息
+
+- Path : /{org_name}/{app_name}/users/{owner_username}/contacts/users
+- HTTP Method : GET
+- URL Params : 无
+- Request Headers : {"Authorization":"Bearer ${token}"}
+- Request Body ： 无
+- Response Body ：  详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
     
+#### curl示例
 
-### 查看一个用户的所有好友
+    curl -X GET -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEU2" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/v3y0kf9arx/contacts/users"
 
-    GET /{org_name}/{app_name}/users/{owner_username}/contacts/users
+#### Response   
+    {
+      "action" : "get",
+      "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
+      "params" : { },
+      "uri" : "https://a1.easemob.com/easemob-demo/chatdemoui/users/v3y0kf9arx/contacts/users",
+      "entities" : [ ],
+      "data" : [ "88888" ],
+      "timestamp" : 1409737366071,
+      "duration" : 45,
+      "organization" : "easemob-demo",
+      "applicationName" : "chatdemoui"
+    }
 
 ### 创建app管理员
 
 IM是一个拥有admin角色的IM用户。所以创建一个app管理员分两步：1. 创建一个IM用户 2. 授权（指定他具有admin角色）
-### 1. 
-
-使用app的client_id 和 client_secret登陆并获取授权token
-
-client_id 和 client_secret可以在[环信管理后台](https://console.easemob.com)的app详情页面看到
-
-#### POST /{org_name}/{app_name}/token
-
-- 描述： 登录并授权，获得一个token。
-- 权限：
-- url参数： 无
-- request body： 授权数据（json格式）。
-
-		{
-		  "grant_type": "client_credentials",
-	  	  "client_id": "YXA6wDs-MARqEeSO0VcBzaqg5A",
-	  	  "client_secret": "YXA6JOMWlLap_YbI_ucz77j-4-mI0JA"
-		}
-
-- response： 授权结果(json),其中access_token为授权后的token
-
-
-这个token都具有操作整个app内部所有api的权限, 我们建议在做服务器端继承的时候, 在程序中使用 client_id和 client_secret的方式, 在登陆管理后台的时候使用账号密码
-
-#### curl示例：
-
->> 注：请将URL中的easemob-demo/chatdemo替换成你自己的org_name和app_name。并将"client_id","client_secret"分别替换成你自己App中的值
-		
-	curl -X POST "https://a1.easemob.com/easemob-demo/chatdemo/token" -d '{"grant_type":"client_credentials","client_id":"YXA6wDs-MARqEeSO0VcBzaqg5A","client_secret":"YXA6JOMWlLap_YbI_ucz77j-4-mI0JA"}'
-	
-				
-Response 的返回结果如下：
-		
-    {
-        "access_token": "YWMtowpVAP9yEeOihk3Cy3TsXwAAAUcLE-Bkfko63p9yHqqF6MsOLaOJPzSHDB8",
-        "expires_in": 604800,
-        "application": "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5"
-    }
-
-从这个返回值中, 可以得到两部分信息:
-
-1. access_token
-
-     这个是服务器用来做权限验证的，后续的所有操作(这里的操作指的是app访问服务器的request), 都需要把这个token加到header当中, 在本文档后面所有描述到得request都会有这个header   
-
-         -H "Authorization: Bearer YWMtNda4DFzyEeOrOy_LuVzHjAAAAULiG1IrN8opggpytUDFmJkiocawbINICYk"
-
-2. expires_in
-
-    access token的有效期， 单位为秒， 现在默认的有效期是七天（60*60*24 ＝ 604800）， 所以在七天内是不需要重复获取的
-        
 

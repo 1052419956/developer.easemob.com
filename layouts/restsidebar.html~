@@ -14,14 +14,15 @@
         <ul class="js-guides">
           <li><a href="#section-1">数据结构</a></li>
           <li><a href="#id">环信ID规则</a></li>
-          <li><a href="#im">注册IM用户</a></li>
-          <li><a href="#im-1">批量注册IM用户</a></li>
-          <li><a href="#im-2">获取指定数量的IM用户</a></li>
-          <li><a href="#userprimarykey">通过user_primary_key获取用户</a></li>
-          <li><a href="#section-4">条件查询获取用户</a></li>
-          <li><a href="#im-3">重置IM用户密码</a></li>
-          <li><a href="#section-5">删除用户</a></li>
-	  <li><a href="#section-6">批量删除用户</a></li>
+          <li><a href="#im">注册IM用户[单个]</a></li>
+          <li><a href="#im-1">注册IM用户[批量]</a></li>
+          <li><a href="#im-2">获取IM用户[主键查询]</a></li>
+          <li><a href="#im-3">获取IM用户[条件查询]</a></li>
+          <li><a href="#im-4">获取IM用户[批量查询]</a></li>
+          <li><a href="#im-5">删除IM用户[单个]</a></li>
+	  <li><a href="#im-6">删除IM用户[批量]</a></li>
+	  <li><a href="#im-7">重置IM用户密码</a></li>
+	  <li><a href="#section-4">好友管理</a></li>
         </ul>
       </li>
       <li class="js-topic">
