@@ -89,11 +89,12 @@ location message://地址位置消息
 * Authorization -- 获取到的token
 * restrict-access -- 是否限制访问权限, 注意, 这个API并没有考虑这个属性的值, 而是有这个属性即可 .最后, 需要使用http multipart/form-data 形式
 
-- path : /{org_name}/{app_name}/chatfiles
-- method : POST
-- headers : {"restrict-access":true,"Authorization":"Bearer ${token}"}
-- query string ： 无
-- response ： 详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+- Path : /{org_name}/{app_name}/chatfiles
+- HTTP Method : POST
+- Request Headers : {"restrict-access":true,"Authorization":"Bearer ${token}"}
+- URL Params ： 无
+- Request Body ： 
+- Response Body ： 详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
 #### curl示例:
     
@@ -144,20 +145,15 @@ location message://地址位置消息
  
 
 ## 聊天消息REST API
+> 以下所有API均需要企业管理员或app管理员权限才能访问。
 
-以下所有API均需要公司管理员或app管理员权限才能访问。
+### 取聊天记录
 
-### app管理员登录并获取授权token
-
-获取token请参考[用户管理REST API](/docs/emchat/rest/userapi)
-
-
-#### GET /{org_name}/{app_name}/chatmessages
-- 描述： 获取聊天记录
-- 权限：app管理员或org管理员
-- url参数： 
-- request body：	无		
-- response： 聊天记录(json),默认返回10条记录
+- Path : /{org_name}/{app_name}/chatmessages
+- HTTP Method : GET
+- URL Params ： 无
+- Request Headers : {"Content-Type":"applicatioin/json"}
+- Response Body ： 聊天记录(json),默认返回10条记录
 
 		{
     		....

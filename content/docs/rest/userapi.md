@@ -50,31 +50,32 @@ sidebar: restsidebar
 - Request Headers : {"Content-Type":"applicatioin/json"}
 - Request Body ： {"username":"${用户名}","password":"${密码}"}
 - Response Body ： 详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
+
 #### curl示例：
-		
-	curl -X POST -i "https://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
+
+    curl -X POST -i "https://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
 
 #### Response:
-		
-	{
-		"action" : "post",
-		"application" : "a2e433a0-ab1a-11e2-a134-85fca932f094",
-		"params" : { },
-		"path" : "/users",
-		"uri" : "https://a1.easemob.com/easemob-demo/chatdemo/users",
-		"entities" : [ {
-			"uuid" : "7f90f7ca-bb24-11e2-b2d0-6d8e359945e4",
-			"name" : "jliu0003",
-			"created" : 1368377620796,
-			"modified" : 1368377620796,
-			"username" : "jliu",
-    		}
-      	} ],
-      	"timestamp" : 1368377620793,
-      	"duration" : 125,
-      	"organization" : "easemob-demo",
-      	"applicationName" : "chatdemo"
-	}
+<pre class="hll"><code class="language-java">
+{
+    "action" : "post",
+	"application" : "a2e433a0-ab1a-11e2-a134-85fca932f094",
+	"params" : { },
+	"path" : "/users",
+	"uri" : "https://a1.easemob.com/easemob-demo/chatdemo/users",
+	"entities" : [ {
+		"uuid" : "7f90f7ca-bb24-11e2-b2d0-6d8e359945e4",
+		"name" : "jliu0003",
+		"created" : 1368377620796,
+		"modified" : 1368377620796,
+		"username" : "jliu",
+    } ],
+    "timestamp" : 1368377620793,
+    "duration" : 125,
+    "organization" : "easemob-demo",
+    "applicationName" : "chatdemo"
+}
+</code></pre>
 
 ### 授权注册
 
@@ -90,26 +91,27 @@ sidebar: restsidebar
 	curl -X POST -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" -i  "https://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
 
 #### Response :
-		
-	{
-		"action" : "post",
-		"application" : "a2e433a0-ab1a-11e2-a134-85fca932f094",
-		"params" : { },
-		"path" : "/users",
-		"uri" : "https://a1.easemob.com/easemob-demo/chatdemo/users",
-		"entities" : [ {
-			"uuid" : "7f90f7ca-bb24-11e2-b2d0-6d8e359945e4",
-			"name" : "jliu0003",
-			"created" : 1368377620796,
-			"modified" : 1368377620796,
-			"username" : "jliu",
-    		}
-      	} ],
-      	"timestamp" : 1368377620793,
-      	"duration" : 125,
-      	"organization" : "easemob-demo",
-      	"applicationName" : "chatdemo"
-	}
+<pre class="hll"><code class="language-java">	
+{
+	"action" : "post",
+	"application" : "a2e433a0-ab1a-11e2-a134-85fca932f094",
+	"params" : { },
+	"path" : "/users",
+	"uri" : "https://a1.easemob.com/easemob-demo/chatdemo/users",
+	"entities" : [ {
+		"uuid" : "7f90f7ca-bb24-11e2-b2d0-6d8e359945e4",
+		"name" : "jliu0003",
+		"created" : 1368377620796,
+		"modified" : 1368377620796,
+		"username" : "jliu",
+		}
+  	} ],
+  	"timestamp" : 1368377620793,
+  	"duration" : 125,
+  	"organization" : "easemob-demo",
+  	"applicationName" : "chatdemo"
+}
+</code></pre>
 
 ## 注册IM用户[批量]
 > 建议批量不要过多, 在20-60之间
@@ -126,6 +128,7 @@ sidebar: restsidebar
 	curl -X POST -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users" -d '[{"username":"u1", "password":"p1"}, {"username":"u2", "password":"p2"}]'
 
 ### Response :
+<pre class="hll"><code class="language-java">
     {
       "action" : "post",
       "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
@@ -152,7 +155,8 @@ sidebar: restsidebar
       "organization" : "easemob-demo",
       "applicationName" : "chatdemoui"
     }
-    
+</code></pre>
+
 ## 获取IM用户[主键查询]
 > 对users来说，有两个primary key: username 和 uuid,通过他们都可以获取到一个用户
 
@@ -169,52 +173,54 @@ sidebar: restsidebar
 	curl -X GET -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EK5eAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6"
 	
 #### Response 
-
-    {
-      "action" : "get",
-      "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
-      "params" : { },
-      "path" : "/users",
-      "uri" : "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6",
-      "entities" : [ {
-        "uuid" : "628a88ba-dfce-11e3-8cac-51d3cb69b303",
-        "type" : "user",
-        "created" : 1400556326075,
-        "modified" : 1400556326075,
-        "username" : "ywuxvxuir6",
-        "activated" : true
-      } ],
-      "timestamp" : 1409574716897,
-      "duration" : 57,
-      "organization" : "easemob-demo",
-      "applicationName" : "chatdemoui"
-    }
+<pre class="hll"><code class="language-java">
+{
+  "action" : "get",
+  "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
+  "params" : { },
+  "path" : "/users",
+  "uri" : "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6",
+  "entities" : [ {
+    "uuid" : "628a88ba-dfce-11e3-8cac-51d3cb69b303",
+    "type" : "user",
+    "created" : 1400556326075,
+    "modified" : 1400556326075,
+    "username" : "ywuxvxuir6",
+    "activated" : true
+  } ],
+  "timestamp" : 1409574716897,
+  "duration" : 57,
+  "organization" : "easemob-demo",
+  "applicationName" : "chatdemoui"
+}
+</code></pre>
 
 2) uuid as user_primary_key
 #### curl示例：
 
     curl -X GET -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EK5eAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/628a88ba-dfce-11e3-8cac-51d3cb69b303"
 #### Response 
-
-    {
-      "action" : "get",
-      "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
-      "params" : { },
-      "path" : "/users",
-      "uri" : "https://a1.easemob.com/easemob-demo/chatdemoui/users/628a88ba-dfce-11e3-8cac-51d3cb69b303",
-      "entities" : [ {
-        "uuid" : "628a88ba-dfce-11e3-8cac-51d3cb69b303",
-        "type" : "user",
-        "created" : 1400556326075,
-        "modified" : 1400556326075,
-        "username" : "ywuxvxuir6",
-        "activated" : true
-      } ],
-      "timestamp" : 1409574753086,
-      "duration" : 156,
-      "organization" : "easemob-demo",
-      "applicationName" : "chatdemoui"
-    }
+<pre class="hll"><code class="language-java">
+{
+  "action" : "get",
+  "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
+  "params" : { },
+  "path" : "/users",
+  "uri" : "https://a1.easemob.com/easemob-demo/chatdemoui/users/628a88ba-dfce-11e3-8cac-51d3cb69b303",
+  "entities" : [ {
+    "uuid" : "628a88ba-dfce-11e3-8cac-51d3cb69b303",
+    "type" : "user",
+    "created" : 1400556326075,
+    "modified" : 1400556326075,
+    "username" : "ywuxvxuir6",
+    "activated" : true
+  } ],
+  "timestamp" : 1409574753086,
+  "duration" : 156,
+  "organization" : "easemob-demo",
+  "applicationName" : "chatdemoui"
+}
+</code></pre>
 
 ## 获取IM用户[条件查询]
 > 该接口默认返回最近创建的10个用户，如果需要指定获取数量，需加上参数limit=N，N为数量值.
@@ -233,6 +239,7 @@ sidebar: restsidebar
 	curl -X GET -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users?limit=20"
 
 ### Response :
+<pre class="hll"><code class="language-java">
     {
       "action" : "get",
       "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
@@ -394,6 +401,7 @@ sidebar: restsidebar
       "cursor" : "LTU2ODc0MzQzOnNmdTlxdF9LRWVPaVFvMWlBZmc4S3c",
       "count" : 20
     }
+</code></pre>
 
 2) 分页
 
@@ -409,6 +417,7 @@ sidebar: restsidebar
 	curl -X GET -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EKeAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users?limit=20&cursor=LTU2ODc0MzQzOnNmdTlxdF9LRWVPaVFvMWlBZmc4S3c"
 
 ### Response :
+<pre class="hll"><code class="language-java">
     {
       "action" : "get",
       "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
@@ -566,6 +575,7 @@ sidebar: restsidebar
       "cursor" : "LTU2ODc0MzQzOllvcUl1dF9PRWVPTXJGSFR5Mm16QXc",
       "count" : 20
     }
+</code></pre>
 
 ## 获取IM用户[批量查询]
 > 查询通过ql类实现 类似RDB的sql语句。比如说查询username为ywuxvxuir6的用户，查询语句就是：ql=select * where username='ywuxvxuir6',查询语句需要做urlencode成：select%20%2A%20where%20username%3D%27ywuxvxuir6%27
@@ -582,6 +592,7 @@ sidebar: restsidebar
 	curl -X GET -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EKeAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users?ql=select%20%2A%20where%20username%3D%27ywuxvxuir6%27"
 
 #### Response
+<pre class="hll"><code class="language-java">
     {
       "action" : "get",
       "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
@@ -604,7 +615,7 @@ sidebar: restsidebar
       "applicationName" : "chatdemoui",
       "count" : 1
     }
-
+</code></pre>
 
 ## 删除IM用户[单个]
 
@@ -620,7 +631,7 @@ sidebar: restsidebar
     curl -X DELETE -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EK5eAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6"
 
 #### Response
-
+<pre class="hll"><code class="language-java">
     {
       "action" : "delete",
       "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
@@ -640,6 +651,7 @@ sidebar: restsidebar
       "organization" : "easemob-demo",
       "applicationName" : "chatdemoui"
     }
+</code></pre>
 
 ## 删除IM用户[批量]
 > 删除某个app下指定数量的环信账号。上述url可一次删除N个用户,数值可以修改 建议这个数值在100-500之间，不要过大. 需要注意的是, 这里只是批量的一次性删除掉N个用户, 具体删除哪些并没有制定, 可以在返回值中查看到哪些用户被删除掉。
@@ -669,6 +681,7 @@ sidebar: restsidebar
 	 curl -X DELETE -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EK5eAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users?limit=5"
 
 #### Response 
+<pre class="hll"><code class="language-java">
     {
       "action" : "delete",
       "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
@@ -724,6 +737,7 @@ sidebar: restsidebar
       "applicationName" : "chatdemoui",
       "cursor" : "LTU2ODc0MzQzOmJUdWk2dDlCRWVPekJPc3VrWktvU2c"
     }
+</code></pre>
 
 ## 重置IM用户密码
 
@@ -739,13 +753,13 @@ sidebar: restsidebar
     curl -X PUT -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EKeAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6/password" -d '{"newpassword" : "123456"}'
 
 #### Response
-
+<pre class="hll"><code class="language-java">
     {
       "action" : "set user password",
       "timestamp" : 1409575962124,
       "duration" : 326
     }
-
+</code></pre>
 
 ## 好友管理
 
@@ -764,7 +778,7 @@ sidebar: restsidebar
 	curl -X POST -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEU2" -i  "https://a1.easemob.com/easemob-demo/chatdemo/users/jliu/contacts/users/yantao"
 	
 #### Respone 
-
+<pre class="hll"><code class="language-java">
 	{
 	"action":"post","application":"4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5","params":{},
 	"path":"/users/aa6160da-eb01-11e3-ab09-15edd986e7b7/contacts",
@@ -784,6 +798,7 @@ sidebar: restsidebar
 	"organization":"easemob-demo",
 	"applicationName":"chatdemoui"
 	}
+</code></pre>
 
 ### 解除好友关系
 
@@ -799,7 +814,7 @@ sidebar: restsidebar
 	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEU2" "https://a1.easemob.com/easemob-demo/chatdemo/users/stliu/contacts/users/yantao"
 	
 #### Respone
-
+<pre class="hll"><code class="language-java">
     {
       "action" : "delete",
       "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
@@ -826,7 +841,7 @@ sidebar: restsidebar
       "organization" : "easemob-demo",
       "applicationName" : "chatdemoui"
     }
-
+</code></pre>
 ### 查看好友
 > 查看某个IM用户的好友信息
 
@@ -842,6 +857,7 @@ sidebar: restsidebar
     curl -X GET -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEU2" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/v3y0kf9arx/contacts/users"
 
 #### Response   
+ <pre class="hll"><code class="language-java">
     {
       "action" : "get",
       "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
@@ -854,7 +870,7 @@ sidebar: restsidebar
       "organization" : "easemob-demo",
       "applicationName" : "chatdemoui"
     }
-
+</code></pre>
 ### 创建app管理员
 
 IM是一个拥有admin角色的IM用户。所以创建一个app管理员分两步：1. 创建一个IM用户 2. 授权（指定他具有admin角色）
