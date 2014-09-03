@@ -73,13 +73,13 @@ secondnavandroid: true
 
 <pre class="hll"><code class="language-java">
 	//从服务器获取自己加入的和创建的群聊列表
-	List<EMGroup> grouplist = EMGroupManager.getInstance().getGroupsFromServer();
+	List&lt;EMGroup&gt; grouplist = EMGroupManager.getInstance().getGroupsFromServer();
 
 	//从本地加载群聊列表，节省了每次从服务器加载数据的时间
-	List<EMGroup> grouplist = EMGroupManager.getInstance().getAllGroups();
+	List&lt;EMGroup&gt; grouplist = EMGroupManager.getInstance().getAllGroups();
 
 	//获取所有公开群列表
-	List<EMGroupInfo> groupsList = EMGroupManager.getInstanc().getAllPublicGroupsFromServer();
+	List&lt;EMGroupInfo&gt; groupsList = EMGroupManager.getInstanc().getAllPublicGroupsFromServer();
 	
 </code></pre>
 
