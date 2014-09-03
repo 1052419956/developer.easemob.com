@@ -46,7 +46,7 @@ secondnavandroid: true
 ### app打包混淆
 
 在proguard文件中加入以下keep
-<pre class="hll"><code class="language-java">
+
 
 		-keep class com.easemob.** {*;}
 		-keep class org.jivesoftware.** {*;}
@@ -55,5 +55,5 @@ secondnavandroid: true
 		#另外，demo中发送表情的时候使用到反射，需要keep SmileUtils,注意前面的包名，
 		#不要SmileUtils复制到自己的项目下，keep的时候还是写的demo里的包名
 		-keep class com.easemob.chatuidemo.utils.SmileUtils {*;}
-</code></pre>
+
 	

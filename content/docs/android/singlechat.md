@@ -221,6 +221,7 @@ secondnavandroid: true
 
 
 app在后台时，新消息会通过notification的方式，在手机状态栏提示新消息，可以把提示的内容换成自定义的内容(在application的oncreate()里设置)。
+
 <pre class="hll"><code class="language-java">
 		//获取到配置options对象
 		EMChatOptions options = EMChatManager.getInstance().getChatOptions();
@@ -272,31 +273,42 @@ app在后台时，新消息会通过notification的方式，在手机状态栏�
 SDK中提供了方便的新消息提醒功能。可以在收到消息时调用，提醒用户有新消息
 
 首先获取EMChatOptions  
+
 <pre class="hll"><code class="language-java">
     chatOptions = EMChatManager.getInstance().getChatOptions();
     
 </code></pre>
+
 设置是否启用新消息提醒 
+
 <pre class="hll"><code class="language-java">
     chatOptions.setNotificationEnable(true|false); //默认为true 开启新消息提醒
     
-</code></pre>    
-设置是否启用新消息声音提醒 
+</code></pre>
+
+设置是否启用新消息声音提醒
+
 <pre class="hll"><code class="language-java">
     chatOptions.setNoticeBySound(true|false); //默认为true 开启声音提醒
     
-</code></pre>    
-设置是否启用新消息震动提醒 
+</code></pre>
+
+设置是否启用新消息震动提醒
+
 <pre class="hll"><code class="language-java">    
     chatOptions.setNoticedByVibrate(true|false); //默认为true 开启震动提醒
     
-</code></pre>    
+</code></pre>
+
 设置语音消息播放是否设置为扬声器播放
+
 <pre class="hll"><code class="language-java"> 
 	chatOptions.setUseSpeaker(true|false); //默认为true 开启扬声器播放
     
-</code></pre> 
+</code></pre>
+
 附：
+
 <pre class="hll"><code class="language-java">
     chatOptions.setAcceptInvitationAlways(false); //默认添加好友时为true，是不需要验证的，改成需要验证为false)
     
@@ -307,35 +319,46 @@ SDK中提供了方便的新消息提醒功能。可以在收到消息时调用�
 ### 获取好友列表
 
 获取好友的usernam list，开发者需要根据username去自己服务器获取好友的详情
+
 <pre class="hll"><code class="language-java">
 	List&lt;String&gt; usernames = EMChatManager.getInstance().getContactUserNames();
     
 </code></pre>
+
 ### 添加好友
+
 <pre class="hll"><code class="language-java">
 	//参数为要添加的好友的username和添加理由
 	EMContactManager.getInstance().addContact(toAddUsername, reason);
     
-</code></pre>	
+</code></pre>
+	
 ### 删除好友
+
 <pre class="hll"><code class="language-java">
 	EMContactManager.getInstance().deleteContact(username);
     
 </code></pre>
+
 ### 同意好友请求
+
 <pre class="hll"><code class="language-java">
 	//同意username的好友请求
 	EMChatManager.getInstance().acceptInvitation(username);
     
 </code></pre>
+
 ### 拒绝好友请求
+
 <pre class="hll"><code class="language-java">
 	EMChatManager.getInstance().refuseInvitation(username);
     
 </code></pre>
+
 ### 监听好友请求，同意好友请求等事件
 
 **已过时**，使用后面的"监听好友状态事件"里的方式：EMContactManager.getInstance().setContactListener(new EMContactListener())监听好友改变事件。
+
 <pre class="hll"><code class="language-java">
 	//注册一个好友请求等的BroadcastReceiver   
 	IntentFilter inviteIntentFilter = new IntentFilter(EMChatManager.getInstance().getContactInviteEventBroadcastAction());
@@ -394,6 +417,7 @@ SDK中提供了方便的新消息提醒功能。可以在收到消息时调用�
 			}
 		});
 </code></pre>
+
 ## 高级话题
 
 ## 自定义扩展消息
@@ -440,13 +464,16 @@ SDK中提供了方便的新消息提醒功能。可以在收到消息时调用�
 </code></pre>
 
 ### 把用户加入到黑民单
+
 <pre class="hll"><code class="language-java">	
 	//第二个参数如果为true，则把用户加入到黑名单后双方发消息时对方都收不到；false,则
 	//我能给黑名单的中用户发消息，但是对方发给我时我是收不到的
     EMContactManager.getInstance().addUserToBlackList(username,true);
     
 </code></pre>
+
 ### 把用户从黑名单中移除
+
 <pre class="hll"><code class="language-java">
 	EMContactManager.getInstance().deleteUserFromBlackList(username);
     
