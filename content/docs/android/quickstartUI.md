@@ -253,6 +253,7 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 
 </code></pre>
 
+
 #### 监听连接状态和账号多处登录被迫下线：见MainActivity.java ####
 
 <pre class="hll"><code class="language-java">
@@ -289,13 +290,11 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 		}
 		
 	}
-
 </code></pre>
 
-#### 退出登陆
+#### 退出登陆 ####
 
-见MainActivity.java
-
+    见MainActivity.java
 <pre class="hll"><code class="language-java">
     @Override
     protected void onPause() {
@@ -304,10 +303,9 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
         //登出聊天服务器
         EMChatManager.getInstance().logout();
     }
-
 </code></pre>
 
-# 环信demo源代码git地址
+# 环信demo源代码git地址 #
 
  
 环信提供了一系列demo以帮助开发者更好的学习了解环信SDK。所有demo均已在github上开源供开发者下载使用。你可以clone这些项目来学习了解环信SDK，也可以在这些demo基础上快速创建你自己的真正项目。环信SDK（Android版）在github的下载地址是：
@@ -315,7 +313,7 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 [https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)
 
 
-# Bug报告跟踪
+# Bug报告跟踪 #
 
 请使用以下地址来报告跟踪bug：
 

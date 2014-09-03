@@ -69,7 +69,7 @@ secondnavandroid: true
 	EMGroupManager.getInstance().exitAndDeleteGroup(groupId);
 </code></pre>
 
-## 获取群聊列表
+## 获取群聊列表 ##
 
 <pre class="hll"><code class="language-java">
 	//从服务器获取自己加入的和创建的群聊列表
@@ -83,9 +83,9 @@ secondnavandroid: true
 	
 </code></pre>
 
-## 高级话题
+## 高级话题 ##
 
-## 自定义扩展消息
+## 自定义扩展消息 ##
 当sdk提供的消息类型不满足需求时，开发者可以通过扩展自sdk提供的文本、语音、图片、位置等消息类型，从而生成自己需要的消息类型。
 
 <pre class="hll"><code class="language-java">
@@ -119,7 +119,7 @@ secondnavandroid: true
 	}
 </code></pre>
 
-### 群聊事件监听
+### 群聊事件监听 ###
 
 <pre class="hll"><code class="language-java">
 	EMGroupManager.getInstance().addGroupChangeListener(new GroupChangeListener() {
@@ -168,7 +168,7 @@ secondnavandroid: true
 	});
 </code></pre>
 
-### 获取群组信息
+### 获取群组信息 ###
 
 <pre class="hll"><code class="language-java">
 	//根据群组ID从本地获取群组信息
@@ -182,7 +182,7 @@ secondnavandroid: true
 	其它方法详见环信接口文档
 </code></pre>
 
-##Java Doc
+##Java Doc##
 [Java Doc](http://developer.easemob.com/apidoc/chat/)
 
 ##Demo及SDK下载
