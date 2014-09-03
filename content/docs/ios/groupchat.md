@@ -140,9 +140,11 @@ secondnavios: true
 </code></pre>
 
 调用示例
+
 <pre class="hll"><code class="language-objective_c">
 	EMError *error;
 	EMGroup *chatGroup = [[EaseMob sharedInstance].chatManager addOccupants:(被邀请的用户名列表) toGroup:(groupId) welcomeMessage:@"欢迎加入" error:&error];
+
 </code></pre>
 
 ##群组踢人
@@ -196,9 +198,11 @@ secondnavios: true
 
 调用示例
 
+<pre class="hll"><code class="language-objective_c">
 	[[EaseMob sharedInstance].chatManager asyncRemoveOccupant:(要请出群组的人的用户名) fromGroup:(groupId) completion:^(EMGroup *group, EMError *error) {
 	                        //code
 	                    } onQueue:nil];
+</code></pre>
 
 ##退出群组
 
