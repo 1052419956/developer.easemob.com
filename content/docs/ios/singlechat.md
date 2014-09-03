@@ -244,6 +244,7 @@ loginInfo包含账号，密码等信息;
 ####  根据时间得到要求条数的messages 
 
 **SDK 中保存的timeStamp 乘以了 1000，所以获取的时候，也需要乘以1000**
+
 <pre class="hll"><code class="language-objective_c">
 	NSTimeInterval before = [[NSDate date] timeIntervalSince1970] * 1000;
 	NSArray *messages = [_conversation loadNumbersOfMessages:10 before:before];
@@ -327,9 +328,6 @@ EMConversation中，提供了设置该EMConversation对象中所有message状态
 	- (NSUInteger)markMessagesAsRead:(BOOL)isRead;
 </code></pre>
 
----
-title: 环信
----
 
 ## 获取好友列表:
 
