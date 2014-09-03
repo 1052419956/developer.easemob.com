@@ -5,7 +5,7 @@ sidebar: restsidebar
 ---
 
 
-# 聊天消息导出
+# 聊天记录
 
 环信支持app把聊天记录通过REST接口导出
 
@@ -85,25 +85,24 @@ location message://地址位置消息
 4. 如果选择不限制的话, 则只要是app的注册用户就能够下载
 	
 #### 上传语音图片
-
-API 为
-
-    POST /{org_name}/{app_name}/chatfiles
-    
-所需要的 HTTP Header:
-
+> 所需要的 HTTP Header:
 * Authorization -- 获取到的token
-* restrict-access -- 是否限制访问权限, 注意, 这个API并没有考虑这个属性的值, 而是有这个属性即可
+* restrict-access -- 是否限制访问权限, 注意, 这个API并没有考虑这个属性的值, 而是有这个属性即可 .最后, 需要使用http multipart/form-data 形式
 
-最后, 需要使用http multipart/form-data 形式
+- Path : /{org_name}/{app_name}/chatfiles
+- HTTP Method : POST
+- Request Headers : {"restrict-access":true,"Authorization":"Bearer ${token}"}
+- URL Params ： 无
+- Request Body ： 
+- Response Body ： 详情参见示例返回值, 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略。
 
-示例:
+#### curl示例:
     
     curl --verbose --header "Authorization: Bearer YWMtz1hFWOZpEeOPpcmw1FB0RwAAAUZnAv0D7y9-i4c9_c4rcx1qJDduwylRe7Y" --header "restrict-access:true" --form file=@/Users/stliu/a.jpg https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles
 
 或者查看我们的[示例代码](https://github.com/easemob/emchat-server-examples)
 
-上传文件的返回值
+#### Response
   
 	{
       	"action" : "post",//post请求
@@ -145,22 +144,16 @@ API 为
     curl -O -H "thumbnail: true" -H "share-secret: DRGM8OZrEeO1vafuJSo2IjHBeKlIhDp0GCnFu54xOF3M6KLr" -H "Authorization: Bearer YWMtz1hFWOZpEeOPpcmw1FB0RwAAAUZnAv0D7y9-i4c9_c4rcx1qJDduwylRe7Y" -H "Accept: application/octet-stream" http://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/0c0f5f3a-e66b-11e3-8863-f1c202c2b3ae
  
 
-
 ## 聊天消息REST API
+> 以下所有API均需要企业管理员或app管理员权限才能访问。
 
-以下所有API均需要公司管理员或app管理员权限才能访问。
+### 取聊天记录
 
-### app管理员登录并获取授权token
-
-获取token请参考[用户管理REST API](/docs/emchat/rest/userapi)
-
-
-#### GET /{org_name}/{app_name}/chatmessages
-- 描述： 获取聊天记录
-- 权限：app管理员或org管理员
-- url参数： 
-- request body：	无		
-- response： 聊天记录(json),默认返回10条记录
+- Path : /{org_name}/{app_name}/chatmessages
+- HTTP Method : GET
+- URL Params ： 无
+- Request Headers : {"Content-Type":"applicatioin/json"}
+- Response Body ： 聊天记录(json),默认返回10条记录
 
 		{
     		....
