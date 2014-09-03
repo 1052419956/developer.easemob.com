@@ -7,12 +7,12 @@ sidebar: restsidebar
 ## 多租户用户体系
 
 ## 数据结构
- > 环信作为一个聊天通道，只需要提供用户ID和口令就够了.
+ > 环信作为一个聊天通道，只需要提供环信ID和密码就够了.
  
  |  属性     |  字段名    | 数据类型  |  描述  |
  |-----------|------------|----------|--------|
- |  用户ID   |  username  | String   | username是用户的primarykey,在appkey的范围内唯一 |
- |  用户口令 | password   | String   |       |
+ |  环信ID   |  username  | String   | username是用户的primarykey,在appkey的范围内唯一 |
+ |  用户密码 | password   | String   |  用户登录环信使用的密码       |
 
 ## 环信ID规则
 
@@ -41,6 +41,8 @@ sidebar: restsidebar
 在url指定的org和app中创建一个新的用户,分两种模式：开放注册 和 授权注册
 - "开放注册"模式：注册环信账号时不用携带管理员身份认证信息；
 - "授权注册"模式：注册环信账号必须携带管理员身份认证信息。推荐使用"授权注册"，这样可以防止某些已经获取了注册url和知晓注册流程的人恶意向服务器大量注册垃圾用户。
+
+注意：以下api中提到的${token}是用户的具体token值，企业管理员和app管理员的token均可。
 
 ### 开放注册
 

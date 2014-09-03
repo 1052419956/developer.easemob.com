@@ -111,8 +111,8 @@ sidebar: restsidebar
 | org_name  | 企业的唯一标识,开发者在[环信开发者管理后台](http://console.easemob.com)注册账号时填写的企业ID |
 | app_name  | 同一"企业"下"app"唯一标识,开发者在[环信开发者管理后台](http://console.easemob.com)创建应用时填写的"应用名称"  |
 | org_admin | 开发者在[环信开发者管理后台](http://console.easemob.com)注册时填写的"用户名"。企业管理员拥有对该企业账号下所有资源的操作权限  |
-| app_admin | 具有admin权限的一个特殊IM用户，应用管理员拥有对该应用下所有资源的操作权限    |
-| appkey    | 一个app的唯一标识,规则是 ${org_name}#${name}   |
+| app_admin | 应用管理员,具有admin权限的一个特殊IM用户，拥有对该应用下所有资源的操作权限    |
+| appkey    | 一个app的唯一标识,规则是 ${org_name}#${app_name}   |
 
 
 ### 安全
