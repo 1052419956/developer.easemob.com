@@ -1043,6 +1043,7 @@ a.info_details{color:#29abe2;text-decoration:underline}
 /*.history_right{float:right}*/
 .history_left h2,.history_right h2{background:url(../img/download_small_icon.png) #fff no-repeat 0 0;height:35px;font-weight:normal;line-height:35px}
 .history_right h2{background-position:0 -35px}
+.history_margin_right h2 {background:url(../img/small_icon_webim.png) #fff no-repeat 5px 3px;}
 .history_date h2.first {margin-bottom:10px;padding-left:45px;z-index:99}
 .history_date ul li {margin-left:18px;border-left:1px solid #EBEBEB;padding:30px 0 0 30px;zoom:1}
 .history_date ul li:after{content:" ";display:block;height:0;clear:both;visibility:hidden}
