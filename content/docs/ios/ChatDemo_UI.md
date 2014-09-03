@@ -65,12 +65,14 @@ secondnavios: true
 
 在MainViewController类中有体现，监测以下方法
 
+<pre class="hll"><code class="language-objective_c">
 	#pragma mark - IChatManagerDelegate 登录状态变化
 
 	- (void)didConnectionStateChanged:(EMConnectionState)connectionState
 	{
     	
 	}
+</code></pre>
 	
 ![alt text](/chatUIDemoNetwork.png "Demo") 
 
@@ -78,8 +80,9 @@ secondnavios: true
 
 账号在其它设备登录时, 当前设备会自动断开连接(收到该回调时, 当前客户端已不能收发消息了, 当前客户端必须处理该回调, 退出到登录页面, )
 
+<pre class="hll"><code class="language-objective_c">
 	- (void)didLoginFromOtherDevice
 	{
 	    //退出到登录页面代码
 	}
-
+</code></pre>

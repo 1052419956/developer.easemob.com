@@ -70,14 +70,15 @@ public class DemoApplication extends Application {
     }
 }
 </code></pre>
-#### 注册：见LoginActivity.java
 
-	// 注册临时账号  缺省密码： 123456
+#### 注册：见LoginActivity.java
+    
+<pre class="hll"><code class="language-java">
 	register.setOnClickListener(new OnClickListener() {
 		@Override
 		public void onClick(View v) {
 			account.setText(getAccount());
-			pwd.setText("123456");
+			pwd.setText("123456");// 注册临时账号  缺省密码： 123456
 			CreateAccountTask task = new CreateAccountTask();
 			task.execute(account.getText().toString(), "123456", "chatdemo");
 
@@ -98,15 +99,17 @@ public class DemoApplication extends Application {
 			return userid;
 		}
 	}
+</code></pre>
 
 #### 登陆：见LoginActivity.java
+
+<pre class="hll"><code class="language-java">
 
     @Override
     protected void onResume() {
         super.onResume();
         //登陆到聊天服务器,此处使用注册的临时账号作为登陆账号
         EMChatManager.getInstance().login(username, password, new EMCallBack() {
-
             @Override
             public void onError(int arg0, final String errorMsg) {
                 runOnUiThread(new Runnable() {
@@ -131,9 +134,10 @@ public class DemoApplication extends Application {
             }
         });
     }
+</code></pre>
 
 #### 注册listener,以接收聊天消息：见MainActivity.java
-
+<pre class="hll"><code class="language-java">
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -142,10 +146,10 @@ public class DemoApplication extends Application {
         IntentFilter intentFilter = new IntentFilter(EMChatManager.getInstance().getNewMessageBroadcastAction());
         registerReceiver(msgReceiver, intentFilter);
     }
-
+</code></pre>
 
 #### 发送消息：见MainActivity.java
-
+<pre class="hll"><code class="language-java">
     //本demo是发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
     public void onSendTxtMsg(View view) {
         try {
@@ -163,9 +167,10 @@ public class DemoApplication extends Application {
             e.printStackTrace();
         }
     }
+</code></pre>
 
 #### 接收聊天消息并显示：见MainActivity.java
-
+<pre class="hll"><code class="language-java">
     private class NewMessageBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -197,9 +202,10 @@ public class DemoApplication extends Application {
 				break;
         }
     }
+</code></pre>
 
 #### 退出登陆：见MainActivity.java
-
+<pre class="hll"><code class="language-java">
     @Override
     protected void onPause() {
         super.onPause();
@@ -207,6 +213,7 @@ public class DemoApplication extends Application {
         //登出聊天服务器
         EMChatManager.getInstance().logout();
     }
+</code></pre>
 
 ## 环信demo源代码git地址
 

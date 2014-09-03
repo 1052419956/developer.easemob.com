@@ -13,6 +13,7 @@ secondnavios: true
 
 接口
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	 @method
 	 @brief  创建群组（同步方法）
@@ -72,20 +73,25 @@ secondnavios: true
 	                         completion:(void (^)(EMGroup *group,
 	                                              EMError *error))completion
 	                            onQueue:(dispatch_queue_t)aQueue;
+	                            
+</code></pre>
 	
 调用示例
 
+<pre class="hll"><code class="language-objective_c">
 	EMGroupStyleSetting *setting = [[EMGroupStyleSetting alloc] init];
 	setting.groupStyle = eGroupStyle_PublicOpenJoin;
 	//setting.groupStyle = eGroupStyle_PrivateOnlyOwnerInvite;
 	[[EaseMob sharedInstance].chatManager asyncCreateGroupWithSubject:(群组标题) description:(群组描述) invitees:(群组初始化成员，不需要包括创建者) initialWelcomeMessage:(邀请信息) styleSetting:setting completion:^(EMGroup *group, EMError *error) {
 	        //code
 	    } onQueue:nil];
+</code></pre>
 
 ##群组加人
 
 接口
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	 @method
 	 @brief 邀请用户加入群组
@@ -131,15 +137,21 @@ secondnavios: true
 	                                    EMError *error))completion
 	                  onQueue:(dispatch_queue_t)aQueue;
 	
+</code></pre>
+
 调用示例
 
+<pre class="hll"><code class="language-objective_c">
 	EMError *error;
 	EMGroup *chatGroup = [[EaseMob sharedInstance].chatManager addOccupants:(被邀请的用户名列表) toGroup:(groupId) welcomeMessage:@"欢迎加入" error:&error];
+
+</code></pre>
 
 ##群组踢人
 
 接口
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	 @method
 	 @brief 将某人请出群组
@@ -182,16 +194,21 @@ secondnavios: true
 	                                      EMError *error))completion
 	                    onQueue:(dispatch_queue_t)aQueue;
 
+</code></pre>
+
 调用示例
 
+<pre class="hll"><code class="language-objective_c">
 	[[EaseMob sharedInstance].chatManager asyncRemoveOccupant:(要请出群组的人的用户名) fromGroup:(groupId) completion:^(EMGroup *group, EMError *error) {
 	                        //code
 	                    } onQueue:nil];
+</code></pre>
 
 ##退出群组
 
 接口
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	 @method
 	 @brief 退出群组
@@ -223,12 +240,15 @@ secondnavios: true
 	                                  EMGroupLeaveReason reason,
 	                                  EMError *error))completion
 	                onQueue:(dispatch_queue_t)aQueue;
-	
+</code></pre>	
+
 调用示例
 
+<pre class="hll"><code class="language-objective_c">
 	[[EaseMob sharedInstance].chatManager asyncLeaveGroup:(groupId) completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
 	        //code
 	    } onQueue:nil];
+</code></pre>
 
 ##解散群组
 
@@ -245,6 +265,7 @@ secondnavios: true
 
 接口
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	 @method
 	 @brief 创建一个群组后的回调
@@ -384,11 +405,13 @@ secondnavios: true
 	 */
 	- (void)didApplyJoinPublicGroup:(EMGroup *)group
 	                          error:(EMError *)error;
+</code></pre>
 	                          
 ##获取与自己相关的群组列表（加入或者创建的）
 
 接口
 
+<pre class="hll"><code class="language-objective_c">
 	/**
 	 @brief  获取与我相关的群组列表（自己创建的，加入的）(同步方法)
 	 @param pError 获取错误信息
@@ -418,16 +441,21 @@ secondnavios: true
 	                                                  EMError *error))completion
 	                                onQueue:(dispatch_queue_t)aQueue;
 	
+</code></pre>
+
 调用示例
 
+<pre class="hll"><code class="language-objective_c">
 	[[EaseMob sharedInstance].chatManager asyncFetchMyGroupsListWithCompletion:^(NSArray *groups, EMError *error) {
         //code
     } onQueue:nil];
+</code></pre>
     
 ##获取公开群组列表
 
 接口
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	 @method
 	 @brief 获取所有公开群组
@@ -453,17 +481,21 @@ secondnavios: true
 	- (void)asyncFetchAllPublicGroupsWithCompletion:(void (^)(NSArray *groups,
 	                                                          EMError *error))completion
 	                                        onQueue:(dispatch_queue_t)aQueue;
+</code></pre>
 	                                        
 调用示例
 
+<pre class="hll"><code class="language-objective_c">
 	[[EaseMob sharedInstance].chatManager asyncFetchAllPublicGroupsWithCompletion:^(NSArray *groups, EMError *error) {
 	        //code
-	    } onQueue:nil];
-	    
+	    } onQueue:nil];	   
+</code></pre>	    
+
 ##搜索公开群组	 
 
 接口
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	 @method
 	 @brief  根据groupId搜索公开群(同步方法)
@@ -490,12 +522,15 @@ secondnavios: true
 	                                                    EMError *error))completion
 	                                  onQueue:(dispatch_queue_t)aQueue;
 	                                        
+</code></pre>
+
 调用示例
 
+<pre class="hll"><code class="language-objective_c">
 	[[EaseMob sharedInstance].chatManager asyncSearchPublicGroupWithGroupId:(groupId) completion:^(EMGroup *group, EMError *error) {
         //code
     } onQueue:nil]; 
-
+</code></pre>
 
 ##Apple Doc
 [Apple Doc](http://developer.easemob.com/apidoc/IOS/chat/)

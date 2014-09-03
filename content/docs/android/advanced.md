@@ -8,7 +8,7 @@ secondnavandroid: true
 
 ## 自定义扩展消息
 当sdk提供的消息类型不满足需求时，开发者可以通过扩展自sdk提供的文本、语音、图片、位置等消息类型，从而生成自己需要的消息类型。
-
+<pre class="hll"><code class="language-java">
 	//这里是扩展自文本消息，如果这个自定义的消息需要用到语音或者图片等，可以扩展自语音、图片消息，亦或是位置消息。
 	EMMessage message = EMMessage.createSendMessage(EMMessage.Type.TXT);
 	TextMessageBody txtBody = new TextMessageBody(content);
@@ -37,3 +37,4 @@ secondnavandroid: true
 			abortBroadcast();
 		}
 	}
+</code></pre>

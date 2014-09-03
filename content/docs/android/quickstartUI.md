@@ -54,6 +54,7 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 
 见DemoApplication
 
+<pre class="hll"><code class="language-java">
     public class DemoApplication extends Application {
     
         public static Context appContext;
@@ -81,11 +82,13 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 
         }
     }
+</code></pre>
 
 #### 注册
 
 见RegisterActivity，注意用户名不能有大写字母
 	
+<pre class="hll"><code class="language-java">
 	final String appkey = EMChatConfig.getInstance().APPKEY;
 	new Thread(new Runnable() {
 		public void run() {
@@ -98,13 +101,13 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 			}
 		}
 	}).start();
-
+</code></pre>
 
 #### 登陆
 
 见LoginActivity
 
-
+<pre class="hll"><code class="language-java">
    	//调用sdk登陆方法登陆聊天服务器
 	EMChatManager.getInstance().login(username, password, new EMCallBack() {
 				
@@ -126,6 +129,7 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 					
 		}
 	});
+</code></pre>
 
 ####  注册listener
 
@@ -133,34 +137,48 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 
 注册一个接收消息的BroadcastReceiver
 
+<pre class="hll"><code class="language-java">
 		msgReceiver = new NewMessageBroadcastReceiver();
 		IntentFilter intentFilter = new IntentFilter(EMChatManager.getInstance().getNewMessageBroadcastAction());
 		intentFilter.setPriority(3);
 		registerReceiver(msgReceiver, intentFilter);
+		
+</code></pre>
 
 注册一个ack回执消息的BroadcastReceiver
 
+<pre class="hll"><code class="language-java">
 		IntentFilter ackMessageIntentFilter = new IntentFilter(EMChatManager.getInstance().getAckMessageBroadcastAction());
 		ackMessageIntentFilter.setPriority(3);
 		registerReceiver(ackMessageReceiver, ackMessageIntentFilter);
 		
+</code></pre>
+		
 注册一个好友请求同意好友请求等的BroadcastReceiver
 
+<pre class="hll"><code class="language-java">
 		IntentFilter inviteIntentFilter = new IntentFilter(EMChatManager.getInstance().getContactInviteEventBroadcastAction());
 		registerReceiver(contactInviteReceiver, inviteIntentFilter);
+</code></pre>
 		
 监听联系人的变化等
 
+<pre class="hll"><code class="language-java">
 		EMContactManager.getInstance().setContactListener(new MyContactListener());
+
+</code></pre>
 
 注册一个监听连接状态的listener
 
+<pre class="hll"><code class="language-java">
 		EMChatManager.getInstance().addConnectionListener(new MyConnectionListener());
 
+</code></pre>
 
 
 #### 发送聊天消息并显示
 
+<pre class="hll"><code class="language-java">
     //创建一个消息(本条信息是一条文本，可以通过EMMessage.Type选择其他类型)
     EMMessage msg = EMMessage.createSendMessage(EMMessage.Type.TXT);
      //设置消息的接收方
@@ -175,10 +193,11 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
             e.printStackTrace();
         }
 
+</code></pre>
 
 #### 接收聊天消息并显示
 
-
+<pre class="hll"><code class="language-java">
     private class NewMessageBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -192,10 +211,12 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 			abortBroadcast();
         }
     }
+    
+</code></pre>
 
+#### 消息回执BroadcastReceiver：见MainActivity.java #### 
 
-#### 消息回执BroadcastReceiver：见MainActivity.java ####
-
+<pre class="hll"><code class="language-java">
     private BroadcastReceiver ackMessageReceiver = new BroadcastReceiver() {
 		
 		@Override
@@ -210,35 +231,30 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 		}
 	};
 
+</code></pre>
 
 
-#### 联系人变化listener：见MainActivity.java ####
-
+#### 联系人变化listener：见MainActivity.java #### 
+ 
+<pre class="hll"><code class="language-java">
     private class MyContactListener implements EMContactListener{
-
-		@Override
-		public void onContactAdded(List<String> usernameList) {
-			
-			
-		}
-
-		@Override
-		public void onContactDeleted(List<String> usernameList) {
-			
-		}
-
-		
+             @Override
+             public void onContactAdded(List&lt;String&gt; usernameList) {
+             }
+             @Override
+             public void onContactDeleted(List&lt;String&gt; usernameList) {
+             }
 	}
+</code></pre>
+
 
 #### 监听连接状态和账号多处登录被迫下线：见MainActivity.java ####
-
+ 
+<pre class="hll"><code class="language-java">
     private class MyConnectionListener implements ConnectionListener{
-
 		@Override
 		public void onConnected() {
-			
 		}
-
 		@Override
 		public void onDisConnected(String errorString) {
 			if(errorString!=null&&errorString.contains("conflict"))
@@ -246,48 +262,40 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 				//收到帐号在其他手机登录
 				// TODO 
 			}else{
-				
 				//"连接不到聊天服务器"
 			}
 		}
-
 		@Override
 		public void onReConnected() {
-			
 		}
-
 		@Override
 		public void onReConnecting() {
 		}
-
 		@Override
 		public void onConnecting(String progress) {
 		}
-		
 	}
+</code></pre>
 
+#### 退出登陆:见MainActivity.java ####
 
-#### 退出登陆
-
-见MainActivity.java
-
+<pre class="hll"><code class="language-java">
     @Override
     protected void onPause() {
         super.onPause();
-        
         //登出聊天服务器
         EMChatManager.getInstance().logout();
     }
+</code></pre>
 
-# 环信demo源代码git地址
+# 环信demo源代码git地址 #
 
- 
 环信提供了一系列demo以帮助开发者更好的学习了解环信SDK。所有demo均已在github上开源供开发者下载使用。你可以clone这些项目来学习了解环信SDK，也可以在这些demo基础上快速创建你自己的真正项目。环信SDK（Android版）在github的下载地址是：
 
 [https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)
 
 
-# Bug报告跟踪
+# Bug报告跟踪 #
 
 请使用以下地址来报告跟踪bug：
 

@@ -10,6 +10,7 @@ secondnavios: true
 
 接口
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	 @method
 	 @brief 获取黑名单（同步方法）
@@ -39,12 +40,13 @@ secondnavios: true
 	- (void)asyncFetchBlockedListWithCompletion:(void (^)(NSArray *blockedList, EMError *error))completion
 	                                    onQueue:(dispatch_queue_t)aQueue;
 	                                    
-
+</code></pre>
 
 ### 把用户加入到黑民单
 	
 接口
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	 @method
 	 @brief 将username的用户加到黑名单（该用户不会被从好友中删除，若想删除，请自行调用删除接口）
@@ -57,11 +59,14 @@ secondnavios: true
 	 */
 	- (EMError *)blockBuddy:(NSString *)username
 	           relationship:(EMRelationship)relationship;
+	           
+</code></pre>
 
 ### 把用户从黑名单中移除
 	
 接口
 
+<pre class="hll"><code class="language-objective_c">
 	/*!
 	 @method
 	 @brief 将username的用户移出黑名单
@@ -70,3 +75,5 @@ secondnavios: true
 	 @result 是否成功的向服务器发送了unblock信息（不包含：服务器是否成功将用户移出黑名单）
 	 */
 	- (EMError *)unblockBuddy:(NSString *)username;
+
+</code></pre>

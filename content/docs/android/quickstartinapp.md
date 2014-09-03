@@ -47,6 +47,7 @@ secondnavandroid: true
 
 在proguard文件中加入以下keep
 
+
 		-keep class com.easemob.** {*;}
 		-keep class org.jivesoftware.** {*;}
 		-keep class org.apache.** {*;}
