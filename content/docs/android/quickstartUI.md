@@ -234,21 +234,16 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 </code></pre>
 
 
-#### aaabbbb #### 
+#### 联系人变化listener：见MainActivity.java #### 
  
 <pre class="hll"><code class="language-java">
     private class MyContactListener implements EMContactListener{
-		@Override
-		public void onContactAdded(List<String> usernameList) {
-		}
-		@Override
-		public void onContactDeleted(List<String> usernameList) {
-		} 
+ 
 	}
 </code></pre>
 
 
-#### aaa ####
+#### 监听连接状态和账号多处登录被迫下线：见MainActivity.java ####
  
 <pre class="hll"><code class="language-java">
     private class MyConnectionListener implements ConnectionListener{
