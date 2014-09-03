@@ -192,7 +192,7 @@ loginInfo包含账号，密码等信息;
 在需要接受消息的页面，应该首先实现一个delegate:IChatManagerDelegate;
 
 <pre class="hll"><code class="language-objective_c">	
-	@interface RootViewController : UIViewController<IChatManagerDelegate>
+	@interface RootViewController : UIViewController&lt;IChatManagerDelegate&gt;
 
 </code></pre>
 
