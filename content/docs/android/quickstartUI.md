@@ -235,6 +235,8 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 
 
 #### 联系人变化listener：见MainActivity.java #### 
+
+<pre class="hll"><code class="language-java">
     private class MyContactListener implements EMContactListener{
 
 		@Override
@@ -248,6 +250,7 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 			
 		} 
 	}
+</code></pre>
 
 #### 监听连接状态和账号多处登录被迫下线：见MainActivity.java ####
  
@@ -278,9 +281,8 @@ Eclipse IDE： 打开菜单“ File - New - Project“，选择”Android Projec
 	}
    </code></pre>
 
-#### 退出登陆 ####
+#### 退出登陆:见MainActivity.java ####
 
-   见MainActivity.java
    <pre class="hll"><code class="language-java">
     @Override
     protected void onPause() {
