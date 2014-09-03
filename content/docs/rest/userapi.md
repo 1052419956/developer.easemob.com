@@ -56,6 +56,7 @@ sidebar: restsidebar
     curl -X POST -i "https://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
 
 #### Response:
+
 <pre class="hll"><code class="language-java">
 {
     "action" : "post",
@@ -91,6 +92,7 @@ sidebar: restsidebar
 	curl -X POST -H "Authorization: Bearer YWMt39RfMMOqEeKYE_GW7tu81AAAAT71lGijyjG4VUIC2AwZGzUjVbPp_4qRD5k" -i  "https://a1.easemob.com/easemob-demo/chatdemo/users" -d '{"username":"jliu","password":"123456"}'
 
 #### Response :
+
 <pre class="hll"><code class="language-java">	
 {
 	"action" : "post",
@@ -128,6 +130,7 @@ sidebar: restsidebar
 	curl -X POST -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users" -d '[{"username":"u1", "password":"p1"}, {"username":"u2", "password":"p2"}]'
 
 ### Response :
+
 <pre class="hll"><code class="language-java">
     {
       "action" : "post",
@@ -173,6 +176,7 @@ sidebar: restsidebar
 	curl -X GET -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EK5eAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6"
 	
 #### Response 
+
 <pre class="hll"><code class="language-java">
 {
   "action" : "get",
@@ -196,10 +200,13 @@ sidebar: restsidebar
 </code></pre>
 
 2) uuid as user_primary_key
+
 #### curl示例：
 
     curl -X GET -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EK5eAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/628a88ba-dfce-11e3-8cac-51d3cb69b303"
+
 #### Response 
+
 <pre class="hll"><code class="language-java">
 {
   "action" : "get",
@@ -239,6 +246,7 @@ sidebar: restsidebar
 	curl -X GET -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEUE" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users?limit=20"
 
 ### Response :
+
 <pre class="hll"><code class="language-java">
     {
       "action" : "get",
@@ -417,6 +425,7 @@ sidebar: restsidebar
 	curl -X GET -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EKeAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users?limit=20&cursor=LTU2ODc0MzQzOnNmdTlxdF9LRWVPaVFvMWlBZmc4S3c"
 
 ### Response :
+
 <pre class="hll"><code class="language-java">
     {
       "action" : "get",
@@ -592,6 +601,7 @@ sidebar: restsidebar
 	curl -X GET -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EKeAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users?ql=select%20%2A%20where%20username%3D%27ywuxvxuir6%27"
 
 #### Response
+
 <pre class="hll"><code class="language-java">
     {
       "action" : "get",
@@ -631,6 +641,7 @@ sidebar: restsidebar
     curl -X DELETE -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EK5eAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6"
 
 #### Response
+
 <pre class="hll"><code class="language-java">
     {
       "action" : "delete",
@@ -681,6 +692,7 @@ sidebar: restsidebar
 	 curl -X DELETE -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EK5eAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users?limit=5"
 
 #### Response 
+
 <pre class="hll"><code class="language-java">
     {
       "action" : "delete",
@@ -753,6 +765,7 @@ sidebar: restsidebar
     curl -X PUT -H "Authorization: Bearer YWMtSozP9jHNEeSQegV9EKeAQAAAUlmBR2bTGr-GP2xNh8GhUCdKViBFgtox3M" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/ywuxvxuir6/password" -d '{"newpassword" : "123456"}'
 
 #### Response
+
 <pre class="hll"><code class="language-java">
     {
       "action" : "set user password",
@@ -814,6 +827,7 @@ sidebar: restsidebar
 	curl -X DELETE -i -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEU2" "https://a1.easemob.com/easemob-demo/chatdemo/users/stliu/contacts/users/yantao"
 	
 #### Respone
+
 <pre class="hll"><code class="language-java">
     {
       "action" : "delete",
@@ -842,6 +856,7 @@ sidebar: restsidebar
       "applicationName" : "chatdemoui"
     }
 </code></pre>
+
 ### 查看好友
 > 查看某个IM用户的好友信息
 
@@ -856,8 +871,9 @@ sidebar: restsidebar
 
     curl -X GET -H "Authorization: Bearer YWMtP_8IisA-EeK-a5cNq4Jt3QAAAT7fI10IbPuKdRxUTjA9CNiZMnQIgk0LEU2" -i  "https://a1.easemob.com/easemob-demo/chatdemoui/users/v3y0kf9arx/contacts/users"
 
-#### Response   
- <pre class="hll"><code class="language-java">
+#### Response
+
+<pre class="hll"><code class="language-java">
     {
       "action" : "get",
       "application" : "4d7e4ba0-dc4a-11e3-90d5-e1ffbaacdaf5",
@@ -871,7 +887,3 @@ sidebar: restsidebar
       "applicationName" : "chatdemoui"
     }
 </code></pre>
-### 创建app管理员
-
-IM是一个拥有admin角色的IM用户。所以创建一个app管理员分两步：1. 创建一个IM用户 2. 授权（指定他具有admin角色）
-

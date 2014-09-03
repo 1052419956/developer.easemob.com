@@ -68,10 +68,11 @@ sidebar: restsidebar
 &emsp;&emsp;假设一个企业id为 _easemob-demo_, 然后这个企业下面有个app名字叫做 _chatdemoui_, 那么环信的REST API就是下面的样子
 
 * 获取这个app下的所有用户
+
         path : /easemob-demo/chatdemoui/users
         method : GET
         headers : {
-        	Authorization : Bearer ${token}
+            	Authorization : Bearer ${token}
         }		
 
 * 获取这个app下的用户stliu的详情
@@ -79,7 +80,7 @@ sidebar: restsidebar
 		path : /easemob-demo/chatdemoui/users/stliu
         method : GET
         headers : {
-        	Authorization : Bearer ${token}
+        	   Authorization : Bearer ${token}
         }
 
 * 在这个app下创建一个新的用户
@@ -87,8 +88,8 @@ sidebar: restsidebar
 		path : /easemob-demo/chatdemoui/users
         method : POST
         headers : {
-        	Content-Type : application/json,
-        	Authorization : Bearer ${token}
+        	   Content-Type : application/json,
+        	   Authorization : Bearer ${token}
         }
         body : {"username":"stliu1", "password":"123456"}
     注意: post的数据需要是json格式的, 并设置Content-Type 为 application/json
@@ -98,7 +99,7 @@ sidebar: restsidebar
 		path : /easemob-demo/chatdemoui/users/stliu
 		method : DELETE
         headers : {
-        	Authorization : Bearer ${token}
+            	Authorization : Bearer ${token}
         }
 
 从上面的URL的规则中, 也能够看出"企业"--"app"--"用户"的层层递进的关系.
