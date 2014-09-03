@@ -70,6 +70,7 @@ public class DemoApplication extends Application {
     }
 }
 </code></pre>
+
 #### 注册：见LoginActivity.java
     
 <pre class="hll"><code class="language-java">
