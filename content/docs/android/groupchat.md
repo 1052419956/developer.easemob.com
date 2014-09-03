@@ -70,6 +70,7 @@ secondnavandroid: true
 </code></pre>
 
 ## 获取群聊列表
+
 <pre class="hll"><code class="language-java">
 	//从服务器获取自己加入的和创建的群聊列表
 	List<EMGroup> grouplist = EMGroupManager.getInstance().getGroupsFromServer();

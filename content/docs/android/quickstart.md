@@ -214,6 +214,7 @@ public class DemoApplication extends Application {
         EMChatManager.getInstance().logout();
     }
 </code></pre>
+
 ## 环信demo源代码git地址
 
  
