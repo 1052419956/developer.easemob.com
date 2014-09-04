@@ -37,7 +37,7 @@ sidebar: restsidebar
 
 &emsp;&emsp;   调用REST API, 本质就是发送HTTP请求, 只不过大家常用的可能是 _HTTP GET_ 和 _HTTP POST_请求, 但是在REST 里面还经常用到 _HTTP PUT_ 和 _HTTP DELETE_, 在REST中, 把这四种操作称之为*动词*, 可以(不是特别准确)的想象成增删改查.
 而动词所操作的对象, 在REST中, 被称之为_资源_, 也就是_URL_, 而这些也都是标准的HTTP协议的内容.
-实际上, 当我们在浏览器中打开一个网站的时候, 例如, 打开`www.easemob.com`, 浏览器实际上发送给网站服务器的, 就是一个HTTP GET的请求.
+实际上, 当我们在浏览器中打开一个网站的时候, 例如, 打开[www.easemob.com](www.easemob.com), 浏览器实际上发送给网站服务器的, 就是一个HTTP GET的请求.
 
 &emsp;&emsp;需要注意的是, 环信的REST API都是基于json的, 所以在构造_HTTP_ 请求的时候, 需要在_HTTP HEADER_中指明:
 
@@ -67,40 +67,48 @@ sidebar: restsidebar
 
 &emsp;&emsp;假设一个企业id为 _easemob-demo_, 然后这个企业下面有个app名字叫做 _chatdemoui_, 那么环信的REST API就是下面的样子
 
-* 获取这个app下的所有用户
+###### 获取这个app下的所有用户
 
-        path : /easemob-demo/chatdemoui/users
-        method : GET
-        headers : {
-            	Authorization : Bearer ${token}
-        }		
+<pre class="hll"><code class="language-java">
+Path : /easemob-demo/chatdemoui/users
+HTTP Method : GET
+Request Headers : {
+    	Authorization : Bearer ${token}
+}		
+</code></pre>
 
-* 获取这个app下的用户stliu的详情
+###### 获取这个app下的用户stliu的详情
 
-		path : /easemob-demo/chatdemoui/users/stliu
-        method : GET
-        headers : {
-        	   Authorization : Bearer ${token}
-        }
+<pre class="hll"><code class="language-java">
+Path : /easemob-demo/chatdemoui/users/stliu
+HTTP Method : GET
+Request Headers : {
+	   Authorization : Bearer ${token}
+}
+</code></pre>
 
-* 在这个app下创建一个新的用户
+###### 在这个app下创建一个新的用户
 
-		path : /easemob-demo/chatdemoui/users
-        method : POST
-        headers : {
-        	   Content-Type : application/json,
-        	   Authorization : Bearer ${token}
-        }
-        body : {"username":"stliu1", "password":"123456"}
-    注意: post的数据需要是json格式的, 并设置Content-Type 为 application/json
+<pre class="hll"><code class="language-java">
+Path : /easemob-demo/chatdemoui/users
+HTTP Method : POST
+Request Headers : {
+	   Content-Type : application/json,
+	   Authorization : Bearer ${token}
+}
+Request Body : {"username":"stliu1", "password":"123456"}
+//注意: post的数据需要是json格式的, 并设置Content-Type 为 application/json
+</code></pre>
 
-* 删除一个用户
+###### 删除一个用户
 
-		path : /easemob-demo/chatdemoui/users/stliu
-		method : DELETE
-        headers : {
-            	Authorization : Bearer ${token}
-        }
+<pre class="hll"><code class="language-java">
+Path : /easemob-demo/chatdemoui/users/stliu
+HTTP Method : DELETE
+Request Headers : {
+    	Authorization : Bearer ${token}
+}
+</code></pre>
 
 从上面的URL的规则中, 也能够看出"企业"--"app"--"用户"的层层递进的关系.
 
