@@ -96,6 +96,7 @@ curl -X POST -i -H "Authorization: Bearer YWMtxc6K0L1aEeKf9LWFzT9xEAAAAT7MNR_9Oc
 </code></pre>
 
 ## 群组相关API
+
 ## 获取app中所有的群组
 
 <pre class="hll"><code class="language-java">

@@ -70,146 +70,158 @@ public class DemoApplication extends Application {
     }
 }
 </code></pre>
+
 #### 注册：见LoginActivity.java
      
-   <pre class="hll"><code class="language-java">
-   // 注册临时账号  缺省密码： 123456
-    register.setOnClickListener(new OnClickListener() {
+<pre class="hll"><code class="language-java">
+// 注册临时账号  缺省密码： 123456
+register.setOnClickListener(new OnClickListener() {
     @Override
     public void onClick(View v) {
       account.setText(getAccount());
       pwd.setText("123456");
       CreateAccountTask task = new CreateAccountTask();
       task.execute(account.getText().toString(), "123456", "chatdemo");
-      }
-    });
     }
-    private class CreateAccountTask extends AsyncTask&lt;String, Void, String&gt; {
+});
+
+private class CreateAccountTask extends AsyncTask&lt;String, Void, String&gt; {
     protected String doInBackground(String... args) {
       String userid = args[0];
       String pwd = args[1];
       String channel = args[2];
-      try {//channel即为APPKEY
+      try {
+        //channel即为APPKEY
         EMChatManager.getInstance().createAccountOnServer(userid, pwd, channel);
       } catch (Exception e) {
         e.printStackTrace();
       }
+      
       return userid;
     }
-    }
-  </code></pre>
+}
+</code></pre>
+
 #### 登陆：见LoginActivity.java
+
 <pre class="hll"><code class="language-java">
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //登陆到聊天服务器,此处使用注册的临时账号作为登陆账号
-        EMChatManager.getInstance().login(username, password, new EMCallBack() {
+@Override
+protected void onResume() {
+    super.onResume();
+    //登陆到聊天服务器,此处使用注册的临时账号作为登陆账号
+    EMChatManager.getInstance().login(username, password, new EMCallBack() {
 
-            @Override
-            public void onError(int arg0, final String errorMsg) {
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(MainActivity.this, "登录聊天服务器失败：" + errorMsg, Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-
-            @Override
-            public void onProgress(int arg0, String arg1) {
-            }
-
-            @Override
-            public void onSuccess() {
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(MainActivity.this, "登录聊天服务器成功", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                
-            }
-        });
-    }
-</code></pre>
-#### 注册listener,以接收聊天消息：见MainActivity.java
-<pre class="hll"><code class="language-java">
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        //注册message receiver， 接收聊天消息
-        msgReceiver = new NewMessageBroadcastReceiver();
-        IntentFilter intentFilter = new IntentFilter(EMChatManager.getInstance().getNewMessageBroadcastAction());
-        registerReceiver(msgReceiver, intentFilter);
-    }
-
-</code></pre>
-#### 发送消息：见MainActivity.java
-<pre class="hll"><code class="language-java">
-    //本demo是发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
-    public void onSendTxtMsg(View view) {
-        try {
-            //创建一个消息
-            EMMessage msg = EMMessage.createSendMessage(EMMessage.Type.TXT);
-            //设置消息的接收方
-            msg.setReceipt("bot");
-            //设置消息内容。本消息类型为文本消息。
-            TextMessageBody body = new TextMessageBody(tvMsg.getText().toString());
-            msg.addBody(body);
-        
-            //发送消息
-            EMChatManager.getInstance().sendMessage(msg);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-</code></pre>
-#### 接收聊天消息并显示：见MainActivity.java
-<pre class="hll"><code class="language-java">
-    private class NewMessageBroadcastReceiver extends BroadcastReceiver {
         @Override
-        public void onReceive(Context context, Intent intent) {
-            //消息id
-            String msgId = intent.getStringExtra("msgid");
-            
-            //从SDK 根据消息ID 可以获得消息对象
-            EMMessage message = EMChatManager.getInstance().getMessage(msgId);
-
-          Log.d("main","new message id:" + msgId + " from:" + message.getFrom() + " type:" + message.getType() + " body:" + message.getBody());
-      switch (message.getType()) {
-      case TXT:
-        TextMessageBody txtBody = (TextMessageBody) message.getBody();
-        tvReceivedMsg.append("text message from:" + message.getFrom() + " text:" + txtBody.getMessage() + " \n\r");
-        break;
-      case IMAGE:
-        ImageMessageBody imgBody = (ImageMessageBody) message.getBody();
-        tvReceivedMsg.append("img message from:" + message.getFrom() + " thumbnail:" + imgBody.getThumbnailUrl() + " remoteurl:"
-            + imgBody.getRemoteUrl() + " \n\r");
-        break;
-      case VOICE:
-        VoiceMessageBody voiceBody = (VoiceMessageBody) message.getBody();
-        tvReceivedMsg.append("voice message from:" + message.getFrom() + " length:" + voiceBody.getLength() + " remoteurl:"
-            + voiceBody.getRemoteUrl() + " \n\r");
-        break;
-      case LOCATION:
-        LocationMessageBody locationBody = (LocationMessageBody) message.getBody();
-        tvReceivedMsg.append("location message from:" + message.getFrom() + " address:" + locationBody.getAddress() + " \n\r");
-        break;
+        public void onError(int arg0, final String errorMsg) {
+            runOnUiThread(new Runnable() {
+                public void run() {
+                    Toast.makeText(MainActivity.this, "登录聊天服务器失败：" + errorMsg, Toast.LENGTH_SHORT).show();
+                }
+            });
         }
-    }
+
+        @Override
+        public void onProgress(int arg0, String arg1) {
+        }
+
+        @Override
+        public void onSuccess() {
+            runOnUiThread(new Runnable() {
+                public void run() {
+                    Toast.makeText(MainActivity.this, "登录聊天服务器成功", Toast.LENGTH_SHORT).show();
+                }
+            });
+            
+        }
+    });
+}
 </code></pre>
-#### 退出登陆：见MainActivity.java
+
+#### 注册listener,以接收聊天消息：见MainActivity.java
+
 <pre class="hll"><code class="language-java">
-    @Override
-    protected void onPause() {
-        super.onPause();
-        
-        //登出聊天服务器
-        EMChatManager.getInstance().logout();
-    }
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+
+    //注册message receiver， 接收聊天消息
+    msgReceiver = new NewMessageBroadcastReceiver();
+    IntentFilter intentFilter = new IntentFilter(EMChatManager.getInstance().getNewMessageBroadcastAction());
+    registerReceiver(msgReceiver, intentFilter);
+}
 </code></pre>
+
+#### 发送消息：见MainActivity.java
+
+<pre class="hll"><code class="language-java">
+//本demo是发送消息给测试机器人（其账号为"bot"）。该测试机器人接收到消息后会把接收的消息原封不动的自动发送回来
+public void onSendTxtMsg(View view) {
+    try {
+        //创建一个消息
+        EMMessage msg = EMMessage.createSendMessage(EMMessage.Type.TXT);
+        //设置消息的接收方
+        msg.setReceipt("bot");
+        //设置消息内容。本消息类型为文本消息。
+        TextMessageBody body = new TextMessageBody(tvMsg.getText().toString());
+        msg.addBody(body);
+    
+        //发送消息
+        EMChatManager.getInstance().sendMessage(msg);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+</code></pre>
+
+#### 接收聊天消息并显示：见MainActivity.java
+
+<pre class="hll"><code class="language-java">
+private class NewMessageBroadcastReceiver extends BroadcastReceiver {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        //消息id
+        String msgId = intent.getStringExtra("msgid");
+        
+        //从SDK 根据消息ID 可以获得消息对象
+        EMMessage message = EMChatManager.getInstance().getMessage(msgId);
+
+        Log.d("main","new message id:" + msgId + " from:" + message.getFrom() + " type:" + message.getType() + " body:" + message.getBody());
+        switch (message.getType()) {
+          case TXT:
+            TextMessageBody txtBody = (TextMessageBody) message.getBody();
+            tvReceivedMsg.append("text message from:" + message.getFrom() + " text:" + txtBody.getMessage() + " \n\r");
+            break;
+          case IMAGE:
+            ImageMessageBody imgBody = (ImageMessageBody) message.getBody();
+            tvReceivedMsg.append("img message from:" + message.getFrom() + " thumbnail:" + imgBody.getThumbnailUrl() + " remoteurl:"
+                + imgBody.getRemoteUrl() + " \n\r");
+            break;
+          case VOICE:
+            VoiceMessageBody voiceBody = (VoiceMessageBody) message.getBody();
+            tvReceivedMsg.append("voice message from:" + message.getFrom() + " length:" + voiceBody.getLength() + " remoteurl:"
+                + voiceBody.getRemoteUrl() + " \n\r");
+            break;
+          case LOCATION:
+            LocationMessageBody locationBody = (LocationMessageBody) message.getBody();
+            tvReceivedMsg.append("location message from:" + message.getFrom() + " address:" + locationBody.getAddress() + " \n\r");
+            break;
+        }
+}
+</code></pre>
+
+#### 退出登陆：见MainActivity.java
+
+<pre class="hll"><code class="language-java">
+@Override
+protected void onPause() {
+    super.onPause();
+    
+    //登出聊天服务器
+    EMChatManager.getInstance().logout();
+}
+</code></pre>
+
 ## 环信demo源代码git地址
 
- 
 环信提供了一系列demo以帮助开发者更好的学习了解环信SDK。所有demo均已在github上开源供开发者下载使用。你可以clone这些项目来学习了解环信SDK，也可以在这些demo基础上快速创建你自己的真正项目。环信SDK（Android版）在github的下载地址是：
 
 [https://github.com/easemob/sdkexamples-android](https://github.com/easemob/sdkexamples-android)
